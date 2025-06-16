@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- የገጹ ርዕስ በ JavaScript ይተረጎማል -->
+    <title>ምስጋና - ኢአልፓ</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"> <!-- Favicon Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables from main style.css (จำเป็น ነው) */
+        :root {
+            --primary-color: #2A5C82;
+            --secondary-color: #4CAF50;
+            --accent-color: #FFD700;
+            --dark-text: #333333;
+            --light-text: #FFFFFF;
+            --bg-light: #f8fafc;
+            --radius-md: 8px;
+            --radius-lg: 12px; /* Ensure this is defined if used by .thank-you-container */
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Add any other variables used by .thank-you-container or .back-home-btn if they are not in the global style.css */
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+            font-family: 'Abyssinica SIL', 'Roboto', sans-serif; /* Ensure font is applied */
+            background-color: var(--bg-light); /* Use variable for consistency */
+            color: var(--dark-text); /* Use variable for consistency */
+        }
+        .thank-you-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: var(--radius-lg); /* Changed to use variable */
+            box-shadow: var(--shadow-md);
+            max-width: 600px; /* Add max-width for better appearance */
+        }
+        .thank-you-container h1 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem; /* Increased margin */
+            font-size: 2rem; /* Adjust size */
+        }
+        .thank-you-container p {
+            margin-bottom: 2rem; /* Increased margin */
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .back-home-btn {
+            display: inline-block;
+            padding: 0.9rem 1.8rem; /* Slightly larger padding */
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1rem;
+        }
+        .back-home-btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px); /* Add subtle hover effect */
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <img src="2025-05-17 18.49.47.jpg" alt="ኢአልፓ አርማ" style="width: 100px; margin-bottom: 20px;">
+        <h1 data-translate-key="thankYouTitle">ስለ ማመልከቻዎ እናመሰግናለን!</h1>
+        <p data-translate-key="thankYouMessage">የአባልነት ማመልከቻዎ በተሳካ ሁኔታ ደርሶናል። በቀጣይ በሰጡን የመገናኛ መረጃዎች በኩል የምናገኝዎት ይሆናል። የኢትዮጵያ አንድነትና ልማት ፓርቲን (ኢአልፓን) ስለመረጡ በድጋሚ እናመሰግናለን!</p>
+        <a href="/" class="back-home-btn" data-translate-key="backToHomeBtn">ወደ መነሻ ገጽ ይመለሱ</a>
+    </div>
+
+    <!-- የትርጉም ተግባሩን ከዋናው script.js መጥራት (የተሻለ አካሄድ) -->
+    <!-- ወይም አስፈላጊ የሆኑትን የትርጉም ተግባራት እዚህ መድገም -->
+    <script>
+        // ይህ ኮድ ከዋናው script.js ላይ ካለው ጋር መመሳሰል ወይም መገናኘት አለበት
+        const translationsThankYou = {
+            am: {
+                thankYouPageTitle: "ምስጋና - ኢአልፓ",
+                thankYouTitle: "ስለ ማመልከቻዎ እናመሰግናለን!",
+                thankYouMessage: "የአባልነት ማመልከቻዎ በተሳካ ሁኔታ ደርሶናል። በቀጣይ በሰጡን የመገናኛ መረጃዎች በኩል የምናገኝዎት ይሆናል። የኢትዮጵያ አንድነትና ልማት ፓርቲን (ኢአልፓን) ስለመረጡ በድጋሚ እናመሰግናለን!",
+                backToHomeBtn: "ወደ መነሻ ገጽ ይመለሱ"
+            },
+            en: {
+                thankYouPageTitle: "Thank You - EUDP",
+                thankYouTitle: "Thank You for Your Application!",
+                thankYouMessage: "Your membership application has been successfully received. We will contact you soon using the information you provided. Thank you again for choosing the Ethiopian Unity and Development Party (EUDP)!",
+                backToHomeBtn: "Back to Home Page"
+            }
+        };
+
+        function applySimpleTranslations(lang) {
+            document.documentElement.lang = lang;
+            const titleEl = document.querySelector('title');
+            if(titleEl) {
+                const titleKey = titleEl.dataset.translateKey;
+                if(titleKey) titleEl.textContent = translationsThankYou[lang]?.[titleKey] || translationsThankYou['am'][titleKey];
+            }
+
+            document.querySelectorAll('[data-translate-key]').forEach(el => {
+                const key = el.dataset.translateKey;
+                const translation = translationsThankYou[lang]?.[key] ?? translationsThankYou['am'][key];
+                if (translation !== undefined) {
+                    if (el.tagName === 'META' && el.getAttribute('name') === 'description') {
+                         el.setAttribute('content', translation);
+                    } else if (el.hasAttribute('placeholder')) {
+                        el.setAttribute('placeholder', translation);
+                    } else {
+                        el.innerHTML = translation; // Using innerHTML for simplicity if <b> etc. were used
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check for language preference from localStorage (or query parameter)
+            // This is a simplified version. Ideally, this logic is shared from main script.js
+            let currentLang = localStorage.getItem('preferredLanguageEUDP') || 'am'; // Use a unique localStorage key
+            if (!translationsThankYou[currentLang]) { // Fallback if stored lang is invalid
+                currentLang = 'am';
+            }
+            applySimpleTranslations(currentLang);
+
+            // (አማራጭ) ቋንቋ መቀየሪያ እዚህም ብታስቀምጥ ጥሩ ነው
+            // const languageSelectorThankYou = document.getElementById('language-select-thankyou'); // If you add a selector
+            // if(languageSelectorThankYou) {
+            //     languageSelectorThankYou.value = currentLang;
+            //     languageSelectorThankYou.addEventListener('change', (e) => {
+            //         const newLang = e.target.value;
+            //         localStorage.setItem('preferredLanguageEUDP', newLang);
+            //         applySimpleTranslations(newLang);
+            //     });
+            // }
+        });
+    </script>
+</body>
+</html>
