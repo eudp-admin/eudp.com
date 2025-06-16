@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="am"> <!-- Default language set to Amharic -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title data-translate-key="pageTitle">የኢትዮጵያ አንድነት እና ልማት ፓርቲ - የመከላከያና ጸጥታ ፖሊሲ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Styles from policy-job-creation.html (EUDP Theme) */
+            --primary-color: #2A5C82;   /* EUDP Primary Blue */
+            --secondary-color: #4CAF50; /* EUDP Accent Green */
+            --accent-color: #FFD700;    /* EUDP Highlight Gold/Yellow */
+            --dark-text: #333333;       /* Dark text color */
+            --light-text: #FFFFFF;      /* Light text color */
+
+            --light-gray-bg-template: #f4f4f8;
+            --bg-light: var(--light-gray-bg-template);
+
+            --bg-soft: #E0F2FE;         /* Lighter, softer blue background for top bar */
+
+            --template-hero-overlay-color: rgba(10, 36, 99, 0.85);
+            --bg-hero: linear-gradient(var(--template-hero-overlay-color), var(--template-hero-overlay-color)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+
+            --border-color: #ccc;       /* Standard border color */
+
+            --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); /* Using EUDP colors */
+
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Abyssinica SIL', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-text);
+            background: var(--bg-light);
+            font-size: 16px;
+        }
+
+        input,
+        button,
+        select,
+        textarea {
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Logo and Top Bar */
+        .logo-topbar-container {
+            background-color: var(--bg-soft);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1.5rem;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin:0;
+        }
+
+        .logo-container img {
+            width: 80px;
+            height: 80px;
+            transition: transform 0.3s ease;
+            border-radius: 50%;
+            box-shadow: var(--shadow-sm);
+            object-fit: cover;
+        }
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .language-select {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-select label i {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        .language-select select {
+            background: var(--bg-light);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 0.35rem 1.75rem 0.35rem 0.75rem;
+            border-radius: var(--radius-md);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+             background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%232A5C82%22%3E%3Cpath%20d%3D%22M9.293%2012.95l.707.707L15.657%208l-1.414-1.414L10%2010.828%205.757%206.586%204.343%208z%22%2F%3E%3C%2Fsvg%3E');
+             background-repeat: no-repeat;
+             background-position: right 0.5rem center;
+             background-size: 1em auto;
+             cursor: pointer;
+        }
+         .language-select select:hover {
+            border-color: var(--secondary-color);
+        }
+
+        .search-bar {
+            display: flex;
+        }
+        .search-bar input[type="search"] {
+            background: var(--bg-light);
+            border: 1px solid var(--primary-color);
+            color: var(--dark-text);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md) 0 0 var(--radius-md);
+            width: 220px;
+            transition: var(--transition);
+        }
+         .search-bar input[type="search"]::placeholder {
+            color: var(--dark-text);
+            opacity: 0.7;
+        }
+        .search-bar input[type="search"]:focus {
+             border-color: var(--secondary-color);
+             box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+             outline: none;
+        }
+
+        .search-bar button {
+            background: var(--secondary-color);
+            color: var(--dark-text);
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--secondary-color);
+            border-left: none;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .search-bar button:hover {
+            background: #e6c300;
+            border-color: #e6c300;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: var(--template-hero-overlay-color);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-bottom: 0;
+            box-shadow: var(--shadow-md);
+            border-bottom: 3px solid var( --secondary-color);
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            flex-direction: row-reverse;
+            gap: 2rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            padding: 1.5rem;
+            margin-top: 0;
+            width: 30%;
+            max-width: 300px;
+            background-color: #1e293b;
+            color: var(--light-text);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            align-self: flex-start;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 0.75rem;
+            color: white;
+            font-size: 1.25rem;
+            border-bottom: 1px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+         .sidebar h3 {
+            margin-bottom: 0.75rem;
+            color: white;
+            font-size: 1rem;
+            padding-bottom: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        .sidebar h3:first-of-type {
+             margin-top: 0.75rem;
+        }
+
+
+        .sidebar h2 a {
+            color: white;
+        }
+        .sidebar h2 a:hover {
+            color: white;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+        .sidebar ul li {
+            margin-bottom: 0.5rem;
+        }
+        .sidebar ul ul {
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .sidebar a {
+            color: white;
+            display: block;
+            padding: 0.5rem 0.75rem;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .sidebar a:hover, .sidebar a.active-policy-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+        }
+        .sidebar a i {
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+        .sidebar .active-policy-link {
+            font-weight: bold;
+            background-color: var(--secondary-color);
+            color: white;
+        }
+         .sidebar ul li h3 {
+            font-size: 1rem;
+            color: white;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            padding-left: 0;
+        }
+         .sidebar ul li h3 i {
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+
+
+        /* Main Content Section */
+        .section {
+            display: block;
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            width: 70%;
+            flex: 1;
+        }
+
+        .section > h2 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--primary-color);
+            padding-bottom: 0.75rem;
+        }
+        .section > h3 {
+            color: var(--dark-text);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .section > h3:first-of-type {
+            margin-top: 0.5rem;
+        }
+
+        .policy-vision-mission {
+            background-color: var(--bg-light);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border-left: 5px solid var(--secondary-color);
+            box-shadow: var(--shadow-sm);
+            overflow: auto;
+        }
+        .policy-vision-mission h3 {
+            margin-top: 0;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0.8rem;
+        }
+        .policy-vision-mission p,
+        .policy-vision-mission ol,
+        .policy-vision-mission ul {
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+        .policy-vision-mission p {
+             margin-bottom: 1rem;
+        }
+        .policy-vision-mission ol,
+        .policy-vision-mission ul {
+            padding-left: 1.8rem;
+        }
+        .policy-vision-mission ul li,
+        .policy-vision-mission ol li {
+            margin-bottom: 0.75rem;
+        }
+
+
+        .policy-point-card {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+        .policy-point-card h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .policy-point-card ol, .policy-point-card ul {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+        }
+        .policy-point-card ol li, .policy-point-card ul li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        .policy-point-card ol li::marker {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+         .section > h4 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Policy Implementation List */
+        .section > ul#implementation-list,
+        .section > ul[lang-section="en"] {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        .section > ul#implementation-list li,
+        .section > ul[lang-section="en"] li {
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: bold;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-top: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .read-more-btn:hover {
+            background-color: #c56a19;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .read-more-btn i {
+            margin-right: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+             background-color: var(--dark-text);
+             color: var(--bg-light);
+             padding: 4rem 0;
+             font-size: 0.95rem;
+        }
+        .footer p, .footer .contact ul li p, .footer .contact ul li a {
+            color: rgba(248, 250, 252, 0.8);
+        }
+
+        .footer .container .row {
+             display: flex;
+             flex-wrap: wrap;
+             gap: 3rem;
+             justify-content: space-between;
+        }
+
+        .footer .col-md-3,
+        .footer .col-md-4 {
+             flex: 1 1 280px;
+             min-width: 250px;
+        }
+         .footer .col-md-3.contact-col {
+              flex: 1 1 200px;
+         }
+
+
+        .footer h2 {
+             color: var(--accent-color);
+             font-size: 1.5rem;
+             margin-bottom: 1.8rem;
+             position: relative;
+             padding-bottom: 0.6rem;
+        }
+         .footer h2::after {
+             content: '';
+             position: absolute;
+             bottom: 0;
+             left: 0;
+             width: 70px;
+             height: 3px;
+             background-color: var(--secondary-color);
+             border-radius: 1.5px;
+         }
+
+        .footer .simplenews-subscriber-form {
+             display: flex;
+             gap: 0.5rem;
+             margin-top: 1.8rem;
+             flex-wrap: wrap;
+        }
+        .footer .simplenews-subscriber-form input[type="email"] {
+             flex-grow: 1;
+             padding: 0.85rem 1rem;
+             border: 1px solid #555;
+             border-radius: var(--radius-sm);
+             background-color: #444;
+             color: var(--light-text);
+        }
+         .footer .simplenews-subscriber-form input[type="email"]::placeholder {
+              color: rgba(248, 250, 252, 0.5);
+         }
+
+        .footer .simplenews-subscriber-form button {
+             padding: 0.85rem 1.8rem;
+             background-color: orange;
+             color: var(--light-text);
+             border: none;
+             border-radius: var(--radius-sm);
+             cursor: pointer;
+             transition: var(--transition);
+             font-weight: bold;
+        }
+         .footer .simplenews-subscriber-form button:hover {
+              background-color: var(--primary-color);
+         }
+
+        .social-icons {
+             list-style: none;
+             display: flex;
+             gap: 1.2rem;
+             margin-top: 1.8rem;
+             padding: 0;
+        }
+         .social-icons li {
+              display: inline-block;
+         }
+
+        .social-icons a {
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             width: 45px;
+             height: 45px;
+             border-radius: 100%;
+             background-color: var(--primary-color);
+             color: var(--light-text);
+             font-size: 1.4rem;
+             transition: var(--transition);
+        }
+         .social-icons a:hover {
+              background-color: var(--secondary-color);
+              color: var(--light-text);
+              transform: translateY(-5px);
+              text-decoration: none;
+         }
+
+        .footer .contact-details ul.contact {
+             list-style: none;
+             padding-left: 0;
+             margin-top: 1.8rem;
+        }
+        .footer .contact-details ul.contact li {
+             margin-bottom: 1.2rem;
+             display: flex;
+             align-items: flex-start;
+             gap: 0.8rem;
+        }
+         .footer .contact-details ul.contact li:last-child {
+              margin-bottom: 0;
+         }
+         .footer .contact-details ul.contact li i {
+              color: var(--secondary-color);
+              font-size: 1.3rem;
+              margin-top: 5px;
+         }
+         .footer .contact-details ul.contact li strong {
+              color: var(--accent-color);
+          }
+         .footer .contact-details ul.contact li a {
+             text-decoration: underline;
+         }
+          .footer .contact-details ul.contact li a:hover {
+               color: var(--secondary-color);
+          }
+
+
+        .footer-copyright {
+             text-align: center;
+             margin-top: 4rem;
+             padding-top: 2rem;
+             border-top: 1px solid #555;
+             font-size: 0.9rem;
+             color: rgba(248, 250, 252, 0.6);
+             width: 100%;
+        }
+        .footer-copyright p b {
+            color: rgba(248, 250, 252, 0.6);
+            font-weight: bold;
+        }
+
+
+        @media (max-width: 992px) {
+            .footer .col-md-3,
+            .footer .col-md-4 {
+                flex-basis: calc(50% - 1.5rem);
+            }
+            .main-layout {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            .section > h2 {
+                font-size: 1.7rem;
+            }
+            .section > h3 {
+                font-size: 1.4rem;
+            }
+            .policy-point-card h4 {
+                font-size: 1.15rem;
+            }
+            .section > h4 {
+                font-size: 1.25rem;
+            }
+
+            .main-layout {
+                padding: 1rem;
+                flex-direction: column;
+            }
+            .sidebar, .section {
+                width: 100%;
+                max-width: none;
+            }
+            .sidebar {
+                margin-bottom: 1.5rem;
+            }
+
+            .logo-topbar-container {
+                flex-direction: column;
+                padding: 1rem;
+                 text-align: center;
+            }
+             .logo-container {
+                margin-bottom: 1rem;
+            }
+            .logo-container img {
+                width:100px; height:100px;
+            }
+            .logo-container h2 {
+                font-size: 1.3rem;
+            }
+            .top-bar {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+            .search-bar {
+                width: 100%;
+            }
+            .search-bar input[type="search"]{
+                width: 100%;
+                flex-grow: 1;
+            }
+
+            .footer .col-md-3,
+            .footer .col-md-4 {
+                flex-basis: 100%;
+                margin-bottom: 1.5rem;
+            }
+            .footer .simplenews-subscriber-form input[type="email"]{
+                 margin-bottom: 0.5rem;
+                 margin-right: 0;
+                 width: 100%;
+            }
+             .footer .simplenews-subscriber-form {
+                flex-direction: column;
+            }
+            .footer .simplenews-subscriber-form button{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Logo and Top Bar -->
+    <div class="logo-topbar-container">
+        <div class="logo-container">
+            <img src="2025-05-17 18.49.47.jpg" alt="የኢትዮጵያ አንድነት እና ልማት ፓርቲ አርማ">
+            <h2 data-translate-key="logoTitle">የኢትዮጵያ አንድነት እና ልማት ፓርቲ</h2>
+        </div>
+
+        <div class="top-bar">
+            <div class="language-select">
+                <label for="language-select" class="sr-only" data-translate-key="langLabel">ቋንቋ ይምረጡ</label>
+                <i class="fas fa-language" aria-hidden="true"></i>
+                <select id="language-select" aria-label="Select Language">
+                    <option value="am" data-translate-key="langAmharic">አማርኛ</option>
+                    <option value="en" data-translate-key="langEnglish">English</option>
+                </select>
+            </div>
+
+            <form class="search-bar" role="search">
+                <label for="site-search" class="sr-only" data-translate-key="searchSrOnly">Search the site</label>
+                <input type="search" id="site-search" data-translate-key="searchPlaceholder" placeholder="Search/ፈልግ" aria-label="Search" />
+                <button type="submit">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <span class="sr-only" data-translate-key="searchBtnSr">ፈልግ</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 data-translate-key="headerTitleSecurity">የመከላከያና ጸጥታ ፖሊሲ</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="main-layout">
+            <section id="security-defense-policy" class="section active">
+                <h2 data-translate-key="securityPolicyOverviewTitle">የመከላከያና ጸጥታ ፖሊሲ አጠቃላይ እይታ</h2>
+
+                <div class="policy-vision-mission">
+                    <h3 data-translate-key="visionTitleSecurity">ራዕይ</h3>
+                    <p lang-section="am">የሀገሪቱን ሉዓላዊነትና የግዛት አንድነት በአስተማማኝ ሁኔታ የሚጠብቅ፣ የህዝብን ሰላምና ደህንነት የሚያረጋግጥ፣ በህግ የበላይነትና በሰብዓዊ መብት አከባበር መርሆዎች ላይ የተመሰረተ፣ ዘመናዊና ብቁ የሀገር መከላከያና የጸጥታ ተቋማት የተገነቡባት ኢትዮጵያን መፍጠር።</p>
+                    <p lang-section="en" style="display:none;">To create an Ethiopia where modern and competent national defense and security institutions are built, reliably protecting the country's sovereignty and territorial integrity, ensuring public peace and security, and founded on the principles of rule of law and respect for human rights.</p>
+                </div>
+
+                <div class="policy-vision-mission">
+                    <h3 data-translate-key="missionTitleSecurity">ተልዕኮ</h3>
+                    <ol lang-section="am">
+                        <li><b>የመከላከያ አቅምን ማጠናከር:</b> የሀገር መከላከያ ሠራዊትን በዘመናዊ ቴክኖሎጂ፣ በሠለጠነ የሰው ኃይልና በጠንካራ የሞራል ልዕልና በማደራጀት ከማንኛውም የውጭና የውስጥ ጥቃት ሀገርን የመከላከል አቅሙን ማሳደግ።</li>
+                        <li><b>የውስጥ ጸጥታን ማረጋገጥ:</b> የፖሊስና ሌሎች የጸጥታ አካላትን አቅም በመገንባት የወንጀል መከላከልና ምርመራ ስራዎችን ማጠናከር፣ የህብረተሰቡን ሰላምና ደህንነት ማስጠበቅ።</li>
+                        <li><b>የህዝብ ተሳትፎን ማሳደግ:</b> በጸጥታና ደህንነት ጉዳዮች ላይ የህዝብን ንቁ ተሳትፎ በማረጋገጥ የማህበረሰብ አቀፍ የጸጥታ ሥርዓትን መገንባት።</li>
+                        <li><b>የድንበር ደህንነትን ማረጋገጥ:</b> የሀገሪቱን ድንበሮች ከህገ-ወጥ የሰዎች ዝውውር፣ ከኮንትሮባንድና ከሌሎች ድንበር ተሻጋሪ ወንጀሎች መጠበቅ።</li>
+                        <li><b>የሳይበር ደህንነትን ማጠናከር:</b> የሀገሪቱን ወሳኝ የመሰረተ ልማት አውታሮችና የመረጃ ሥርዓቶች ከሳይበር ጥቃቶች መከላከልና የሳይበር ደህንነት አቅምን መገንባት።</li>
+                        <li><b>የሰብዓዊ መብት አከባበርን ማረጋገጥ:</b> የመከላከያና ጸጥታ ተቋማት ተግባራቸውን በሚያከናውኑበት ወቅት የዜጎችን ሰብዓዊና ዴሞክራሲያዊ መብቶች ሙሉ በሙሉ እንዲያከብሩ ማድረግ።</li>
+                    </ol>
+                    <ol lang-section="en" style="display:none;">
+                        <li><b>Strengthen Defense Capability:</b> Enhance the nation's defense capability against any external and internal threats by organizing the National Defense Forces with modern technology, trained personnel, and strong moral integrity.</li>
+                        <li><b>Ensure Internal Security:</b> Strengthen crime prevention and investigation by building the capacity of police and other security agencies, and maintain public peace and security.</li>
+                        <li><b>Enhance Public Participation:</b> Build a community-based security system by ensuring active public participation in security and safety matters.</li>
+                        <li><b>Ensure Border Security:</b> Protect the country's borders from human trafficking, contraband, and other transnational crimes.</li>
+                        <li><b>Strengthen Cybersecurity:</b> Protect the country's critical infrastructure and information systems from cyber-attacks and build cybersecurity capacity.</li>
+                        <li><b>Ensure Respect for Human Rights:</b> Ensure defense and security institutions fully respect citizens' human and democratic rights while performing their duties.</li>
+                    </ol>
+                </div>
+
+                <h3 data-translate-key="mainPolicyDirectionsSecurityTitle">የፖሊሲው ዋና ዋና አቅጣጫዎች</h3>
+
+                <div class="policy-point-card">
+                    <h4 data-translate-key="secNationalDefenseTitle">1. የሀገር መከላከያ ሠራዊት</h4>
+                    <ol lang-section="am">
+                        <li>የመከላከያ ሠራዊቱ ከማንኛውም የፖለቲካ ወገንተኝነት ነጻ ሆኖ ለህገ-መንግስቱ ብቻ ተገዥ እንዲሆን ማድረግ።</li>
+                        <li>የሠራዊቱን የውጊያ ዝግጁነትና የቴክኖሎጂ አቅም በየጊዜው ማሻሻል።</li>
+                        <li>የሠራዊቱ አባላት በሀገር ፍቅር ስሜት የታነጹና የሙያ ሥነ-ምግባርን የተላበሱ እንዲሆኑ ማድረግ።</li>
+                        <li>ከጎረቤት ሀገራትና ከዓለም አቀፉ ማህበረሰብ ጋር በጋራ ሰላምና ጸጥታ ጉዳዮች ላይ በትብብር መስራት።</li>
+                    </ol>
+                    <ol lang-section="en" style="display:none;">
+                        <li>Ensure the Defense Forces are free from any political affiliation and solely loyal to the constitution.</li>
+                        <li>Continuously improve the army's combat readiness and technological capabilities.</li>
+                        <li>Ensure army members are instilled with patriotism and adhere to professional ethics.</li>
+                        <li>Collaborate with neighboring countries and the international community on common peace and security issues.</li>
+                    </ol>
+                </div>
+
+                <div class="policy-point-card">
+                    <h4 data-translate-key="secInternalSecurityPoliceTitle">2. የውስጥ ጸጥታና የፖሊስ አገልግሎት</h4>
+                    <ol lang-section="am">
+                        <li>የፖሊስ ኃይልን በዘመናዊ አደረጃጀት፣ በሠለጠነ የሰው ኃይልና በቴክኖሎጂ በማስታጠቅ ህግ የማስከበርና ወንጀል የመከላከል አቅሙን ማሳደግ።</li>
+                        <li>የማህበረሰብ አቀፍ የፖሊስ አገልግሎት (Community Policing) ሥርዓትን በማጠናከር ህዝቡ በጸጥታ ጥበቃ ስራዎች ላይ በባለቤትነት እንዲሳተፍ ማድረግ።</li>
+                        <li>የፌዴራልና የክልል የጸጥታ ተቋማት በቅንጅትና በትብብር እንዲሰሩ ማበረታታት።</li>
+                        <li>የግል የጸጥታ አገልግሎት ሰጪ ድርጅቶችን በህግ ማዕቀፍ መቆጣጠርና መደገፍ።</li>
+                    </ol>
+                    <ol lang-section="en" style="display:none;">
+                        <li>Enhance the law enforcement and crime prevention capabilities of the police force by equipping it with modern organization, trained personnel, and technology.</li>
+                        <li>Strengthen community policing systems to ensure public ownership and participation in security maintenance.</li>
+                        <li>Encourage federal and regional security institutions to work in coordination and cooperation.</li>
+                        <li>Regulate and support private security service providers within a legal framework.</li>
+                    </ol>
+                </div>
+
+                <div class="policy-point-card">
+                    <h4 data-translate-key="secIntelligenceServicesTitle">3. የደህንነትና መረጃ አገልግሎቶች</h4>
+                    <ol lang-section="am">
+                        <li>የሀገሪቱን የደህንነትና መረጃ ተቋማት በህግ ማዕቀፍ የሚመሩና ለህዝብ ተወካዮች ምክር ቤት ተጠሪ እንዲሆኑ ማድረግ።</li>
+                        <li>የመረጃ አሰባሰብና አጠቃቀም የዜጎችን የግል ነጻነትና መብቶች በማይጥስ መልኩ እንዲከናወን ጥብቅ ቁጥጥር ማድረግ።</li>
+                        <li>የውጭና የውስጥ የደህንነት ሥጋቶችን አስቀድሞ በመለየት የመከላከል አቅምን ማጠናከር።</li>
+                    </ol>
+                    <ol lang-section="en" style="display:none;">
+                        <li>Ensure national intelligence and security agencies operate within a legal framework and are accountable to the House of Peoples' Representatives.</li>
+                        <li>Strictly regulate intelligence gathering and usage to ensure it does not violate citizens' privacy and rights.</li>
+                        <li>Strengthen the capacity to identify and prevent external and internal security threats proactively.</li>
+                    </ol>
+                </div>
+
+                <h3 data-translate-key="policyImplementationSecurityTitle">የፖሊሲው ትግበራ</h3>
+                <ul id="implementation-list" lang-section="am">
+                    <li>ይህ ፖሊሲ ከመከላከያ ሚኒስቴር፣ ከሰላም ሚኒስቴር፣ ከፌዴራል ፖሊስ ኮሚሽን፣ ከክልል የጸጥታ ቢሮዎችና ከሌሎች ባለድርሻ አካላት ጋር በቅንጅት ይተገበራል።</li>
+                    <li>ለመከላከያና ጸጥታ ዘርፉ በቂ በጀት በመመደብና የሰው ኃይል አቅምን በማጎልበት የፖሊሲውን ግቦች ማሳካት።</li>
+                    <li>የመከላከያና ጸጥታ ተቋማት አሰራር ግልጽነትና ተጠያቂነት የሰፈነበት እንዲሆን ማድረግ።</li>
+                </ul>
+                <ul id="implementation-list-en" lang-section="en" style="display:none;">
+                    <li>This policy will be implemented in coordination with the Ministry of Defense, Ministry of Peace, Federal Police Commission, regional security bureaus, and other stakeholders.</li>
+                    <li>Achieve policy goals by allocating an adequate budget and developing human resource capacity for the defense and security sector.</li>
+                    <li>Ensure transparency and accountability in the operations of defense and security institutions.</li>
+                </ul>
+                <a href="የኢአልፓ_ፖሊሲዎች_ሙሉ_ሰነድ.pdf" class="read-more-btn"><i class="fas fa-file-pdf"></i><span data-translate-key="downloadFullPolicyBtn">ሙሉውን ፖሊሲ ያውርዱ</span></a>
+            </section>
+
+            <aside class="sidebar">
+                <h2><a href="index.html"><i class="fas fa-home"></i><span data-translate-key="sidebarHome">ዋና መነሻ</span></a></h2>
+
+                <h2><i class="fas fa-landmark"></i><span data-translate-key="sidebarPartyPolicies">የፓርቲው ፖሊሲዎች</span></h2>
+
+                <h3><i class="fas fa-chart-line"></i><span data-translate-key="sidebarEconomicPolicy">የኢኮኖሚ ፖሊሲ</span></h3>
+                <ul>
+                    <li><a href="policy-job-creation.html" class="nav-link"><i class="fas fa-briefcase" aria-hidden="true"></i><span data-translate-key="sidebarJobCreation">የስራ እድል ፈጠራ</span></a></li>
+                    <li><a href="policy-industrial-dev.html" class="nav-link"><i class="fas fa-industry" aria-hidden="true"></i><span data-translate-key="sidebarIndustrialDev">የኢንዱስትሪ ልማት</span></a></li>
+                    <li><a href="policy-agricultural-dev.html" class="nav-link"><i class="fas fa-tractor" aria-hidden="true"></i><span data-translate-key="sidebarAgriDev">የግብርና ልማት</span></a></li>
+                    <li><a href="policy-finance-banking.html" class="nav-link"><i class="fas fa-dollar-sign" aria-hidden="true"></i><span data-translate-key="sidebarFinanceBanking">ፋይናንስና ባንኪንግ</span></a></li>
+                    <li><a href="policy-infrastructure.html" class="nav-link"><i class="fas fa-road" aria-hidden="true"></i><span data-translate-key="sidebarInfrastructure">መሠረተ ልማት</span></a></li>
+                </ul>
+
+                <h3><i class="fas fa-users"></i><span data-translate-key="sidebarSocialPolicies">ማህበራዊ ፖሊሲዎች</span></h3>
+                <ul>
+                    <li><a href="policy 1.html" class="nav-link"><i class="fas fa-hospital" aria-hidden="true"></i><span data-translate-key="sidebarHealth">ጤና</span></a></li>
+                    <li><a href="policy 2.html" class="nav-link"><i class="fas fa-graduation-cap" aria-hidden="true"></i><span data-translate-key="sidebarEducation">ትምህርት</span></a></li>
+                    <li><a href="policy-poverty-foodsecurity.html" class="nav-link"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i><span data-translate-key="sidebarPovertyFoodSecurity">ድህነት ማጥፋት</span></a></li>
+                    <li><a href="policy-disability-rights.html" class="nav-link"><i class="fas fa-wheelchair" aria-hidden="true"></i><span data-translate-key="sidebarVulnerable">ተጋላጭ ቡድኖች</span></a></li>
+                    <li><a href="policy-gender-equality.html" class="nav-link"><i class="fas fa-venus-mars" aria-hidden="true"></i><span data-translate-key="sidebarGenderEq">የጾታ እኩልነት</span></a></li>
+                    <li><a href="policy-youth.html" class="nav-link"><i class="fas fa-user-graduate" aria-hidden="true"></i><span data-translate-key="socialYouth">ወጣቶች</span></a></li>
+                </ul>
+
+                <h3><i class="fas fa-globe"></i><span data-translate-key="policyOther">ሌሎች ፖሊሲዎች</span></h3>
+                <ul>
+                    <li><a href="policy-political-system.html" class="nav-link"><i class="fas fa-vote-yea" aria-hidden="true"></i><span data-translate-key="otherPoliticalSystem">የፖለቲካ ሥርዓት</span></a></li>
+                    <li><a href="policy-human-rights.html" class="nav-link"><i class="fas fa-gavel" aria-hidden="true"></i><span data-translate-key="otherHumanRights">ሰብዓዊ መብቶች</span></a></li>
+                    <li><a href="policy-security-defense.html" class="active-policy-link"><i class="fas fa-shield-alt" aria-hidden="true"></i><span data-translate-key="otherSecurity">መከላከያና ጸጥታ</span></a></li>
+                    <li><a href="policy-foreign.html" class="nav-link"><i class="fas fa-earth-africa" aria-hidden="true"></i><span data-translate-key="otherForeignPolicy">የውጭ ግንኙነት</span></a></li>
+                    <li><a href="policy-media.html" class="nav-link"><i class="fas fa-broadcast-tower" aria-hidden="true"></i><span data-translate-key="otherMedia">መገናኛ ብዙሃን</span></a></li>
+                    <li><a href="policy-natural-resources.html" class="nav-link"><i class="fas fa-tree" aria-hidden="true"></i><span data-translate-key="econNaturalResources">የተፈጥሮ ሀብትና መሬት</span></a></li>
+                </ul>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="newsletter">
+                        <h2 data-translate-key="footerNewsletterTitle">ዜና መጽሔት ይመዝገቡ</h2>
+                        <p data-translate-key="footerNewsletterPara">የቅርብ ጊዜ መረጃዎችን እና የፓርቲ ዜናዎችን በቀጥታ ወደ ኢሜልዎ ያግኙ።</p>
+                        <form class="simplenews-subscriber-form">
+                            <label for="edit-mail-0-value" class="sr-only" data-translate-key="footerEmailLabelSr">ኢሜል</label>
+                            <input type="email" id="edit-mail-0-value" name="mail" data-translate-key="footerEmailPlaceholder" placeholder="የኢሜል አድራሻዎ"
+                                class="form-email" required>
+                            <button type="submit" class="button" data-translate-key="footerSubscribeBtn">ይመዝገቡ</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="region-footer-31">
+                        <h2 data-translate-key="footerSocialTitle">ማህበራዊ ሚዲያ</h2>
+                        <p data-translate-key="footerSocialPara">በማህበራዊ ገጾቻችን ይከተሉን፤ ይሳተፉ።</p>
+                        <ul class="social-icons">
+                            <li><a href="https://www.facebook.com/profile.php?id=61577016305943" target="_blank" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://x.com/infoeudp2017" target="_blank" title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#" target="_blank" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="https://t.me/EUDPp" target="_blank" title="Telegram" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 contact-col">
+                    <div class="region-footer-41">
+                        <h2 data-translate-key="footerContactTitle">ያግኙን</h2>
+                        <div class="contact-details">
+                            <ul class="contact" style="list-style: none; padding-left: 0;">
+                                <li>
+                                    <p><i class="fas fa-phone-alt"></i> <strong data-translate-key="footerContactPhone">ስልክ:</strong> +251-704-932-072</p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-envelope"></i> <strong data-translate-key="footerContactEmail">ኢሜይል:</strong> <a href="mailto:infoeudp2017@gmail.com">infoeudp2017@gmail.com</a></p>
+                                </li>
+                                 <li>
+                                    <p><i class="fas fa-map-marker-alt"></i> <strong data-translate-key="footerContactAddress">አድራሻ:</strong> <span data-translate-key="footerContactAddressDetail">አዲስ አበባ</span></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                <p><b data-translate-key="footerCopyright">© 2017 ዓ.ም የኢትዮጵያ አንድነት እና ልማት ፓርቲ። ሁሉም መብቶች በህግ የተጠበቁ ናቸው።</b></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            am: {
+                pageTitle: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ - የመከላከያና ጸጥታ ፖሊሲ",
+                logoTitle: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ",
+                langLabel: "ቋንቋ ይምረጡ",
+                langAmharic: "አማርኛ",
+                langEnglish: "English",
+                searchPlaceholder: "Search/ፈልግ",
+                searchSrOnly: "Search the site",
+                searchBtnSr: "ፈልግ",
+                headerTitleSecurity: "የመከላከያና ጸጥታ ፖሊሲ",
+                securityPolicyOverviewTitle: "የመከላከያና ጸጥታ ፖሊሲ አጠቃላይ እይታ",
+                visionTitleSecurity: "ራዕይ",
+                missionTitleSecurity: "ተልዕኮ",
+                mainPolicyDirectionsSecurityTitle: "የፖሊሲው ዋና ዋና አቅጣጫዎች",
+                secNationalDefenseTitle: "1. የሀገር መከላከያ ሠራዊት",
+                secInternalSecurityPoliceTitle: "2. የውስጥ ጸጥታና የፖሊስ አገልግሎት",
+                secIntelligenceServicesTitle: "3. የደህንነትና መረጃ አገልግሎቶች",
+                policyImplementationSecurityTitle: "የፖሊሲው ትግበራ",
+                downloadFullPolicyBtn: "ሙሉውን ፖሊሲ ያውርዱ",
+                sidebarHome: "ዋና መነሻ",
+                sidebarPartyPolicies: "የፓርቲው ፖሊሲዎች",
+                sidebarEconomicPolicy: "የኢኮኖሚ ፖሊሲ",
+                sidebarJobCreation: "የስራ እድል ፈጠራ",
+                sidebarIndustrialDev: "የኢንዱስትሪ ልማት",
+                sidebarAgriDev: "የግብርና ልማት",
+                sidebarFinanceBanking: "የፋይናንስና ባንኪንግ",
+                sidebarInfrastructure: "የመሠረተ ልማት",
+                sidebarSocialPolicies: "ማህበራዊ ፖሊሲዎች",
+                sidebarHealth: "ጤና",
+                sidebarEducation: "ትምህርት",
+                sidebarPovertyFoodSecurity: "ድህነትን ማስወገድና የምግብ ዋስትና",
+                sidebarVulnerable: "ተጋላጭ ቡድኖች",
+                sidebarGenderEq: "የጾታ እኩልነት",
+                socialYouth: "ወጣቶች",
+                policyOther: "ሌሎች ፖሊሲዎች",
+                otherPoliticalSystem: "የፖለቲካ ሥርዓት",
+                otherHumanRights: "ሰብዓዊ መብቶች",
+                otherSecurity: "መከላከያና ጸጥታ",
+                otherForeignPolicy: "የውጭ ግንኙነት",
+                otherMedia: "መገናኛ ብዙሃን",
+                econNaturalResources: "የተፈጥሮ ሀብትና መሬት",
+                footerNewsletterTitle: "ዜና መጽሔት ይመዝገቡ",
+                footerNewsletterPara: "የቅርብ ጊዜ መረጃዎችን እና የፓርቲ ዜናዎችን በቀጥታ ወደ ኢሜልዎ ያግኙ።",
+                footerEmailLabelSr: "ኢሜል",
+                footerEmailPlaceholder: "የኢሜል አድራሻዎ",
+                footerSubscribeBtn: "ይመዝገቡ",
+                footerSocialTitle: "ማህበራዊ ሚዲያ",
+                footerSocialPara: "በማህበራዊ ገጾቻችን ይከተሉን፤ ይሳተፉ።",
+                footerContactTitle: "ያግኙን",
+                footerContactPhone: "ስልክ:",
+                footerContactEmail: "ኢሜይል:",
+                footerContactAddress: "አድራሻ:",
+                footerContactAddressDetail: "አዲስ አበባ",
+                footerCopyright: "© 2017 ዓ.ም የኢትዮጵያ አንድነት እና ልማት ፓርቲ። ሁሉም መብቶች በህግ የተጠበቁ ናቸው።"
+            },
+            en: {
+                pageTitle: "Ethiopian Unity and Development Party - Defense and Security Policy",
+                logoTitle: "Ethiopian Unity and Development Party",
+                langLabel: "Select Language",
+                langAmharic: "Amharic",
+                langEnglish: "English",
+                searchPlaceholder: "Search",
+                searchSrOnly: "Search the site",
+                searchBtnSr: "Search",
+                headerTitleSecurity: "Defense and Security Policy",
+                securityPolicyOverviewTitle: "Defense and Security Policy Overview",
+                visionTitleSecurity: "Vision",
+                missionTitleSecurity: "Mission",
+                mainPolicyDirectionsSecurityTitle: "Main Policy Directions",
+                secNationalDefenseTitle: "1. National Defense Forces",
+                secInternalSecurityPoliceTitle: "2. Internal Security and Police Service",
+                secIntelligenceServicesTitle: "3. Intelligence and Information Services",
+                policyImplementationSecurityTitle: "Policy Implementation",
+                downloadFullPolicyBtn: "Download Full Policy",
+                sidebarHome: "Main Home",
+                sidebarPartyPolicies: "Party Policies",
+                sidebarEconomicPolicy: "Economic Policy",
+                sidebarJobCreation: "Job Creation",
+                sidebarIndustrialDev: "Industrial Development",
+                sidebarAgriDev: "Agricultural Development",
+                sidebarFinanceBanking: "Finance and Banking",
+                sidebarInfrastructure: "Infrastructure",
+                sidebarSocialPolicies: "Social Policies",
+                sidebarHealth: "Health",
+                sidebarEducation: "Education",
+                sidebarPovertyFoodSecurity: "Poverty & Food Security",
+                sidebarVulnerable: "Vulnerable Groups",
+                sidebarGenderEq: "Gender Equality",
+                socialYouth: "Youth",
+                policyOther: "Other Policies",
+                otherPoliticalSystem: "Political System",
+                otherHumanRights: "Human Rights",
+                otherSecurity: "Defense & Security",
+                otherForeignPolicy: "Foreign Relations",
+                otherMedia: "Media",
+                econNaturalResources: "Natural Resources & Land",
+                footerNewsletterTitle: "Subscribe to Newsletter",
+                footerNewsletterPara: "Get the latest updates and party news directly to your email.",
+                footerEmailLabelSr: "Email",
+                footerEmailPlaceholder: "Your Email Address",
+                footerSubscribeBtn: "Subscribe",
+                footerSocialTitle: "Social Media",
+                footerSocialPara: "Follow us and engage on our social media pages.",
+                footerContactTitle: "Contact Us",
+                footerContactPhone: "Phone:",
+                footerContactEmail: "Email:",
+                footerContactAddress: "Address:",
+                footerContactAddressDetail: "Addis Ababa",
+                footerCopyright: "© 2024 Ethiopian Unity and Development Party. All rights reserved."
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const languageSelector = document.getElementById('language-select');
+
+            function applyTranslations(lang) {
+                document.documentElement.lang = lang;
+                const titleElement = document.querySelector('title');
+                if (titleElement && translations[lang] && translations[lang].pageTitle) {
+                    titleElement.textContent = translations[lang].pageTitle;
+                }
+
+                document.querySelectorAll('[data-translate-key]:not([lang-section])').forEach(el => {
+                    const key = el.dataset.translateKey;
+                    if (translations[lang] && translations[lang][key] !== undefined) {
+                        const translation = translations[lang][key];
+                        if (el.tagName === 'INPUT' && (el.type === 'search' || el.type === 'email')) {
+                             el.placeholder = translation;
+                        } else if (el.tagName === 'INPUT' && (el.type === 'submit' || el.type === 'button')) {
+                             el.value = translation;
+                        } else if (el.dataset.translateAttribute) {
+                            el.setAttribute(el.dataset.translateAttribute, translation);
+                        } else {
+                            if (typeof translation === 'string' && (translation.includes('<') || translation.includes('&'))) {
+                                el.innerHTML = translation;
+                            } else {
+                                el.textContent = translation;
+                            }
+                        }
+                    }
+                });
+
+                document.querySelectorAll('[lang-section]').forEach(el => {
+                    if (el.getAttribute('lang-section') === lang) {
+                        el.style.display = '';
+                    } else {
+                        el.style.display = 'none';
+                    }
+                });
+            }
+
+            if (languageSelector) {
+                languageSelector.addEventListener('change', (e) => {
+                    const selectedLang = e.target.value;
+                    applyTranslations(selectedLang);
+                    localStorage.setItem('preferredLanguage', selectedLang);
+                });
+
+                const preferredLang = localStorage.getItem('preferredLanguage') || 'am';
+                languageSelector.value = preferredLang;
+                applyTranslations(preferredLang);
+            } else {
+                applyTranslations('am');
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,3171 @@
+<!DOCTYPE html>
+<html lang="am"> <!-- Default language set to Amharic -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Meta description updated with data-translate-key -->
+    <meta name="description" data-translate-key="metaDescription" content="የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) ይፋዊ ድረ-ገጽ። ስለ ፓርቲያችን ፖሊሲዎች、 ዜናዎች、 አባልነት እና ሌሎችንም ይወቁ።">
+    <!-- Page title updated with data-translate-key -->
+    <title data-translate-key="pageTitle">የኢትዮጵያ አንድነት እና ልማት ፓርቲ - መነሻ</title>
+
+    <!-- Favicon Placeholder -->
+    <!-- Replace favicon.ico with your actual party favicon in the root directory -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts for Amharic and general text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables for Brand Colors & Design Elements */
+       :root {
+            --primary-color: #2A5C82;   /* EUDP Primary Blue */
+            --secondary-color: #4CAF50; /* EUDP Accent Green */
+            --accent-color: #FFD700;    /* EUDP Highlight Gold/Yellow */
+            --dark-text: #333333;       /* Dark text color */
+            --light-text: #FFFFFF;      /* Light text color */
+            --bg-light: #f8fafc;        /* Very Light Gray/Off-White background */
+            --bg-soft: #E0F2FE;         /* Lighter, softer blue background */
+            /* UPDATED HERO BACKGROUND: Using image and gradient from code (2).html */
+            --bg-hero: linear-gradient(rgba(10, 36, 99, 0.85), rgba(10, 36, 99, 0.85)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            --border-color: #ccc;       /* Standard border color */
+            --light-gray-bg-template: #f4f4f8; /* From code (2).html, for integrated section if needed */
+
+
+            --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --theme-color-teal: #17a2b8; /* A nice teal color, adjust if needed */
+            --light-background: #f8f9fa; /* A very light grey, almost white */
+            --white-text: #ffffff;
+            --dark-text: #333333;
+            /* Spacing unit for consistency, can be adapted from code (2).html if needed */
+            --spacing-unit: 1rem; /* 16px, from code (2).html */
+        }
+
+        /* Reset & Base Styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+             scroll-behavior: smooth; /* Enable smooth scrolling for anchor links */
+        }
+
+        body {
+            font-family: 'Abyssinica SIL', 'Roboto', sans-serif; /* Prioritize Abyssinica for Amharic */
+            line-height: 1.7;
+            color: var(--dark-text);
+            background: var(--bg-light);
+            font-size: 16px;
+             /* REVISED Padding top for fixed header */
+             padding-top: 150px;
+        }
+         /* REVISED Adjust padding for fixed header on responsive */
+        @media (max-width: 992px) {
+             body {
+                padding-top: 185px;
+             }
+        }
+         @media (max-width: 480px) {
+             body {
+                padding-top: 200px;
+             }
+         }
+
+
+        input,
+        button,
+        select,
+        textarea {
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+            text-decoration: none !important;
+        }
+        /* Add underline back for standard content links */
+         .main-content a:not(.nav-link):not(.news-title-link):not(.read-more-btn):not(.magazine-content a):not(.document-list li a):not(.article-share a):not(.template-read-more):hover,
+         .footer a:not(.social-icons a):hover {
+             text-decoration: underline !important;
+         }
+         /* Specific links that shouldn't underline on hover */
+        .nav-link:hover, .read-more-btn:hover, .submit-btn:hover,
+        .accordion-btn:hover, .document-list li a:hover,
+        .magazine-content a:hover, .hero-cta-btn:hover,
+        .social-icons a:hover, .news-title-link:hover, .back-to-news-list-btn:hover,
+         .news-article a:not(.back-to-news-list-btn):not(.article-share a):hover,
+         .template-read-more:hover {
+            text-decoration: none !important;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Ensure clickable elements have pointer cursor */
+        .accordion-btn, .back-to-top, .submit-btn,
+         .search-bar button, .simplenews-subscriber-form button, .back-to-news-list-btn {
+            cursor: pointer;
+        }
+         /* Remove cursor default from value card */
+        .value-card {
+            cursor: auto;
+        }
+
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Combined Logo and Top Bar */
+        .logo-topbar-container {
+            background-color: var(--bg-soft);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1.5rem;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+             position: fixed;
+             width: 100%;
+             top: 0;
+             left: 0;
+             z-index: 1000;
+             box-shadow: var(--shadow-md);
+             min-height: 95px; /* Ensure minimum height for layout */
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .logo-container img {
+            width: 80px;
+            height: 80px;
+            transition: transform 0.3s ease;
+            border-radius: 50%;
+            box-shadow: var(--shadow-sm);
+            object-fit: cover;
+        }
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .language-select {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-select label i {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .language-select select {
+            background: var(--bg-light);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 0.35rem 1.75rem 0.35rem 0.75rem; /* Space for custom arrow */
+            border-radius: var(--radius-md);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+             /* Custom arrow SVG */
+             background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%232A5C82%22%3E%3Cpath%20d%3D%22M9.293%2012.95l.707.707L15.657%208l-1.414-1.414L10%2010.828%205.757%206.586%204.343%208z%22%2F%3E%3C%2Fsvg%3E');
+             background-repeat: no-repeat;
+             background-position: right 0.5rem center;
+             background-size: 1em auto;
+             cursor: pointer;
+        }
+        .language-select select:hover {
+            border-color: var(--secondary-color);
+        }
+
+
+        .search-bar {
+            display: flex;
+        }
+        .search-bar input[type="search"] {
+            background: var(--bg-light);
+            border: 1px solid var(--primary-color);
+            color: var(--dark-text);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md) 0 0 var(--radius-md);
+            width: 220px;
+             transition: var(--transition);
+        }
+         .search-bar input[type="search"]::placeholder {
+            color: var(--dark-text);
+            opacity: 0.7;
+        }
+        .search-bar input[type="search"]:focus {
+             border-color: var(--secondary-color);
+             box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+             outline: none;
+        }
+
+
+        .search-bar button {
+            background:var(--secondary-color);
+            color: var(--dark-text); /* Changed for better contrast on yellow */
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--secondary-color);
+            border-left: none;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .search-bar button:hover {
+            background: #e6c300; /* Darker accent */
+            border-color: #e6c300;
+        }
+
+        /* Header and Navigation */
+        .header {
+             background-color: var(--primary-color);
+             box-shadow: var(--shadow-sm);
+             position: fixed;
+             width: 100%;
+             top: 95px; /* Set to logo-topbar-container min-height */
+             left: 0;
+             z-index: 999;
+             min-height: 50px;
+        }
+         /* REVISED Header top positioning for responsive */
+        @media (max-width: 992px) {
+             .header {
+                 top: 135px; /* Adjusted for stacked mobile top bar height */
+             }
+        }
+         @media (max-width: 480px) {
+             .header {
+                 top: 150px; /* Adjusted for even more stacked mobile top bar height */
+             }
+         }
+
+
+        .nav {
+             display: flex;
+             align-items: center;
+             min-height: 60px;
+             padding: 0 1.5rem;
+        }
+
+        .nav-menu {
+             list-style: none;
+             display: flex;
+             gap: 1.8rem; /* Adjusted gap */
+             align-items: center;
+             width: 100%;
+             justify-content: center;
+        }
+
+        .nav-menu li {
+             position: relative;
+        }
+
+        .nav-link {
+             display: flex;
+             align-items: center;
+             gap: 0.5rem;
+             padding: 0.75rem 0;
+             color: var(--light-text);
+             font-weight: 500;
+             transition: var(--transition);
+             position: relative;
+             white-space: nowrap; /* Prevent nav links from wrapping */
+        }
+
+        .nav-link i { /* Icon in main nav link */
+            font-size: 1rem;
+        }
+        /* Icon for mega menu dropdown indicator */
+        .mega-menu-icon {
+            font-size: 0.8em !important; /* Smaller than main icon */
+            margin-left: 0.3em;
+            transition: transform 0.3s ease;
+        }
+
+
+         .nav-link:hover,
+         .nav-link.active {
+             color: var(--accent-color);
+         }
+
+          /* Active indicator below the link */
+          .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; /* Slightly lower */
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border-radius: 1px;
+          }
+         .nav-link:hover::after {
+             transform: scaleX(1);
+             background-color: var(--secondary-color);
+         }
+         .nav-link.active::after {
+              transform: scaleX(1);
+              background-color: var(--accent-color);
+         }
+
+
+        /* Mega Menu Styling */
+        .mega-menu {
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 100%;
+            left: 50%; /* Center relative to parent */
+            transform: translateX(-50%); /* Adjust for centering */
+            background-color: #fff;
+            padding: 1.5rem;
+            width: auto;
+            min-width: 700px; /* Slightly wider */
+            box-shadow: var(--shadow-lg);
+            z-index: 101;
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            border-top: 3px solid var(--accent-color);
+            opacity: 0; /* Initial state for transition */
+            visibility: hidden; /* Initial state for transition */
+            transform: translateX(-50%) translateY(10px); /* Initial state for transition */
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0s 0.3s; /* Delay visibility transition */
+        }
+
+        .nav-menu li:hover .mega-menu {
+            display: flex; /* Use flex for content alignment when active on desktop */
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0s 0s; /* Show instantly on hover */
+        }
+
+        .mega-menu-content {
+            display: flex;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .mega-menu-column {
+            flex: 1;
+            min-width: 210px;
+        }
+
+        .mega-menu-column h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: flex; /* Align icon and text */
+            align-items: center;
+        }
+        .mega-menu-column h3 i {
+            margin-right: 0.6em;
+            color: var(--primary-color); /* Icon color matches heading */
+        }
+
+        .mega-menu-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mega-menu-column li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Styling for links *inside* mega menu columns */
+        .mega-menu-column a.nav-link {
+            color: var(--dark-text);
+            text-decoration: none;
+            display: flex; /* Align icon and text */
+            align-items: center;
+            padding: 0.6rem 0.85rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            transition: var(--transition);
+             /* Override main nav-link styles */
+             font-weight: normal;
+             justify-content: flex-start;
+             gap: 0.6em;
+             white-space: normal; /* Allow wrapping */
+        }
+         /* Prevent underline on hover for mega menu links */
+        .mega-menu-column a.nav-link:hover {
+             text-decoration: none !important;
+        }
+
+        /* Hide the main nav-link active/hover indicator for mega menu sub-links */
+        .mega-menu-column a.nav-link::after,
+        .mega-menu-column a.nav-link:hover::after,
+        .mega-menu-column a.nav-link.active::after {
+             display: none !important;
+        }
+
+
+        .mega-menu-column a.nav-link i {
+            margin-right: 0.6em; /* Space between icon and text */
+            color: var(--secondary-color);
+            transition: var(--transition);
+            width: 1.2em; /* Ensure consistent icon spacing */
+            text-align: center;
+             font-size: 1em; /* Revert icon size */
+        }
+
+        .mega-menu-column a.nav-link:hover {
+            background-color: var(--bg-soft);
+            color: var(--primary-color); /* Change to primary on hover */
+        }
+        .mega-menu-column a.nav-link:hover i {
+            color: var(--primary-color); /* Change to primary on hover */
+        }
+         .mega-menu-column a.nav-link.active { /* Style for active sub-links */
+             background-color: var(--bg-soft);
+             color: var(--primary-color);
+             font-weight: 500;
+         }
+          .mega-menu-column a.nav-link.active i {
+               color: var(--primary-color);
+          }
+
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+             display: none;
+             background: none;
+             border: none;
+             color: var(--light-text);
+             font-size: 1.8rem; /* Slightly larger */
+             cursor: pointer;
+             padding: 0.5rem;
+             position: absolute;
+             right: 1.5rem;
+             top: 50%;
+             transform: translateY(-50%);
+             z-index: 1001;
+             line-height: 1; /* Ensure icon is centered */
+        }
+
+        @media (max-width: 992px) {
+             .mobile-menu-btn {
+                 display: block;
+             }
+        }
+
+
+        /* Mobile Nav Menu Styling */
+        @media (max-width: 992px) {
+             .nav {
+                 position: static; /* Remove flex alignment */
+                 display: block; /* Stack children */
+                 padding: 0; /* Remove padding, handled by menu items */
+             }
+
+            .nav-menu {
+                 flex-direction: column;
+                 text-align: left; /* Align text to left for better readability */
+                 background-color: var(--primary-color);
+                 position: absolute;
+                 top: 100%; /* Position below header */
+                 left: 0;
+                 width: 100%;
+                 box-shadow: var(--shadow-lg);
+                 display: none; /* Hidden by default on mobile, controlled by JS active class */
+                 padding: 1rem 0;
+                 z-index: 997;
+                 max-height: calc(100vh - 185px); /* Adjusted based on revised header height */
+                 overflow-y: auto;
+                 align-items: flex-start; /* Align items to the left */
+                 justify-content: flex-start; /* Align items to the top */
+            }
+            .nav-menu.active {
+                 display: flex; /* Show when active */
+            }
+
+            .nav-menu li {
+                 width: 100%;
+                 position: static; /* Remove relative positioning */
+            }
+
+            .nav-link {
+                 padding: 1rem 1.5rem; /* Add horizontal padding */
+                 justify-content: flex-start; /* Align links to left */
+                 border-bottom: 1px solid rgba(255,255,255,0.1); /* Separator */
+                 white-space: normal; /* Allow wrapping on mobile */
+            }
+            .nav-menu li:last-child .nav-link {
+                border-bottom: none;
+            }
+
+
+            .nav-link::after, .nav-link:hover::after, .nav-link.active::after {
+                 display: none !important; /* Hide underline on mobile */
+            }
+             .nav-link.active {
+                 background-color: rgba(255,255,255,0.1); /* Highlight active link */
+                 color: var(--accent-color);
+             }
+             .mega-menu-icon { /* On mobile, icon is part of the main link */
+                margin-left: auto; /* Push to the right */
+                transform: rotate(0deg); /* Reset initial rotation */
+             }
+             /* Rotate mega menu icon when parent is active on mobile */
+            .nav-menu li.has-megamenu.mega-menu-open > .nav-link .mega-menu-icon {
+                transform: rotate(180deg);
+            }
+
+
+            /* Mobile Mega Menu Styling */
+             .mega-menu {
+                 position: static; /* Remove absolute positioning */
+                 width: auto;
+                 left: auto;
+                 transform: none;
+                 padding: 0 1.5rem 1rem 1.5rem; /* Consistent padding, adjust top */
+                 border-radius: 0;
+                 box-shadow: none;
+                 margin-top: 0;
+                 display: none; /* Hidden by default, shown by JS when .mega-menu-open is on parent li */
+                 visibility: visible; /* Keep visible */
+                 opacity: 1; /* Keep opaque */
+                 pointer-events: auto;
+                 background-color: rgba(0, 0, 0, 0.15); /* Darker sub-menu bg */
+                 color: var(--light-text);
+                 border-top: none; /* Remove desktop border */
+            }
+
+            .mega-menu-content {
+                 flex-direction: column;
+                 gap: 0; /* Remove gap for tighter mobile layout */
+            }
+
+            .mega-menu-column {
+                 margin-bottom: 1rem; /* Add space between columns on mobile */
+            }
+            .mega-menu-column:last-child {
+                 margin-bottom: 0;
+            }
+
+
+            .mega-menu-column h3 {
+                 font-size: 1rem; /* Slightly smaller */
+                 border-bottom: 1px solid var(--secondary-color);
+                 padding-bottom: 0.5rem;
+                 margin-bottom: 0.5rem;
+                 color: var(--accent-color);
+                 display: flex; /* Keep column titles on mobile */
+                 align-items: center;
+                 gap: 0.5em;
+            }
+             .mega-menu-column h3 i {
+                color: var(--secondary-color); /* Icon color in mobile menu heading */
+                 margin-right: 0; /* Remove space from icon in h3 */
+             }
+
+            .mega-menu-column ul {
+                 padding-top: 0.5rem; /* Add space above list */
+            }
+
+            .mega-menu-column ul li {
+                 margin-bottom: 0; /* Remove space between sub-links */
+            }
+            /* Style for links INSIDE mega menu columns on mobile */
+             .mega-menu-column ul li a.nav-link {
+                 color: rgba(248, 250, 252, 0.9);
+                 justify-content: flex-start; /* Align sub-links to left */
+                 padding: 0.8rem 1rem; /* Indent sub-links */
+                 font-size: 0.9rem;
+                 border-bottom: 1px solid rgba(255,255,255,0.05);
+                 gap: 0.8em; /* More space for icon */
+            }
+            .mega-menu-column ul li:last-child a.nav-link {
+                border-bottom: none;
+            }
+              .mega-menu-column ul li a.nav-link:hover {
+                  color: var(--secondary-color);
+                  background-color: rgba(0,0,0,0.1);
+              }
+              .mega-menu-column ul li a.nav-link i {
+                  margin-right: 0.8em; /* More space for icon */
+                   color: var(--secondary-color); /* Icon color */
+               }
+             .mega-menu-column ul li a.nav-link.active {
+                 color: var(--secondary-color); /* Highlight active sub-link */
+                 background-color: rgba(0,0,0,0.15);
+             }
+             .mega-menu-column ul li a.nav-link.active i {
+                 color: var(--secondary-color);
+             }
+
+
+             .nav-menu li.has-megamenu.mega-menu-open > .nav-link {
+                 color: var(--accent-color);
+                 background-color: rgba(255,255,255,0.15);
+                 border-bottom: 1px solid rgba(255,255,255,0.2); /* Stronger separator for open parent */
+             }
+
+        }
+         @media (max-width: 480px) { /* Specific for smaller mobile menu height */
+              .nav-menu {
+                  max-height: calc(100vh - 200px); /* Adjusted based on revised header height */
+              }
+         }
+
+
+        /* Main Content Area */
+        .main-content {
+             padding-top: 0; /* Padding handled by section */
+        }
+
+
+        /* Section Styling */
+        .section {
+            display: none; /* Hidden by default */
+            padding: 5rem 0; /* Increased vertical padding */
+             opacity: 0; /* Initial state for transition */
+             transition: opacity 0.6s ease-in-out;
+        }
+
+        .section.active {
+            display: block; /* Shown when active */
+            opacity: 1;
+        }
+
+        .section h2 {
+             font-size: 2.2rem; /* Slightly larger */
+             color: var(--primary-color);
+             margin-bottom: 2.5rem; /* More space */
+             text-align: center;
+             position: relative;
+             padding-bottom: 1rem; /* More space for underline */
+        }
+         .section h2::after {
+             content: '';
+             position: absolute;
+             bottom: 0;
+             left: 50%;
+             transform: translateX(-50%);
+             width: 100px; /* Wider underline */
+             height: 4px; /* Thicker underline */
+             background-color: var(--secondary-color);
+             border-radius: 2px;
+         }
+        .section h3 {
+             font-size: 1.6rem; /* Slightly larger */
+             color: var(--dark-text);
+             margin-top: 2rem; /* More top margin */
+             margin-bottom: 1.2rem; /* More bottom margin */
+             border-bottom: 1px dashed var(--border-color);
+             padding-bottom: 0.75rem; /* More padding */
+        }
+         .section p {
+             margin-bottom: 1.2rem; /* More space between paragraphs */
+             font-size: 1.05rem; /* Slightly larger body text in sections */
+             line-height: 1.8; /* More line height for readability */
+         }
+
+
+        /* Home Section Specifics */
+        #home {
+             padding: 0; /* Entire padding handled by children */
+        }
+        .hero-area {
+            background: var(--bg-hero); /* Using the CSS variable */
+            background-size: cover;
+            background-position: center center;
+            color: var(--light-text);
+            padding: 6rem 0; /* Generous padding */
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+            position: relative; /* Needed for pseudo-element */
+            overflow: hidden; /* Hide overflow from pseudo-element */
+        }
+         /* REMOVED: .hero-area::before overlay as --bg-hero already includes a gradient overlay */
+
+        .hero-area .container {
+            position: relative; /* Position content above overlay */
+            z-index: 1;
+        }
+        .hero-area h2 { /* Welcome title in hero */
+            font-size: 3rem; /* Larger title */
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.6); /* Stronger shadow */
+            padding-bottom: 0; /* Remove padding */
+        }
+        .hero-area h2::after { /* Remove default underline for hero title */
+            display: none;
+        }
+        .hero-area p {
+            font-size: 1.25rem; /* Larger text */
+            margin-bottom: 2.5rem;
+            max-width: 900px; /* Wider text block */
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.98); /* Whiter text */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .hero-cta-btn {
+            background-color: var(--accent-color);
+            color: var(--dark-text);
+            padding: 1rem 2.5rem; /* Larger padding */
+            border-radius: var(--radius-md);
+            font-size: 1.15rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: var(--transition);
+            border: 2px solid var(--accent-color);
+            box-shadow: var(--shadow-md);
+            display: inline-block; /* Ensure padding works */
+        }
+        .hero-cta-btn:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+            transform: translateY(-5px); /* More pronounced lift */
+            text-decoration: none !important;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Subsequent content in home section needs its own padding */
+        .home-content-below-hero {
+            /* Padding is added to the .core-values-section and .home-news-section divs */
+             padding-top: 0;
+             padding-bottom: 0;
+        }
+
+        .core-values-section, .home-featured-insights-section { /* Added .home-featured-insights-section */
+             padding: 5rem 0; /* Padding for these specific sections */
+        }
+
+        .core-values-section h2, .home-news-section h2, .home-featured-insights-section h2 { /* Added .home-featured-insights-section h2 */
+             margin-top: 0; /* Reset margin as padding is on parent */
+             font-size: 2.2rem;
+             color: var(--primary-color);
+        }
+
+
+        .values-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+             gap: 2rem; /* Increased gap */
+             margin-top: 2.5rem;
+        }
+        .value-card {
+             background-color: #ffffff; /* White background for cards */
+             padding: 2rem; /* More padding */
+             border-radius: var(--radius-lg); /* Larger radius */
+             box-shadow: var(--shadow-md); /* Slightly stronger shadow */
+             text-align: center;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             transition: var(--transition);
+             border-top: 4px solid var(--primary-color); /* REFINED: Slightly thinner border */
+             cursor: auto; /* Indicate not clickable */
+        }
+        .value-card i {
+             font-size: 3rem; /* Larger icon */
+             color: var(--primary-color);
+             margin-bottom: 1.5rem;
+             transition: var(--transition);
+        }
+        .value-card h3 {
+             font-size: 1.3rem; /* Larger heading */
+             color: var(--primary-color);
+             margin-top: 0;
+             margin-bottom: 1rem;
+             border: none;
+             padding-bottom: 0;
+        }
+         .value-card p {
+             font-size: 1rem; /* Slightly larger body text */
+             color: var(--dark-text);
+             margin-bottom: 0;
+             line-height: 1.6;
+         }
+         .value-card:hover {
+             transform: translateY(-8px); /* More pronounced lift */
+             box-shadow: var(--shadow-lg);
+             border-top-color: var(--secondary-color); /* Existing border-color covers this, but explicit for clarity */
+         }
+         .value-card:hover i {
+             color: var(--secondary-color);
+             transform: scale(1.1);
+         }
+
+        /* --- Featured Insights Section (Integrated from code (2).html) --- */
+        .home-featured-insights-section {
+            background-color: var(--bg-light); /* Consistent with other home subsections or use --light-gray-bg-template */
+        }
+        .template-article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 2); /* Using spacing unit from :root */
+            margin-top: 2.5rem;
+        }
+
+        .template-article-card {
+            background-color: #ffffff; /* White background for cards */
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .template-article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .template-article-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .template-article-card.large-card img { /* If specific large card styling is needed */
+            height: 280px;
+        }
+
+        .template-article-card .card-content {
+            padding: calc(var(--spacing-unit) * 1.5);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .template-article-card .category {
+            display: inline-block;
+            background-color: var(--secondary-color); /* EUDP Green for category */
+            color: var(--light-text);
+            padding: calc(var(--spacing-unit) * 0.25) calc(var(--spacing-unit) * 0.75);
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--spacing-unit);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        /* Card Headings - styled to fit index.html theme */
+        .template-article-card .card-content h3,
+        .template-article-card .card-content h4 {
+            font-family: 'Abyssinica SIL', 'Roboto', sans-serif; /* EUDP fonts */
+            color: var(--primary-color); /* EUDP Primary Blue */
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+            /* Remove section h3 border if it was applied globally */
+            border: none;
+            padding: 0;
+        }
+        .template-article-card .card-content h3 { font-size: 1.5rem; } /* Adjust as needed */
+        .template-article-card .card-content h4 { font-size: 1.2rem; } /* Adjust as needed */
+
+
+        .template-article-card .card-content p {
+            font-size: 0.95rem;
+            color: var(--dark-text);
+            flex-grow: 1; /* Pushes read-more down */
+            margin-bottom: var(--spacing-unit);
+            line-height: 1.6;
+        }
+
+        .template-article-card .template-read-more {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--secondary-color); /* EUDP Green for read more */
+            align-self: flex-start;
+        }
+        .template-article-card .template-read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        .template-article-card .template-read-more:hover {
+            color: var(--primary-color); /* EUDP Blue on hover */
+        }
+        .template-article-card .template-read-more:hover i {
+            transform: translateX(5px);
+            color: var(--primary-color);
+        }
+
+        /* Responsive grid for template articles - adapted from code (2).html */
+        @media (min-width: 992px) {
+            .template-article-grid {
+                /* Example: If first card should be larger, as in code (2).html's example */
+                /* grid-template-columns: 2fr 1fr 1fr;  */
+                /* For a standard 3-column layout: */
+                 grid-template-columns: repeat(3, 1fr);
+            }
+            .template-article-card.large-card {
+                /* grid-column: span 1; /* Default span for 2fr 1fr 1fr setup */
+                /* If it was meant to span 2 columns in a 3-col setup: */
+                /* grid-column: span 2; */
+            }
+        }
+        @media (min-width: 768px) and (max-width: 991px) {
+            .template-article-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .template-article-card.large-card {
+                grid-column: span 2; /* Full width on tablet */
+            }
+        }
+         @media (max-width: 767px) {
+            .template-article-grid {
+                grid-template-columns: 1fr; /* Stack cards on mobile */
+            }
+            .template-article-card.large-card {
+                grid-column: span 1; /* Reset span for mobile */
+            }
+        }
+
+
+        .home-news-section {
+            background-color: var(--bg-soft); /* Different background */
+             padding: 5rem 0; /* Add padding to this specific section within home */
+        }
+         .home-news-section .container { /* Adjust padding for container within this section */
+              padding: 0 1.5rem;
+         }
+
+
+         .news-grid-home {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly larger minmax */
+             gap: 2.5rem;
+             margin-top: 2.5rem;
+         }
+         .news-card-home {
+             background-color: #ffffff; /* White background */
+             border: 1px solid var(--border-color);
+             border-radius: var(--radius-lg);
+             box-shadow: var(--shadow-md);
+             overflow: hidden;
+             display: flex;
+             flex-direction: column;
+             transition: var(--transition);
+         }
+          .news-card-home:hover {
+              transform: translateY(-8px);
+              box-shadow: var(--shadow-lg);
+              border-color: var(--primary-color);
+          }
+
+         .news-card-home-image-placeholder {
+             width: 100%;
+             height: 220px; /* Increased height */
+             background-color: var(--bg-soft);
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             font-size: 4.5rem; /* Larger icon */
+             color: var(--primary-color);
+             flex-shrink: 0;
+             text-align: center;
+             line-height: 1;
+             border-bottom: 1px solid var(--border-color);
+         }
+         .news-card-home-image-placeholder i {
+             margin-bottom: 0;
+             transition: transform 0.3s ease;
+         }
+         .news-card-home:hover .news-card-home-image-placeholder i {
+             transform: scale(1.1);
+         }
+         .news-card-home-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+         }
+
+
+         .news-card-home-content {
+             padding: 1.8rem; /* Increased padding */
+             flex-grow: 1;
+             display: flex;
+             flex-direction: column;
+         }
+          .news-date {
+              font-size: 0.9rem; /* Slightly larger date */
+              color: #666;
+              margin-bottom: 0.75rem; /* More space below date */
+              font-weight: 500;
+              display: block; /* Ensure date is block */
+          }
+          .news-card-home-content h2 { /* This is for the home news card titles */
+             font-size: 1.4rem; /* Larger heading */
+             color: var(--primary-color);
+             margin-bottom: 1rem; /* More space below heading */
+             text-align: left;
+             position: static;
+             padding-bottom: 0;
+             line-height: 1.4;
+             border: none; /* No border for these */
+          }
+          .news-card-home-content h2::after {
+              display: none; /* Hide underline for card titles */
+          }
+          .news-card-home-content p {
+             font-size: 1rem; /* Standard body text size */
+             color: var(--dark-text);
+             margin-bottom: 1.5rem; /* More space */
+             flex-grow: 1;
+             line-height: 1.6;
+              display: -webkit-box;
+              -webkit-line-clamp: 3; /* Limit snippet to 3 lines */
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;
+          }
+          .read-more-btn {
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;
+              color: var(--primary-color);
+              font-weight: 500;
+               transition: var(--transition);
+               margin-top: auto; /* Push button to bottom */
+          }
+           .read-more-btn i {
+              transition: transform 0.3s ease;
+           }
+           .read-more-btn:hover {
+               color: var(--secondary-color);
+           }
+           .read-more-btn:hover i {
+               transform: translateX(5px); /* Slight movement on hover */
+               color: var(--secondary-color);
+           }
+
+
+        /* News Section Styling (REMOVED FROM INDEX.HTML) */
+        /* News List (Summary View) (REMOVED FROM INDEX.HTML) */
+        /* News Article (Detail View) (REMOVED FROM INDEX.HTML) */
+        /* Article Share Section (REMOVED FROM INDEX.HTML) */
+        /* Back to News List Button (REMOVED FROM INDEX.HTML) */
+
+
+        /* Magazine Section Styling */
+         .magazine-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+             gap: 2rem; /* Increased gap */
+             margin-top: 2.5rem;
+         }
+         .magazine-card {
+             background-color: var(--bg-light);
+             border: 1px solid var(--border-color);
+             border-radius: var(--radius-md);
+             box-shadow: var(--shadow-sm);
+             overflow: hidden;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             transition: var(--transition);
+         }
+         .magazine-card:hover {
+              transform: translateY(-5px);
+              box-shadow: var(--shadow-md);
+              border-color: var(--primary-color);
+         }
+         .magazine-image {
+             width: 100%;
+             height: 280px; /* Increased height for covers */
+             background-color: var(--bg-soft);
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             font-size: 4rem;
+             color: var(--primary-color);
+             flex-shrink: 0;
+             border-bottom: 1px solid var(--border-color);
+         }
+          .magazine-image img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+          }
+         .magazine-content {
+             padding: 1.5rem; /* Increased padding */
+             text-align: center;
+             flex-grow: 1;
+             display: flex;
+             flex-direction: column;
+             justify-content: space-between;
+             width: 100%;
+         }
+          .magazine-content h3 { /* Magazine card title */
+             font-size: 1.2rem; /* Larger heading */
+             color: var(--primary-color);
+             margin: 0 0 1rem 0;
+              border: none; /* No border from section H3 */
+              padding: 0; /* No padding from section H3 */
+         }
+          .magazine-content a { /* This is a download link */
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;
+              color: var(--secondary-color);
+              font-weight: 500;
+              margin-top: auto;
+               transition: var(--transition);
+          }
+           .magazine-content a i {
+               transition: transform 0.3s ease;
+           }
+           .magazine-content a:hover {
+               color: var(--primary-color);
+           }
+           .magazine-content a:hover i {
+               transform: translateY(2px); /* Subtle movement */
+                color: var(--primary-color);
+           }
+
+
+         /* Membership Section - Accordion Styling */
+         .accordion {
+             margin-bottom: 1.5rem;
+             border: 1px solid var(--border-color);
+             border-radius: var(--radius-md);
+             overflow: hidden;
+             box-shadow: var(--shadow-sm);
+             background-color: var(--bg-light);
+         }
+          .accordion:last-child {
+              margin-bottom: 0;
+          }
+
+
+         .accordion-btn {
+             display: flex;
+             width: 100%;
+             background-color: var(--bg-soft);
+             color: var(--primary-color);
+             padding: 1.2rem 1.5rem; /* Increased padding */
+             border: none;
+             text-align: left;
+             font-size: 1.3rem; /* Larger text */
+             font-weight: bold;
+             cursor: pointer;
+             transition: background-color 0.3s ease, color 0.3s ease;
+             justify-content: space-between;
+             align-items: center;
+         }
+          .accordion-btn i {
+              transition: transform 0.3s ease;
+               color: var(--primary-color); /* Default icon color */
+          }
+
+         .accordion-btn:hover {
+             background-color: #ccebff;
+             color: #1f455e; /* Slightly darker primary on hover */
+         }
+         .accordion-btn.active {
+              background-color: var(--primary-color);
+              color: var(--light-text);
+         }
+          .accordion-btn.active i {
+               color: var(--accent-color); /* Accent color for active icon */
+               transform: rotate(180deg);
+          }
+           .accordion-btn.active:hover {
+              background-color: #204b6d; /* Darker primary on hover when active */
+              color: var(--light-text);
+           }
+
+
+         .accordion-content {
+             max-height: 0;
+             padding: 0 1.5rem; /* Start with padding 0 */
+             overflow: hidden;
+             transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out; /* Smoother animation */
+             background-color: white;
+             border-top: 1px solid var(--border-color);
+         }
+          .accordion-content-inner {
+             padding: 1.5rem 0; /* Inner padding is fixed */
+          }
+           /* When active, max-height and padding are set by JS */
+
+
+          .accordion-content p,
+          .accordion-content ul {
+             margin-top: 0; /* Reset default top margin */
+             margin-bottom: 1.2rem; /* Space below paragraph/list */
+             font-size: 1rem;
+             line-height: 1.6;
+          }
+           .accordion-content p:last-child,
+           .accordion-content ul:last-child {
+               margin-bottom: 0;
+           }
+
+           .accordion-content h3 { /* Sub-heading within accordion */
+              font-size: 1.2rem; /* Smaller sub-heading */
+              color: var(--dark-text);
+              margin-top: 1rem;
+              margin-bottom: 0.8rem;
+              border-bottom: none; /* No border from section H3 */
+              padding-bottom: 0; /* No padding from section H3 */
+              font-weight: bold;
+           }
+            .accordion-content h3::after {
+                 display: none; /* No underline from section H3 */
+            }
+
+            .accordion-content ul {
+               padding-left: 1.8rem; /* Consistent list padding */
+               list-style: disc;
+           }
+            .accordion-content ul li {
+                margin-bottom: 0.6rem; /* Space between list items */
+                line-height: 1.5;
+            }
+            .accordion-content ul li b {
+                 color: var(--primary-color);
+            }
+
+
+        /* Documents Section Styling */
+        .document-list {
+             list-style: none;
+             padding-left: 0;
+             margin-top: 2.5rem; /* Increased margin */
+        }
+        .document-list li {
+             margin-bottom: 1.2rem; /* Increased margin */
+             border-bottom: 1px solid var(--border-color);
+             padding-bottom: 1.2rem; /* Increased padding */
+        }
+        .document-list li:last-child {
+            border-bottom: none;
+             margin-bottom: 0;
+             padding-bottom: 0;
+        }
+
+        .document-list li a { /* These are download links */
+             display: flex;
+             align-items: center;
+             gap: 1rem; /* Increased gap */
+             font-size: 1.15rem; /* Slightly larger font */
+             color: var(--primary-color);
+             font-weight: 500;
+             transition: var(--transition);
+        }
+         .document-list li a i {
+             font-size: 1.4rem; /* Larger icon */
+             color: var(--secondary-color);
+             transition: transform 0.3s ease;
+         }
+          .document-list li a:hover {
+              color: var(--secondary-color);
+          }
+           .document-list li a:hover i {
+               transform: scale(1.1);
+               color: var(--primary-color);
+           }
+
+
+        /* Registration Form Styling */
+        .registration-form {
+             max-width: 650px; /* Wider form */
+             margin: 2.5rem auto;
+             padding: 2.5rem; /* Increased padding */
+             background-color: white;
+             border-radius: var(--radius-lg); /* Larger radius */
+             box-shadow: var(--shadow-md);
+            border-right: 5px solid orange; /* REFINED: Thinner border */
+            border-top: 5px solid orange; /* REFINED: Thinner border */
+            border-left: 5px solid orange; /* REFINED: Thinner border */
+            border-bottom: 5px solid orange; /* REFINED: Thinner border */
+        }
+
+        .form-group {
+             margin-bottom: 1.8rem; /* Increased space between groups */
+        }
+
+        .form-group label {
+             display: block;
+             margin-bottom: 0.6rem; /* Increased space */
+             font-weight: bold;
+             color: var(--primary-color);
+             font-size: 1.05rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="tel"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea {
+             width: 100%;
+             padding: 0.85rem 1rem; /* Increased padding */
+             border: 1px solid var(--border-color);
+             border-radius: var(--radius-sm);
+             font-size: 1rem;
+             color: var(--dark-text);
+             background-color: white;
+             transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+         .form-group input[type="text"]:focus,
+         .form-group input[type="number"]:focus,
+         .form-group input[type="tel"]:focus,
+         .form-group input[type="email"]:focus,
+         .form-group select:focus,
+         .form-group textarea:focus {
+              border-color: orange;
+              box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+              outline: none;
+         }
+
+         .address-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Slightly larger min-width */
+             gap: 1rem; /* Increased gap */
+         }
+         .address-grid input {
+             width: auto;
+         }
+
+         textarea {
+             resize: vertical;
+         }
+
+        .submit-btn {
+             display: block;
+             width: 100%;
+             padding: 1rem;
+             background-color: orange;
+             color: var(--light-text);
+             border: none;
+             border-radius: var(--radius-md);
+             font-size: 1.15rem; /* Slightly larger text */
+             font-weight: bold;
+             cursor: pointer;
+             transition: var(--transition);
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             gap: 0.75rem;
+        }
+         .submit-btn:hover {
+              background-color: var(--secondary-color);
+              box-shadow: var(--shadow-sm);
+              transform: translateY(-2px); /* Subtle lift */
+         }
+
+
+        /* Footer Styling */
+        .footer {
+             background-color: var(--dark-text);
+             color: var(--bg-light);
+             padding: 4rem 0; /* Increased padding */
+             font-size: 0.95rem;
+        }
+
+        .footer .container .row {
+             display: flex;
+             flex-wrap: wrap;
+             gap: 3rem; /* Increased gap */
+             justify-content: space-between;
+        }
+
+        .footer .col { /* Unified column styling */
+             flex: 1 1 280px;
+             min-width: 250px;
+        }
+         .footer .col.contact-col { /* Specific contact column adjustment if needed */
+              flex: 1 1 200px;
+         }
+
+
+        .footer h2 {
+             color: var(--accent-color);
+             font-size: 1.5rem; /* Slightly larger */
+             margin-bottom: 1.8rem; /* Increased margin */
+             position: relative;
+             padding-bottom: 0.6rem; /* Increased padding */
+        }
+         .footer h2::after {
+             content: '';
+             position: absolute;
+             bottom: 0;
+             left: 0;
+             width: 70px; /* Wider underline */
+             height: 3px; /* Thicker underline */
+             background-color: var(--secondary-color);
+             border-radius: 1.5px;
+         }
+
+        .footer p {
+             margin-bottom: 1.2rem; /* Increased margin */
+             color: rgba(248, 250, 252, 0.8);
+             line-height: 1.7;
+        }
+
+        /* Newsletter Form in Footer */
+        .simplenews-subscriber-form {
+             display: flex;
+             gap: 0.5rem;
+             margin-top: 1.8rem; /* Increased margin */
+             flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+        .simplenews-subscriber-form input[type="email"] {
+             flex-grow: 1;
+             padding: 0.85rem 1rem; /* Increased padding */
+             border: 1px solid #555;
+             border-radius: var(--radius-sm);
+             background-color: #444;
+             color: var(--light-text);
+        }
+         .simplenews-subscriber-form input[type="email"]::placeholder {
+              color: rgba(248, 250, 252, 0.5);
+         }
+
+        .simplenews-subscriber-form button {
+             padding: 0.85rem 1.8rem; /* Increased padding */
+             background-color: orange;
+             color: var(--light-text);
+             border: none;
+             border-radius: var(--radius-sm);
+             cursor: pointer;
+             transition: var(--transition);
+             font-weight: bold;
+        }
+         .simplenews-subscriber-form button:hover {
+              background-color: var(--primary-color);
+         }
+
+        /* Social Icons */
+        .social-icons {
+             list-style: none;
+             display: flex;
+             gap: 1.2rem; /* Increased gap */
+             margin-top: 1.8rem; /* Increased margin */
+             padding: 0; /* Ensure no padding */
+        }
+         .social-icons li {
+              display: inline-block;
+         }
+
+        .social-icons a {
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             width: 45px; /* Larger icons */
+             height: 45px;
+             border-radius: 100%;
+             background-color: #2A5C82;
+             color: var(--light-text);
+             font-size: 1.4rem; /* Larger icon size */
+             transition: var(--transition);
+        }
+         .social-icons a:hover {
+              background-color: var(--secondary-color);
+              color: var(--light-text);
+              transform: translateY(-5px); /* More pronounced lift */
+         }
+
+        /* Contact Details */
+        .contact ul {
+             list-style: none;
+             padding-left: 0;
+             margin-top: 1.8rem; /* Increased margin */
+        }
+        .contact ul li {
+             margin-bottom: 1.2rem; /* Increased margin */
+             display: flex;
+             align-items: flex-start;
+             gap: 0.8rem; /* Increased gap */
+        }
+         .contact ul li:last-child {
+              margin-bottom: 0;
+         }
+
+         .contact ul li i {
+              color: var(--secondary-color);
+              font-size: 1.3rem; /* Larger icon */
+              margin-top: 5px; /* Align icon visually with text */
+         }
+         .contact ul li p {
+             margin: 0; /* Reset paragraph margin */
+             color: rgba(248, 250, 252, 0.8);
+         }
+          .contact ul li strong {
+              color: var(--accent-color);
+          }
+         .contact ul li a {
+             color: rgba(248, 250, 252, 0.8);
+             text-decoration: underline;
+         }
+          .contact ul li a:hover {
+               color: var(--secondary-color);
+          }
+
+
+        /* Footer Copyright */
+        .footer-copyright {
+             text-align: center;
+             margin-top: 4rem; /* Increased margin */
+             padding-top: 2rem; /* Increased padding */
+             border-top: 1px solid #555;
+             font-size: 0.9rem; /* Slightly larger text */
+             color: rgba(248, 250, 252, 0.6);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+             position: fixed;
+             bottom: 20px;
+             right: 20px;
+             background-color: none;
+             color: var(--dark-text);
+             width: 50px;
+             height: 50px;
+             border-radius: 50%;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             font-size: 1 rem;
+             box-shadow: var(--shadow-md);
+             transition: opacity 0.3s ease, visibility 0.3s ease;
+             opacity: 0;
+             visibility: hidden;
+             z-index: 900; /* Below header/nav */
+             cursor: pointer;
+             border: none; /* Ensure it's a clean button */
+        }
+         .back-to-top.visible {
+             opacity: 1;
+             visibility: visible;
+         }
+          .back-to-top:hover {
+              background-color: #e6c300; /* Darker accent */
+              transform: translateY(-2px); /* Subtle lift on hover */
+          }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .logo-topbar-container {
+                flex-direction: column;
+                padding: 1rem;
+                align-items: flex-start;
+                 min-height: auto; /* Allow height to be dynamic */
+            }
+             .logo-container {
+                 margin-bottom: 1rem;
+             }
+             .logo-container h2 {
+                 font-size: 1.3rem;
+             }
+              .logo-container img {
+                 width: 60px;
+                 height: 60px;
+              }
+
+            .top-bar {
+                 width: 100%;
+                 justify-content: space-between;
+                 gap: 1rem;
+            }
+            .search-bar input[type="search"] {
+                 width: auto;
+                 flex-grow: 1;
+            }
+
+            .section {
+                padding: 4rem 0; /* Less padding on mobile */
+            }
+            .section h2 {
+                font-size: 1.8rem; /* Smaller main headings */
+                margin-bottom: 2rem;
+                padding-bottom: 0.8rem;
+            }
+            .section h2::after {
+                width: 80px;
+                height: 3px;
+            }
+             .section h3 { /* General section H3s */
+                 font-size: 1.4rem; /* Smaller sub-headings */
+                 margin-top: 1.8rem;
+                 margin-bottom: 1rem;
+                 border-bottom: 1px dashed var(--border-color); /* Keep dashed border */
+                 padding-bottom: 0.6rem;
+             }
+             .section p {
+                 font-size: 1rem;
+                 margin-bottom: 1rem;
+             }
+
+
+            .hero-area {
+                padding: 4rem 0; /* Less padding on mobile */
+            }
+            .hero-area h2 {
+                font-size: 2.2rem; /* Smaller hero title */
+            }
+            .hero-area p {
+                font-size: 1.1rem; /* Smaller hero text */
+                 margin-bottom: 2rem;
+            }
+            .hero-cta-btn {
+                 padding: 0.8rem 2rem; /* Smaller CTA button */
+                 font-size: 1.1rem;
+            }
+
+            .home-content-below-hero {
+                 padding-top: 0; /* Padding on inner sections */
+                 padding-bottom: 0;
+            }
+             .core-values-section, .home-news-section, .home-featured-insights-section {
+                 padding: 4rem 0; /* Consistent mobile section padding */
+             }
+
+
+            .values-grid,
+            .news-grid-home,
+             .magazine-grid,
+             .address-grid {
+                 grid-template-columns: 1fr; /* Single column layouts */
+                 gap: 2rem; /* Reduce gap */
+            }
+
+             .value-card {
+                 padding: 1.8rem;
+             }
+             .value-card i {
+                 font-size: 2.5rem;
+                 margin-bottom: 1.2rem;
+             }
+              .value-card h3 {
+                  font-size: 1.2rem;
+                  margin-bottom: 0.8rem;
+              }
+              .value-card p {
+                  font-size: 0.95rem;
+              }
+
+
+             .news-card-home-image-placeholder {
+                height: 180px; /* Adjust card image height on mobile */
+                font-size: 3.5rem; /* Smaller icon */
+             }
+              .news-card-home-content {
+                  padding: 1.2rem; /* Reduced padding */
+              }
+              .news-card-home-content h2 { /* Home news card titles on mobile */
+                  font-size: 1.2rem;
+                  margin-bottom: 0.6rem;
+                  border: none;
+                  padding: 0;
+              }
+               .news-card-home-content p {
+                   font-size: 0.9rem;
+                   margin-bottom: 1rem;
+                    -webkit-line-clamp: 4; /* Allow more lines on card preview */
+               }
+                .read-more-btn {
+                    font-size: 0.95rem;
+                    gap: 0.3rem;
+                }
+
+            /* Featured Insights Mobile Adjustments */
+            .template-article-card .card-content h3 { font-size: 1.3rem; }
+            .template-article-card .card-content h4 { font-size: 1.1rem; }
+
+        /* News Section Responsive Styles (REMOVED FROM INDEX.HTML) */
+    }
+
+    /* Small Mobile Adjustments */
+     @media (max-width: 480px) {
+
+         .news-grid-home {
+              gap: 1.5rem;
+         }
+
+          .news-card-home-image-placeholder {
+              height: 150px; /* Even smaller card image height */
+               font-size: 3rem; /* Even smaller icon */
+          }
+          .news-card-home-content {
+               padding: 1rem;
+          }
+          .news-card-home-content h2 { /* Home news card titles on small mobile */
+               font-size: 1rem;
+               margin-bottom: 0.5rem;
+               border: none; padding: 0;
+          }
+           .news-card-home-content p {
+               font-size: 0.85rem;
+               margin-bottom: 0.8rem;
+               -webkit-line-clamp: 5; /* Allow a bit more snippet text */
+           }
+           .read-more-btn {
+               font-size: 0.9rem;
+           }
+            /* Featured Insights Small Mobile Adjustments */
+            .template-article-card .card-content h3 { font-size: 1.1rem; }
+            .template-article-card .card-content h4 { font-size: 1rem; }
+            .template-article-card .category { font-size: 0.7rem; }
+            .template-article-card .template-read-more { font-size: 0.85rem; }
+
+        /* News Section Small Mobile Styles (REMOVED FROM INDEX.HTML) */
+        }
+    </style>
+</head>
+<body>
+    <!-- Combined Logo and Top Bar -->
+    <div class="logo-topbar-container">
+        <div class="logo-container">
+            <!-- Replace src with your actual EUDP logo file (e.g., "path/to/your/eudp-logo.png") -->
+            <img src="2025-05-17 18.49.47.jpg" alt="የኢትዮጵያ አንድነት እና ልማት ፓርቲ አርማ">
+            <h2 data-translate-key="logoTitle">የኢትዮጵያ አንድነት እና ልማት ፓርቲ</h2>
+        </div>
+
+        <div class="top-bar">
+            <div class="language-select">
+                <label for="language-select" class="sr-only" data-translate-key="langLabel">ቋንቋ ይምረጡ</label>
+                <i class="fas fa-language" aria-hidden="true"></i>
+                <select id="language-select" aria-label="Select Language">
+                    <option value="am" data-translate-key="langAmharic">አማርኛ</option>
+                    <option value="en" data-translate-key="langEnglish">English</option>
+                     <!-- Add other languages as needed -->
+                </select>
+            </div>
+
+            <form class="search-bar" role="search" id="searchForm">
+                <label for="site-search" class="sr-only" data-translate-key="searchSrOnly">Search the site</label>
+                <input type="search" id="site-search" data-translate-key="searchPlaceholder" placeholder="Search/ፈልግ" aria-label="Search" />
+                <button type="submit" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i><span class="sr-only" data-translate-key="searchBtnSr">ፈልግ</span></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Header and Navigation -->
+    <header class="header">
+        <nav class="nav container">
+             <!-- Mobile menu button -->
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            <ul class="nav-menu">
+                <!-- Navigation links. data-target matches section ID. href is for fallback/hash. -->
+                <li><a href="#home" class="nav-link active" data-target="home"><i class="fas fa-home"></i><span data-translate-key="navHome">መነሻ</span></a></li>
+                <li class="has-megamenu">
+                    <a href="#" class="nav-link has-megamenu" data-target=“#”><i class="fas fa-landmark"></i><span data-translate-key="navPolicy">የፓርቲው ፖሊሲዎች</span></a>
+                    <!-- The Mega Menu -->
+                    <div class="mega-menu" role="region" aria-label="Party Policies Sub-menu">
+                        <div class="mega-menu-content">
+                            <!-- Economic Policy Column -->
+                            <div class="mega-menu-column">
+<h3><i class="fas fa-chart-line"></i><span data-translate-key="policyEconomic">የኢኮኖሚ ፖሊሲ</span></h3>
+                                <ul>
+                                    <!-- Links pointing to specific sections/anchors within the program content -->
+                                    <!-- data-target="program-section" tells JS to activate this section first -->
+                                    <li><a href="policy-job-creation.html" class="nav-link" data-target="policy-job-creation.html"><i class="fas fa-briefcase" aria-hidden="true"></i><span data-translate-key="econJobCreation">የስራ እድል ፈጠራ</span></a></li>
+                                    <li><a href="policy-industrial-dev.html" class="nav-link" data-target="policy-industrial-dev.html"><i class="fas fa-industry" aria-hidden="true"></i><span data-translate-key="econIndustrialDev">የኢንዱስትሪ ልማት</span></a></li>
+                                    <li><a href="policy-agricultural-dev.html" class="nav-link" data-target="policy-agricultural-dev.html"><i class="fas fa-tractor" aria-hidden="true"></i><span data-translate-key="econAgriDev">የግብርና ልማት</span></a></li>
+                                     <li><a href="policy-finance-banking.html" class="nav-link" data-target="policy-finance-banking.html"><i class="fas fa-dollar-sign" aria-hidden="true"></i><span data-translate-key="econFinance">ፋይናንስና ባንኪንግ</span></a></li>
+                                     <li><a href="policy-infrastructure.html" class="nav-link" data-target="policy-infrastructure.html"><i class="fas fa-road" aria-hidden="true"></i><span data-translate-key="econInfrastructure">መሠረተ ልማት</span></a></li>
+
+                                     <!-- Add other specific economic policy links as needed -->
+                                </ul>
+                            </div>
+                            <!-- Social Policies Column -->
+                            <div class="mega-menu-column">
+                                <h3><i class="fas fa-users"></i><span data-translate-key="policySocial">ማህበራዊ ፖሊሲዎች</span></h3>
+                                <ul>
+                                     <!-- data-target="program-section" tells JS to activate this section first -->
+                                    <li><a href="policy 1.html" class="nav-link" data-target="policy 1.html"><i class="fas fa-hospital" aria-hidden="true"></i><span data-translate-key="socialHealth">ጤና</span></a></li>
+                                    <li><a href="policy 2.html" class="nav-link" data-target="policy 2.html"><i class="fas fa-graduation-cap" aria-hidden="true"></i><span data-translate-key="socialEducation">ትምህርት</span></a></li>
+                                     <li><a href="policy-poverty-foodsecurity.html" class="nav-link" data-target="policy-poverty-foodsecurity.html"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i><span data-translate-key="socialPoverty">ድህነት ማጥፋት</span></a></li>
+                                     <li><a href="policy-disability-rights.html" class="nav-link" data-target="policy-disability-rights.html"><i class="fas fa-wheelchair" aria-hidden="true"></i><span data-translate-key="socialVulnerable">ተጋላጭ ቡድኖች</span></a></li>
+                                    <li><a href="policy-gender-equality.html" class="nav-link" data-target="policy-gender-equality.html"><i class="fas fa-venus-mars" aria-hidden="true"></i><span data-translate-key="socialGenderEq">የጾታ እኩልነት</span></a></li>
+                                     <li><a href="policy-youth.html" class="nav-link" data-target="policy-youth.html"><i class="fas fa-user-graduate" aria-hidden="true"></i><span data-translate-key="socialYouth">ወጣቶች</span></a></li>
+                                      <!-- Add other specific social policy links as needed -->
+                                </ul>
+                            </div>
+                            <!-- Other Policies Column -->
+                            <div class="mega-menu-column">
+                                <h3><i class="fas fa-globe"></i><span data-translate-key="policyOther">ሌሎች ፖሊሲዎች</span></h3>
+                                <ul>
+                                     <!-- data-target="program-section" tells JS to activate this section first -->
+                                     <li><a href="policy-political-system.html" class="nav-link" data-target="policy-political-system.html"><i class="fas fa-vote-yea" aria-hidden="true"></i><span data-translate-key="otherPoliticalSystem">የፖለቲካ ሥርዓት</span></a></li>
+                                     <li><a href="policy-human-rights.html" class="nav-link" data-target="policy-human-rights.html"><i class="fas fa-gavel" aria-hidden="true"></i><span data-translate-key="otherHumanRights">ሰብዓዊ መብቶች</span></a></li>
+                                     <li><a href="policy-security-defense.html" class="nav-link" data-target="policy-security-defense.html"><i class="fas fa-shield-alt" aria-hidden="true"></i><span data-translate-key="otherSecurity">መከላከያና ጸጥታ</span></a></li>
+                                    <li><a href="policy-foreign.html" class="nav-link" data-target="policy-foreign.html"><i class="fas fa-earth-africa" aria-hidden="true"></i><span data-translate-key="otherForeignPolicy">የውጭ ግንኙነት</span></a></li>
+                                    <li><a href="policy-media.html" class="nav-link" data-target="policy-media.html"><i class="fas fa-broadcast-tower" aria-hidden="true"></i><span data-translate-key="otherMedia">መገናኛ ብዙሃን</span></a></li>
+                                     <li><a href="policy-natural-resources.html" class="nav-link" data-target="policy-natural-resources.html"><i class="fas fa-tree" aria-hidden="true"></i><span data-translate-key="econNaturalResources">የተፈጥሮ ሀብትና መሬት</span></a></li>
+                                       <!-- Add other specific links as needed -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!-- UPDATED NEWS LINK -->
+                <li><a href="news.html" class="nav-link" data-target="news"><i class="fas fa-newspaper"></i><span data-translate-key="navNews">ዜና</span></a></li>
+                <li><a href="#magazine" class="nav-link" data-target="magazine"><i class="fas fa-book-open"></i><span data-translate-key="navMagazine">መፅሔት</span></a></li>
+                 <li><a href="#membership" class="nav-link" data-target="membership"><i class="fas fa-user-friends"></i><span data-translate-key="navMembership">አባልነት</span></a></li>
+                <li><a href="#documents" class="nav-link" data-target="documents"><i class="fas fa-file-alt"></i><span data-translate-key="navDocuments">ሰነዶች</span></a></li>
+                <li><a href="#register" class="nav-link" data-target="register"><i class="fas fa-edit"></i><span data-translate-key="navRegister">አባል ለመሆን</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- SECTION - Home -->
+        <section id="home" class="section active">
+             <!-- Hero Area -->
+             <div class="hero-area" role="banner">
+                 <div class="container">
+                     <h2 data-translate-key="homeWelcomeTitle">እንኳን ደህና መጣችሁ</h2>
+                     <p data-translate-key="heroIntroPara">
+                         የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) ለሀገራችን ዘላቂ ሰላም፣ ሁሉን አቀፍ ዴሞክራሲ፣ ፈጣንና ፍትሃዊ ልማት እንዲሁም የዜጎችን የማይገሰስ መብትና ክብር ለማረጋገጥ ይሰራል::
+                     </p>
+<a href="#register" class="hero-cta-btn nav-link" data-target="register"><data-translate-key="navRegister">ፓርቲውን ይቀላቀሉ</a>
+                 </div>
+             </div>
+
+             <!-- Content Below Hero (Core Values & News Preview) -->
+             <div class="home-content-below-hero">
+                 <div class="container">
+                      <!-- EUDP Core Values Display -->
+                     <div class="core-values-section">
+                        <h2 data-translate-key="coreValuesTitle">የፓርቲያችን መሰረታዊ እሴቶች</h2>
+                        <div class="values-grid">
+                            <div class="value-card">
+                                <i class="fas fa-hands-helping" aria-hidden="true"></i>
+                                <h3 data-translate-key="valueUnityTitle">ሀገራዊ አንድነት በብዝሃነት</h3>
+                                <p data-translate-key="valueUnityPara">የኢትዮጵያን ሉዓላዊነትና የግዛት አንድነት በማስጠበቅ የብዝሃነት ማክበርና በዜግነት ላይ የተመሰረተ ጠንካራ አንድነት መገንባት።</p>
+                            </div>
+                             <div class="value-card">
+                                <i class="fas fa-vote-yea" aria-hidden="true"></i>
+                                <h3 data-translate-key="valueDemocracyTitle">ዴሞክራሲና የህዝብ ተሳትፎ</h3>
+                                <p data-translate-key="valueDemocracyPara">የህዝብ የሥልጣን ባለቤትነትን ማረጋገጥ ነጻና ፍትሃዊ ምርጫን ማስፈን የሀሳብ ነጻነትን ማክበርና የህዝብ ተሳትፎን ማረጋገጥ።</p>
+                            </div>
+                             <div class="value-card">
+                                <i class="fas fa-balance-scale" aria-hidden="true"></i>
+                                <h3 data-translate-key="valueRuleOfLawTitle">የህግ የበላይነትና ፍትህ</h3>
+                                <p data-translate-key="valueRuleOfLawPara">ሁሉም ከህግ በታች መሆናቸውን ማረጋገጥ የዳኝነት ነጻነትን ማስከበርና ፍትሃዊ የፍርድ ሥርዓት መዘርጋት።</p>
+                            </div>
+                             <div class="value-card">
+                                <i class="fas fa-heart" aria-hidden="true"></i>
+                                <h3 data-translate-key="valueHumanRightsTitle">ሰብዓዊ መብቶች መከበር</h3>
+                                <p data-translate-key="valueHumanRightsPara">ሁሉንም የሰብዓዊ መብቶች (ሲቪል፣ ፖለቲካዊ፣ ኢኮኖሚያዊ፣ ማህበራዊና ባህላዊ) ያለ አድልዎ ማክበር፣ መጠበቅና ማሟላት።</p>
+                            </div>
+                             <div class="value-card">
+                                <i class="fas fa-handshake" aria-hidden="true"></i>
+                                <h3 data-translate-key="valueSocialJusticeTitle">ማህበራዊ ፍትህና እኩልነት</h3>
+                                <p data-translate-key="valueSocialJusticePara">የሀብት ፍትሃዊ ክፍፍል እኩል የልማት ተጠቃሚነትና የመሰረታዊ አገልግሎቶች ተደራሽነት ማረጋገጥ።</p>
+                            </div>
+                             <div class="value-card">
+                                <i class="fas fa-lock-open" aria-hidden="true"></i>
+                                <h3 data-translate-key="valueTransparencyTitle">ግልጽነትና ተጠያቂነት</h3>
+                                <p data-translate-key="valueTransparencyPara">የመንግስት አሰራር ግልጽ ከሙስና የጸዳና ለህዝብ ተጠያቂ የሚሆንበት ሥርዓት መገንባት።</p>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+
+                <div class="home-featured-insights-section">
+                    <div class="container">
+                        <h2 data-translate-key="homeFeaturedInsightsTitle">ተመራጭ ትንታኔዎች</h2>
+                        <div class="template-article-grid">
+                            <article class="template-article-card large-card">
+                                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Policy discussion">
+                                <div class="card-content">
+                                    <span class="category" data-translate-key="featuredCatPolicy">ፖሊሲ ጥልቅ ዳሰሳ</span>
+                                    <h3 data-translate-key="featuredTitleEconProsperity">የኢኮኖሚ ብልጽግና እቅዳችን</h3>
+                                    <p data-translate-key="featuredParaEconProsperity">ለሁሉም ዜጎች ጠንካራና ሁሉን አቀፍ ኢኮኖሚ ለመገንባት የሚያስችሉንን ቁልፍ ስትራቴጂዎቻችንን መዳሰስ...</p>
+                                    <a href="Our Economic Prosperity Plan.html" class="template-read-more nav-link" data-target="Our Economic Prosperity Plan.html" data-target-article="Our Economic Prosperity Plan.html"><span data-translate-key="readMore">ተጨማሪ ያንብቡ</span> <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </article>
+                            <article class="template-article-card">
+                    <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="የማህበረሰብ ተሳትፎ" class="featured-image">
+                                <div class="card-content">
+                                    <span class="category" data-translate-key="featuredCatCommunity">ማህበረሰብ</span>
+                                    <h4 data-translate-key="featuredTitleGrassroots">የሥር-ነቀል እንቅስቃሴዎች የለውጥ ልብ ናቸው</h4>
+                                    <p data-translate-key="featuredParaGrassroots">የአካባቢ ተነሳሽነቶች እንዴት ሀገራዊ ተፅዕኖ እያሳደሩና የፓርቲያችንን የወደፊት እጣ ፈንታ እየቀረፁ እንደሆነ።</p>
+                                    <a href="Community Engagement & Grassroots Movements.html" class="template-read-more nav-link" data-target="Community Engagement & Grassroots Movements.html" data-target-article="Community Engagement & Grassroots Movements.html"><span data-translate-key="readMore">ተጨማሪ ያንብቡ</span> <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </article>
+                            <article class="template-article-card">
+                                <img src="pngtree-on-the-african-map-ethiopia-marked-by-flagshaped-icon-with-the-country-name-on-it-vector-png-image_47149346.jpg">
+                                <div class="card-content">
+                                    <span class="category" data-translate-key="featuredCatLeadership">አመራር</span>
+                                    <h4 data-translate-key="featuredTitleLeaderMsg">ከፓርቲው መሪ የተላለፈ መልዕክት</h4>
+                                    <p data-translate-key="featuredParaLeaderMsg">ታዲያ ያቺ በታላቅነቷ የምትታወቀው ሀገራችን ዛሬ የት ላይ ትገኛለች? የልጆቿስ ህልምና ምኞት ምን ያህል ተሳክቷል? ለምንድነው በየጊዜው ተስፋችን የሚጨልመው ችግሮቻችን የሚበረክቱት?...</p>
+                                    <a href="A Call to the Great.html" class="template-read-more nav-link" data-target="A Call to the Great.html" data-target-article="A Call to the Great.html"><span data-translate-key="readMore">ተጨማሪ ያንብቡ</span> <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="home-news-section">
+                     <div class="container">
+                          <h2 data-translate-key="homeCurrentNewsTitle">ወቅታዊ ዜናዎች</h2>
+                        <div class="news-grid-home">
+                            <!-- News Item 1 (Matches content from news-article-1 in news.html) -->
+                            <article class="news-card-home">
+                                <div class="news-card-home-image-placeholder" aria-label="Placeholder for News Image 1" role="img"><i class="fas fa-newspaper" aria-hidden="true"></i></div>
+                                <div class="news-card-home-content">
+                                    <div class="news-date" data-translate-key="newNews1Timestamp"></div> <!-- Use timestamp for date display -->
+                                    <h2 data-translate-key="newNews1Title"></h2> <!-- Title from news.html -->
+                                    <p data-translate-key="newNews1Snippet"></p> <!-- Snippet from news.html -->
+                                    <a href="news.html#news-article-1" class="read-more-btn"><span data-translate-key="readMore"></span> <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </article>
+                            <!-- News Item 2 (Matches content from news-article-2 in news.html) -->
+                            <article class="news-card-home">
+                                 <div class="news-card-home-image-placeholder" aria-label="Placeholder for News Image 2" role="img"><i class="fas fa-bullhorn" aria-hidden="true"></i></div> <!-- Changed icon for variety -->
+                                <div class="news-card-home-content">
+                                    <div class="news-date" data-translate-key="newNews2Timestamp"></div>
+                                    <h2 data-translate-key="newNews2Title"></h2>
+                                    <p data-translate-key="newNews2Snippet"></p>
+                                    <a href="news.html#news-article-2" class="read-more-btn"><span data-translate-key="readMore"></span> <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </article>
+                            <!-- News Item 3 (Matches content from news-article-3 in news.html) -->
+                            <article class="news-card-home">
+                                <div class="news-card-home-image-placeholder" aria-label="Placeholder for News Image 3" role="img"><i class="fas fa-leaf" aria-hidden="true"></i></div> <!-- Changed icon for variety -->
+                                <div class="news-card-home-content">
+                                    <div class="news-date" data-translate-key="newNews3Timestamp"></div>
+                                    <h2 data-translate-key="newNews3Title"></h2>
+                                    <p data-translate-key="newNews3Snippet"></p>
+                                    <a href="news.html#news-article-3" class="read-more-btn"><span data-translate-key="readMore"></span> <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </article>
+                        </div>
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+
+        <!-- SECTION - Program (This section will contain the full program text) -->
+        <section id="program-section" class="section">
+            <div class="container">
+                 <h2 data-translate-key="navPolicy">የፓርቲው ፖሊሲዎች</h2>
+
+                <div id="program-introduction">
+                    <h3 data-translate-key="programIntroTitle">አጠቃላይ እይታ</h3>
+                    <p data-translate-key="programIntroPara"></p>
+                </div>
+
+                <div id="program-vision-mission-values">
+                     <h3 data-translate-key="programVisionMissionValuesTitle">ራዕይ፣ ተልዕኮና መሰረታዊ እሴቶች</h3>
+                     <p>
+                         <b data-translate-key="visionTitle">ራዕይ (Vision):</b> <span data-translate-key="visionText"></span>
+                        <br><br>
+                        <b data-translate-key="missionTitle">ተልዕኮ (Mission):</b> <span data-translate-key="missionText"></span>
+                        <br><br>
+                        <b data-translate-key="valuesTitle">መሰረታዊ እሴቶች (Core Values):</b>
+                         <ul>
+                             <li data-translate-key="valuesListItem1"></li>
+                             <li data-translate-key="valuesListItem2"></li>
+                             <li data-translate-key="valuesListItem3"></li>
+                             <li data-translate-key="valuesListItem4"></li>
+                             <li data-translate-key="valuesListItem5"></li>
+                             <li data-translate-key="valuesListItem6"></li>
+                             <li data-translate-key="valuesListItem7"></li>
+                             <li data-translate-key="valuesListItem8"></li>
+                             <li data-translate-key="valuesListItem9"></li>
+                             <li data-translate-key="valuesListItem10"></li>
+                         </ul>
+                     </p>
+                </div>
+            </div>
+        </section>
+
+
+             <!-- SECTION - Magazine -->
+            <section id="magazine" class="section">
+                <div class="container">
+                    <h2 data-translate-key="magazineSectionTitle">የፓርቲ መጽሔቶች</h2>
+                    <div class="magazine-grid">
+                         <div class="magazine-card">
+                    <div class="magazine-image"><img src ="አዲስ እይታ - መጽሔት የሽፋን ገጽ.png" alt="Magazine Cover 1"></div>
+                            <div class="magazine-content">
+                                <h3 data-translate-key="magazine5Title">ግንቦት-ሰኔ 2017</h3>
+                                 <a href="አዲስ እይታ - መጽሔት.pdf" download aria-label="Download Magazine Issue May-June 2017"><i class="fas fa-download" aria-hidden="true"></i> <span data-translate-key="downloadBtn">ያውርዱ</span></a>
+                            </div>
+                        </div>
+                        <div class="magazine-card">
+                             <div class="magazine-image" role="img" aria-label="Magazine Cover July-August 2017"><i class="fas fa-book-reader" aria-hidden="true"></i></div>
+                            <div class="magazine-content">
+                                <h3 data-translate-key="magazine6Title">ሐምሌ-ነሐሴ 2017</h3>
+                                 <a href="#" download aria-label="Download Magazine Issue July-August 2017"><i class="fas fa-download" aria-hidden="true"></i> <span data-translate-key="downloadBtn">ያውርዱ</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+             <!-- SECTION - Membership -->
+             <section id="membership" class="section">
+                 <div class="container">
+                    <h2 data-translate-key="membershipSectionTitle">አባልነት</h2>
+                    <div class="accordion">
+                        <button class="accordion-btn" aria-expanded="false">
+                            <span data-translate-key="accordionReqTitle">የአባልነት መስፈርቶች</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p data-translate-key="accordionReqPara1"></p>
+                                <ul>
+                                    <li data-translate-key="accordionReqListItem1"></li>
+                                    <li data-translate-key="accordionReqListItem2"></li>
+                                    <li data-translate-key="accordionReqListItem3"></li>
+                                    <li data-translate-key="accordionReqListItem4"></li>
+                                    <li data-translate-key="accordionReqListItem5"></li>
+                                    <li data-translate-key="accordionReqListItem6"></li>
+                                    <li data-translate-key="accordionReqListItem7"></li>
+                                    <li data-translate-key="accordionReqListItem8"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <button class="accordion-btn" aria-expanded="false">
+                             <span data-translate-key="accordionAboutTitle">ስለ ፓርቲው አባልነት</span>
+                             <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="accordion-content">
+                             <div class="accordion-content-inner">
+                                <p data-translate-key="accordionAboutPara1"></p>
+                                <h3 data-translate-key="accordionAboutSubTitle1"></h3>
+                                <ul>
+                                    <li data-translate-key="accordionAboutBenListItem1"></li>
+                                    <li data-translate-key="accordionAboutBenListItem2"></li>
+                                    <li data-translate-key="accordionAboutBenListItem3"></li>
+                                    <li data-translate-key="accordionAboutBenListItem4"></li>
+                                    <li data-translate-key="accordionAboutBenListItem5"></li>
+                                    <li data-translate-key="accordionAboutBenListItem6"></li>
+                                    <li data-translate-key="accordionAboutBenListItem7"></li>
+                                </ul>
+                                <h3 data-translate-key="accordionAboutSubTitle2"></h3>
+                                <ul>
+                                    <li data-translate-key="accordionAboutProcListItem1"></li>
+                                    <li data-translate-key="accordionAboutProcListItem2"></li>
+                                    <li data-translate-key="accordionAboutProcListItem3"></li>
+                                    <li data-translate-key="accordionAboutProcListItem4"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+
+             <!-- SECTION - Documents -->
+            <section id="documents" class="section">
+                <div class="container">
+                    <h2 data-translate-key="documentsSectionTitle">የፓርቲው ሰነዶች</h2>
+                    <ul class="document-list">
+                         <li><a href="bylaws of EUDP (1).pdf" download aria-label="Download Party Bylaws/Constitution"><i class="fas fa-file-contract" aria-hidden="true"></i> <span data-translate-key="docConstitution">መተዳደሪያ ደንብ</span></a></li>
+                        <li><a href="EUAP Program .PDF" download aria-label="Download Party Program Document"><i class="fas fa-tasks" aria-hidden="true"></i> <span data-translate-key="docProgram">ፕሮግራም</span></a></li>
+                        <li><a href="#" download aria-label="Download Party Founding Document"><i class="fas fa-landmark" aria-hidden="true"></i> <span data-translate-key="docFounding">መመስረቻ ፅሁፍ</span></a></li>
+                        <li><a href="#" download aria-label="Download Party Annual Reports"><i class="fas fa-chart-bar" aria-hidden="true"></i> <span data-translate-key="docReports">ዓመታዊ ሪፖርቶች</span></a></li>
+                        <li><a href="EUPD ID CARD.pdf" download aria-label="Download Membership Application Form"><i class="fas fa-id-card" aria-hidden="true"></i> <span data-translate-key="docMembershipForm">የአባልነት ፎርም</span></a></li>
+                    </ul>
+                </div>
+            </section>
+
+             <!-- SECTION - Register -->
+            <section id="register" class="section">
+                <div class="container">
+                    <h2 data-translate-key="registerSectionTitle">አባል ለመሆን ይመዝገቡ</h2>
+                    <form class="registration-form" id="registrationForm">
+                        <div class="form-group">
+                            <label for="fullName" data-translate-key="formFullNameLabel">ሙሉ ስም</label>
+                            <input type="text" id="fullName" name="fullName" required data-translate-key="formFullNamePlaceholder" placeholder="ሙሉ ስምዎን ያስገቡ">
+                        </div>
+                        <div class="form-group">
+                          <label for="age" data-translate-key="formAgeLabel">እድሜ</label>
+                          <input type="number" id="age" name="age" min="18" required data-translate-key="formAgePlaceholder" placeholder="እድሜዎ (ከ18 ዓመት በላይ)">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" data-translate-key="formGenderLabel">ፆታ</label>
+                            <select id="gender" name="gender" required aria-required="true">
+                                <option value="" disabled selected data-translate-key="formGenderOptionDefault">ፆታ ይምረጡ</option>
+                                <option value="male" data-translate-key="formGenderMale">ወንድ</option>
+                                <option value="female" data-translate-key="formGenderFemale">ሴት</option>
+                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-translate-key="formPhoneLabel">ስልክ ቁጥር</label>
+                            <input type="tel" id="phone" name="phone" required data-translate-key="formPhonePlaceholder" placeholder="ለምሳሌ 0912345678">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-translate-key="formEmailLabel">ኢሜይል</label>
+                            <input type="email" id="email" name="email" required data-translate-key="formEmailPlaceholder" placeholder="example@domain.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="education" data-translate-key="formEducationLabel">የትምህርት ደረጃ</label>
+                            <select id="education" name="education" required aria-required="true">
+                                <option value="" disabled selected data-translate-key="formEduOptionDefault">የትምህርት ደረጃ ይምረጡ</option>
+                                <option value="primary" data-translate-key="formEduPrimary">መሠረታዊ ትምህርት</option>
+                                <option value="secondary" data-translate-key="formEduSecondary">ሁለተኛ ደረጃ</option>
+                                <option value="diploma" data-translate-key="formEduDiploma">ዲፕሎማ</option>
+                                <option value="degree" data-translate-key="formEduDegree">የዩኒቨርስቲ ዲግሪ</option>
+                                <option value="masters" data-translate-key="formEduMasters">ማስተርስ ዲግሪ</option>
+                                <option value="phd" data-translate-key="formEduPhd">ዶክትሬት ዲግሪ</option>
+                                <option value="other" data-translate-key="formEduOther">ሌላ</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                          <label data-translate-key="formAddressLabel">አድራሻ</label>
+                          <div class="address-grid">
+                            <input type="text" name="region" data-translate-key="formAddrRegionPlaceholder" placeholder="ክልል" required aria-label="Region">
+                            <input type="text" name="zone" data-translate-key="formAddrZonePlaceholder" placeholder="ዞን" required aria-label="Zone">
+                            <input type="text" name="city" data-translate-key="formAddrCityPlaceholder" placeholder="ከተማ" required aria-label="City">
+                            <input type="text" name="woreda" data-translate-key="formAddrWoredaPlaceholder" placeholder="ወረዳ" required aria-label="Woreda">
+                            <input type="text" name="kebele" data-translate-key="formAddrKebelePlaceholder" placeholder="ቀበሌ" required aria-label="Kebele">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="reason" data-translate-key="formReasonLabel">ለምን አባል መሆን ፈለጉ? (አጭር ማብራሪያ)</label>
+                            <textarea id="reason" name="reason" rows="4" data-translate-key="formReasonPlaceholder" placeholder="የእርስዎን ሃሳብ በአጭሩ ይግለጹ..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                             <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                             <span data-translate-key="formSubmitBtn">ቅጽ ላክ</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col newsletter-col">
+                        <div class="newsletter">
+                            <h2 data-translate-key="footerNewsletterTitle">ዜና መጽሔት ይመዝገቡ</h2>
+                            <p data-translate-key="footerNewsletterPara">የቅርብ ጊዜ መረጃዎችን እና የፓርቲ ዜናዎችን በቀጥታ ወደ ኢሜልዎ ያግኙ።</p>
+                            <form class="simplenews-subscriber-form" id="newsletterForm">
+                                <label for="newsletter-email" class="sr-only" data-translate-key="footerEmailLabelSr">የኢሜል አድራሻዎ</label>
+                                <input type="email" id="newsletter-email" name="mail" data-translate-key="footerEmailPlaceholder" placeholder="የኢሜል አድራሻዎ" class="form-email" required>
+                                <button type="submit" class="button" data-translate-key="footerSubscribeBtn">ይመዝገቡ</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col social-col">
+                         <h2 data-translate-key="footerSocialTitle">ማህበራዊ ሚዲያ</h2>
+                         <p data-translate-key="footerSocialPara">በማህበራዊ ገጾቻችን ይከተሉን፤ ይሳተፉ።</p>
+                         <ul class="social-icons">
+                             <li><a href="https://www.facebook.com/profile.php?id=61577016305943" target="_blank" title="Facebook" aria-label="Visit us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                             <li><a href="https://x.com/infoeudp2017" target="_blank" title="Twitter" aria-label="Visit us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                             <li><a href="#" target="_blank" title="YouTube" aria-label="Visit us on YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+                             <li><a href="https://t.me/EUDPp" target="_blank" title="Telegram" aria-label="Visit us on Telegram"><i class="fab fa-telegram-plane" aria-hidden="true"></i></a></li>
+                         </ul>
+                    </div>
+                    <div class="col contact-col">
+                         <h2 data-translate-key="footerContactTitle">ያግኙን</h2>
+                         <div class="contact-details">
+                             <ul class="contact">
+                                 <li>
+                                     <i class="fas fa-phone-alt" aria-hidden="true"></i> <p><strong data-translate-key="footerContactPhone">ስልክ:</strong> <span data-translate-key="footerContactPhoneDetail">+251-970-837-345</span></p>
+                                 </li>
+                                 <li>
+                                     <i class="fas fa-envelope" aria-hidden="true"></i> <p><strong data-translate-key="footerContactEmail">ኢሜይል:</strong> <a href="mailto:infoeudp2017@gmail.com"><span data-translate-key="footerContactEmailDetail">infoeudp2017@gmail.com</span></a></p>
+                                 </li>
+                                  <li>
+                                     <i class="fas fa-map-marker-alt" aria-hidden="true"></i> <p><strong data-translate-key="footerContactAddress">አድራሻ:</strong> <span data-translate-key="footerContactAddressDetail">አዲስ አበባ፣ የፓርቲው ዋና ጽ/ቤት</span></p>
+                                  </li>
+                             </ul>
+                         </div>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <p data-translate-key="footerCopyright">© [Current Year] የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ)። ሁሉም መብቶች በህግ የተጠበቁ ናቸው።</p>
+                </div>
+            </div>
+        </footer>
+
+        <button class="back-to-top" aria-label="Back to Top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+
+        <script>
+            const translations = {
+                am: {
+                    metaDescription: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) ይፋዊ ድረ-ገጽ። ስለ ፓርቲያችን ፖሊሲዎች、 ዜናዎች、 አባልነት እና ሌሎችንም ይወቁ።",
+                    pageTitle: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ - መነሻ",
+                    logoTitle: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ",
+                    langLabel: "ቋንቋ ይምረጡ",
+                    langAmharic: "አማርኛ",
+                    langEnglish: "English",
+                    searchPlaceholder: "Search/ፈልግ",
+                    searchSrOnly: "Search the site",
+                    searchBtnSr: "ፈልግ",
+                    navHome: "መነሻ",
+                    navPolicy: "የፓርቲው ፖሊሲዎች",
+                    navNews: "ዜና", // Will link to news.html
+                    navMagazine: "መፅሔት",
+                    navMembership: "አባልነት",
+                    navDocuments: "ሰነዶች",
+                    navRegister: "አባል ለመሆን",
+                    readMore: "ተጨማሪ ያንብቡ",
+                    heroIntroPara: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) ለሀገራችን ዘላቂ ሰላም፣ ሁሉን አቀፍ ዴሞክራሲ፣ ፈጣንና ፍትሃዊ ልማት እንዲሁም የዜጎችን የማይገሰስ መብትና ክብር ለማረጋገጥ ይሰራል::",
+                    heroCtaButton: "የፓርቲውን ፕሮግራም ይወቁ",
+                    policyEconomic: "የኢኮኖሚ ፖሊሲ",
+                    econJobCreation: "የሥራ ዕድል ፈጠራ",
+                    econIndustrialDev: "የኢንዱስትሪ ልማት",
+                    econAgriDev: "የግብርና ልማት",
+                    econFinance: "ፋይናንስና ባንኪንግ",
+                    econInfrastructure: "መሠረተ ልማት",
+                    econNaturalResources: "የተፈጥሮ ሀብትና መሬት",
+                    policySocial: "ማህበራዊ ፕሮግራም",
+                    socialHealth: "ጤና አገልግሎት",
+                    socialEducation: "ትምህርት",
+                    socialPoverty: "ድህነትን ማስወገድ",
+                    socialVulnerable: "ተጋላጭ ቡድኖች",
+                    socialGenderEq: "የሴቶች መብትና ተሳትፎ",
+                    socialYouth: "ወጣቶች ጉዳይ",
+                    policyOther: "ሌሎች ፖሊሲዎች",
+                    otherPoliticalSystem: "የፖለቲካ ሥርዓት",
+                    otherHumanRights: "ሰብዓዊና ዴሞክራሲያዊ መብቶች",
+                    otherSecurity: "የጸጥታ ተቋማት",
+                    otherForeignPolicy: "የውጭ ግንኙነት",
+                    otherMedia: "መገናኛ ብዙሃን",
+                    otherEnvironment: "አካባቢ ጥበቃ",
+                    otherUrban: "የከተሞች ልማት",
+                    otherCulture: "የባህልና ቱሪዝም",
+                    otherSport: "የስፖርት ፖሊሲ",
+                    otherDialogue: "ሀገራዊ ምክክርና እርቅ",
+                    homeWelcomeTitle: "እንኳን ደህና መጣችሁ",
+                    coreValuesTitle: "የፓርቲያችን መሰረታዊ እሴቶች",
+                    valueUnityTitle: "ሀገራዊ አንድነት በብዝሃነት",
+                    valueUnityPara: "የኢትዮጵያን ሉዓላዊነትና የግዛት አንድነት በማስጠበቅ፣ የብዝሃነት ማክበርና በዜግነት ላይ የተመሰረተ ጠንካራ አንድነት መገንባት።",
+                    valueDemocracyTitle: "ዴሞክራሲና የህዝብ ተሳትፎ",
+                    valueDemocracyPara: "የህዝብ የሥልጣን ባለቤትነትን ማረጋገጥ፣ ነጻና ፍትሃዊ ምርጫን ማስፈን፣ የሀሳብ ነጻነትን ማክበርና የህዝብ ተሳትፎን ማረጋገጥ።",
+                    valueRuleOfLawTitle: "የህግ የበላይነትና ፍትህ",
+                    valueRuleOfLawPara: "ሁሉም ከህግ በታች መሆናቸውን ማረጋገጥ፣ የዳኝነት ነጻነትን ማስከበርና ፍትሃዊ የፍርድ ሥርዓት መዘርጋት።",
+                    valueHumanRightsTitle: "ሰብዓዊ መብቶች መከበር",
+                    valueHumanRightsPara: "ሁሉንም የሰብዓዊ መብቶች (ሲቪል፣ ፖለቲካዊ፣ ኢኮኖሚያዊ፣ ማህበራዊና ባህላዊ) ያለ አድልዎ ማክበር፣ መጠበቅና ማሟላት።",
+                    valueSocialJusticeTitle: "ማህበራዊ ፍትህና እኩልነት",
+                    valueSocialJusticePara: "የሀብት ፍትሃዊ ክፍፍል፣ እኩል የልማት ተጠቃሚነትና የመሰረታዊ አገልግሎቶች ተደራሽነት ማረጋገጥ።",
+                    valueTransparencyTitle: "ግልጽነትና ተጠያቂነት",
+                    valueTransparencyPara: "የመንግስት አሰራር ግልጽ፣ ከሙስና የጸዳና ለህዝብ ተጠያቂ የሚሆንበት ሥርዓት መገንባት።",
+                    homeFeaturedInsightsTitle: "ተመራጭ ትንታኔዎች",
+                    featuredCatPolicy: "ፖሊሲ ጥልቅ ዳሰሳ",
+                    featuredTitleEconProsperity: "የኢኮኖሚ ብልጽግና እቅዳችን",
+                    featuredParaEconProsperity: "ለሁሉም ዜጎች ጠንካራና ሁሉን አቀፍ ኢኮኖሚ ለመገንባት የሚያስችሉንን ቁልፍ ስትራቴጂዎቻችንን መዳሰስ...",
+                    featuredCatCommunity: "ማህበረሰብ",
+                    featuredTitleGrassroots: "የሥር-ነቀል እንቅስቃሴዎች የለውጥ ልብ ናቸው",
+                    featuredParaGrassroots: "የአካባቢ ተነሳሽነቶች እንዴት ሀገራዊ ተፅዕኖ እያሳደሩና የፓርቲያችንን የወደፊት እጣ ፈንታ እየቀረፁ እንደሆነ።",
+                    featuredCatLeadership: "አመራር",
+                    featuredTitleLeaderMsg: "ከፓርቲው መሪ የተላለፈ መልዕክት",
+                    featuredParaLeaderMsg: "ታዲያ ያቺ በታላቅነቷ የምትታወቀው ሀገራችን ዛሬ የት ላይ ትገኛለች? የልጆቿስ ህልምና ምኞት ምን ያህል ተሳክቷል? ለምንድነው በየጊዜው ተስፋችን የሚጨልመው ችግሮቻችን የሚበረክቱት?...",
+newNews1Title: "ኢአልፓ ለማዕከላዊ ኮሚቴ አባላቱ \"በስትራቴጂያዊ አመራርና በፖሊሲ ትንተና\" ላይ ያተኮረ ሥልጠና ሰጠ",
+        newNews1Snippet: "የኢትዮጵያ አንድነትና ልማት ፓርቲ (ኢአልፓ) የማዕከላዊ ኮሚቴ አባላቱን የስትራቴጂያዊ አመራር ክህሎትና የፖሊሲ ትንተና አቅም ለማሳደግ ያለመ የተጠናከረ ሥልጠና በአዳማ ከተማ አካሄደ...",
+        newNews1Timestamp: "ግንቦት 15", // ይህ ለ .news-date ያገለግላል
+
+        newNews2Title: "ኢአልፓ የቴሌግራም ቻናልና የፌስቡክ ገጽ ይፋ አደረገ፡ \"ከሕዝብ ጋር ያለንን ትስስር እናጠናክራለን\" - ፓርቲው",
+        newNews2Snippet: "የኢትዮጵያ አንድነትና ልማት ፓርቲ (ኢአልፓ) ከሕዝብ ጋር ያለውን የመረጃ ልውውጥና ግንኙነት ለማጠናከርና ለማስፋት የሚያስችሉ አዳዲስ የማኅበራዊ ሚዲያ መድረኮችን ይፋ ማድረጉን አስታወቀ...",
+        newNews2Timestamp: "ሰኔ 10",
+
+        newNews3Title: "ኢአልፓ በ\"አካባቢ ጥበቃና አረንጓዴ ልማት\" ፖሊሲው ላይ ከባለድርሻ አካላት ጋር የውይይት መድረክ አካሄደ",
+        newNews3Snippet: "የኢትዮጵያ አንድነትና ልማት ፓርቲ (ኢአልፓ)、 በፓርቲው ፕሮግራም ውስጥ ቁልፍ ቦታ ከሰጣቸው የፖሊሲ አቅጣጫዎች አንዱ በሆነው \"የአካባቢ ጥበቃ、 አረንጓዴ ልማትና የአየር ንብረት ለውጥን መቋቋም\" በሚለው ፖሊሲው ላይ ያተኮረ የውይይት መድረክ አካሄደ...",
+        newNews3Timestamp: "ሰኔ 05",
+
+        homeCurrentNewsTitle: "ወቅታዊ ዜናዎች", // ይህ ቁልፍ ለሴክሽኑ ርዕስ ነው
+        readMore: "ተጨማሪ ያንብቡ", // ለ "Read More" ቁልፍ,
+                    programIntroTitle: "አጠቃላይ እይታ",
+                    programIntroPara: `አገራችን ኢትዮጵያ የረዥም ዘመን ታሪክ፣ የኩሩ ሕዝብ ባለቤትና ብሩህ ተስፋ ያላት አገር ብትሆንም ላለፉት በርካታ ዓመታት ውስብስብ በሆኑ ፖለቲካዊ፣ ኢኮኖሚያዊና ማኅበራዊ ችግሮች ስትታመስ ቆይታለች፡፡ የዴሞክራሲ እጦት፣ የሰብዓዊ መብቶች ጥሰት፣ የሕግ የበላይነት መዳከም፣ የኢኮኖሚ አለመረጋጋት፣ ሥር የሰደደ ድህነት፣ የማኅበራዊ ፍትሕ ዕጦትና በሕዝቦች መካከል መተማመን መሸርሸር አገራችን ለዕድገት የምታደርገውን ጉዞ በእጅጉ አጓትቶታል፡፡<br><br>የኢትዮጵያ አንድነትና ልማት ፓርቲ (ኢአልፓ) የተመሠረተው እነዚህን ዘርፈ ብዙ ችግሮች በመገንዘብ በአገራችን ዘላቂ ሰላምን፣ ሁሉን አቀፍ ዴሞክራሲን፣ ፈጣንና ፍትሐዊ ልማትን እንዲሁም የዜጎችን የማይገሰስ መብትና ክብር ለማረጋገጥ በሚደረገው ሀገራዊ ጥረት የበኩሉን አስተዋፅኦ ለማበርከት ካለው ቁርጠኝነት በመነሳት ነው፡፡ ፓርቲያችን የተቋቋመው የኢትዮጵያን ብዝኃነት ያከበረና በዜጎች እኩልነት ላይ የተመሠረተ ጠንካራ ሀገራዊ አንድነት መገንባት እንዳለበት፣ የሕግ የበላይነት መስፈን እንዳለበት፣ የመንግሥት ተቋማት ለሕዝብ ተጠያቂ መሆን እንዳለባቸውና የአገራችን የተፈጥሮና የሰው ኃብት ለሁሉም ዜጎች ፍትሐዊ ተጠቃሚነት መዋል እንዳለበት በማመን ነው፡፡<br><br>ይህ የፓርቲ ፕሮግራም ኢአልፓ የሚከተላቸውን መሠረታዊ መርሆዎች፣ የፖለቲካ፣ የኢኮኖሚና የማኅበራዊ ፖሊሲ አቅጣጫዎችን እንዲሁም አገራችንን አሁን ካለችበት ፈተና አውጥተን ወደ ብልጽግና ለማሻገር ያለንን ራዕይና ዝርዝር ዕቅዶች የሚያሳይ የመንገድ ካርታ ነው፡፡ ፕሮግራማችንን ሰፊ የሕዝብ ምክክርና የባለሙያዎች ጥናት በማካተት ለማበልጸግ ጥረት ያደረግን ሲሆን፣ እንደ አገራችን ተጨባጭ ሁኔታና እንደ ሕዝባችን የልማት ፍላጎት በየጊዜው እየተከለሰ የሚሄድ ሕያው ሰነድ እንዲሆንም ቃል እንገባለን፡፡<br><br>ኢአልፓ የኢትዮጵያ ሕዝብ በኅብረት በመቆም፣ በመተባበርና በመደጋገፍ አገሩን ወደ ላቀ የሥልጣኔ ደረጃ ማድረስ እንደሚችል ጽኑ እምነት አለው፡፡ ይህንን ኃላፊነት ለመወጣትና ለውጥን እውን ለማድረግ በምናደርገው ታሪካዊ ጉዞ የኢትዮጵያ ሕዝብ በሙሉ ከጎናችን እንዲቆም ጥሪያችንን እናስተላልፋለን፡፡`,
+                    programVisionMissionValuesTitle: "ራዕይ፣ ተልዕኮና መሰረታዊ እሴቶች",
+                    visionTitle: "ራዕይ (Vision):",
+                    visionText: "በኢትዮጵያ የሕግ የበላይነት የሰፈነባት፣ ዜጎች በእኩልነትና በፍትሕ የሚኖሩባት፣ ሀገራዊ ሉዓላዊነትና የግዛት አንድነቷ የጸና፣ ሀገራዊ አንድነቷ የተጠናከረ፣ በነፃ ገበያ የሚመራ ኢኮኖሚዋ የዳበረ፣ ማኅበራዊ ፍትሕ የተስፋፋባትና የሕዝቦቿ ተጠቃሚነት በዘላቂ ልማት የተረጋገጠባት የበለጸገች ዴሞክራሲያዊት አገር መፍጠር፡፡",
+                    missionTitle: "ተልዕኮ (Mission):",
+                    missionText: "የኢትዮጵያን ሕዝብ በማሰባሰብና በማሳተፍ የአገሪቱን ፖለቲካዊ፣ ኢኮኖሚያዊና ማኅበራዊ ችግሮች በሰላማዊና በዴሞክራሲያዊ መንገድ በመፍታት፣ ዘላቂ ሰላምን፣ ዴሞክራሲያዊ ሥርዓትን፣ የዜጎችን መብትና ነፃነት፣ የሕግ የበላይነትን እንዲሁም ሁሉን አቀፍና ፍትሐዊ ልማትን በማረጋገጥ የሕዝብን ብልጽግና ማሳካት፡፡",
+                    valuesTitle: "መሰረታዊ እሴቶች (Core Values):",
+                    valuesListItem1: "<b>ሀገራዊ አንድነት በብዝኃነት፡</b> የኢትዮጵያን ሉዓላዊነትና የግዛት አንድነት በማስጠበቅ፣ ብዝኃነትን በማክበርና በዜግነት ላይ የተመሠረተ ጠንካራ አንድነት መገንባት፡፡",
+                    valuesListItem2: "<b>ዴሞክራሲና የሕዝብ ተሳትፎ፡</b> የሕዝብ የሥልጣን ባለቤትነትን ማረጋገጥ፣ ነፃና ፍትሐዊ ምርጫን ማስፈን፣ የሐሳብ ነፃነትን ማክበርና የሕዝብ ተሳትፎን ማረጋገጥ፡፡",
+                    valuesListItem3: "<b>የሕግ የበላይነትና ፍትሕ፡</b> ሁሉም ከሕግ በታች መሆናቸውን ማረጋገጥ፣ የዳኝነት ነፃነትን ማስከበርና ፍትሐዊ የፍርድ ሥርዓት መዘርጋት፡፡",
+                    valuesListItem4: "<b>ሰብዓዊ መብቶች መከበር፡</b> ሁሉንም የሰብዓዊ መብቶች (ሲቪል፣ ፖለቲካዊ፣ ኢኮኖሚያዊ፣ ማኅበራዊና ባህላዊ) ያለአድልዎ ማክበር፣ መጠበቅና ማሟላት፡፡",
+                    valuesListItem5: "<b>ማኅበራዊ ፍትሕና እኩልነት፡</b> የሀብት ፍትሐዊ ክፍፍል፣ እኩል የልማት ተጠቃሚነትና የመሠረታዊ አገልግሎቶች ተደራሽነት ማረጋገጥ፡፡",
+                    valuesListItem6: "<b>ግልጽነትና ተጠያቂነት፡</b> የመንግሥት አሠራር ግልጽ፣ ከሙስና የጸዳና ለሕዝብ ተጠያቂ የሚሆንበት ሥርዓት መገንባት፡፡",
+                    valuesListItem7: "<b>ሰላምና መቻቻል፡</b> በልዩ ልዩ ሕዝቦች መካከል ሰላምን፣ መግባባትንና መቻቻልን ማጎልበት፡፡",
+                    valuesListItem8: "<b>ልማትና ብልጽግና፡</b> ፈጣን፣ ሁሉን አቀፍና ዘላቂ ልማት በማምጣት የሕዝብን የኑሮ ደረጃ ማሻሻል፡፡",
+                    valuesListItem9: "<b>ሙያዊነትና ዕውቀት መሠረት ያደረገ አመራር፡</b> ሁሉንም ሥራ በእውቀትና በሙያ መምራት፣ ብቃትንና ውጤታማነትን ማረጋገጥ፡፡",
+                    valuesListItem10: "<b>የአካባቢ ጥበቃና ዘላቂነት፡</b> የተፈጥሮ ሀብትንና አካባቢን መጠበቅ፣ የአፈር መሸርሸርን መከላከል፣ የደን ሽፋንን ማስፋፋትና የአየር ንብረት ለውጥ የሚያስከትለውን ጉዳት ለመቋቋም የሚያስችሉ እርምጃዎችን መውሰድ፣ የትውልድን ተጠቃሚነት ያረጋገጠ ልማት ማስፈን፡፡",
+                    magazineSectionTitle: "የፓርቲ መጽሔቶች",
+                    magazine1Title: "መስከረም-ጥቅምት 2017",
+                    downloadBtn: "ያውርዱ",
+                    magazine2Title: "ህዳር-ታህሳስ 2017",
+                    magazine3Title: "ጥር-የካቲት 2017",
+                    magazine4Title: "መጋቢት-ሚያዚያ 2017",
+                    magazine5Title: "ግንቦት-ሰኔ 2017",
+                    magazine6Title: "ሐምሌ-ነሐሴ 2017",
+                    membershipSectionTitle: "አባልነት",
+                    accordionReqTitle: "የአባልነት መስፈርቶች",
+                    accordionReqPara1: "ከዚህ በታች የተዘረዘሩትን መመዘኛዎች የሚያሟላ ማንኛውም ሰው የፓርቲው አባል መሆን ይችላል፡፡",
+                    accordionReqListItem1: "ኢትዮጵያዊ የሆነ፤",
+                    accordionReqListItem2: "የፓርቲውን ፕሮግራም ና መተዳደሪያ ደንብ ተቀብሎ ተግባራዊ ለማድረግ ፍቃደኛ የሆነ፤",
+                    accordionReqListItem3: "መልካም ሥነ-ምግባር ያለውና በኅብረተሰቡ ውስጥ ተቀባይነት ያለው፤",
+                    accordionReqListItem4: "ዜጎችንና ሕዝቦችን በእኩልነት የሚያገለግል፣ የሕዝብ ጥቅምን የሚያስቀድም፣ከሙስናና ብልሹ አሠራሮች ራሱን ያራቀና ሌሎችንም የሚታገል፤",
+                    accordionReqListItem5: "የፓርቲውን ዓላማዎችን ተቀብሎ የተሰጠውን ኃላፊነት ለመወጣት ቁርጠኛ የሆነ፣",
+                    accordionReqListItem6: "እድሜ 18 ዓመት እና ከዚያ በላይ የሆነ፤",
+                    accordionReqListItem7: "የሌላ ፖለቲካ ፓርቲ አባል ያልሆነ፤",
+                    accordionReqListItem8: "የፖለቲካ ፓርቲ አባል የመሆን መብቱ በሕግ ያልተገደበ ወይም በፍርድ ቤት ውሳኔ ያልተገፈፈ።",
+                    accordionAboutTitle: "ስለ ፓርቲው አባልነት",
+                    accordionAboutPara1: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ)፣ ለፍትህ፣ ለእኩልነትና ለዘላቂ ልማት የሚሰራ የፖለቲካ ፓርቲ ነው። ፓርቲው በዴሞክራሲያዊ መርሆች ላይ የተመሠረተ፤ ለህዝብና ለአገር ጥቅም ቅድሚያ የሚሰጥ ነው።",
+                    accordionAboutSubTitle1: "የአባልነት ጠቀሜታዎች",
+                    accordionAboutBenListItem1: "<b>የለውጥ አካል መሆን:</b> በፓርቲው ውስጥ በመሳተፍ ለህብረተሰቡ አዎንታዊ ለውጥ ለማምጣት የበኩሎን አስተዋጽኦ ያደርጋሉ።",
+                    accordionAboutBenListItem2: "<b>የሃሳብ ነፃነት:</b> ፓርቲው አባላቱ በነጻነት ሃሳባቸውን እንዲገልጹና በውሳኔ አሰጣጥ ሂደት ውስጥ እንዲሳተፉ ያበረታታል።",
+                    accordionAboutBenListItem3: "<b>የፖለቲካ ተሳትፎ:</b> በአገርና በማህበረሰብ ጉዳዮች ላይ በንቃት በመሳተፍ የፖለቲካ መብቶችዎን ይጠቀማሉ።",
+                    accordionAboutBenListItem4: "<b>የአመራር እድል:</b> በአመራርነት በመሳተፍ ለፓርቲውና ለህብረተሰቡ ለውጥ መሪነት ሚና ይወስዳሉ።",
+                    accordionAboutBenListItem5: "<b>የአቅም ግንባታ:</b> ፓርቲው ለአባላቱ የተለያዩ ስልጠናዎችንና የአቅም ግንባታ መርሀግብሮችን ያዘጋጃል።",
+                    accordionAboutBenListItem6: "<b>ማህበራዊ ትስስር:</b> ከተለያዩ የህብረተሰብ ክፍሎች ከመጡ አባላት ጋር በመገናኘት ጠንካራ ማህበራዊ ትስስር ይፈጥራሉ።",
+                    accordionAboutBenListItem7: "<b>መብቶችዎን ማስከበር:</b> በፓርቲው ውስጥ በመሳተፍ የራስዎንና የሌሎችንም መብቶች ለማስከበር ይሰራል።",
+                    accordionAboutSubTitle2: "የአባልነት ምዝገባ ሂደት",
+                    accordionAboutProcListItem1: "<b>ማመልከቻ:</b> በአካል በመቅረብ ወይም በፓርቲው ድረ-ገጽ ላይ በሚገኝ የአባልነት ማመልከቻ ፎርም በመሙላት ማመልከት ይችላሉ።",
+                    accordionAboutProcListItem2: "<b>የማመልከቻ ቅጽ:</b> የማመልከቻ ቅጹን በአግባቡ ይሙሉ።",
+                    accordionAboutProcListItem3: "<b>ምዝገባ:</b> ፓርቲው ማመልከቻዎን ካረጋገጠ በኋላ ጊዜያዊ አባል ሆነው ይመዘገባሉ።",
+                    accordionAboutProcListItem4: "<b>የአባልነት መታወቂያ:</b> የአባልነት መታወቂያ ይሰጥዎታል።",
+                    documentsSectionTitle: "የፓርቲው ሰነዶች",
+                    docConstitution: "መተዳደሪያ ደንብ",
+                    docProgram: "ፕሮግራም",
+                    docFounding: "መመስረቻ ፅሁፍ",
+                    docReports: "ዓመታዊ ሪፖርቶች",
+                    docMembershipForm: "የአባልነት ፎርም",
+                    registerSectionTitle: "አባል ለመሆን ይመዝገቡ",
+                    formFullNameLabel: "ሙሉ ስም",
+                    formFullNamePlaceholder: "ሙሉ ስምዎን ያስገቡ",
+                    formAgeLabel: "እድሜ",
+                    formAgePlaceholder: "እድሜዎ (ከ18 ዓመት በላይ)",
+                    formGenderLabel: "ፆታ",
+                    formGenderOptionDefault: "ፆታ ይምረጡ",
+                    formGenderMale: "ወንድ",
+                    formGenderFemale: "ሴት",
+                    formPhoneLabel: "ስልክ ቁጥር",
+                    formPhonePlaceholder: "ለምሳሌ 0912345678",
+                    formEmailLabel: "ኢሜይል",
+                    formEmailPlaceholder: "example@domain.com",
+                    formEducationLabel: "የትምህርት ደረጃ",
+                    formEduOptionDefault: "የትምህርት ደረጃ ይምረጡ",
+                    formEduPrimary: "መሠረታዊ ትምህርት",
+                    formEduSecondary: "ሁለተኛ ደረጃ",
+                    formEduDiploma: "ዲፕሎማ",
+                    formEduDegree: "የዩኒቨርስቲ ዲግሪ",
+                    formEduMasters: "ማስተርስ ዲግሪ",
+                    formEduPhd: "ዶክትሬት ዲግሪ",
+                    formEduOther: "ሌላ",
+                    formAddressLabel: "አድራሻ",
+                    formAddrRegionPlaceholder: "ክልል",
+                    formAddrZonePlaceholder: "ዞን",
+                    formAddrCityPlaceholder: "ከተማ",
+                    formAddrWoredaPlaceholder: "ወረዳ",
+                    formAddrKebelePlaceholder: "ቀበሌ",
+                    formReasonLabel: "ለምን አባል መሆን ፈለጉ? (አጭር ማብራሪያ)",
+                    formReasonPlaceholder: "የእርስዎን ሃሳብ በአጭሩ ይግለጹ...",
+                    formSubmitBtn: "ቅጽ ላክ",
+                    footerNewsletterTitle: "ዜና መጽሔት ይመዝገቡ",
+                    footerNewsletterPara: "የቅርብ ጊዜ መረጃዎችን እና የፓርቲ ዜናዎችን በቀጥታ ወደ ኢሜልዎ ያግኙ።",
+                    footerEmailLabelSr: "የኢሜል አድራሻዎ",
+                    footerEmailPlaceholder: "የኢሜል አድራሻዎ",
+                    footerSubscribeBtn: "ይመዝገቡ",
+                    footerSocialTitle: "ማህበራዊ ሚዲያ",
+                    footerSocialPara: "በማህበራዊ ገጾቻችን ይከተሉን፤ ይሳተፉ።",
+                    footerContactTitle: "ያግኙን",
+                    footerContactPhone: "ስልክ:",
+                    footerContactPhoneDetail: "+251-704-932-072",
+                    footerContactEmail: "ኢሜይል:",
+                    footerContactEmailDetail: "infoeudp2017@gmail.com",
+                    footerContactAddress: "አድራሻ:",
+                    footerContactAddressDetail: "አዲስ አበባ፣ የፓርቲው ዋና ጽ/ቤት",
+                    footerCopyright: `&copy; ${new Date().getFullYear()} የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ)። ሁሉም መብቶች በህግ የተጠበቁ ናቸው።`,
+                    alertSuccessMsg1: "ሰላም ",
+                    alertSuccessMsg2: "、 ቅጽዎ በተሳካ ሁኔታ ቀርቧል! በቅርቡ ምላሽ እንሰጥዎታለን። እናመሰግናለን።",
+                    alertNewsletterConfirm: "ለዜና መጽሔታችን ስለተመዘገቡ እናመሰግናለን!",
+                    alertSearchStatic: "ይቅርታ、 የፍለጋ ተግባሩ ለጊዜው አይሰራም።",
+                    alertInvalidEmail: "እባክዎ ትክክለኛ የኢሜል አድራሻ ያስገቡ።"
+                },
+                en: {
+                    metaDescription: "Official website of the Ethiopian Unity and Development Party (EUDP). Learn about our party's policies, news, membership, and more.",
+                    pageTitle: "Ethiopian Unity and Development Party - Home",
+                    logoTitle: "Ethiopian Unity and Development Party (EUDP)",
+                    langLabel: "Select Language",
+                    langAmharic: "Amharic",
+                    langEnglish: "English",
+                    searchPlaceholder: "Search",
+                    searchSrOnly: "Search the site",
+                    searchBtnSr: "Search",
+                    navHome: "Home",
+                    navPolicy: "Party Policies",
+                    navNews: "News", // Will link to news.html
+                    navMagazine: "Magazine",
+                    navMembership: "Membership",
+                    navDocuments: "Documents",
+                    navRegister: "Register",
+                    readMore: "Read More",
+                    heroIntroPara: "The Ethiopian Unity and Development Party (EUDP) works to ensure lasting peace, inclusive democracy, rapid and equitable development, and the inviolable rights and dignity of citizens in our country.",
+                    heroCtaButton: "Learn About Our Program",
+                    policyEconomic: "Economic Policy",
+                    econJobCreation: "Job Creation",
+                    econIndustrialDev: "Industrial Development",
+                    econAgriDev: "Agricultural Development",
+                    econFinance: "Finance & Banking",
+                    econInfrastructure: "Infrastructure Development",
+                    econNaturalResources: "Natural Resources & Land Use",
+                    policySocial: "Social Program",
+                    socialHealth: "Health Services",
+                    socialEducation: "Education",
+                    socialPoverty: "Poverty Eradication",
+                    socialVulnerable: "Vulnerable Groups",
+                    socialGenderEq: "Women's Rights & Participation",
+                    socialYouth: "Youth Affairs",
+                    policyOther: "Other Policies",
+                    otherPoliticalSystem: "Political System",
+                    otherHumanRights: "Human & Democratic Rights",
+                    otherSecurity: "Security Institutions",
+                    otherForeignPolicy: "Foreign Policy",
+                    otherMedia: "Media",
+                    otherEnvironment: "Environmental Protection",
+                    otherUrban: "Urban Development",
+                    otherCulture: "Culture & Tourism",
+                    otherSport: "Sport Policy",
+                    otherDialogue: "National Dialogue & Reconciliation",
+                    homeWelcomeTitle: "Welcome",
+                    coreValuesTitle: "Our Core Values",
+                    valueUnityTitle: "National Unity in Diversity",
+                    valueUnityPara: "Building a strong unity based on citizenship, respecting diversity, while preserving Ethiopia's sovereignty and territorial integrity.",
+                    valueDemocracyTitle: "Democracy and Public Participation",
+                    valueDemocracyPara: "Ensuring popular sovereignty, establishing free and fair elections, respecting freedom of expression, and guaranteeing public participation.",
+                    valueRuleOfLawTitle: "Rule of Law and Justice",
+                    valueRuleOfLawPara: "Ensuring everyone is equal before the law, upholding judicial independence, and establishing a fair justice system.",
+                    valueHumanRightsTitle: "Respect for Human Rights",
+                    valueHumanRightsPara: "Respecting, protecting, and fulfilling all human rights (civil, political, economic, social, and cultural) without discrimination.",
+                    valueSocialJusticeTitle: "Social Justice and Equality",
+                    valueSocialJusticePara: "Ensuring equitable distribution of wealth, equal access to development benefits, and accessibility of basic services.",
+                    valueTransparencyTitle: "Transparency and Accountability",
+                    valueTransparencyPara: "Building a system where government operations are transparent, free from corruption, and accountable to the public.",
+                    homeFeaturedInsightsTitle: "Featured Insights",
+                    featuredCatPolicy: "Policy Deep Dive",
+                    featuredTitleEconProsperity: "Our Plan for Economic Prosperity",
+                    featuredParaEconProsperity: "Exploring the cornerstones of our strategy to build a resilient and inclusive economy for all citizens...",
+                    featuredCatCommunity: "Community",
+                    featuredTitleGrassroots: "Grassroots Movements: The Heart of Change",
+                    featuredParaGrassroots: "How local initiatives are driving national impact and shaping our party's future.",
+                    featuredCatLeadership: "Leadership",
+                    featuredTitleLeaderMsg: "A Message From Our Leader",
+                    featuredParaLeaderMsg: "So, where does that renowned great nation stand today? How much of its children's dreams and aspirations have been realized? Why does our hope periodically dim, and our problems multiply?…",
+        newNews1Title: "EUDP Conducts Training for Central Committee Members on \"Strategic Leadership and Policy Analysis\"",
+        newNews1Snippet: "The Ethiopian Unity and Development Party (EUDP) conducted an intensive training in Adama city aimed at enhancing the strategic leadership skills and policy analysis capacity of its Central Committee members...",
+        newNews1Timestamp: "May 23", // This will be used for .news-date
+
+        newNews2Title: "EUDP Launches Telegram Channel and Facebook Page: \"We Will Strengthen Our Ties with the Public\" - The Party",
+        newNews2Snippet: "The Ethiopian Unity and Development Party (EUDP) announced the launch of new social media platforms to strengthen and expand its information exchange and communication with the public...",
+        newNews2Timestamp: "June 18",
+
+        newNews3Title: "EUDP Holds Stakeholder Discussion Forum on its \"Environmental Protection and Green Development\" Policy",
+        newNews3Snippet: "The Ethiopian Unity and Development Party (EUDP) held a discussion forum, focusing on its policy of \"Environmental Protection, Green Development, and Climate Change Resilience,\" ...",
+        newNews3Timestamp: "June 13",
+
+        homeCurrentNewsTitle: "Current News",
+        readMore: "Read More",
+                    programIntroTitle: "General View",
+                    programIntroPara: `Although our country Ethiopia is a land of long history, proud people, and bright prospects, for the past many years it has been grappling with complex political, economic, and social problems. The lack of democracy, human rights violations, weakening rule of law, economic instability, pervasive poverty, lack of social justice, and erosion of trust among peoples have significantly hampered our country's journey towards development.<br><br>The Ethiopian Unity and Development Party (EUDP) was founded on the recognition of these multifaceted problems and the commitment to contribute its part to the national effort to ensure lasting peace, inclusive democracy, rapid and equitable development, and the inviolable rights and dignity of citizens in our country. Our party was established with the belief that a strong national unity, which respects Ethiopia's diversity and is based on the equality of citizens, must be built, the rule of law must prevail, state institutions must be accountable to the public, and our country's natural and human resources must be utilized for the equitable benefit of all citizens.<br><br>This party program is a roadmap illustrating EUDP's fundamental principles, political, economic, and social policy directions, as well as our vision and detailed plans to lift our country from its current challenges and lead it towards prosperity. We have strived to enrich our program through extensive public consultation and expert studies, and we commit to making it a living document that will be periodically revised in line with our country's concrete realities and the aspirations of our people.<br><br>EUDP has a firm belief that the Ethiopian people, by standing together, collaborating, and supporting each other, can elevate their country to a higher level of civilization. We extend our call to all the people of Ethiopia to stand by our side in this historical journey to fulfill this responsibility and make change a reality.`,
+                    programVisionMissionValuesTitle: "Vision, Mission, and Core Values",
+                    visionTitle: "Vision:",
+                    visionText: "To create a prosperous democratic country in Ethiopia where the rule of law prevails, citizens live in equality and justice, national sovereignty and territorial integrity are strong, national unity is strengthened, the economy is developed with a functioning free market, social justice is widespread, and the benefit of its people is ensured through sustainable development.",
+                    missionTitle: "Mission:",
+                    missionText: "To achieve public prosperity by uniting and engaging the Ethiopian people, resolving the country's political, economic, and social problems through peaceful and democratic means, ensuring lasting peace, a democratic system, citizens' rights and freedoms, the rule of law, and inclusive and equitable development.",
+                    valuesTitle: "Core Values:",
+                    valuesListItem1: "<b>National Unity in Diversity:</b> Building a strong unity based on citizenship, respecting diversity, while preserving Ethiopia's sovereignty and territorial integrity.",
+                    valuesListItem2: "<b>Democracy and Public Participation:</b> Ensuring popular sovereignty, establishing free and fair elections, respecting freedom of expression, and guaranteeing public participation.",
+                    valuesListItem3: "<b>Rule of Law and Justice:</b> Ensuring everyone is equal before the law, upholding judicial independence, and establishing a fair justice system.",
+                    valuesListItem4: "<b>Respect for Human Rights:</b> Respecting, protecting, and fulfilling all human rights (civil, political, economic, social, and cultural) without discrimination.",
+                    valuesListItem5: "<b>Social Justice and Equality:</b> Ensuring equitable distribution of wealth, equal access to development benefits, and accessibility of basic services.",
+                    valuesListItem6: "<b>Transparency and Accountability:</b> Building a system where government operations are transparent, free from corruption, and accountable to the public.",
+                    valuesListItem7: "<b>Peace and Tolerance:</b> Fostering peace, understanding, and tolerance among different peoples.",
+                    valuesListItem8: "<b>Development and Prosperity:</b> Achieving rapid, inclusive, and sustainable development to improve the living standards of the people.",
+                    valuesListItem9: "<b>Professionalism and Knowledge-Based Leadership:</b> Guiding all work with knowledge and expertise, ensuring competence and effectiveness.",
+                    valuesListItem10: "<b>Environmental Protection and Sustainability:</b> Protecting natural resources and the environment, preventing soil erosion, expanding forest cover, and taking steps to mitigate the impacts of climate change, ensuring development that benefits future generations.",
+                    magazineSectionTitle: "Party Magazines",
+                    magazine1Title: "September-October 2017 E.C.",
+                    downloadBtn: "Download",
+                    magazine2Title: "November-December 2017 E.C.",
+                    magazine3Title: "January-February 2017 E.C.",
+                    magazine4Title: "March-April 2017 E.C.",
+                    magazine5Title: "May-June 2017 E.C.",
+                    magazine6Title: "July-August 2017 E.C.",
+                    membershipSectionTitle: "Membership",
+                    accordionReqTitle: "Membership Requirements",
+                    accordionReqPara1: "Anyone who meets the criteria listed below can become a member of the party.",
+                    accordionReqListItem1: "Must be Ethiopian;",
+                    accordionReqListItem2: "Willing to accept and implement the party's program and bylaws,",
+                    accordionReqListItem3: "Possess good ethics and be accepted within the community,",
+                    accordionReqListItem4: "Serves citizens and peoples equally, prioritizes public interest, is free from corruption and malpractice, and fights against them,",
+                    accordionReqListItem5: "Accepts the party's objectives and is committed to fulfilling assigned responsibilities,",
+                    accordionReqListItem6: "Age 18 years and above,",
+                    accordionReqListItem7: "Not a member of another political party,",
+                    accordionReqListItem8: "Right to be a member of a political party not restricted by law or divested by court decision.",
+                    accordionAboutTitle: "About Party Membership",
+                    accordionAboutPara1: "The Ethiopian Unity and Development Party (EUDP) is a political party working for justice, equality, and sustainable development. The party is founded on democratic principles and prioritizes the interests of the people and the country.",
+                    accordionAboutSubTitle1: "Benefits of Membership",
+                    accordionAboutBenListItem1: "<b>Be Part of Change:</b> By participating in the party, you contribute to bringing positive change to society.",
+                    accordionAboutBenListItem2: "<b>Freedom of Expression:</b> The party encourages its members to express their ideas freely and participate in the decision-making process.",
+                    accordionAboutBenListItem3: "<b>Political Participation:</b> Actively participate in national and community affairs and exercise your political rights.",
+                    accordionAboutBenListItem4: "<b>Leadership Opportunity:</b> Take on leadership roles to drive change for the party and society.",
+                    accordionAboutBenListItem5: "<b>Capacity Building:</b> The party organizes various trainings and capacity-building programs for its members.",
+                    accordionAboutBenListItem6: "<b>Social Networking:</b> Connect with members from diverse segments of society and build strong social ties.",
+                    accordionAboutBenListItem7: "<b>Protect Your Rights:</b> By participating in the party, you work to protect your own rights and the rights of others.",
+                    accordionAboutSubTitle2: "Membership Registration Process",
+                    accordionAboutProcListItem1: "<b>Application:</b> You can apply by appearing in person or by filling out the membership application form available on the party's website.",
+                    accordionAboutProcListItem2: "<b>Application Form:</b> Fill out the application form properly.",
+                    accordionAboutProcListItem3: "<b>Registration:</b> After the party verifies your application, you will be registered as a provisional member.",
+                    accordionAboutProcListItem4: "<b>Membership ID:</b> You will be issued a membership ID card.",
+                    documentsSectionTitle: "Party Documents",
+                    docConstitution: "Bylaws / Constitution",
+                    docProgram: "Program",
+                    docFounding: "Founding Document",
+                    docReports: "Annual Reports",
+                    docMembershipForm: "Membership Form",
+                    registerSectionTitle: "Register to Become a Member",
+                    formFullNameLabel: "Full Name",
+                    formFullNamePlaceholder: "Enter your full name",
+                    formAgeLabel: "Age",
+                    formAgePlaceholder: "Your age (18 years or older)",
+                    formGenderLabel: "Gender",
+                    formGenderOptionDefault: "Select Gender",
+                    formGenderMale: "Male",
+                    formGenderFemale: "Female",
+                    formPhoneLabel: "Phone Number",
+                    formPhonePlaceholder: "e.g., 0912345678",
+                    formEmailLabel: "Email",
+                    formEmailPlaceholder: "example@domain.com",
+                    formEducationLabel: "Education Level",
+                    formEduOptionDefault: "Select Education Level",
+                    formEduPrimary: "Primary Education",
+                    formEduSecondary: "Secondary Education",
+                    formEduDiploma: "Diploma",
+                    formEduDegree: "University Degree",
+                    formEduMasters: "Master's Degree",
+                    formEduPhd: "PhD Degree",
+                    formEduOther: "Other",
+                    formAddressLabel: "Address",
+                    formAddrRegionPlaceholder: "Region",
+                    formAddrZonePlaceholder: "Zone",
+                    formAddrCityPlaceholder: "City",
+                    formAddrWoredaPlaceholder: "Woreda",
+                    formAddrKebelePlaceholder: "Kebele",
+                    formReasonLabel: "Why do you want to become a member? (Brief explanation)",
+                    formReasonPlaceholder: "Briefly state your reason...",
+                    formSubmitBtn: "Submit Form",
+                    footerNewsletterTitle: "Subscribe to Newsletter",
+                    footerNewsletterPara: "Get the latest updates and party news directly to your email.",
+                    footerEmailLabelSr: "Your Email Address",
+                    footerEmailPlaceholder: "Your Email Address",
+                    footerSubscribeBtn: "Subscribe",
+                    footerSocialTitle: "Social Media",
+                    footerSocialPara: "Follow us and engage on our social media pages.",
+                    footerContactTitle: "Contact Us",
+                    footerContactPhone: "Phone:",
+                    footerContactPhoneDetail: "+251-704-932-072",
+                    footerContactEmail: "Email:",
+                    footerContactEmailDetail: "infoeudp2017@gmail.com",
+                    footerContactAddress: "Address:",
+                    footerContactAddressDetail: "Addis Ababa, Party Headquarters",
+                    footerCopyright: `&copy; ${new Date().getFullYear()} Ethiopian Unity and Development Party (EUDP). All rights reserved.`,
+                    alertSuccessMsg1: "Hello ",
+                    alertSuccessMsg2: ", your form has been submitted successfully! We will get back to you soon. Thank you.",
+                    alertNewsletterConfirm: "Thank you for subscribing to our newsletter!",
+                    alertSearchStatic: "Sorry, the search function is currently not active.",
+                    alertInvalidEmail: "Please enter a valid email address."
+                }
+            };
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                const navMenu = document.querySelector('.nav-menu');
+                const sections = document.querySelectorAll('.section');
+                const navLinks = document.querySelectorAll('.nav-menu .nav-link'); // Select all nav links including those in mega menu
+                const languageSelector = document.getElementById('language-select');
+                const accordionButtons = document.querySelectorAll('.accordion-btn');
+                const megaMenuParents = document.querySelectorAll('.nav-menu > li.has-megamenu');
+                const searchForm = document.getElementById('searchForm');
+                const backToTopButton = document.querySelector('.back-to-top');
+
+                function isMobile() {
+                    return window.innerWidth <= 992;
+                }
+
+                function closeAllMegaMenus() {
+                    megaMenuParents.forEach(li => {
+                        li.classList.remove('mega-menu-open');
+                        const parentLink = li.querySelector(':scope > .nav-link');
+                        if(parentLink) parentLink.setAttribute('aria-expanded', 'false');
+                        const mega = li.querySelector('.mega-menu');
+                        if (mega) {
+                            if (isMobile() || !window.matchMedia('(min-width: 993px)').matches) {
+                                mega.style.display = 'none';
+                            }
+                            mega.style.opacity = '0';
+                            mega.style.visibility = 'hidden';
+                            mega.style.transform = 'translateX(-50%) translateY(10px)';
+                            mega.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0s 0.3s';
+                        }
+                        const icon = li.querySelector('.mega-menu-icon');
+                        if (icon) icon.style.transform = 'rotate(0deg)';
+                    });
+                }
+
+                function getHeaderOffset() {
+                     const topBar = document.querySelector('.logo-topbar-container');
+                     const headerNav = document.querySelector('.header');
+                     const topBarHeight = topBar ? topBar.offsetHeight : 0;
+                     const headerNavHeight = headerNav ? headerNav.offsetHeight : 0;
+                     return topBarHeight + headerNavHeight + 30;
+                }
+
+                function applyTranslations(lang) {
+                    document.documentElement.lang = lang;
+                    document.querySelector('title').textContent = translations[lang]?.pageTitle || translations['am'].pageTitle;
+                    document.querySelectorAll('[data-translate-key]').forEach(el => {
+                        const key = el.dataset.translateKey;
+                        const translation = translations[lang]?.[key] ?? translations['am'][key];
+                        if (translation !== undefined) {
+                             if (el.tagName === 'META' && el.getAttribute('name') === 'description') {
+                                  el.setAttribute('content', translation);
+                             }
+                            else if (el.hasAttribute('placeholder')) {
+                                el.setAttribute('placeholder', translation);
+                            }
+                            else if (el.tagName === 'INPUT' && (el.type === 'button' || el.type === 'submit')) {
+                                el.value = translation;
+                            }
+                            else {
+                                 if (typeof translation === 'string' && (translation.includes('<') || translation.includes('&') || translation.includes('[Current Year]'))) {
+                                      let finalTranslation = translation.replace('[Current Year]', new Date().getFullYear());
+                                     el.innerHTML = finalTranslation;
+                                 } else {
+                                      el.textContent = translation;
+                                 }
+                            }
+                        } else {
+                             console.warn(`Missing translation key "${key}" for language "${lang}"`);
+                        }
+                    });
+                    const activeAccordions = document.querySelectorAll('.accordion-btn.active');
+                     if (activeAccordions.length > 0) {
+                        requestAnimationFrame(() => {
+                             activeAccordions.forEach(button => {
+                                const contentWrapper = button.nextElementSibling;
+                                const contentInner = contentWrapper.querySelector('.accordion-content-inner');
+                                contentWrapper.style.transition = 'none';
+                                contentWrapper.style.maxHeight = 'none';
+                                contentWrapper.style.paddingTop = '1.5rem';
+                                contentWrapper.style.paddingBottom = '1.5rem';
+                                requestAnimationFrame(() => {
+                                     const currentPaddingTop = parseFloat(getComputedStyle(contentWrapper).paddingTop);
+                                     const currentPaddingBottom = parseFloat(getComputedStyle(contentWrapper).paddingBottom);
+                                    const innerHeight = contentInner.scrollHeight;
+                                    const totalHeight = innerHeight + currentPaddingTop + currentPaddingBottom;
+                                    contentWrapper.style.maxHeight = `${totalHeight}px`;
+                                     setTimeout(() => {
+                                         contentWrapper.style.transition = 'max-height 0.4s ease-in-out, padding 0.4s ease-in-out';
+                                     }, 50);
+                                });
+                             });
+                        });
+                     }
+                }
+
+                 function scrollToElement(elementId) {
+                     const element = document.getElementById(elementId);
+                     if (element) {
+                         const headerOffset = getHeaderOffset();
+                         const targetPosition = element.getBoundingClientRect().top + window.scrollY - headerOffset;
+                         const scrollTo = targetPosition > 0 ? targetPosition : 0;
+                         window.scrollTo({ top: scrollTo, behavior: 'smooth' });
+                     } else {
+                         console.warn(`Element with id "${elementId}" not found for scrolling.`);
+                          const likelySectionId = elementId.split('-')[0];
+                          const sectionElement = document.getElementById(likelySectionId);
+                          if (sectionElement && sectionElement.classList.contains('section')) {
+                              const headerOffset = getHeaderOffset();
+                              const targetPosition = sectionElement.getBoundingClientRect().top + window.scrollY - headerOffset;
+                                const scrollTo = targetPosition > 0 ? targetPosition : 0;
+                              window.scrollTo({ top: scrollTo, behavior: 'smooth' });
+                          } else {
+                              console.error(`Neither element "${elementId}" nor a likely parent section found. Cannot scroll.`);
+                          }
+                     }
+                 }
+
+                function activateSection(targetId, scrollToAnchor = null) {
+                    let finalTargetId = targetId;
+                    let targetSectionElement = document.getElementById(targetId);
+
+                    if (!targetSectionElement || !targetSectionElement.classList.contains('section')) {
+                         console.warn(`Invalid target section ID "${targetId}". Defaulting to home.`);
+                         finalTargetId = 'home';
+                         targetSectionElement = document.getElementById(finalTargetId);
+                         scrollToAnchor = null;
+                    }
+                    if (!targetSectionElement || !targetSectionElement.classList.contains('section')) {
+                         console.error("Target section or Home section not found! Cannot activate.");
+                         return;
+                    }
+
+                    sections.forEach(section => section.classList.remove('active'));
+                    targetSectionElement.classList.add('active');
+
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            if (scrollToAnchor) {
+                                scrollToElement(scrollToAnchor);
+                            } else {
+                                scrollToElement(finalTargetId);
+                            }
+                        });
+                    });
+
+                     if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                         if(mobileMenuBtn) {
+                            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                            mobileMenuBtn.innerHTML = '☰';
+                        }
+                         closeAllMegaMenus();
+                     }
+
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    const activeLinkSelector = scrollToAnchor ?
+                        `.nav-link[href="#${scrollToAnchor}"]` : // For specific anchors
+                        `.nav-link[data-target="${finalTargetId}"]`; // For main section links
+
+                    const activeLink = document.querySelector(activeLinkSelector);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                        // If it's a mega menu child, also activate parent
+                        const parentMegaMenuLink = activeLink.closest('.mega-menu-column')?.closest('.mega-menu')?.closest('li.has-megamenu')?.querySelector(':scope > .nav-link');
+                        if (parentMegaMenuLink) {
+                            parentMegaMenuLink.classList.add('active');
+                        }
+                    } else {
+                        // Fallback: If direct anchor link not found (e.g. from hero button) activate main section link
+                        const fallbackLink = document.querySelector(`.nav-link[data-target="${finalTargetId}"]`);
+                        if (fallbackLink) fallbackLink.classList.add('active');
+                    }
+
+
+                    const hashToSet = scrollToAnchor || finalTargetId;
+                    if (window.location.hash !== `#${hashToSet}`) {
+                         history.replaceState(null, null, `#${hashToSet}`);
+                    }
+                }
+
+                navMenu.addEventListener('click', function(e) {
+                    const link = e.target.closest('a.nav-link');
+                    if (!link) return;
+
+                    const href = link.getAttribute('href');
+                    const parentLi = link.closest('li.has-megamenu');
+                    const isMegaMenuParentLink = parentLi && link === parentLi.querySelector(':scope > .nav-link');
+
+                    if (isMegaMenuParentLink && isMobile()) {
+                        e.preventDefault();
+                        const megaMenu = parentLi.querySelector('.mega-menu');
+                        const isMegaMenuOpen = parentLi.classList.contains('mega-menu-open');
+                         megaMenuParents.forEach(li => {
+                            if (li !== parentLi && li.classList.contains('mega-menu-open')) {
+                                li.classList.remove('mega-menu-open');
+                                 const otherMega = li.querySelector('.mega-menu');
+                                 if(otherMega) otherMega.style.display = 'none';
+                                 const otherIcon = li.querySelector('.mega-menu-icon');
+                                 if(otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                                 const otherParentLink = li.querySelector(':scope > .nav-link');
+                                 if(otherParentLink) otherParentLink.setAttribute('aria-expanded', 'false');
+                            }
+                        });
+                        parentLi.classList.toggle('mega-menu-open');
+                        if (megaMenu) {
+                            megaMenu.style.display = isMegaMenuOpen ? 'none' : 'flex';
+                            link.setAttribute('aria-expanded', !isMegaMenuOpen);
+                        }
+                        return;
+                    }
+
+                    if (href && href.startsWith('#')) { // SPA link within index.html
+                        e.preventDefault();
+                        const targetSectionId = link.dataset.target;
+                        const scrollToAnchorId = href.substring(1);
+                        if (targetSectionId) {
+                            activateSection(targetSectionId, scrollToAnchorId);
+                        } else {
+                             console.warn(`Nav link href "${href}" missing data-target. Cannot SPA navigate.`);
+                        }
+                    } else if (href && href === "news.html") { // Link to news.html
+                        // Allow default navigation
+                    } else if (href && href.includes("news.html#")) { // Link to news.html with hash
+                        // Allow default navigation
+                    }
+                    // External links or links to other pages will navigate normally.
+                });
+
+                 document.querySelectorAll('.main-content a[data-target], .hero-area a[data-target]').forEach(link => {
+                     link.addEventListener('click', (e) => {
+                         const href = link.getAttribute('href');
+                         if (href && href.startsWith('#')) { // SPA link within index.html
+                              e.preventDefault();
+                             const targetSectionId = link.dataset.target;
+                             const scrollToAnchorId = href.substring(1);
+                             if (targetSectionId) {
+                                activateSection(targetSectionId, scrollToAnchorId);
+                             } else {
+                                 console.warn(`Content link href "${href}" missing data-target. Cannot SPA navigate.`);
+                             }
+                         }
+                         // If not a hash link, default behavior (navigation) happens
+                     });
+                 });
+
+
+                window.addEventListener('load', () => {
+                     const savedLanguage = localStorage.getItem('preferredLanguage');
+                     if (savedLanguage && languageSelector.querySelector(`option[value="${savedLanguage}"]`)) {
+                          languageSelector.value = savedLanguage;
+                     } else {
+                          languageSelector.value = 'am';
+                     }
+                     applyTranslations(languageSelector.value);
+
+                     const initialHash = window.location.hash;
+                    if (initialHash && initialHash.length > 1) {
+                        const initialAnchorId = initialHash.substring(1);
+                        const targetElement = document.getElementById(initialAnchorId);
+                        if (targetElement) {
+                             const parentSection = targetElement.closest('.section');
+                             if (parentSection) {
+                                  activateSection(parentSection.id, initialAnchorId);
+                             } else {
+                                activateSection('home');
+                            }
+                        } else {
+                            // If anchor doesn't exist on index.html, it might be for news.html or just invalid
+                            // For index.html, default to home if specific anchor isn't found here
+                            const sectionIdFromHash = initialAnchorId.split('-')[0];
+                            const sectionElement = document.getElementById(sectionIdFromHash);
+                            if (sectionElement && sectionElement.classList.contains('section')) {
+                                activateSection(sectionIdFromHash);
+                            } else {
+                                activateSection('home');
+                            }
+                        }
+                    } else {
+                        activateSection('home');
+                    }
+                });
+
+                languageSelector.addEventListener('change', (e) => {
+                    const newLang = e.target.value;
+                    applyTranslations(newLang);
+                     localStorage.setItem('preferredLanguage', newLang);
+                     const currentHash = window.location.hash;
+                      if (currentHash && currentHash.length > 1) {
+                           const currentAnchorId = currentHash.substring(1);
+                           const targetElement = document.getElementById(currentAnchorId);
+                           if (targetElement) {
+                               const parentSection = targetElement.closest('.section');
+                               if(parentSection) {
+                                    activateSection(parentSection.id, currentAnchorId);
+                               } else {
+                                   const inferredSectionId = currentAnchorId.split('-')[0];
+                                    const inferredSectionElement = document.getElementById(inferredSectionId);
+                                    if (inferredSectionElement && inferredSectionElement.classList.contains('section')) {
+                                         activateSection(inferredSectionId, currentAnchorId);
+                                    } else {
+                                         activateSection('home');
+                                    }
+                               }
+                          } else {
+                              const sectionIdFromHash = currentHash ? currentHash.substring(1).split('-')[0] : 'home';
+                               const sectionElement = document.getElementById(sectionIdFromHash);
+                               if (sectionElement && sectionElement.classList.contains('section')) {
+                                   activateSection(sectionIdFromHash);
+                               } else {
+                                   activateSection('home');
+                               }
+                          }
+                     } else {
+                         activateSection('home');
+                     }
+                });
+
+                accordionButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const contentWrapper = button.nextElementSibling;
+                        const contentInner = contentWrapper.querySelector('.accordion-content-inner');
+                        const isActive = button.classList.toggle('active');
+                        button.setAttribute('aria-expanded', isActive);
+                        if (isActive) {
+                             const parentSection = button.closest('.section');
+                             if(parentSection){
+                                parentSection.querySelectorAll('.accordion-btn.active').forEach(openBtn => {
+                                    if(openBtn !== button){
+                                        openBtn.classList.remove('active');
+                                        openBtn.setAttribute('aria-expanded', 'false');
+                                        const openContentWrapper = openBtn.nextElementSibling;
+                                         openContentWrapper.style.transition = 'none';
+                                        openContentWrapper.style.maxHeight = '0';
+                                         openContentWrapper.style.paddingTop = '0';
+                                         openContentWrapper.style.paddingBottom = '0';
+                                         requestAnimationFrame(() => {
+                                            openContentWrapper.style.transition = 'max-height 0.4s ease-in-out, padding 0.4s ease-in-out';
+                                         });
+                                    }
+                                });
+                             }
+                             requestAnimationFrame(() => {
+                                  contentWrapper.style.paddingTop = '1.5rem';
+                                  contentWrapper.style.paddingBottom = '1.5rem';
+                                 requestAnimationFrame(() => {
+                                      const currentPaddingTop = parseFloat(getComputedStyle(contentWrapper).paddingTop);
+                                      const currentPaddingBottom = parseFloat(getComputedStyle(contentWrapper).paddingBottom);
+                                     const innerHeight = contentInner.scrollHeight;
+                                     const totalHeight = innerHeight + currentPaddingTop + currentPaddingBottom;
+                                     contentWrapper.style.maxHeight = `${totalHeight}px`;
+                                     setTimeout(() => {
+                                         contentWrapper.style.transition = 'max-height 0.4s ease-in-out, padding 0.4s ease-in-out';
+                                     }, 50);
+                                 });
+                             });
+                        } else {
+                             contentWrapper.style.maxHeight = '0';
+                             requestAnimationFrame(() => {
+                                contentWrapper.addEventListener('transitionend', function handler(event) {
+                                    if (event.propertyName === 'max-height') {
+                                         contentWrapper.style.paddingTop = '0';
+                                         contentWrapper.style.paddingBottom = '0';
+                                         contentWrapper.removeEventListener('transitionend', handler);
+                                    }
+                                }, { once: true });
+                             });
+                        }
+                    });
+                });
+
+                const registrationForm = document.getElementById('registrationForm');
+                if (registrationForm) {
+                    registrationForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const nameInput = document.getElementById('fullName');
+                        const currentLang = localStorage.getItem('preferredLanguage') || 'am';
+                        const name = nameInput && nameInput.value ? nameInput.value.trim() : '';
+                        const alertMsg1 = translations[currentLang]?.alertSuccessMsg1 || translations['am'].alertSuccessMsg1;
+                        const alertMsg2 = translations[currentLang]?.alertSuccessMsg2 || translations['am'].alertSuccessMsg2;
+                        alert(alertMsg1 + (name ? name + " " : "") + alertMsg2);
+                        e.target.reset();
+                    });
+                }
+
+                const newsletterForm = document.getElementById('newsletterForm');
+                 if(newsletterForm) {
+                    newsletterForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const emailInput = document.getElementById('newsletter-email');
+                        const email = emailInput && emailInput.value ? emailInput.value.trim() : '';
+                         const currentLang = localStorage.getItem('preferredLanguage') || 'am';
+                         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                         if (!emailPattern.test(email)) {
+                              const invalidEmailAlert = translations[currentLang]?.alertInvalidEmail || translations['am'].alertInvalidEmail;
+                             alert(invalidEmailAlert);
+                              emailInput.focus();
+                              return;
+                         }
+                         const thanksMsg = translations[currentLang]?.alertSuccessMsg1 || translations['am'].alertSuccessMsg1;
+                         const subscribeConfirm = translations[currentLang]?.alertNewsletterConfirm || translations['am'].alertNewsletterConfirm;
+                        alert(`${thanksMsg} ${email}, ${subscribeConfirm}`);
+                         e.target.reset();
+                    });
+                 }
+
+                 const searchInput = document.getElementById('site-search');
+                 if(searchForm && searchInput) {
+                    searchForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const searchTerm = searchInput.value.trim();
+                        const currentLang = localStorage.getItem('preferredLanguage') || 'am';
+                        const alertMsg = translations[currentLang]?.alertSearchStatic || translations['am'].alertSearchStatic;
+                        if (searchTerm) {
+                             alert(alertMsg);
+                        }
+                         searchInput.value = '';
+                    });
+                 }
+
+                 window.addEventListener('scroll', () => {
+                     if (window.scrollY > window.innerHeight * 0.5) {
+                         backToTopButton.classList.add('visible');
+                     } else {
+                         backToTopButton.classList.remove('visible');
+                     }
+                 });
+
+                 if(backToTopButton) {
+                    backToTopButton.addEventListener('click', () => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    });
+                 }
+
+                 document.addEventListener('click', (e) => {
+                     setTimeout(() => {
+                         if (isMobile() &&
+                             navMenu.classList.contains('active') &&
+                             !navMenu.contains(e.target) &&
+                             (!mobileMenuBtn || !mobileMenuBtn.contains(e.target)))
+                         {
+                              const clickedInsideMegaMenu = e.target.closest('.mega-menu');
+                              if (!clickedInsideMegaMenu) {
+                                 navMenu.classList.remove('active');
+                                 if(mobileMenuBtn) {
+                                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                                     mobileMenuBtn.innerHTML = '☰';
+                                 }
+                                 closeAllMegaMenus();
+                              }
+                         }
+                     }, 50);
+                 });
+
+                 window.addEventListener('resize', () => {
+                      setTimeout(() => {
+                         if (!isMobile() && navMenu.classList.contains('active')) {
+                             navMenu.classList.remove('active');
+                              if(mobileMenuBtn) {
+                                  mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                                  mobileMenuBtn.innerHTML = '☰';
+                              }
+                             closeAllMegaMenus();
+                         }
+                          megaMenuParents.forEach(li => {
+                              const mega = li.querySelector('.mega-menu');
+                              if (mega) {
+                                  if (isMobile()) {
+                                       if (!li.classList.contains('mega-menu-open')) {
+                                            mega.style.display = 'none';
+                                       } else {
+                                           mega.style.display = 'flex';
+                                       }
+                                       mega.style.transition = '';
+                                       mega.style.opacity = '1';
+                                       mega.style.visibility = 'visible';
+                                       mega.style.transform = 'none';
+                                  } else {
+                                      mega.style.display = '';
+                                       mega.style.opacity = '0';
+                                       mega.style.visibility = 'hidden';
+                                       mega.style.transform = 'translateX(-50%) translateY(10px)';
+                                      mega.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0s 0.3s';
+                                  }
+                              }
+                          });
+                          const activeAccordions = document.querySelectorAll('.accordion-btn.active');
+                         if (activeAccordions.length > 0) {
+                             activeAccordions.forEach(button => {
+                                const contentWrapper = button.nextElementSibling;
+                                 const contentInner = contentWrapper.querySelector('.accordion-content-inner');
+                                 contentWrapper.style.transition = 'none';
+                                 contentWrapper.style.maxHeight = 'none';
+                                 if (window.innerWidth <= 992) {
+                                     contentWrapper.style.paddingTop = '1.2rem';
+                                     contentWrapper.style.paddingBottom = '1.2rem';
+                                 } else {
+                                      contentWrapper.style.paddingTop = '1.5rem';
+                                     contentWrapper.style.paddingBottom = '1.5rem';
+                                 }
+                                 requestAnimationFrame(() => {
+                                     const currentPaddingTop = parseFloat(getComputedStyle(contentWrapper).paddingTop);
+                                     const currentPaddingBottom = parseFloat(getComputedStyle(contentWrapper).paddingBottom);
+                                     const innerHeight = contentInner.scrollHeight;
+                                     const totalHeight = innerHeight + currentPaddingTop + currentPaddingBottom;
+                                     contentWrapper.style.maxHeight = `${totalHeight}px`;
+                                      setTimeout(() => {
+                                           contentWrapper.style.transition = 'max-height 0.4s ease-in-out, padding 0.4s ease-in-out';
+                                      }, 50);
+                                 });
+                             });
+                         }
+                      }, 100);
+                 });
+
+                    if (mobileMenuBtn) {
+                        mobileMenuBtn.addEventListener('click', () => {
+                            const isOpen = navMenu.classList.toggle('active');
+                            mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+                             mobileMenuBtn.innerHTML = isOpen ? '×' : '☰';
+                             if (!isOpen) {
+                                 closeAllMegaMenus();
+                             }
+                        });
+                    }
+            });
+        </script>
+    </body>
+</html>

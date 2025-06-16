@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="am"> <!-- Default language set to Amharic -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" data-translate-key="metaDescriptionNews" content="የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) የቅርብ ጊዜ ዜናዎች እና መግለጫዎች።">
+    <title data-translate-key="pageTitleNews">ዜናዎች - የኢትዮጵያ አንድነት እና ልማት ፓርቲ</title>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables for Brand Colors & Design Elements */
+       :root {
+            --primary-color: #2A5C82;
+            --secondary-color: #4CAF50;
+            --accent-color: #FFD700;
+            --dark-text: #333333;
+            --light-text: #FFFFFF;
+            --bg-light: #f8fafc;
+            --bg-soft: #E0F2FE;
+            --border-color: #ccc;
+            --theme-color-teal: #17a2b8;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Abyssinica SIL', 'Roboto', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-text);
+            background: var(--bg-light);
+            font-size: 16px;
+            padding-top: 150px;
+        }
+        @media (max-width: 992px) { body { padding-top: 185px; } }
+        @media (max-width: 480px) { body { padding-top: 200px; } }
+
+        input, button, select, textarea { font-family: inherit; font-size: 1rem; }
+        a { text-decoration: none; color: var(--primary-color); transition: var(--transition); }
+        a:hover { color: var(--secondary-color); text-decoration: none !important; }
+
+        .main-content a:not(.nav-link):not(.news-title-link):not(.read-more-btn):not(.magazine-content a):not(.document-list li a):not(.social-share-icons a):not(.related-links-block li a):not(.article-body-main a):not(.back-to-news-list-btn):not(.other-news-link):hover,
+        .footer a:not(.social-icons a):hover { text-decoration: underline !important; }
+
+        .nav-link:hover, .read-more-btn:hover, .submit-btn:hover,
+        .accordion-btn:hover, .document-list li a:hover,
+        .magazine-content a:hover, .hero-cta-btn:hover,
+        .social-icons a:hover, .news-title-link:hover, .back-to-news-list-btn:hover,
+        .template-read-more:hover, .social-share-icons a:hover,
+        .related-links-block li a:hover, .article-body-main a:hover, .other-news-link:hover
+         { text-decoration: none !important; }
+
+        img { max-width: 100%; height: auto; display: block; }
+        .news-image-placeholder {
+            background-color: #e0e0e0; border: 1px dashed #ccc; padding: 2rem; text-align: center;
+            color: #777; font-style: italic; min-height: 150px; display: flex;
+            align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; max-width: 600px;
+        }
+        .accordion-btn, .back-to-top, .submit-btn,
+        .search-bar button, .simplenews-subscriber-form button, .back-to-news-list-btn,
+        .press-center-button, .other-news-link { cursor: pointer; }
+
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+        .logo-topbar-container {
+            background-color: var(--bg-soft); display: flex; align-items: center; justify-content: space-between;
+            padding: 0.5rem 1.5rem; color: var(--primary-color); border-bottom: 3px solid var(--secondary-color);
+            position: fixed; width: 100%; top: 0; left: 0; z-index: 1000; box-shadow: var(--shadow-md); min-height: 95px;
+        }
+        .logo-container { display: flex; align-items: center; gap: 1rem; }
+        .logo-container h2 { color: var(--primary-color); font-size: 1.5rem; margin: 0; }
+        .logo-container img { width: 80px; height: 80px; transition: transform 0.3s ease; border-radius: 50%; box-shadow: var(--shadow-sm); object-fit: cover; }
+        .logo-container img:hover { transform: scale(1.05); }
+        .top-bar { display: flex; align-items: center; gap: 1.5rem; }
+        .language-select { display: flex; align-items: center; gap: 0.5rem; }
+        .language-select label i { font-size: 1.2rem; color: var(--primary-color); }
+        .language-select select {
+            background: var(--bg-light); color: var(--primary-color); border: 1px solid var(--primary-color);
+            padding: 0.35rem 1.75rem 0.35rem 0.75rem; border-radius: var(--radius-md);
+            -webkit-appearance: none; -moz-appearance: none; appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%232A5C82%22%3E%3Cpath%20d%3D%22M9.293%2012.95l.707.707L15.657%208l-1.414-1.414L10%2010.828%205.757%206.586%204.343%208z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat; background-position: right 0.5rem center; background-size: 1em auto; cursor: pointer;
+        }
+        .language-select select:hover { border-color: var(--secondary-color); }
+        .search-bar { display: flex; }
+        .search-bar input[type="search"] {
+            background: var(--bg-light); border: 1px solid var(--primary-color); color: var(--dark-text);
+            padding: 0.5rem 1rem; border-radius: var(--radius-md) 0 0 var(--radius-md); width: 220px; transition: var(--transition);
+        }
+        .search-bar input[type="search"]::placeholder { color: var(--dark-text); opacity: 0.7; }
+        .search-bar input[type="search"]:focus { border-color: var(--secondary-color); box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25); outline: none; }
+        .search-bar button {
+            background:var(--secondary-color); color: var(--dark-text); padding: 0.5rem 1rem;
+            border: 1px solid var(--secondary-color); border-left: none; border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            cursor: pointer; transition: var(--transition);
+        }
+        .search-bar button:hover { background: #e6c300; border-color: #e6c300; }
+
+        .header {
+            background-color: var(--primary-color); box-shadow: var(--shadow-sm); position: fixed;
+            width: 100%; top: 95px; left: 0; z-index: 999; min-height: 50px;
+        }
+        @media (max-width: 992px) { .header { top: 135px; } }
+        @media (max-width: 480px) { .header { top: 150px; } }
+
+        .nav { display: flex; align-items: center; padding: 0 1.5rem; height: 100%; }
+        .nav-menu { list-style: none; display: flex; gap: 1.8rem; align-items: center; width: 100%; justify-content: center; height: 100%;}
+        .nav-menu li { position: relative; display: flex; align-items: center; height:100%;}
+        .nav-link {
+            display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 0; color: var(--light-text);
+            font-weight: 500; transition: var(--transition); position: relative; white-space: nowrap; height: 100%;
+        }
+        .nav-link i { font-size: 1rem; }
+        .mega-menu-icon { font-size: 0.8em !important; margin-left: 0.3em; transition: transform 0.3s ease; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-color); }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 3px;
+            background-color: var(--accent-color); transform: scaleX(0);
+            transition: transform 0.3s ease, background-color 0.3s ease; border-radius: 1px;
+        }
+        .nav-link:hover::after { transform: scaleX(1); background-color: var(--secondary-color); }
+        .nav-link.active::after { transform: scaleX(1); background-color: var(--accent-color); }
+
+        .mega-menu {
+            display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            background-color: #fff; padding: 1.5rem; width: auto; min-width: 700px; box-shadow: var(--shadow-lg);
+            z-index: 101; border-radius: 0 0 var(--radius-md) var(--radius-md); border-top: 3px solid var(--accent-color);
+            opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(10px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0s 0.3s;
+        }
+        .nav-menu li:hover .mega-menu {
+            display: flex; opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0s 0s;
+        }
+        .mega-menu-content { display: flex; gap: 2rem; width: 100%; }
+        .mega-menu-column { flex: 1; min-width: 210px; }
+        .mega-menu-column h3 {
+            margin-bottom: 1rem; color: var(--primary-color); font-size: 1.1rem; padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color); display: flex; align-items: center;
+        }
+        .mega-menu-column h3 i { margin-right: 0.6em; color: var(--primary-color); }
+        .mega-menu-column ul { list-style: none; padding: 0; }
+        .mega-menu-column li { margin-bottom: 0.5rem; height: auto !important; }
+        .mega-menu-column a.nav-link {
+            color: var(--dark-text); text-decoration: none; display: flex; align-items: center;
+            padding: 0.6rem 0.85rem; border-radius: var(--radius-sm); font-size: 0.95rem; transition: var(--transition);
+            font-weight: normal; justify-content: flex-start; gap: 0.6em; white-space: normal; height: auto !important;
+        }
+        .mega-menu-column a.nav-link::after, .mega-menu-column a.nav-link:hover::after,
+        .mega-menu-column a.nav-link.active::after { display: none !important; }
+        .mega-menu-column a.nav-link i { margin-right: 0.6em; color: var(--secondary-color); transition: var(--transition); width: 1.2em; text-align: center; font-size: 1em;}
+        .mega-menu-column a.nav-link:hover { background-color: var(--bg-soft); color: var(--primary-color); }
+        .mega-menu-column a.nav-link:hover i { color: var(--primary-color); }
+        .mega-menu-column a.nav-link.active { background-color: var(--bg-soft); color: var(--primary-color); font-weight: 500; }
+        .mega-menu-column a.nav-link.active i { color: var(--primary-color); }
+
+        .mobile-menu-btn {
+            display: none; background: none; border: none; color: var(--light-text); font-size: 1.8rem;
+            cursor: pointer; padding: 0.5rem; position: absolute; right: 1.5rem; top: 50%;
+            transform: translateY(-50%); z-index: 1001; line-height: 1;
+        }
+        @media (max-width: 992px) { .mobile-menu-btn { display: block; } }
+
+        @media (max-width: 992px) {
+            .logo-topbar-container { flex-direction: column; padding: 1rem; align-items: flex-start; min-height: auto; }
+            .logo-container { margin-bottom: 1rem; } .logo-container h2 { font-size: 1.3rem; } .logo-container img { width: 60px; height: 60px; }
+            .top-bar { width: 100%; justify-content: space-between; gap: 1rem; } .search-bar input[type="search"] { width: auto; flex-grow: 1; }
+            .nav { position: static; display: block; padding: 0; height: auto; }
+            .nav-menu {
+                flex-direction: column; text-align: left; background-color: var(--primary-color); position: absolute; top: 100%; left: 0; width: 100%; box-shadow: var(--shadow-lg);
+                display: none; padding: 1rem 0; z-index: 997; max-height: calc(100vh - 185px); overflow-y: auto; align-items: flex-start; justify-content: flex-start; height: auto;
+            }
+            .nav-menu.active { display: flex; } .nav-menu li { width: 100%; position: static; height: auto; }
+            .nav-link { padding: 1rem 1.5rem; justify-content: flex-start; border-bottom: 1px solid rgba(255,255,255,0.1); white-space: normal; height: auto; }
+            .nav-menu li:last-child .nav-link { border-bottom: none; } .nav-link::after, .nav-link:hover::after, .nav-link.active::after { display: none !important; }
+            .nav-link.active { background-color: rgba(255,255,255,0.1); color: var(--accent-color); }
+            .mega-menu-icon { margin-left: auto; transform: rotate(0deg); } .nav-menu li.has-megamenu.mega-menu-open > .nav-link .mega-menu-icon { transform: rotate(180deg); }
+            .mega-menu {
+                position: static; width: auto; left: auto; transform: none; padding: 0 1.5rem 1rem 1.5rem; border-radius: 0; box-shadow: none; margin-top: 0; display: none; visibility: visible;
+                opacity: 1; pointer-events: auto; background-color: rgba(0, 0, 0, 0.15); color: var(--light-text); border-top: none;
+            }
+            .mega-menu-content { flex-direction: column; gap: 0; } .mega-menu-column { margin-bottom: 1rem; } .mega-menu-column:last-child { margin-bottom: 0; }
+            .mega-menu-column h3 { font-size: 1rem; border-bottom: 1px solid var(--secondary-color); padding-bottom: 0.5rem; margin-bottom: 0.5rem; color: var(--accent-color); display: flex; align-items: center; gap: 0.5em; }
+            .mega-menu-column h3 i { color: var(--secondary-color); margin-right: 0; } .mega-menu-column ul { padding-top: 0.5rem; } .mega-menu-column ul li { margin-bottom: 0; }
+            .mega-menu-column ul li a.nav-link { color: rgba(248, 250, 252, 0.9); justify-content: flex-start; padding: 0.8rem 1rem; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); gap: 0.8em; }
+            .mega-menu-column ul li:last-child a.nav-link { border-bottom: none; } .mega-menu-column ul li a.nav-link:hover { color: var(--secondary-color); background-color: rgba(0,0,0,0.1); }
+            .mega-menu-column ul li a.nav-link i { margin-right: 0.8em; color: var(--secondary-color); } .mega-menu-column ul li a.nav-link.active { color: var(--secondary-color); background-color: rgba(0,0,0,0.15); }
+            .mega-menu-column ul li a.nav-link.active i { color: var(--secondary-color); } .nav-menu li.has-megamenu.mega-menu-open > .nav-link { color: var(--accent-color); background-color: rgba(255,255,255,0.15); border-bottom: 1px solid rgba(255,255,255,0.2); }
+        }
+        @media (max-width: 480px) { .nav-menu { max-height: calc(100vh - 200px); } }
+
+        .main-content { padding-top: 0; }
+
+        .section { padding: 2rem 0 3rem 0; opacity: 1; display: block; }
+        .section-title-news-list {
+            font-size: 2.2rem; color: var(--primary-color); margin-bottom: 2.5rem; text-align: center;
+            position: relative; padding-bottom: 1rem; display: block;
+        }
+        .section-title-news-list::after {
+            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 100px; height: 4px; background-color: var(--secondary-color); border-radius: 2px;
+        }
+
+        .news-summary-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .news-summary-item {
+            border: 1px solid var(--border-color); border-left: 5px solid var(--secondary-color); border-radius: var(--radius-md); overflow: hidden; background-color: white;
+            box-shadow: var(--shadow-sm); transition: var(--transition); display: flex; flex-direction: column; padding: 1rem;
+        }
+        .news-summary-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--primary-color); }
+        .news-summary-item a.news-title-link { display: flex; flex-direction: column; gap: 0.8rem; color: var(--dark-text); width: 100%; text-decoration: none; }
+        .news-summary-item a.news-title-link:hover .news-summary-title { color: var(--primary-color); text-decoration: underline; }
+        .news-date-calendar { /* For summary items and full article view */
+            flex-shrink: 0; width: auto; width: 75px; border-radius: var(--radius-sm); overflow: hidden;
+            box-shadow: var(--shadow-md); display: flex; flex-direction: column; align-self: flex-start; margin-bottom: 0.8rem;
+        }
+        .news-date-calendar .day {
+            background-color: white; color: var(--dark-text); font-size: 1.5rem; font-weight: 700;
+            line-height: 1.1; padding: 0.4em 0; text-align: center; border: 2px solid white; box-sizing: border-box; width: 100%;
+        }
+        .news-date-calendar .month {
+            background-color: var(--theme-color-teal); color: white; font-size: 0.9rem; font-weight: 600;
+            line-height: 1.1; padding: 0.3em 0; text-align: center; width: 100%; text-transform: none;
+        }
+        .news-date-calendar .year { display: none; }
+        .news-summary-content { flex-grow: 1; display: flex; flex-direction: column; }
+        .news-summary-content .news-summary-title {
+            font-size: 1.15rem; font-weight: 700; color:  #2A5C82; margin: 0 0 0.35rem 0;
+            line-height: 1.3; border: none; padding: 0; text-align: left;
+        }
+        .news-summary-content .news-summary-title::after { display: none; }
+        .news-summary-snippet {
+               font-size: 0.9rem; color: #555; margin-bottom: 0.5rem; line-height: 1.5;
+               display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;
+          }
+        .news-timestamp { font-size: 0.8rem; color: #777; margin-top: auto; align-self: flex-start; }
+
+        .news-articles-container { margin-top: 0; display: none; }
+        .news-article {
+            background-color: var(--bg-light); border-radius: var(--radius-md); padding: 0;
+            margin-bottom: 2.5rem; box-shadow: var(--shadow-sm); display: none;
+        }
+        .news-article.active-article { display: block; } .news-article:last-child { margin-bottom: 0; }
+
+        .news-layout-container { display: flex; flex-direction: row; align-items: flex-start; gap: 2.5rem; padding: 1.5rem; }
+        .news-sidebar { flex: 0 0 280px; font-family: 'Roboto', 'Abyssinica SIL', sans-serif; }
+        .news-sidebar-block {
+            background-color: #f0f4f8; padding: 1.25rem; margin-bottom: 1.5rem;
+            border: 1px solid #dde4e9; border-radius: var(--radius-sm);
+        }
+        .news-sidebar-block:last-child { margin-bottom: 0; }
+        .sidebar-title {
+            font-size: 1.1rem; color: var(--primary-color); margin-top: 0; margin-bottom: 1rem; font-weight: bold;
+            text-transform: none; padding-bottom: 0.5rem; border-bottom: 2px solid var(--secondary-color);
+        }
+        .press-center-button {
+            background-color: var(--primary-color); color: var(--light-text); border: 1px solid var(--primary-color);
+            padding: 0.75rem 1rem; text-align: left; width: 100%; border-radius: var(--radius-sm);
+            font-weight: 500; transition: background-color 0.3s ease, border-color 0.3s ease; font-size: 0.9rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .press-center-button:hover { background-color: var(--secondary-color); border-color: var(--secondary-color); }
+        .related-links-block ul, .other-news-block ul { list-style: none; padding: 0; margin: 0; }
+        .related-links-block li a, .other-news-block li .other-news-link {
+            color: var(--dark-text); text-decoration: none; display: block; padding: 0.5rem 0;
+            font-weight: normal; font-size: 0.95rem; transition: color 0.3s ease; line-height: 1.4;
+        }
+        .related-links-block li a i, .other-news-block li .other-news-link i {
+            margin-right: 0.6em; color: var(--secondary-color); font-size: 0.85em;  margin-top: 0.15em; /* Align icon */
+        }
+        .related-links-block li a:hover, .other-news-block li .other-news-link:hover { color: var(--primary-color); }
+        .related-links-block li a:hover i, .other-news-block li .other-news-link:hover i { color: var(--primary-color); }
+        .other-news-block li { margin-bottom: 0.75rem; }
+        .other-news-block li:last-child { margin-bottom: 0; }
+        .other-news-block li .other-news-link {
+            display: flex; align-items: flex-start; font-weight: 500;
+        }
+        .other-news-block li .other-news-link span {
+             display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+             overflow: hidden; text-overflow: ellipsis;
+        }
+        .other-news-block li .other-news-link:hover span{ text-decoration: underline !important; }
+        .press-center-block p { font-size: 0.9rem; color: #555; margin-bottom: 1rem; line-height: 1.6; }
+
+        .news-main-content-area {
+            flex-grow: 1; background-color: var(--light-text); padding: 1.5rem;
+            border: 1px solid var(--border-color); border-radius: var(--radius-md);            border-left: 5px solid var(--secondary-color);
+            font-family: 'Abyssinica SIL', 'Roboto', sans-serif;
+        }
+        .social-share-icons {
+            display: flex; gap: 0.75rem; margin-bottom: 1.5rem; padding-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        .social-share-icons a {
+            color: white; background-color: var(--primary-color); font-size: 1.2rem;
+            border: 0px solid var(--primary-color); border-radius: 50%; display: inline-flex;
+            align-items: center; justify-content: center; width: 40px; height: 40px;
+            text-decoration: none; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        .social-share-icons a:hover { background-color: var(--primary-color); color: var(--light-text); border-color: var(--primary-color); }
+
+        .article-header { display: flex; align-items: flex-start; gap: 1.2rem; margin-bottom: 1.5rem; }
+        .article-header .news-date-calendar { /* Calendar specific to full article */
+            flex-shrink: 0; width: 75px; height: 90px; border-radius: var(--radius-sm);
+            overflow: hidden; box-shadow: var(--shadow-md); display: flex; flex-direction: column;
+            background-color: var(--bg-light); border: 2px solid white);
+        }
+        .article-header .news-date-calendar .day {
+            background-color: white; color: black; font-size: 2rem; font-weight: 700;
+            line-height: 1; padding: 0.5em 0; text-align: center; flex-grow: 1;
+            display: flex; align-items: center; justify-content: center; border: none;
+        }
+        .article-header .news-date-calendar .month {
+            background-color:var(--theme-color-teal); color: white; font-size: 0.85rem; font-weight: 600;
+            line-height: 1; padding: 0.5em 0; text-align: center; text-transform: uppercase;
+        }
+        .article-title-block { flex-grow: 1; padding-top: 0.3rem; }
+        .article-title-main {
+            font-size: 1.8rem; color: var(--primary-color); margin-top: 0; margin-bottom: 0.3rem;
+            font-weight: 700; line-height: 1.3; font-family: 'Abyssinica SIL', 'Roboto', sans-serif;
+        }
+        .article-date { font-size: 0.9rem; color: orange; margin-bottom: 0; font-style: italic; font-family: 'Abyssinica SIL', 'Roboto', sans-serif; }
+        .article-body-main p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--dark-text); }
+        .article-body-main p:last-child { margin-bottom: 0; }
+        .article-body-main ul { margin: 1.5rem 0; padding-left: 2rem; list-style: disc; color: var(--dark-text); }
+        .article-body-main ul li { margin-bottom: 0.75rem; line-height: 1.6; } .article-body-main ul li b { color: var(--primary-color); }
+        .article-body-main a { color: var(--secondary-color); text-decoration: underline; font-weight: normal; }
+        .article-body-main a:hover { color: var(--primary-color); text-decoration: none !important; }
+        .article-body-main p a[href^="https://www.cell.com/current-biology/"], .article-body-main p a[href^="https://www.facebook.com/"] { color: var(--primary-color); font-weight: bold; text-decoration: underline; }
+        .article-body-main p a[href^="https://www.cell.com/current-biology/"]:hover, .article-body-main p a[href^="https://www.facebook.com/"]:hover { color: var(--secondary-color); text-decoration: none !important; }
+        .article-body-main video { display: block; max-width: 100%; height: auto; margin: 2.5rem auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md); background-color: #000; }
+
+        .back-to-news-list-btn {
+             display: none; align-items: center; gap: 0.5rem; margin-bottom: 2.5rem;
+             color: var(--primary-color); font-weight: 500; cursor: pointer; transition: var(--transition);
+             background: var(--bg-soft); border: 1px solid var(--primary-color); padding: 0.6rem 1rem; font-size: 1.05rem;
+             border-radius: var(--radius-sm);
+         }
+        .back-to-news-list-btn i { transition: transform 0.3s ease; font-size: 1em; }
+        .back-to-news-list-btn:hover { color: var(--light-text); background-color: var(--secondary-color); border-color: var(--secondary-color); }
+        .back-to-news-list-btn:hover i { transform: translateX(-5px); color: var(--light-text); }
+
+        @media (max-width: 992px) {
+            .section { padding: 1.5rem 0 2rem 0; }
+            .section-title-news-list { font-size: 1.8rem; margin-bottom: 2rem; padding-bottom: 0.8rem; }
+            .section-title-news-list::after { width: 80px; height: 3px; }
+            .news-summary-list { margin-top: 0; grid-template-columns: 1fr; }
+            .news-summary-item { margin-bottom: 1.5rem; padding: 1rem;}
+            .news-summary-item .news-date-calendar { max-width: 60px; margin-bottom: 0.6rem; }
+            .news-summary-item .news-date-calendar .day { font-size: 1.3rem; } .news-summary-item .news-date-calendar .month { font-size: 0.8rem; }
+            .news-summary-content .news-summary-title { font-size: 1.1rem; } .news-summary-snippet { font-size: 0.85rem; -webkit-line-clamp: 2; }
+            .news-articles-container { margin-top: 2rem; }
+            .news-layout-container { flex-direction: column; padding: 1rem; gap: 1.5rem; }
+            .news-sidebar { flex: 0 0 auto; width: 100%; margin-bottom: 0; }
+            .news-main-content-area { padding: 1rem; }
+            .article-header .news-date-calendar { max-width: 65px; height: 65px;}
+            .article-header .news-date-calendar .day { font-size: 1.7rem; } .article-header .news-date-calendar .month { font-size: 0.8rem; }
+            .article-title-main { font-size: 1.5rem; } .article-date { font-size: 0.85rem; }
+            .article-body-main p { font-size: 1rem; }
+        }
+        @media (max-width: 768px) {
+            #news.section { padding-top: 1.5rem; } .section-title-news-list { font-size: 1.6rem; margin-bottom: 1.5rem; }
+            .news-summary-list { grid-template-columns: 1fr; gap: 1.5rem; } .news-summary-item { padding: 0.8rem; }
+            .news-summary-item .news-date-calendar {
+                flex-direction: row; align-items: baseline; gap: 5px; border: 1px solid var(--primary-color); background-color: var(--bg-soft);
+                box-shadow: var(--shadow-sm); padding: 0.4rem 0.6rem; width: auto; max-width: none; margin-bottom: 0.5rem;
+            }
+            .news-summary-item .news-date-calendar .day, .news-summary-item .news-date-calendar .month {
+                background-color: transparent; border: none; color: var(--primary-color); width: auto; padding: 0; display: inline; line-height: 1;
+            }
+            .news-summary-item .news-date-calendar .day { font-size: 1.2rem; font-weight: bold; } .news-summary-item .news-date-calendar .month { font-size: 0.9rem; text-transform: uppercase; margin: 0 0 0 3px; }
+            .news-summary-content .news-summary-title { font-size: 1rem; margin-top: 0.2rem; margin-bottom: 0.2rem; text-align: left;}
+            .news-summary-snippet { font-size: 0.8rem; line-height: 1.4; margin-top: 0.4rem; -webkit-line-clamp: 3; }
+            .news-article { margin-bottom: 1.5rem; } .news-layout-container { padding: 0.8rem; gap: 1rem; }
+            .news-sidebar-block { padding: 1rem; } .sidebar-title { font-size: 1rem; }
+            .news-main-content-area { padding: 0.8rem; }
+            .social-share-icons { gap: 0.5rem; margin-bottom: 1rem; padding-bottom: 0.8rem;}
+            .social-share-icons a { width: 32px; height: 32px; font-size: 0.9rem;}
+            .article-header { flex-direction: column; align-items: flex-start; text-align: left; gap: 0.8rem; }
+            .article-header .news-date-calendar { margin-bottom: 0.8rem; width: 60px; height: 60px; }
+            .article-title-main { font-size: 1.3rem; } .article-date { font-size: 0.8rem; }
+            .article-body-main p { font-size: 0.9rem; line-height: 1.7; } .article-body-main ul { margin: 1rem 0; padding-left: 1.2rem; }
+            .article-body-main ul li { margin-bottom: 0.5rem; font-size: 0.9rem; } .article-body-main video { margin: 1.5rem auto; }
+            .back-to-news-list-btn { margin-bottom: 1.5rem; font-size: 0.9rem; padding: 0.5rem 0.8rem; }
+        }
+
+        .footer {
+            background-color: var(--dark-text); color: var(--bg-light); padding: 4rem 0; font-size: 0.95rem;
+        }
+        .footer .container .row { display: flex; flex-wrap: wrap; gap: 3rem; justify-content: space-between; }
+        .footer .col { flex: 1 1 280px; min-width: 250px; } .footer .col.contact-col { flex: 1 1 200px; }
+        .footer h2 { color: var(--accent-color); font-size: 1.5rem; margin-bottom: 1.8rem; position: relative; padding-bottom: 0.6rem; }
+        .footer h2::after { content: ''; position: absolute; bottom: 0; left: 0; width: 70px; height: 3px; background-color: var(--secondary-color); border-radius: 1.5px; }
+        .footer p { margin-bottom: 1.2rem; color: rgba(248, 250, 252, 0.8); line-height: 1.7; }
+        .simplenews-subscriber-form { display: flex; gap: 0.5rem; margin-top: 1.8rem; flex-wrap: wrap; }
+        .simplenews-subscriber-form input[type="email"] { flex-grow: 1; padding: 0.85rem 1rem; border: 1px solid #555; border-radius: var(--radius-sm); background-color: #444; color: var(--light-text); }
+        .simplenews-subscriber-form input[type="email"]::placeholder { color: rgba(248, 250, 252, 0.5); }
+        .simplenews-subscriber-form button { padding: 0.85rem 1.8rem; background-color: orange; color: var(--light-text); border: none; border-radius: var(--radius-sm); cursor: pointer; transition: var(--transition); font-weight: bold; }
+        .simplenews-subscriber-form button:hover { background-color: var(--primary-color); }
+        .social-icons { list-style: none; display: flex; gap: 1.2rem; margin-top: 1.8rem; padding: 0; }
+        .social-icons li { display: inline-block; }
+        .social-icons a { display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 100%; background-color: #2A5C82; color: var(--light-text); font-size: 1.4rem; transition: var(--transition); }
+        .social-icons a:hover { background-color: var(--secondary-color); color: var(--light-text); transform: translateY(-5px); }
+        .contact ul { list-style: none; padding-left: 0; margin-top: 1.8rem; }
+        .contact ul li { margin-bottom: 1.2rem; display: flex; align-items: flex-start; gap: 0.8rem; }
+        .contact ul li:last-child { margin-bottom: 0; }
+        .contact ul li i { color: var(--secondary-color); font-size: 1.3rem; margin-top: 5px; }
+        .contact ul li p { margin: 0; color: rgba(248, 250, 252, 0.8); } .contact ul li strong { color: var(--accent-color); }
+        .contact ul li a { color: rgba(248, 250, 252, 0.8); text-decoration: underline; }
+        .contact ul li a:hover { color: var(--secondary-color); }
+        .footer-copyright { text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #555; font-size: 0.9rem; color: rgba(248, 250, 252, 0.6); }
+        .back-to-top {
+            position: fixed; bottom: 20px; right: 20px; background-color: none; color: var(--dark-text);
+            width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1rem; box-shadow: var(--shadow-md); transition: opacity 0.3s ease, visibility 0.3s ease;
+            opacity: 0; visibility: hidden; z-index: 900; cursor: pointer; border: none;
+        }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover { background-color: #e6c300; transform: translateY(-2px); }
+
+    </style>
+</head>
+<body>
+    <!-- Combined Logo and Top Bar -->
+    <div class="logo-topbar-container">
+        <div class="logo-container">
+            <img src="2025-05-17 18.49.47.jpg" alt="የኢትዮጵያ አንድነት እና ልማት ፓርቲ አርማ">
+            <h2 data-translate-key="logoTitle">የኢትዮጵያ አንድነት እና ልማት ፓርቲ</h2>
+        </div>
+        <div class="top-bar">
+            <div class="language-select">
+                <label for="language-select" class="sr-only" data-translate-key="langLabel">ቋንቋ ይምረጡ</label>
+                <i class="fas fa-language" aria-hidden="true"></i>
+                <select id="language-select" aria-label="Select Language">
+                    <option value="am" data-translate-key="langAmharic">አማርኛ</option>
+                    <option value="en" data-translate-key="langEnglish">English</option>
+                </select>
+            </div>
+            <form class="search-bar" role="search" id="searchForm">
+                <label for="site-search" class="sr-only" data-translate-key="searchSrOnly">Search the site</label>
+                <input type="search" id="site-search" data-translate-key="searchPlaceholder" placeholder="Search/ፈልግ" aria-label="Search" />
+                <button type="submit" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i><span class="sr-only" data-translate-key="searchBtnSr">ፈልግ</span></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Header and Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link" data-target="home"><i class="fas fa-home"></i><span data-translate-key="navHome">መነሻ</span></a></li>
+                <li class="has-megamenu">
+                    <a href="#" class="nav-link has-megamenu" data-target=“#”><i class="fas fa-landmark"></i><span data-translate-key="navPolicy">የፓርቲው ፖሊሲዎች</span></a>
+                    <div class="mega-menu" role="region" aria-label="Party Policies Sub-menu">
+                        <div class="mega-menu-content">
+                            <!-- Economic Policy Column -->
+                            <div class="mega-menu-column">
+<h3><i class="fas fa-chart-line"></i><span data-translate-key="policyEconomic">የኢኮኖሚ ፖሊሲ</span></h3>
+                                <ul>
+                                    <!-- Links pointing to specific sections/anchors within the program content -->
+                                    <!-- data-target="program-section" tells JS to activate this section first -->
+                                    <li><a href="policy-job-creation.html" class="nav-link" data-target="policy-job-creation.html"><i class="fas fa-briefcase" aria-hidden="true"></i><span data-translate-key="econJobCreation">የስራ እድል ፈጠራ</span></a></li>
+                                    <li><a href="policy-industrial-dev.html" class="nav-link" data-target="policy-industrial-dev.html"><i class="fas fa-industry" aria-hidden="true"></i><span data-translate-key="econIndustrialDev">የኢንዱስትሪ ልማት</span></a></li>
+                                    <li><a href="policy-agricultural-dev.html" class="nav-link" data-target="policy-agricultural-dev.html"><i class="fas fa-tractor" aria-hidden="true"></i><span data-translate-key="econAgriDev">የግብርና ልማት</span></a></li>
+                                     <li><a href="policy-finance-banking.html" class="nav-link" data-target="policy-finance-banking.html"><i class="fas fa-dollar-sign" aria-hidden="true"></i><span data-translate-key="econFinance">ፋይናንስና ባንኪንግ</span></a></li>
+                                     <li><a href="policy-infrastructure.html" class="nav-link" data-target="policy-infrastructure.html"><i class="fas fa-road" aria-hidden="true"></i><span data-translate-key="econInfrastructure">መሠረተ ልማት</span></a></li>
+
+                                     <!-- Add other specific economic policy links as needed -->
+                                </ul>
+                            </div>
+                            <!-- Social Policies Column -->
+                            <div class="mega-menu-column">
+                                <h3><i class="fas fa-users"></i><span data-translate-key="policySocial">ማህበራዊ ፖሊሲዎች</span></h3>
+                                <ul>
+                                     <!-- data-target="program-section" tells JS to activate this section first -->
+                                    <li><a href="policy 1.html" class="nav-link" data-target="policy 1.html"><i class="fas fa-hospital" aria-hidden="true"></i><span data-translate-key="socialHealth">ጤና</span></a></li>
+                                    <li><a href="policy 2.html" class="nav-link" data-target="policy 2.html"><i class="fas fa-graduation-cap" aria-hidden="true"></i><span data-translate-key="socialEducation">ትምህርት</span></a></li>
+                                     <li><a href="policy-poverty-foodsecurity.html" class="nav-link" data-target="policy-poverty-foodsecurity.html"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i><span data-translate-key="socialPoverty">ድህነት ማጥፋት</span></a></li>
+                                     <li><a href="policy-disability-rights.html" class="nav-link" data-target="policy-disability-rights.html"><i class="fas fa-wheelchair" aria-hidden="true"></i><span data-translate-key="socialVulnerable">ተጋላጭ ቡድኖች</span></a></li>
+                                    <li><a href="policy-gender-equality.html" class="nav-link" data-target="policy-gender-equality.html"><i class="fas fa-venus-mars" aria-hidden="true"></i><span data-translate-key="socialGenderEq">የጾታ እኩልነት</span></a></li>
+                                     <li><a href="policy-youth.html" class="nav-link" data-target="policy-youth.html"><i class="fas fa-user-graduate" aria-hidden="true"></i><span data-translate-key="socialYouth">ወጣቶች</span></a></li>
+                                      <!-- Add other specific social policy links as needed -->
+                                </ul>
+                            </div>
+                            <!-- Other Policies Column -->
+                            <div class="mega-menu-column">
+                                <h3><i class="fas fa-globe"></i><span data-translate-key="policyOther">ሌሎች ፖሊሲዎች</span></h3>
+                                <ul>
+                                     <!-- data-target="program-section" tells JS to activate this section first -->
+                                     <li><a href="policy-political-system.html" class="nav-link" data-target="policy-political-system.html"><i class="fas fa-vote-yea" aria-hidden="true"></i><span data-translate-key="otherPoliticalSystem">የፖለቲካ ሥርዓት</span></a></li>
+                                     <li><a href="policy-human-rights.html" class="nav-link" data-target="policy-human-rights.html"><i class="fas fa-gavel" aria-hidden="true"></i><span data-translate-key="otherHumanRights">ሰብዓዊ መብቶች</span></a></li>
+                                     <li><a href="policy-security-defense.html" class="nav-link" data-target="policy-security-defense.html"><i class="fas fa-shield-alt" aria-hidden="true"></i><span data-translate-key="otherSecurity">መከላከያና ጸጥታ</span></a></li>
+                                    <li><a href="policy-foreign.html" class="nav-link" data-target="policy-foreign.html"><i class="fas fa-earth-africa" aria-hidden="true"></i><span data-translate-key="otherForeignPolicy">የውጭ ግንኙነት</span></a></li>
+                                    <li><a href="policy-media.html" class="nav-link" data-target="policy-media.html"><i class="fas fa-broadcast-tower" aria-hidden="true"></i><span data-translate-key="otherMedia">መገናኛ ብዙሃን</span></a></li>
+                                     <li><a href="policy-natural-resources.html" class="nav-link" data-target="policy-natural-resources.html"><i class="fas fa-tree" aria-hidden="true"></i><span data-translate-key="econNaturalResources">የተፈጥሮ ሀብትና መሬት</span></a></li>
+                                       <!-- Add other specific links as needed -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#news" class="nav-link active" data-target="news"><i class="fas fa-newspaper"></i><span data-translate-key="navNews">ዜና</span></a></li>
+                <li><a href="index.html#magazine" class="nav-link" data-target="magazine"><i class="fas fa-book-open"></i><span data-translate-key="navMagazine">መፅሔት</span></a></li>
+                <li><a href="index.html#membership" class="nav-link" data-target="membership"><i class="fas fa-user-friends"></i><span data-translate-key="navMembership">አባልነት</span></a></li>
+                <li><a href="index.html#documents" class="nav-link" data-target="documents"><i class="fas fa-file-alt"></i><span data-translate-key="navDocuments">ሰነዶች</span></a></li>
+                <li><a href="index.html#register" class="nav-link" data-target="register"><i class="fas fa-edit"></i><span data-translate-key="navRegister">አባል ለመሆን</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section id="news" class="section active">
+            <div class="container">
+                <h2 class="section-title-news-list" data-translate-key="newsSectionTitle"></h2>
+
+                <div class="news-summary-list">
+                    <!-- News Item 1 Summary -->
+                    <div class="news-summary-item">
+                        <a href="#news-article-1" class="news-title-link" data-target-article="news-article-1">
+                            <div class="news-date-calendar">
+                                <span class="day" data-translate-key="newNews1Day"></span>
+                                <span class="month" data-translate-key="newNews1Month"></span>
+                            </div>
+                            <div class="news-summary-content">
+                                <h3 class="news-summary-title" data-translate-key="newNews1Title"></h3>
+                                <p class="news-summary-snippet" data-translate-key="newNews1Snippet"></p>
+                                <span class="news-timestamp" data-translate-key="newNews1Timestamp"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- News Item 2 Summary -->
+                    <div class="news-summary-item">
+                        <a href="#news-article-2" class="news-title-link" data-target-article="news-article-2">
+                            <div class="news-date-calendar">
+                                <span class="day" data-translate-key="newNews2Day"></span>
+                                <span class="month" data-translate-key="newNews2Month"></span>
+                            </div>
+                            <div class="news-summary-content">
+                                <h3 class="news-summary-title" data-translate-key="newNews2Title"></h3>
+                                <p class="news-summary-snippet" data-translate-key="newNews2Snippet"></p>
+                                <span class="news-timestamp" data-translate-key="newNews2Timestamp"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- News Item 3 Summary -->
+                    <div class="news-summary-item">
+                        <a href="#news-article-3" class="news-title-link" data-target-article="news-article-3">
+                             <div class="news-date-calendar">
+                                <span class="day" data-translate-key="newNews3Day"></span>
+                                <span class="month" data-translate-key="newNews3Month"></span>
+                            </div>
+                            <div class="news-summary-content">
+                                <h3 class="news-summary-title" data-translate-key="newNews3Title"></h3>
+                                <p class="news-summary-snippet" data-translate-key="newNews3Snippet"></p>
+                                 <span class="news-timestamp" data-translate-key="newNews3Timestamp"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="news-articles-container">
+                    <button class="back-to-news-list-btn"><i class="fas fa-arrow-left"></i> <span data-translate-key="backToNewsList"></span></button>
+
+                    <!-- News Article 1 -->
+                    <article class="news-article" id="news-article-1" data-news-title-key="newNews1Title" data-news-day-key="newNews1Day" data-news-month-key="newNews1Month" data-news-date-full-key="newNews1DateFull">
+                        <div class="news-layout-container">
+                            <aside class="news-sidebar">
+                                <div class="news-sidebar-block other-news-block">
+                                    <h3 data-translate-key="otherNewsTitle" class="sidebar-title"></h3>
+                                    <ul>
+                                        <!-- Other news links will be populated by JS -->
+                                    </ul>
+                                </div>
+                                <div class="news-sidebar-block related-links-block">
+                                    <h3 data-translate-key="relatedLinksTitle" class="sidebar-title"></h3>
+                                    <ul>
+                                        <li><a href="index.html#program-section"><i class="fas fa-landmark"></i> <span data-translate-key="relatedLinkPolicies"></span></a></li>
+                                        <li><a href="index.html#magazine"><i class="fas fa-book-open"></i> <span data-translate-key="relatedLinkMagazine"></span></a></li>
+                                        <li><a href="index.html#membership"><i class="fas fa-user-friends"></i> <span data-translate-key="relatedLinkMembership"></span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="news-sidebar-block press-center-block">
+                                    <h3 data-translate-key="pressCenterTitle" class="sidebar-title"></h3>
+                                    <p data-translate-key="pressCenterText"></p>
+                                    <button class="press-center-button"><i class="fas fa-broadcast-tower"></i> <span data-translate-key="pressCenterButton"></span></button>
+                                </div>
+                            </aside>
+                            <main class="news-main-content-area">
+                                <div class="social-share-icons">
+                                    <a href="#" title="Share on Facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" title="Share on Twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" title="Email" aria-label="Email this page"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" title="Copy Link" aria-label="Copy link"><i class="fas fa-link"></i></a>
+                                    <a href="#" title="Print" aria-label="Print this page"><i class="fas fa-print"></i></a>
+                                </div>
+                                <div class="article-header">
+                                    <div class="news-date-calendar">
+                                        <span class="day" data-translate-key="newNews1Day"></span>
+                                        <span class="month" data-translate-key="newNews1Month"></span>
+                                    </div>
+                                    <div class="article-title-block">
+                                        <h2 class="article-title-main" data-translate-key="newNews1Title"></h2>
+                                        <p class="article-date" data-translate-key="newNews1DateFull"></p>
+                                    </div>
+                                </div>
+                                <div class="article-body-main">
+                                    <p data-translate-key="newNews1Para1"></p>
+                                    <p data-translate-key="newNews1Para2"></p>
+                                    <p data-translate-key="newNews1Para3"></p>
+                                    <p data-translate-key="newNews1Para4"></p>
+                                    <p data-translate-key="newNews1Para5"></p>
+                                </div>
+                            </main>
+                        </div>
+                    </article>
+
+                    <!-- News Article 2 -->
+                    <article class="news-article" id="news-article-2" data-news-title-key="newNews2Title" data-news-day-key="newNews2Day" data-news-month-key="newNews2Month" data-news-date-full-key="newNews2DateFull">
+                         <div class="news-layout-container">
+                            <aside class="news-sidebar">
+                                <div class="news-sidebar-block other-news-block">
+                                    <h3 data-translate-key="otherNewsTitle" class="sidebar-title"></h3>
+                                    <ul>
+                                        <!-- Other news links will be populated by JS -->
+                                    </ul>
+                                </div>
+                                <div class="news-sidebar-block related-links-block">
+                                    <h3 data-translate-key="relatedLinksTitle" class="sidebar-title"></h3>
+                                    <ul>
+                                        <li><a href="index.html#program-section"><i class="fas fa-landmark"></i> <span data-translate-key="relatedLinkPolicies"></span></a></li>
+                                        <li><a href="index.html#magazine"><i class="fas fa-book-open"></i> <span data-translate-key="relatedLinkMagazine"></span></a></li>
+                                        <li><a href="index.html#membership"><i class="fas fa-user-friends"></i> <span data-translate-key="relatedLinkMembership"></span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="news-sidebar-block press-center-block">
+                                    <h3 data-translate-key="pressCenterTitle" class="sidebar-title"></h3>
+                                    <p data-translate-key="pressCenterText"></p>
+                                     <button class="press-center-button"><i class="fas fa-broadcast-tower"></i> <span data-translate-key="pressCenterButton"></span></button>
+                                </div>
+                            </aside>
+                            <main class="news-main-content-area">
+                                <div class="social-share-icons">
+                                    <a href="#" title="Share on Facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" title="Share on Twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" title="Email" aria-label="Email this page"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" title="Copy Link" aria-label="Copy link"><i class="fas fa-link"></i></a>
+                                    <a href="#" title="Print" aria-label="Print this page"><i class="fas fa-print"></i></a>
+                                </div>
+                                <div class="article-header">
+                                    <div class="news-date-calendar">
+                                        <span class="day" data-translate-key="newNews2Day"></span>
+                                        <span class="month" data-translate-key="newNews2Month"></span>
+                                    </div>
+                                    <div class="article-title-block">
+                                        <h2 class="article-title-main" data-translate-key="newNews2Title"></h2>
+                                        <p class="article-date" data-translate-key="newNews2DateFull"></p>
+                                    </div>
+                                </div>
+                                <div class="article-body-main">
+                                    <p data-translate-key="newNews2Para1"></p>
+                                    <p data-translate-key="newNews2Para2"></p>
+                                    <p data-translate-key="newNews2Para3"></p>
+                                    <p data-translate-key="newNews2Para4"></p>
+                                    <p data-translate-key="newNews2Para5"></p>
+                                    <p><strong data-translate-key="newNews2TelegramLabel"></strong> <a data-translate-key="newNews2TelegramLink" href="https://t.me/EUDPp" target="_blank" rel="noopener noreferrer"></a></p>
+                                    <p><strong data-translate-key="newNews2FacebookLabel"></strong> <a data-translate-key="newNews2FacebookLink" href="https://www.facebook.com/profile.php?id=61577016305943" target="_blank" rel="noopener noreferrer"></a></p>
+                                </div>
+                            </main>
+                        </div>
+                    </article>
+
+                    <!-- News Article 3 -->
+                    <article class="news-article" id="news-article-3" data-news-title-key="newNews3Title" data-news-day-key="newNews3Day" data-news-month-key="newNews3Month" data-news-date-full-key="newNews3DateFull">
+                        <div class="news-layout-container">
+                            <aside class="news-sidebar">
+                                <div class="news-sidebar-block other-news-block">
+                                     <h3 data-translate-key="otherNewsTitle" class="sidebar-title"></h3>
+                                     <ul>
+                                        <!-- Other news links will be populated by JS -->
+                                     </ul>
+                                </div>
+                                <div class="news-sidebar-block related-links-block">
+                                    <h3 data-translate-key="relatedLinksTitle" class="sidebar-title"></h3>
+                                    <ul>
+                                        <li><a href="index.html#program-section"><i class="fas fa-landmark"></i> <span data-translate-key="relatedLinkPolicies"></span></a></li>
+                                        <li><a href="index.html#magazine"><i class="fas fa-book-open"></i> <span data-translate-key="relatedLinkMagazine"></span></a></li>
+                                        <li><a href="index.html#membership"><i class="fas fa-user-friends"></i> <span data-translate-key="relatedLinkMembership"></span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="news-sidebar-block press-center-block">
+                                    <h3 data-translate-key="pressCenterTitle" class="sidebar-title"></h3>
+                                    <p data-translate-key="pressCenterText"></p>
+                                    <button class="press-center-button"><i class="fas fa-broadcast-tower"></i> <span data-translate-key="pressCenterButton"></span></button>
+                                </div>
+                            </aside>
+                            <main class="news-main-content-area">
+                                <div class="social-share-icons">
+                                    <a href="#" title="Share on Facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" title="Share on Twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" title="Email" aria-label="Email this page"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" title="Copy Link" aria-label="Copy link"><i class="fas fa-link"></i></a>
+                                    <a href="#" title="Print" aria-label="Print this page"><i class="fas fa-print"></i></a>
+                                </div>
+                                <div class="article-header">
+                                    <div class="news-date-calendar">
+                                        <span class="day" data-translate-key="newNews3Day"></span>
+                                        <span class="month" data-translate-key="newNews3Month"></span>
+                                    </div>
+                                    <div class="article-title-block">
+                                        <h2 class="article-title-main" data-translate-key="newNews3Title"></h2>
+                                        <p class="article-date" data-translate-key="newNews3DateFull"></p>
+                                    </div>
+                                </div>
+                                <div class="article-body-main">
+                                    <p data-translate-key="newNews3Para1"></p>
+                                    <p data-translate-key="newNews3Para2"></p>
+                                    <p data-translate-key="newNews3Para3"></p>
+                                    <p data-translate-key="newNews3Para4"></p>
+                                </div>
+                            </main>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col newsletter-col">
+                    <div class="newsletter">
+                        <h2 data-translate-key="footerNewsletterTitle"></h2>
+                        <p data-translate-key="footerNewsletterPara"></p>
+                        <form class="simplenews-subscriber-form" id="newsletterForm">
+                            <label for="newsletter-email" class="sr-only" data-translate-key="footerEmailLabelSr"></label>
+                            <input type="email" id="newsletter-email" name="mail" data-translate-key="footerEmailPlaceholder" class="form-email" required>
+                            <button type="submit" class="button" data-translate-key="footerSubscribeBtn"></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col social-col">
+                    <h2 data-translate-key="footerSocialTitle"></h2>
+                    <p data-translate-key="footerSocialPara"></p>
+                    <ul class="social-icons">
+                        <li><a href="https://www.facebook.com/profile.php?id=61577016305943" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://x.com/infoeudp2017" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="https://t.me/EUDPp" target="_blank" title="Telegram"><i class="fab fa-telegram-plane"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col contact-col">
+                    <h2 data-translate-key="footerContactTitle"></h2>
+                    <div class="contact-details">
+                        <ul class="contact">
+                            <li><i class="fas fa-phone-alt"></i><p><strong data-translate-key="footerContactPhone"></strong> <span data-translate-key="footerContactPhoneDetail"></span></p></li>
+                            <li><i class="fas fa-envelope"></i><p><strong data-translate-key="footerContactEmail"></strong> <a href="mailto: infoeudp2017@gmail.com"><span data-translate-key="footerContactEmailDetail"></span></a></p></li>
+                            <li><i class="fas fa-map-marker-alt"></i><p><strong data-translate-key="footerContactAddress"></strong> <span data-translate-key="footerContactAddressDetail"></span></p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p data-translate-key="footerCopyright"></p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
+
+        <script>
+        const translations = {
+            am: {
+                metaDescriptionNews: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) የቅርብ ጊዜ ዜናዎች እና መግለጫዎች።",
+                pageTitleNews: "ዜናዎች - የኢትዮጵያ አንድነት እና ልማት ፓርቲ",
+                logoTitle: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ",
+                langLabel: "ቋንቋ ይምረጡ",
+                langAmharic: "አማርኛ",
+                langEnglish: "English",
+                searchPlaceholder: "Search/ፈልግ",
+                searchSrOnly: "Search the site",
+                searchBtnSr: "ፈልግ",
+                navHome: "መነሻ",
+                navPolicy: "የፓርቲው ፖሊሲዎች",
+                navNews: "ዜና",
+                navMagazine: "መፅሔት",
+                navMembership: "አባልነት",
+                navDocuments: "ሰነዶች",
+                navRegister: "አባል ለመሆን",
+                policyEconomic: "የኢኮኖሚ ፖሊሲ", econJobCreation: "የሥራ ዕድል ፈጠራ", econIndustrialDev: "የኢንዱስትሪ ልማት", econAgriDev: "የግብርና ልማት", econFinance: "ፋይናንስና ባንኪንግ", econInfrastructure: "መሠረተ ልማት", econNaturalResources: "የተፈጥሮ ሀብትና መሬት",
+                policySocial: "ማህበራዊ ፖሊሲዎች", socialHealth: "ጤና", socialEducation: "ትምህርት", socialPoverty: "ድህነት ማጥፋት", socialVulnerable: "ተጋላጭ ቡድኖች", socialGenderEq: "የጾታ እኩልነት", socialYouth: "ወጣቶች",
+                policyOther: "ሌሎች ፖሊሲዎች", otherPoliticalSystem: "የፖለቲካ ሥርዓት", otherHumanRights: "ሰብዓዊ መብቶች", otherSecurity: "መከላከያና ጸጥታ", otherForeignPolicy: "የውጭ ግንኙነት", otherMedia: "መገናኛ ብዙሃን",
+
+                newsSectionTitle: "የቅርብ ጊዜ ዜናዎች",
+                otherNewsTitle: "ሌሎች ዜናዎች",
+                relatedLinksTitle: "ተዛማጅ ገጾች",
+                relatedLinkPolicies: "የፓርቲው ፖሊሲዎች",
+                relatedLinkMagazine: "የፓርቲው መፅሔት",
+                relatedLinkMembership: "አባልነት መረጃ",
+                pressCenterTitle: "የፓርቲው የሚዲያ ማዕከል",
+                pressCenterText: "ለጋዜጠኞች እና የሚዲያ ባለሙያዎች የተዘጋጀ።",
+                pressCenterButton: "የሚዲያ ማዕከል",
+
+                newNews1Day: "15", newNews1Month: "ግንቦት", newNews1Year: "2017",
+                newNews1Title: "ኢአልፓ ለማዕከላዊ ኮሚቴ አባላቱ \"በስትራቴጂያዊ አመራርና በፖሊሲ ትንተና\" ላይ ያተኮረ ሥልጠና ሰጠ",
+                newNews1Snippet: "የኢትዮጵያ አንድነትና ልማት ፓርቲ (ኢአልፓ) የማዕከላዊ ኮሚቴ አባላቱን የስትራቴጂያዊ አመራር ክህሎትና የፖሊሲ ትንተና አቅም ለማሳደግ ያለመ የተጠናከረ ሥልጠና በአዳማ ከተማ አካሄደ...",
+                newNews1Timestamp: "ግንቦት 15",
+                newNews1DateFull: "ግንቦት 15 /2017 ዓ.ም",
+                newNews1ImagePlaceholder: "[የዜናው ምስል ቦታ - ለምሳሌ የማዕከላዊ ኮሚቴ አባላት በስልጠና ላይ እያሉ ወይም ከሰልጣኝ ጋር ሲወያዩ የሚያሳይ ፎቶ]",
+                newNews1Para1: "የኢትዮጵያ አንድነትና ልማት ፓርቲ (ኢአልፓ) የማዕከላዊ ኮሚቴ አባላቱን የስትራቴጂያዊ አመራር ክህሎትና የፖሊሲ ትንተና አቅም ለማሳደግ ያለመ የተጠናከረ ሥልጠና በአዳማ ከተማ አካሄደ። ከግንቦት 11 እስከ 13 ቀን 2017 ዓ.ም ለሶስት ቀናት የተሰጠው ይህ ሥልጠና፣ የፓርቲውን የበላይ አመራሮች ለሀገራዊው የፖለቲካ ምኅዳር ውስብስብ ተግዳሮቶች በብቃት ምላሽ እንዲሰጡና የፓርቲውን ራዕይ ወደ ተጨባጭ ውጤት እንዲለውጡ ለማብቃት ያለመ ነበር።",
+                newNews1Para2: "በሥልጠናው ላይ ልምድ ያላቸው የፖለቲካ ስትራቴጂስቶች፣ የፖሊሲ ተንታኞችና የአመራር ሳይንስ ምሁራን ተገኝተው ሰፊ ዕውቀታቸውንና ተሞክሯቸውን አካፍለዋል። የስልጠናው ይዘት በዋናነት በፖለቲካ ፓርቲ አመራር፣ በስትራቴጂያዊ ዕቅድ ዝግጅትና ትግበራ፣ በፖሊሲ ጥናትና ትንተና ዘዴዎች፣ በውጤታማ የሕዝብ ግንኙነትና የሚዲያ አያያዝ፣ እንዲሁም በግጭት አፈታትና በብሔራዊ መግባባት ግንባታ ዙሪያ ያተኮረ ነበር።",
+                newNews1Para3: "የፓርቲው ሊቀመንበር በሥልጠናው መክፈቻ ላይ እንደተናገሩት፣ \"ጠንካራና በዕውቀት ላይ የተመሰረተ አመራር ለፓርቲያችን ስኬትና ለሀገራችን የለውጥ ጉዞ ወሳኝ ነው። ይህ ሥልጠና የማዕከላዊ ኮሚቴ አባሎቻችን የፓርቲያችንን የአዲስ እይታ ፍልስፍና በጥልቀት ተረድተው፣ ውስብስብ የፖሊሲ ጉዳዮችን በብቃት መተንተንና የመፍትሔ አቅጣጫዎችን ማስቀመጥ እንዲችሉ ያግዛቸዋል\" ብለዋል።",
+                newNews1Para4: "ተሳታፊ የማዕከላዊ ኮሚቴ አባላትም በበኩላቸው፣ ሥልጠናው ወቅታዊና እጅግ ጠቃሚ እንደነበር ገልጸው፣ ያገኙትን ዕውቀትና ክህሎት የፓርቲውን የውስጥ አቅም ለማጠናከርና ለሕዝብ የተሻለ አገልግሎት ለመስጠት እንደሚጠቀሙበት አረጋግጠዋል። \"በተለይ በሀገራችን ወቅታዊ ሁኔታ ላይ ተመስርተው የቀረቡት የፖሊሲ ትንታኔዎችና የስትራቴጂ ቀረጻ ዘዴዎች ለቀጣይ ሥራችን ትልቅ ግብዓት የሚሆኑ ናቸው\" ሲሉ አስተያየታቸውን ሰጥተዋል።",
+                newNews1Para5: "ኢአልፓ በቀጣይነትም ለሁሉም የአመራር እርከኖቹና ለአባላቱ መሰል የአቅም ግንባታ ሥልጠናዎችን በመስጠት፣ ፓርቲውን በዕውቀትና በሙያዊ ብቃት ላይ የተመሰረተ ጠንካራ ተቋም ለማድረግ እንደሚጥር የፓርቲው የሥልጠናና ምርምር ዘርፍ አስታውቋል።",
+
+                newNews2Day: "10", newNews2Month: "ሰኔ", newNews2Year: "2017",
+                newNews2Title: "ኢአልፓ የቴሌግራም ቻናልና የፌስቡክ ገጽ ይፋ አደረገ፡ \"ከሕዝብ ጋር ያለንን ትስስር እናጠናክራለን\" - ፓርቲው",
+                newNews2Snippet: "የኢትዮጵያ አንድነትና ልማት ፓርቲ (ኢአልፓ) ከሕዝብ ጋር ያለውን የመረጃ ልውውጥና ግንኙነት ለማጠናከርና ለማስፋት የሚያስችሉ አዳዲስ የማኅበራዊ ሚዲያ መድረኮችን ይፋ ማድረጉን አስታወቀ...",
+                newNews2Timestamp: "ሰኔ 10",
+                newNews2DateFull: "ሰኔ 10/2017 ዓ.ም",
+                newNews2ImagePlaceholder: "[የዜናው ምስል ቦታ - ለምሳሌ የፓርቲውን አርማ ከቴሌግራም እና ፌስቡክ አርማዎች ጋር የሚያሳይ ግራፊክስ]",
+                newNews2Para1: "የኢትዮጵያ አንድነትና ልማት ፓርቲ (ኢአልፓ) ከሕዝብ ጋር ያለውን የመረጃ ልውውጥና ግንኙነት ለማጠናከርና ለማስፋት የሚያስችሉ አዳዲስ የማኅበራዊ ሚዲያ መድረኮችን ይፋ ማድረጉን አስታወቀ። ፓርቲው ይፋዊ የቴሌግራም ቻናልና የፌስቡክ ገጽ ከዛሬ ጀምሮ ሥራ መጀመራቸውን የፓርቲው የሕዝብ ግንኙነት ክፍል ገልጿል።",
+                newNews2Para2: "እነዚህ አዳዲስ የማኅበራዊ ሚዲያ መድረኮች የፓርቲውን ወቅታዊ እንቅስቃሴዎች、 የፖሊሲ አቋሞች、 ትንታኔዎች、 መግለጫዎችና ሌሎች መረጃዎችን ለመላው የኢትዮጵያ ሕዝብና ለዓለም አቀፉ ማኅበረሰብ በፍጥነትና በቀላሉ ተደራሽ ለማድረግ ያለሙ መሆናቸው ተገልጿል።",
+                newNews2Para3: "የፓርቲው የሕዝብ ግንኙነት ኃላፊው በሰጡት መግለጫ፣ \"በዘመናዊው የመረጃ ዘመን、 ማኅበራዊ ሚዲያ ሕዝብን ለማሳተፍና የፓርቲውን መልዕክት በስፋት ለማድረስ ወሳኝ ሚና አላቸው\" ካሉ በኋላ፣ \"እነዚህ የቴሌግራም ቻናልና የፌስቡክ ገጽ የፓርቲያችንን ግልጽነትና ተጠያቂነት ከማሳየታቸውም በላይ፣ ዜጎች ከፓርቲው ጋር በቀጥታ እንዲገናኙ、 ሀሳባቸውን እንዲሰጡና በሀገራዊ ጉዳዮች ላይ ንቁ ተሳታፊ እንዲሆኑ መድረክ ይፈጥራሉ\" ብለዋል።",
+                newNews2Para4: "በእነዚህ መድረኮች አማካኝነት የፓርቲው አባላትና ደጋፊዎችም እርስበርስ መረጃ የሚለዋወጡበት、 የሚወያዩበትና የፓርቲውን የጋራ ዓላማዎች ለማሳካት የሚተባበሩበት ዕድል እንደሚመቻች ተጠቁሟል። በተጨማሪም፣ \"አዲስ እይታ\" የተሰኘው የፓርቲው ይፋዊ መጽሔት ዕትሞችና ሌሎች ጽሑፎች በእነዚህ ቻናልና ገጽ አማካኝነት እንደሚሰራጩ ተገልጿል።",
+                newNews2Para5: "መላው የኢትዮጵያ ሕዝብ የኢአልፓን ይፋዊ የቴሌግራም ቻናልና የፌስቡክ ገጽ በመቀላቀልና በመከታተል፣ የፓርቲውን እንቅስቃሴዎች እንዲያውቁና በሀገራዊ የለውጥ ሂደት ውስጥ የበኩላቸውን አስተዋጽዖ እንዲያበረክቱ ፓርቲው ጥሪውን አቅርቧል።",
+                newNews2TelegramLabel: "የቴሌግራም ቻናል አድራሻ፦",
+                newNews2TelegramLink: "https://t.me/EUDPp",
+                newNews2FacebookLabel: "የፌስቡክ ገጽ አድራሻ፦",
+                newNews2FacebookLink: "https://www.facebook.com/profile.php?id=61577016305943",
+
+                newNews3Day: "05", newNews3Month: "ሰኔ", newNews3Year: "2017",
+                newNews3Title: "ኢአልፓ በ\"አካባቢ ጥበቃና አረንጓዴ ልማት\" ፖሊሲው ላይ ከባለድርሻ አካላት ጋር የውይይት መድረክ አካሄደ",
+                newNews3Snippet: "የኢትዮጵያ አንድነትና ልማት ፓርቲ (ኢአልፓ)、 በፓርቲው ፕሮግራም ውስጥ ቁልፍ ቦታ ከሰጣቸው የፖሊሲ አቅጣጫዎች አንዱ በሆነው \"የአካባቢ ጥበቃ、 አረንጓዴ ልማትና የአየር ንብረት ለውጥን መቋቋም\" በሚለው ፖሊሲው ላይ ያተኮረ የውይይት መድረክ አካሄደ...",
+                newNews3Timestamp: "ሰኔ 05",
+                newNews3DateFull: "ሰኔ 05/2017 ዓ.ም",
+                newNews3ImagePlaceholder: "[የዜናው ምስል ቦታ - ለምሳሌ የውይይት መድረኩን ተሳታፊዎች ወይም የፓርቲው አመራር ገለጻ ሲያደርግ የሚያሳይ ፎቶ]",
+                newNews3Para1: "የኢትዮጵያ አንድነትና ልማት ፓርቲ (ኢአልፓ)、 በፓርቲው ፕሮግራም ውስጥ ቁልፍ ቦታ ከሰጣቸው የፖሊሲ አቅጣጫዎች አንዱ በሆነው \"የአካባቢ ጥበቃ、 አረንጓዴ ልማትና የአየር ንብረት ለውጥን መቋቋም\" በሚለው ፖሊሲው ላይ ያተኮረ የውይይት መድረክ ከትናንት በስቲያ በአዲስ አበባ አካሄደ። በመድረኩ ላይ ከአካባቢ ጥበቃ ጋር በተያያዙ የመንግሥት ተቋማት የተወከሉ ባለሙያዎች、 የዩኒቨርሲቲ ምሁራን、 የሲቪክ ማኅበራት ተወካዮች、 የአካባቢ ጥበቃ አራማጆችና የፓርቲው አመራሮች ተገኝተዋል።",
+                newNews3Para2: "የውይይት መድረኩ ዋነኛ ዓላማ የፓርቲውን የአካባቢ ጥበቃ ፖሊሲ ለባለድርሻ አካላት ማስተዋወቅ、 በፖሊሲው ይዘት ላይ ሰፊ ውይይት በማድረግ ግብዓቶችን መሰብሰብና ለቀጣይ የፖሊሲ ማሻሻያና ትግበራ መሠረት መጣል ነበር።",
+                newNews3Para3: "የፓርቲው የምርምርና የፖሊሲ ጥናት ዘርፍ ኃላፊው የፓርቲውን የአካባቢ ጥበቃ ፖሊሲ ዝርዝር ገለጻ አቅርበዋል። በገለጻቸውም、 ፓርቲው የአካባቢ መራቆትን ለመከላከል、 የደን ሽፋንን ለማሳደግ、 የታዳሽ ኃይል ምንጮችን ለማልማት、 የአየር ንብረት ለውጥን ተጽዕኖ ለመቋቋም የሚያስችሉ የመላመድ ስልቶችን ለመተግበርና አረንጓዴ ኢኮኖሚን ለመገንባት ያስቀመጣቸውን ስትራቴጂዎች አብራርተዋል። \"ኢአልፓ አካባቢን ያልጠበቀ ልማት ዘላቂነት እንደሌለው በጥብቅ ያምናል\" ያሉት ኃላፊው፣ \"የእኛ ፖሊሲ የልማትና የአካባቢ ጥበቃን በማጣጣም ለወደፊት ትውልድ የተሻለች ኢትዮጵያን ለማውረስ ያለመ ነው\" ብለዋል።",
+                newNews3Para4: "ከገለጻው በኋላ በተካሄደው ውይይት、 ተሳታፊዎች በፓርቲው ፖሊሲ ላይ ያላቸውን አዎንታዊ አስተያየቶች ከመግለጻቸውም በላይ፣ ፖሊሲው ይበልጥ ውጤታማ እንዲሆን ሊካተቱ ይገባል ያሏቸውን ተጨማሪ ሀሳቦችና የማሻሻያ ነጥቦችን አቅርበዋል። በተለይም የማኅበረሰብ ተሳትፎን ማጠናከር、 የአካባቢ ጥበቃ ሕጎችን በአግባቡ ማስፈጸምና ለዘርፉ የሚመደብን በጀት ማሳደግ አስፈላጊ መሆኑን ተሳታፊዎች አጽንኦት ሰጥተዋል።",
+
+                backToNewsList: "ወደ ዜና ዝርዝር ይመለሱ",
+                footerNewsletterTitle: "ዜና መጽሔት ይመዝገቡ",
+                footerNewsletterPara: "የቅርብ ጊዜ መረጃዎችን እና የፓርቲ ዜናዎችን በቀጥታ ወደ ኢሜልዎ ያግኙ።",
+                footerEmailLabelSr: "የኢሜል አድራሻዎ",
+                footerEmailPlaceholder: "የኢሜል አድራሻዎ",
+                footerSubscribeBtn: "ይመዝገቡ",
+                footerSocialTitle: "ማህበራዊ ሚዲያ",
+                footerSocialPara: "በማህበራዊ ገጾቻችን ይከተሉን፤ ይሳተፉ።",
+                footerContactTitle: "ያግኙን",
+                footerContactPhone: "ስልክ:",
+                footerContactPhoneDetail: "+251-704-932-072",
+                footerContactEmail: "ኢሜይል:",
+                footerContactEmailDetail: "infoeudp2017@gmail.com",
+                footerContactAddress: "አድራሻ:",
+                footerContactAddressDetail: "አዲስ አበባ፣ የፓርቲው ዋና ጽ/ቤት",
+                footerCopyright: `© ${new Date().getFullYear()} የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ)። ሁሉም መብቶች በህግ የተጠበቁ ናቸው።`,
+                alertNewsletterConfirm: "ለዜና መጽሔታችን ስለተመዘገቡ እናመሰግናለን!",
+                alertSearchStatic: "ይቅርታ、 የፍለጋ ተግባሩ ለጊዜው አይሰራም።",
+                alertInvalidEmail: "እባክዎ ትክክለኛ የኢሜል አድራሻ ያስገቡ።",
+                alertLinkCopied: "ሊንኩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል!",
+                alertCopyLinkFailed: "ሊንኩን መቅዳት አልተቻለም። እባክዎ በእጅዎ ይቅዱት።",
+            },
+            en: {
+                metaDescriptionNews: "Latest news and statements from the Ethiopian Unity and Development Party (EUDP).",
+                pageTitleNews: "News - Ethiopian Unity and Development Party",
+                logoTitle: "Ethiopian Unity and Development Party (EUDP)",
+                langLabel: "Select Language",
+                langAmharic: "Amharic",
+                langEnglish: "English",
+                searchPlaceholder: "Search",
+                searchSrOnly: "Search the site",
+                searchBtnSr: "Search",
+                navHome: "Home",
+                navPolicy: "Party Policies",
+                navNews: "News",
+                navMagazine: "Magazine",
+                navMembership: "Membership",
+                navDocuments: "Documents",
+                navRegister: "Register",
+                policyEconomic: "Economic Policy", econJobCreation: "Job Creation", econIndustrialDev: "Industrial Development", econAgriDev: "Agricultural Development", econFinance: "Finance & Banking", econInfrastructure: "Infrastructure Development", econNaturalResources: "Natural Resources & Land Use",
+                policySocial: "Social Program", socialHealth: "Health Services", socialEducation: "Education", socialPoverty: "Poverty Eradication", socialVulnerable: "Vulnerable Groups", socialGenderEq: "Women's Rights & Participation", socialYouth: "Youth Affairs",
+                policyOther: "Other Policies", otherPoliticalSystem: "Political System", otherHumanRights: "Human & Democratic Rights", otherSecurity: "Security Institutions", otherForeignPolicy: "Foreign Policy", otherMedia: "Media",
+
+                newsSectionTitle: "Recent News",
+                otherNewsTitle: "Other News",
+                relatedLinksTitle: "Related Pages",
+                relatedLinkPolicies: "Party Policies",
+                relatedLinkMagazine: "Party Magazine",
+                relatedLinkMembership: "Membership Info",
+                pressCenterTitle: "Party Media Center",
+                pressCenterText: "For journalists and media professionals.",
+                pressCenterButton: "Media Center",
+
+                newNews1Day: "23", newNews1Month: "MAY", newNews1Year: "2025",
+                newNews1Title: "EUDP Conducts Training for Central Committee Members on \"Strategic Leadership and Policy Analysis\"",
+                newNews1Snippet: "The Ethiopian Unity and Development Party (EUDP) conducted an intensive training in Adama city aimed at enhancing the strategic leadership skills and policy analysis capacity of its Central Committee members...",
+                newNews1Timestamp: "May 23",
+                newNews1DateFull: "May 23, 2025 G.C.",
+                newNews1ImagePlaceholder: "[News Image Placeholder - e.g., Photo of Central Committee members during training or discussing with a trainer]",
+                newNews1Para1: "The Ethiopian Unity and Development Party (EUDP) conducted an intensive training in Adama city aimed at enhancing the strategic leadership skills and policy analysis capacity of its Central Committee members. The three-day training, held from May 19 to 21, 2025 G.C., was designed to empower the party's top leadership to effectively respond to the complex challenges of the national political landscape and translate the party's vision into tangible results.",
+                newNews1Para2: "Experienced political strategists, policy analysts, and leadership science scholars attended the training, sharing their extensive knowledge and experience. The training content primarily focused on political party leadership, strategic plan preparation and implementation, policy research and analysis methods, effective public relations and media management, as well as conflict resolution and national consensus building.",
+                newNews1Para3: "The Party Chairman stated at the opening of the training, \"Strong and knowledge-based leadership is crucial for our party's success and our country's transformation journey. This training will help our Central Committee members to deeply understand our party's 'New Vision' philosophy, competently analyze complex policy issues, and formulate solution-oriented approaches.\"",
+                newNews1Para4: "Participating Central Committee members, on their part, described the training as timely and highly beneficial, affirming that they would use the acquired knowledge and skills to strengthen the party's internal capacity and provide better service to the public. \"The policy analyses and strategic formulation methods presented, especially those based on our country's current situation, are significant inputs for our future work,\" they commented.",
+                newNews1Para5: "EUDP's Training and Research Sector announced that the party will continue to provide similar capacity-building trainings for all its leadership levels and members, striving to make the party a strong institution based on knowledge and professional competence.",
+
+                newNews2Day: "18", newNews2Month: "JUNE", newNews2Year: "2025",
+                newNews2Title: "EUDP Launches Telegram Channel and Facebook Page: \"We Will Strengthen Our Ties with the Public\" - The Party",
+                newNews2Snippet: "The Ethiopian Unity and Development Party (EUDP) announced the launch of new social media platforms to strengthen and expand its information exchange and communication with the public...",
+                newNews2Timestamp: "June 18",
+                newNews2DateFull: "June 18, 2025 G.C.",
+                newNews2ImagePlaceholder: "[News Image Placeholder - e.g., Graphics showing the party logo with Telegram and Facebook logos]",
+                newNews2Para1: "The Ethiopian Unity and Development Party (EUDP) announced the launch of new social media platforms to strengthen and expand its information exchange and communication with the public. The party's Public Relations Department stated that an official Telegram channel and Facebook page have commenced operations as of today.",
+                newNews2Para2: "These new social media platforms are aimed at making the party's current activities, policy stances, analyses, statements, and other information quickly and easily accessible to the entire Ethiopian public and the international community.",
+                newNews2Para3: "The Party's Public Relations Head stated in a press release, \"In the modern information age, social media plays a crucial role in engaging the public and disseminating the party's message widely.\" They added, \"This Telegram channel and Facebook page will not only demonstrate our party's transparency and accountability but also create a platform for citizens to directly connect with the party, provide their ideas, and become active participants in national issues.\"",
+                newNews2Para4: "It was indicated that these platforms will also facilitate opportunities for party members and supporters to exchange information, discuss, and collaborate to achieve the party's common goals. Furthermore, editions of the party's official magazine \"New Vision\" and other publications will be disseminated through these channels and pages.",
+                newNews2Para5: "The party has called upon all Ethiopians to join and follow EUDP's official Telegram channel and Facebook page to stay informed about the party's activities and contribute to the national transformation process.",
+                newNews2TelegramLabel: "Telegram Channel Address:",
+                newNews2TelegramLink: "https://t.me/EUDPp",
+                newNews2FacebookLabel: "Facebook Page Address:",
+                newNews2FacebookLink: "https://www.facebook.com/profile.php?id=61577016305943",
+
+                newNews3Day: "13", newNews3Month: "JUNE", newNews3Year: "2025",
+                newNews3Title: "EUDP Holds Stakeholder Discussion Forum on its \"Environmental Protection and Green Development\" Policy",
+                newNews3Snippet: "The Ethiopian Unity and Development Party (EUDP) held a discussion forum, focusing on its policy of \"Environmental Protection, Green Development, and Climate Change Resilience,\" ...",
+                newNews3Timestamp: "June 13",
+                newNews3DateFull: "June 13, 2025 G.C.",
+                newNews3ImagePlaceholder: "[News Image Placeholder - e.g., Photo of the discussion forum participants or party leadership giving a presentation]",
+                newNews3Para1: "The Ethiopian Unity and Development Party (EUDP) held a discussion forum the day before yesterday in Addis Ababa, focusing on its policy \"Environmental Protection, Green Development, and Climate Change Resilience,\" one of the key policy directions given prominence in the party's program. Experts representing government institutions related to environmental protection, university scholars, representatives of civic societies, environmental activists, and party leaders attended the forum.",
+                newNews3Para2: "The main objective of the discussion forum was to introduce the party's environmental protection policy to stakeholders, gather input by conducting extensive discussions on the policy content, and lay the groundwork for future policy refinement and implementation.",
+                newNews3Para3: "The Head of the Party's Research and Policy Studies Sector presented a detailed overview of the party's environmental protection policy. In their presentation, they elaborated on the strategies set forth by the party to prevent environmental degradation, increase forest cover, develop renewable energy sources, implement adaptation strategies to cope with the impacts of climate change, and build a green economy. \"EUDP firmly believes that development that does not protect the environment is unsustainable,\" said the Head, adding, \"Our policy aims to bequeath a better Ethiopia to future generations by harmonizing development and environmental protection.\"",
+                newNews3Para4: "In the discussion following the presentation, participants expressed their positive feedback on the party's policy and also offered additional ideas and points for improvement to make the policy more effective. Participants particularly emphasized the importance of strengthening community participation, properly enforcing environmental protection laws, and increasing the budget allocated to the sector.",
+
+                backToNewsList: "Back to News List",
+                footerNewsletterTitle: "Subscribe to Newsletter",
+                footerNewsletterPara: "Get the latest updates and party news directly to your email.",
+                footerEmailLabelSr: "Your Email Address",
+                footerEmailPlaceholder: "Your Email Address",
+                footerSubscribeBtn: "Subscribe",
+                footerSocialTitle: "Social Media",
+                footerSocialPara: "Follow us and engage on our social media pages.",
+                footerContactTitle: "Contact Us",
+                footerContactPhone: "Phone:",
+                footerContactPhoneDetail: "+251-704-932-072",
+                footerContactEmail: "Email:",
+                footerContactEmailDetail: "infoeudp2017@gmail.com",
+                footerContactAddress: "Address:",
+                footerContactAddressDetail: "Addis Ababa, Party Headquarters",
+                footerCopyright: `© ${new Date().getFullYear()} Ethiopian Unity and Development Party (EUDP). All rights reserved.`,
+                alertNewsletterConfirm: "Thank you for subscribing to our newsletter!",
+                alertSearchStatic: "Sorry, the search function is currently not active.",
+                alertInvalidEmail: "Please enter a valid email address.",
+                alertLinkCopied: "Link copied to clipboard!",
+                alertCopyLinkFailed: "Failed to copy link. Please copy it manually.",
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            const languageSelector = document.getElementById('language-select');
+            const searchForm = document.getElementById('searchForm');
+            const backToTopButton = document.querySelector('.back-to-top');
+            const megaMenuParents = document.querySelectorAll('.nav-menu > li.has-megamenu');
+
+            const newsSection = document.getElementById('news');
+            const newsListTitleElement = newsSection ? newsSection.querySelector('.section-title-news-list') : null;
+            const newsSummaryList = newsSection ? newsSection.querySelector('.news-summary-list') : null;
+            const newsArticlesContainer = newsSection ? newsSection.querySelector('.news-articles-container') : null;
+            const newsArticles = newsArticlesContainer ? Array.from(newsArticlesContainer.querySelectorAll('.news-article')) : [];
+            const backToNewsListBtn = newsArticlesContainer ? newsArticlesContainer.querySelector('.back-to-news-list-btn') : null;
+
+            // Share, Copy, Print Buttons (ensure these IDs are in your HTML for each article's share icons)
+            // It's better to handle these via event delegation on the .social-share-icons container
+            // if the icons are dynamically changing or are within each article.
+            // For now, assuming the IDs might be unique per article or handled generically.
+
+            function isMobile() { return window.innerWidth <= 992; }
+
+            function closeAllMegaMenus() {
+                megaMenuParents.forEach(li => {
+                    li.classList.remove('mega-menu-open');
+                    const parentLink = li.querySelector(':scope > .nav-link');
+                    if(parentLink) parentLink.setAttribute('aria-expanded', 'false');
+                    const mega = li.querySelector('.mega-menu');
+                    if (mega) {
+                        if (isMobile() || !window.matchMedia('(min-width: 993px)').matches) { mega.style.display = 'none'; }
+                        mega.style.opacity = '0'; mega.style.visibility = 'hidden'; mega.style.transform = 'translateX(-50%) translateY(10px)';
+                        mega.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0s 0.3s';
+                    }
+                    const icon = li.querySelector('.mega-menu-icon');
+                    if (icon) icon.style.transform = 'rotate(0deg)';
+                });
+            }
+
+            function getHeaderOffset() {
+                 const topBar = document.querySelector('.logo-topbar-container');
+                 const headerNav = document.querySelector('.header');
+                 return (topBar ? topBar.offsetHeight : 0) + (headerNav ? headerNav.offsetHeight : 0) + 20;
+            }
+
+            function applyTranslations(lang) {
+                document.documentElement.lang = lang;
+                document.querySelector('title').textContent = translations[lang]?.pageTitleNews || translations['am'].pageTitleNews;
+                document.querySelectorAll('[data-translate-key]').forEach(el => {
+                    const key = el.dataset.translateKey;
+                    let translation = translations[lang]?.[key] ?? translations['am'][key];
+
+                    if (translation === undefined) {
+                        translation = ``;
+                    }
+
+                    if (el.tagName === 'META' && el.getAttribute('name') === 'description') {
+                        el.setAttribute('content', translation);
+                    } else if (el.hasAttribute('placeholder')) {
+                        el.setAttribute('placeholder', translation);
+                    } else if (el.tagName === 'INPUT' && (el.type === 'button' || el.type === 'submit')) {
+                        el.value = translation;
+                    } else {
+                         if (key === 'newNews2FacebookLink' && el.tagName === 'A') {
+                            el.href = translation;
+                            el.textContent = translation;
+                        } else if (typeof translation === 'string' && (translation.includes('<') || translation.includes('&') || translation.includes('[Current Year]'))) {
+                             el.innerHTML = translation.replace('[Current Year]', new Date().getFullYear());
+                        } else {
+                            el.textContent = translation;
+                        }
+                    }
+                });
+            }
+
+
+            function scrollToElement(elementIdOrElement) {
+                let element;
+                if (typeof elementIdOrElement === 'string') {
+                    element = document.getElementById(elementIdOrElement);
+                } else if (elementIdOrElement instanceof HTMLElement) {
+                    element = elementIdOrElement;
+                }
+
+                if (element) {
+                    const headerOffset = getHeaderOffset();
+                    let targetElementForScroll = element;
+                    if (element.classList.contains('news-article')) {
+                        targetElementForScroll = newsArticlesContainer;
+                    } else if (element.id === 'news' && newsSummaryList.style.display !== 'none' && newsListTitleElement) {
+                         targetElementForScroll = newsListTitleElement;
+                    }
+
+                    const targetPosition = targetElementForScroll.getBoundingClientRect().top + window.scrollY - headerOffset;
+                    window.scrollTo({ top: (targetPosition > 0 ? targetPosition : 0), behavior: 'smooth' });
+                }
+            }
+
+            function showNewsContent(articleId = null) {
+                if (!newsSummaryList || !newsArticlesContainer || !newsArticles.length || !backToNewsListBtn || !newsListTitleElement) {
+                    return;
+                }
+                if (articleId) {
+                    const targetArticleElement = document.getElementById(articleId);
+                    if (targetArticleElement && targetArticleElement.closest('.news-articles-container') === newsArticlesContainer) {
+                        if(newsListTitleElement) newsListTitleElement.style.display = 'none';
+                        newsSummaryList.style.display = 'none';
+                        newsArticlesContainer.style.display = 'block';
+                        newsArticles.forEach(article => article.classList.remove('active-article'));
+                        targetArticleElement.classList.add('active-article');
+                        backToNewsListBtn.style.display = 'inline-flex';
+
+                        const currentSidebarUl = targetArticleElement.querySelector('.other-news-block ul');
+                        if (currentSidebarUl) {
+                            currentSidebarUl.innerHTML = '';
+                            newsArticles.forEach(art => {
+                                if (art.id !== articleId) {
+                                    const li = document.createElement('li');
+                                    const link = document.createElement('a');
+                                    link.href = `#${art.id}`;
+                                    link.classList.add('other-news-link');
+                                    link.dataset.targetArticle = art.id;
+                                    const icon = document.createElement('i');
+                                    icon.className = 'far fa-newspaper';
+                                    const span = document.createElement('span');
+                                    const titleKey = art.dataset.newsTitleKey;
+                                    if (titleKey) {
+                                       span.dataset.translateKey = titleKey;
+                                    }
+                                    link.appendChild(icon);
+                                    link.appendChild(document.createTextNode(' '));
+                                    link.appendChild(span);
+                                    li.appendChild(link);
+                                    currentSidebarUl.appendChild(li);
+                                }
+                            });
+                             applyTranslations(languageSelector.value);
+                        }
+
+
+                        const rect = newsArticlesContainer.getBoundingClientRect();
+                        const headerOffset = getHeaderOffset();
+                        if (rect.top < headerOffset || rect.bottom > window.innerHeight) {
+                           scrollToElement(newsArticlesContainer);
+                        }
+
+                    } else {
+                        showNewsContent(); // Fallback to summary if article not found
+                    }
+                } else { // Show summary list
+                    if(newsListTitleElement) newsListTitleElement.style.display = 'block';
+                    newsSummaryList.style.display = 'grid';
+                    newsArticlesContainer.style.display = 'none';
+                    newsArticles.forEach(article => article.classList.remove('active-article'));
+                    backToNewsListBtn.style.display = 'none';
+                    scrollToElement('news');
+                }
+                const hashToSet = articleId || 'news';
+                if (window.location.hash !== `#${hashToSet}`) {
+                     try {
+                        history.replaceState(null, null, `#${hashToSet}`);
+                    } catch (e) {
+                         window.location.hash = `#${hashToSet}`;
+                    }
+                }
+            }
+
+            // Function to get current page URL and title (for sharing)
+            function getCurrentPageInfo() {
+                let url = window.location.href;
+                const activeArticle = document.querySelector('.news-article.active-article');
+                let title = document.title; // Default to page title
+
+                if (activeArticle) {
+                    // Ensure the URL includes the hash for the specific active article
+                    const articleHash = `#${activeArticle.id}`;
+                    if (window.location.hash !== articleHash) {
+                         url = `${window.location.origin}${window.location.pathname}${articleHash}`;
+                    }
+                    const titleElement = activeArticle.querySelector('.article-title-main');
+                    if (titleElement) {
+                        title = titleElement.textContent || titleElement.innerText;
+                    }
+                } else if (!window.location.hash || window.location.hash === "#news") {
+                    // If it's the summary view
+                     url = `${window.location.origin}${window.location.pathname}#news`;
+                     const listTitle = document.querySelector('.section-title-news-list');
+                     if(listTitle) title = listTitle.textContent || listTitle.innerText;
+                }
+                return { url, title };
+            }
+
+            // Event delegation for social share icons
+            if (newsArticlesContainer) {
+                newsArticlesContainer.addEventListener('click', function(e) {
+                    const shareButton = e.target.closest('.social-share-icons a');
+                    if (!shareButton) return;
+                    e.preventDefault();
+
+                    const { url, title } = getCurrentPageInfo();
+                    const id = shareButton.getAttribute('id') || shareButton.title.toLowerCase().replace(/\s+/g, ''); // Fallback to title if no ID
+
+                    if (id.includes('facebook')) {
+                        const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                        window.open(facebookShareUrl, '_blank', 'width=600,height=400');
+                    } else if (id.includes('twitter')) {
+                        const twitterShareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+                        window.open(twitterShareUrl, '_blank', 'width=600,height=400');
+                    } else if (id.includes('email')) {
+                        const subject = encodeURIComponent(`${translations[languageSelector.value]?.pageTitleNews || "News Article"}: ${title}`);
+                        const body = encodeURIComponent(`I found this interesting news article: ${title}\n\nRead it here: ${url}`);
+                        const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
+                        window.location.href = mailtoLink;
+                    } else if (id.includes('link')) {
+                        navigator.clipboard.writeText(url).then(() => {
+                            alert(translations[languageSelector.value]?.alertLinkCopied || "Link copied to clipboard!");
+                        }).catch(err => {
+                            console.error('Failed to copy link: ', err);
+                            try {
+                                const textArea = document.createElement("textarea");
+                                textArea.value = url;
+                                document.body.appendChild(textArea);
+                                textArea.focus();
+                                textArea.select();
+                                document.execCommand('copy');
+                                document.body.removeChild(textArea);
+                                alert(translations[languageSelector.value]?.alertLinkCopied || "Link copied to clipboard!");
+                            } catch (fallbackErr) {
+                                alert(translations[languageSelector.value]?.alertCopyLinkFailed || "Failed to copy link. Please copy it manually.");
+                            }
+                        });
+                    } else if (id.includes('print')) {
+                        window.print();
+                    }
+                });
+            }
+
+
+            window.addEventListener('load', () => {
+                const savedLanguage = localStorage.getItem('preferredLanguage') || 'am';
+                languageSelector.value = savedLanguage;
+
+                const initialHash = window.location.hash;
+                if (initialHash && initialHash.length > 1) {
+                    const targetId = initialHash.substring(1);
+                    if (targetId.startsWith('news-article-')) {
+                        showNewsContent(targetId);
+                    } else if (targetId === 'news' || (newsSection && newsSection.classList.contains('active'))) {
+                        showNewsContent();
+                    }
+                } else if (newsSection && newsSection.classList.contains('active')) {
+                     showNewsContent();
+                }
+                document.querySelector('.nav-link[data-target="news"]').classList.add('active');
+                applyTranslations(savedLanguage);
+            });
+
+            languageSelector.addEventListener('change', (e) => {
+                const newLang = e.target.value;
+                localStorage.setItem('preferredLanguage', newLang);
+                applyTranslations(newLang);
+                const activeArticle = document.querySelector('.news-article.active-article');
+                if (activeArticle) {
+                    showNewsContent(activeArticle.id);
+                }
+            });
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    const isOpen = navMenu.classList.toggle('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+                    mobileMenuBtn.innerHTML = isOpen ? '×' : '☰';
+                    if (!isOpen) { closeAllMegaMenus(); }
+                });
+            }
+
+            navMenu.addEventListener('click', function(e) {
+                const link = e.target.closest('a.nav-link');
+                if (!link) return;
+                const href = link.getAttribute('href');
+                const parentLi = link.closest('li.has-megamenu');
+                const isMegaMenuParentLink = parentLi && link === parentLi.querySelector(':scope > .nav-link');
+
+                if (isMegaMenuParentLink && isMobile()) {
+                    e.preventDefault();
+                    const megaMenu = parentLi.querySelector('.mega-menu');
+                    const isMegaMenuOpen = parentLi.classList.contains('mega-menu-open');
+                    megaMenuParents.forEach(li => {
+                        if (li !== parentLi && li.classList.contains('mega-menu-open')) {
+                            li.classList.remove('mega-menu-open');
+                            const otherMega = li.querySelector('.mega-menu');
+                            if(otherMega) otherMega.style.display = 'none';
+                            const otherIcon = li.querySelector('.mega-menu-icon');
+                            if(otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                             const otherParentLink = li.querySelector(':scope > .nav-link');
+                             if(otherParentLink) otherParentLink.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                    parentLi.classList.toggle('mega-menu-open');
+                    if (megaMenu) {
+                        megaMenu.style.display = isMegaMenuOpen ? 'none' : 'flex';
+                        link.setAttribute('aria-expanded', !isMegaMenuOpen);
+                    }
+                    return;
+                }
+                if (href && (href.startsWith('index.html#') || (!href.startsWith('#') && !href.startsWith('javascript:')))) {
+                    if (isMobile() && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        if (mobileMenuBtn) { mobileMenuBtn.setAttribute('aria-expanded', 'false'); mobileMenuBtn.innerHTML = '☰'; }
+                        closeAllMegaMenus();
+                    }
+                } else if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    if (targetId.startsWith('news-article-')) {
+                        showNewsContent(targetId);
+                    } else if (targetId === 'news') {
+                        showNewsContent();
+                    } else {
+                        scrollToElement(targetId);
+                    }
+                     if (isMobile() && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                         if(mobileMenuBtn) { mobileMenuBtn.setAttribute('aria-expanded', 'false'); mobileMenuBtn.innerHTML = '☰'; }
+                         closeAllMegaMenus();
+                     }
+                }
+            });
+
+            if (newsSummaryList) {
+                newsSummaryList.addEventListener('click', function(e) {
+                    const link = e.target.closest('.news-title-link');
+                    if (!link) return;
+                    e.preventDefault();
+                    const articleId = link.dataset.targetArticle;
+                    if (articleId) { showNewsContent(articleId); }
+                });
+            }
+            if (backToNewsListBtn) {
+                backToNewsListBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showNewsContent();
+                });
+            }
+
+            if (newsArticlesContainer) {
+                newsArticlesContainer.addEventListener('click', function(e) {
+                    const link = e.target.closest('.other-news-link');
+                    if (link) {
+                        e.preventDefault();
+                        const targetArticleId = link.dataset.targetArticle;
+                        showNewsContent(targetArticleId);
+                    }
+                });
+            }
+
+
+            const newsletterForm = document.getElementById('newsletterForm');
+            if(newsletterForm) {
+               newsletterForm.addEventListener('submit', (e) => {
+                   e.preventDefault();
+                   const emailInput = document.getElementById('newsletter-email');
+                   const email = emailInput && emailInput.value ? emailInput.value.trim() : '';
+                    const currentLang = localStorage.getItem('preferredLanguage') || 'am';
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(email)) {
+                         alert(translations[currentLang]?.alertInvalidEmail || translations['am'].alertInvalidEmail);
+                         emailInput.focus(); return;
+                    }
+                   const successMsg = translations[currentLang]?.alertNewsletterConfirm || translations['am'].alertNewsletterConfirm;
+                   alert(`${email}, ${successMsg}`);
+                    e.target.reset();
+               });
+            }
+            const searchInput = document.getElementById('site-search');
+            if(searchForm && searchInput) {
+               searchForm.addEventListener('submit', (e) => {
+                   e.preventDefault();
+                   const searchTerm = searchInput.value.trim();
+                   const currentLang = localStorage.getItem('preferredLanguage') || 'am';
+                   if (searchTerm) { alert(translations[currentLang]?.alertSearchStatic || translations['am'].alertSearchStatic); }
+                    searchInput.value = '';
+               });
+            }
+            window.addEventListener('scroll', () => {
+                if (backToTopButton) {
+                    if (window.scrollY > window.innerHeight * 0.5) { backToTopButton.classList.add('visible'); }
+                    else { backToTopButton.classList.remove('visible'); }
+                }
+            });
+            if(backToTopButton) {
+               backToTopButton.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+            }
+            document.addEventListener('click', (e) => {
+                setTimeout(() => {
+                    if (isMobile() && navMenu.classList.contains('active') && !navMenu.contains(e.target) && (!mobileMenuBtn || !mobileMenuBtn.contains(e.target))) {
+                         const clickedInsideMegaMenu = e.target.closest('.mega-menu');
+                         if (!clickedInsideMegaMenu) {
+                            navMenu.classList.remove('active');
+                            if(mobileMenuBtn) { mobileMenuBtn.setAttribute('aria-expanded', 'false'); mobileMenuBtn.innerHTML = '☰'; }
+                            closeAllMegaMenus();
+                         }
+                    }
+                }, 50);
+            });
+            window.addEventListener('resize', () => {
+                 setTimeout(() => {
+                    if (!isMobile() && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                         if(mobileMenuBtn) { mobileMenuBtn.setAttribute('aria-expanded', 'false'); mobileMenuBtn.innerHTML = '☰'; }
+                        closeAllMegaMenus();
+                    }
+                     megaMenuParents.forEach(li => {
+                         const mega = li.querySelector('.mega-menu');
+                         if (mega) {
+                             if (isMobile()) {
+                                  if (!li.classList.contains('mega-menu-open')) { mega.style.display = 'none'; }
+                                  else { mega.style.display = 'flex'; }
+                                  mega.style.transition = ''; mega.style.opacity = '1'; mega.style.visibility = 'visible'; mega.style.transform = 'none';
+                             } else {
+                                 mega.style.display = '';
+                                 if (!li.matches(':hover')) {
+                                    mega.style.opacity = '0';
+                                    mega.style.visibility = 'hidden';
+                                    mega.style.transform = 'translateX(-50%) translateY(10px)';
+                                 }
+                                 mega.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0s 0.3s';
+                             }
+                         }
+                     });
+                 }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

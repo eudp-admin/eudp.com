@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="am"> <!-- Default language set to Amharic -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title data-translate-key="pageTitle">የወላይታ ማህበረሰብ አቀፍ ፓርቲ - የጤና ፖሊሲ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2A5C82;   /* EUDP Primary Blue */
+            --secondary-color: #4CAF50; /* EUDP Accent Green */
+            --accent-color: #FFD700;    /* EUDP Highlight Gold/Yellow */
+            --dark-text: #333333;       /* Dark text color */
+            --light-text: #FFFFFF;      /* Light text color */
+            
+            /* MODIFIED: Aligning --bg-light with --light-gray-bg-template from code (2).html */
+            --light-gray-bg-template: #f4f4f8; /* From code (2).html, for integrated section if needed */
+            --bg-light: var(--light-gray-bg-template); /* Standard light background, was #f8fafc */
+            
+            --bg-soft: #E0F2FE;         /* Lighter, softer blue background */
+            
+            /* ADDED: Explicit variable for hero overlay color from code (2).html */
+            --template-hero-overlay-color: rgba(10, 36, 99, 0.85); 
+            --bg-hero: linear-gradient(rgba(10, 36, 99, 0.85), rgba(10, 36, 99, 0.85)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* UPDATED HERO BACKGROUND: Using image and gradient from code (2).html */
+            
+            --border-color: #ccc;       /* Standard border color */
+
+            --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Abyssinica SIL', sans-serif;
+            line-height: 1.7; /* Slightly increased for better readability */
+            /* MODIFIED: Corrected undefined variables --text-color and --light-color */
+            color: var(--dark-text);
+            background: var(--bg-light);
+            font-size: 16px; /* Base font size */
+        }
+
+        input,
+        button,
+        select,
+        textarea {
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-color); /* Use secondary color for links */
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem; /* Consistent padding */
+        }
+
+        /* Logo and Top Bar */
+        .logo-topbar-container {
+            background-color: var(--bg-soft);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1.5rem;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .logo-container img {
+            width: 80px;
+            height: 80px;
+            transition: transform 0.3s ease;
+            border-radius: 50%;
+            box-shadow: var(--shadow-sm);
+            object-fit: cover;
+        }
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .language-select {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-select label i {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .language-select select {
+            background: var(--bg-light); /* Will now use #f4f4f8 */
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 0.35rem 1.75rem 0.35rem 0.75rem; /* Space for custom arrow */
+            border-radius: var(--radius-md);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+             /* Custom arrow SVG */
+             background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%232A5C82%22%3E%3Cpath%20d%3D%22M9.293%2012.95l.707.707L15.657%208l-1.414-1.414L10%2010.828%205.757%206.586%204.343%208z%22%2F%3E%3C%2Fsvg%3E');
+             background-repeat: no-repeat;
+             background-position: right 0.5rem center;
+             background-size: 1em auto;
+             cursor: pointer;
+        }
+        .language-select select:hover {
+            border-color: var(--secondary-color);
+        }
+
+
+        .search-bar {
+            display: flex;
+        }
+        .search-bar input[type="search"] {
+            background: var(--bg-light); /* Will now use #f4f4f8 */
+            border: 1px solid var(--primary-color);
+            color: var(--dark-text);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md) 0 0 var(--radius-md);
+            width: 220px;
+             transition: var(--transition);
+        }
+         .search-bar input[type="search"]::placeholder {
+            color: var(--dark-text);
+            opacity: 0.7;
+        }
+        .search-bar input[type="search"]:focus {
+             border-color: var(--secondary-color);
+             box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+             outline: none;
+        }
+
+
+        .search-bar button {
+            background:var(--secondary-color);
+            color: var(--dark-text); /* Changed for better contrast on yellow - original comment, but button is green */
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--secondary-color);
+            border-left: none;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .search-bar button:hover {
+            background: #e6c300; /* Darker accent */
+            border-color: #e6c300;
+        }
+
+        /* Page Header */
+        .page-header {
+            /* MODIFIED: Changed background to align with hero style from code (2).html */
+            background: var(--bg-hero); 
+            color: white;
+            padding: 2.5rem 0; /* Increased padding */
+            text-align: center;
+            margin-bottom: 0;
+            box-shadow: var(--shadow-md);
+            border-bottom: 3px solid var( --secondary-color);
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem; /* Larger title */
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 700; /* Bolder */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            flex-direction: row-reverse;
+            gap: 2rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            padding: 1.5rem;
+            margin-top: 0;
+            width: 30%;
+            max-width: 300px;
+            background-color: #1e293b; 
+            color: var(--light-text); /* Corrected from --light-color */
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            align-self: flex-start;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 0.75rem;
+            color: white;
+            font-size: 1.25rem;
+            border-bottom: 1px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        .sidebar h3 {
+            margin-bottom: 0.75rem;
+            color: white;
+            font-size: 1rem;
+            padding-bottom: 0.5rem;
+        }
+        .sidebar h2 a {
+            color: white;
+        }
+        .sidebar h2 a:hover {
+            color: white; /* Consider var(--accent-color) for hover if green is de-emphasized */
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+        .sidebar ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar a {
+            color: white;
+            display: block;
+            padding: 0.5rem 0.75rem;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .sidebar a:hover, .sidebar a.active-policy-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+        }
+        .sidebar a i {
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+        .sidebar .active-policy-link {
+            font-weight: bold;
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+
+        /* Main Content Section */
+        .section {
+            display: block;
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            width: 70%;
+            flex: 1;
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid #3498db; /* This blue is not from variables, consider var(--primary-color) or var(--accent-color) */
+            padding-bottom: 0.75rem;
+        }
+        .section h3 {
+            /* Corrected undefined variable --dark-color, assuming --dark-text or --primary-color */
+            color: var(--dark-text); 
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-vision-mission {
+            /* MODIFIED: To use the updated --bg-light value from code (2).html */
+            background-color: var(--bg-light); 
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            border-left: 5px solid var(--secondary-color);
+            box-shadow: var(--shadow-sm);
+        }
+        .policy-vision-mission h3 {
+            margin-top: 0;
+            color: var(--secondary-color);
+        }
+        .policy-vision-mission p, .policy-vision-mission ol {
+            font-size: 1.05rem;
+        }
+        .policy-vision-mission ol li {
+            margin-bottom: 0.75rem;
+        }
+
+
+        .policy-point-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0; /* Consider var(--border-color) */
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+        .policy-point-card dt h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .policy-point-card dd ol {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+        }
+        .policy-point-card dd ol li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        .policy-point-card dd ol li::marker {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+
+        .section dt {
+            font-weight: bold;
+            margin-top: 0.75em;
+        }
+        .section dd {
+            margin-left: 20px;
+            margin-bottom: 0.5em;
+        }
+        .section ol, .section ul {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+        .section ol ol {
+            list-style-type: lower-roman;
+        }
+
+        .section > ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        .section > ul li {
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+
+        .read-more-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white; /* Consider var(--dark-text) for better contrast if accent is light yellow */
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: bold;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-top: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .read-more-btn:hover {
+            background-color: #c56a19; /* This is a dark orange, not derived from accent. Consider darkening accent-color */
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .read-more-btn i {
+            margin-right: 0.5rem;
+        }
+
+        .footer {
+             background-color: var(--dark-text);
+             color: var(--bg-light); /* Will now use #f4f4f8 for light text on dark bg if not overridden */
+             padding: 4rem 0; 
+             font-size: 0.95rem;
+        }
+        /* Text within footer should be light for contrast */
+        .footer p, .footer .contact ul li p, .footer .contact ul li a {
+            color: rgba(248, 250, 252, 0.8); /* Explicit light text for footer */
+        }
+        .footer .simplenews-subscriber-form input[type="email"]::placeholder {
+              color: rgba(248, 250, 252, 0.5); /* Explicit light placeholder */
+        }
+         .footer .simplenews-subscriber-form input[type="email"] {
+             color: var(--light-text); /* Explicit light text for input */
+         }
+
+
+        .footer .container .row {
+             display: flex;
+             flex-wrap: wrap;
+             gap: 3rem; 
+             justify-content: space-between;
+        }
+
+        .footer .col { 
+             flex: 1 1 280px;
+             min-width: 250px;
+        }
+         .footer .col.contact-col { 
+              flex: 1 1 200px;
+         }
+
+
+        .footer h2 {
+             color: var(--accent-color);
+             font-size: 1.5rem; 
+             margin-bottom: 1.8rem; 
+             position: relative;
+             padding-bottom: 0.6rem; 
+        }
+         .footer h2::after {
+             content: '';
+             position: absolute;
+             bottom: 0;
+             left: 0;
+             width: 70px; 
+             height: 3px; 
+             background-color: var(--secondary-color);
+             border-radius: 1.5px;
+         }
+
+        /* .footer p is styled above for light text */
+
+        /* Newsletter Form in Footer */
+        .simplenews-subscriber-form {
+             display: flex;
+             gap: 0.5rem;
+             margin-top: 1.8rem; 
+             flex-wrap: wrap; 
+        }
+        .simplenews-subscriber-form input[type="email"] {
+             flex-grow: 1;
+             padding: 0.85rem 1rem; 
+             border: 1px solid #555;
+             border-radius: var(--radius-sm);
+             background-color: #444;
+             /* color: var(--light-text); already set above */
+        }
+         /* placeholder color set above */
+
+        .simplenews-subscriber-form button {
+             padding: 0.85rem 1.8rem; 
+             background-color: orange; /* Consider var(--accent-color) or var(--secondary-color) */
+             color: var(--light-text);
+             border: none;
+             border-radius: var(--radius-sm);
+             cursor: pointer;
+             transition: var(--transition);
+             font-weight: bold;
+        }
+         .simplenews-subscriber-form button:hover {
+              background-color: var(--primary-color);
+         }
+
+        /* Social Icons */
+        .social-icons {
+             list-style: none;
+             display: flex;
+             gap: 1.2rem; 
+             margin-top: 1.8rem; 
+             padding: 0; 
+        }
+         .social-icons li {
+              display: inline-block;
+         }
+
+        .social-icons a {
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             width: 45px; 
+             height: 45px;
+             border-radius: 100%;
+             background-color: #2A5C82; /* This is --primary-color */
+             color: var(--light-text);
+             font-size: 1.4rem; 
+             transition: var(--transition);
+        }
+         .social-icons a:hover {
+              background-color: var(--secondary-color);
+              color: var(--light-text);
+              transform: translateY(-5px); 
+         }
+
+        /* Contact Details */
+        .contact ul {
+             list-style: none;
+             padding-left: 0;
+             margin-top: 1.8rem; 
+        }
+        .contact ul li {
+             margin-bottom: 1.2rem; 
+             display: flex;
+             align-items: flex-start;
+             gap: 0.8rem; 
+        }
+         .contact ul li:last-child {
+              margin-bottom: 0;
+         }
+
+         .contact ul li i {
+              color: var(--secondary-color);
+              font-size: 1.3rem; 
+              margin-top: 5px; 
+         }
+         /* .contact ul li p styling handled by general .footer p */
+          .contact ul li strong {
+              color: var(--accent-color);
+          }
+         /* .contact ul li a styling handled by general .footer a */
+          .contact ul li a:hover {
+               color: var(--secondary-color);
+          }
+
+
+        /* Footer Copyright */
+        .footer-copyright {
+             text-align: center;
+             margin-top: 4rem; 
+             padding-top: 2rem; 
+             border-top: 1px solid #555;
+             font-size: 0.9rem; 
+             color: rgba(248, 250, 252, 0.6);
+        }
+
+
+        @media (max-width: 992px) {
+            .col-md-3,
+            .col-md-4,
+            .col-md-2 {
+                flex-basis: calc(50% - 0.75rem);
+            }
+            .main-layout {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            .section h2 {
+                font-size: 1.7rem;
+            }
+            .section h3 {
+                font-size: 1.3rem;
+            }
+
+            .main-layout {
+                padding: 1rem;
+                flex-direction: column;
+            }
+            .sidebar, .section {
+                width: 100%;
+                max-width: none;
+            }
+            .sidebar {
+                margin-bottom: 1.5rem;
+            }
+            .logo-topbar-container {
+                flex-direction: column;
+                padding: 1rem;
+                text-align: center;
+            }
+             .logo-container { 
+                margin-bottom: 1rem;
+            }
+            .logo-container img {
+                width:100px; height:100px;
+            }
+            .logo-container h2 {
+                font-size: 1.3rem;
+            }
+            .top-bar {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+            .search-bar {
+                width: 100%;
+            }
+            .search-bar input[type="search"]{
+                width: 100%; 
+                flex-grow: 1; 
+            }
+
+
+            .col-md-3,
+            .col-md-4,
+            .col-md-2 {
+                flex-basis: 100%;
+                margin-bottom: 1.5rem;
+            }
+            .footer .simplenews-subscriber-form input[type="email"]{
+                 margin-bottom: 0.5rem; 
+                 margin-right: 0;
+                 width: 100%;
+            }
+             .footer .simplenews-subscriber-form {
+                flex-direction: column; 
+            }
+            .footer .simplenews-subscriber-form button{
+                width: 100%; 
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Logo and Top Bar -->
+    <div class="logo-topbar-container">
+        <div class="logo-container">
+            <img src="2025-05-17 18.49.47.jpg" alt="የኢትዮጵያ አንድነት እና ልማት ፓርቲ አርማ">
+            <h2 data-translate-key="logoTitle">የኢትዮጵያ አንድነት እና ልማት ፓርቲ</h2>
+        </div>
+
+        <div class="top-bar">
+            <div class="language-select">
+                <label for="language-select" class="sr-only" data-translate-key="langLabel">ቋንቋ ይምረጡ</label>
+                <i class="fas fa-language" aria-hidden="true"></i>
+                <select id="language-select" aria-label="Select Language">
+                    <option value="am" data-translate-key="langAmharic">አማርኛ</option>
+                    <option value="en" data-translate-key="langEnglish">English</option>
+                </select>
+            </div>
+
+            <form class="search-bar" role="search">
+                <label for="site-search" class="sr-only" data-translate-key="searchSrOnly">Search the site</label>
+                <input type="search" id="site-search" data-translate-key="searchPlaceholder" placeholder="Search/ፈልግ" aria-label="Search" />
+                <button type="submit">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <span class="sr-only" data-translate-key="searchBtnSr">ፈልግ</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 data-translate-key="headerTitle">የጤና ፖሊሲ</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="main-layout">
+            <section id="hospital" class="section active">
+                <h2 data-translate-key="healthPolicyOverviewTitle">የጤና ፖሊሲ አጠቃላይ እይታ</h2>
+
+                <div class="policy-vision-mission">
+                    <h3 data-translate-key="visionTitle">ራዕይ</h3>
+                    <p data-translate-key="visionText">ሁሉም ዜጋ፣ ያለ አድልዎ ተደራሽ፣ ፍትሃዊና ጥራት ያለው የጤና አገልግሎት የሚያገኝባትን ጤነኛ ኢትዮጵያን መፍጠር።</p>
+                </div>
+
+                <div class="policy-vision-mission">
+                    <h3 data-translate-key="missionTitle">ተልዕኮ</h3>
+                    <ol>
+                        <li data-translate-key="missionItem1">በመከላከል ላይ ያተኮረ የጤና ሥርዓት መገንባት: በሽታዎች ከመከሰታቸው በፊት በመከላከል ላይ የሚያተኩር፣ ጤናማ የአኗኗር ዘይቤን
+                            የሚያበረታታና ለጤና ትምህርት ቅድሚያ የሚሰጥ የጤና ሥርዓት መፍጠር።</li>
+                        <li data-translate-key="missionItem2">ለሁሉም ዜጎች ተደራሽና ጥራት ያለው የህክምና አገልግሎት መስጠት: የጤና አገልግሎቶች ለሁሉም ዜጎች በተመጣጣኝ ዋጋና በተመቻቸ
+                            ሁኔታ ተደራሽ እንዲሆኑ ማድረግ። በተለይም በገጠርና ሩቅ አካባቢዎች ለሚኖሩ ዜጎች የጤና አገልግሎት ተደራሽነትን ማረጋገጥ።</li>
+                        <li data-translate-key="missionItem3">የጤና ባለሙያዎችን ቁጥርና ብቃት ማሳደግ: በቂና ብቁ የጤና ባለሙያዎችን ማፍራት፣ ስልጠና መስጠትና ሞራላቸውን ማነቃቃት። የጤና
+                            ባለሙያዎች በአገሪቱ በሙሉ ፍትሃዊ በሆነ መንገድ እንዲሰራጩ ማድረግ።</li>
+                        <li data-translate-key="missionItem4">የጤና መረጃ ሥርዓትን ማጠናከር: ወቅታዊ፣ ትክክለኛና አስተማማኝ የጤና መረጃዎችን መሰብሰብ፣ መተንተንና ለውሳኔ አሰጣጥ መጠቀም
+                            የሚያስችል ዘመናዊ የጤና መረጃ ሥርዓት መገንባት።</li>
+                        <li data-translate-key="missionItem5">በተመጣጣኝ ዋጋ የመድሃኒት አቅርቦትን ማረጋገጥ: ጥራት ያላቸው መድሃኒቶች በተመጣጣኝ ዋጋ ለሁሉም ዜጎች ተደራሽ እንዲሆኑ ማድረግ።
+                            የመድሃኒት አቅርቦት ሥርዓቱን ማጠናከርና የ ገር ውስጥ ምርትን ማበረታታት።</li>
+                        <li data-translate-key="missionItem6">በጤናው ዘርፍ የህብረተሰቡን ተሳትፎ ማሳደግ: ማህበረሰቡ በጤና ፖሊሲዎች አፈፃፀም፣ በውሳኔ አሰጣጥና በክትትል ሂደቶች ላይ በንቃት
+                            እንዲሳተፍ ማድረግ።</li>
+                        <li data-translate-key="missionItem7">ጤናማ የአኗኗር ዘይቤን ማበረታታት: ጤናማ አመጋገብን፣ የአካል ብቃት እንቅስቃሴን፣ ከአልኮልና ትምባሆ ርቀትንና የአእምሮ ጤናን የሚደግፉ
+                            ልማዶችን ማበረታታት።</li>
+                        <li data-translate-key="missionItem8">በተላላፊና ተላላፊ ባልሆኑ በሽታዎች ላይ ትኩረት ማድረግ: በተላላፊ በሽታዎች (ኤችአይቪ ኤድስ፣ ቲቢ፣ ወባ ወዘተ) እና በተላላፊ ያልሆኑ
+                            በሽታዎች (ስኳር፣ የልብ ህመም፣ ካንሰር ወዘተ) ላይ ልዩ ትኩረት በመስጠት የመከላከያና የህክምና አገልግሎቶችን ማጠናከር።</li>
+                    </ol>
+                </div>
+
+                <h3 data-translate-key="mainPolicyDirectionsTitle">የፖሊሲው ዋና ዋና አቅጣጫዎች</h3>
+                <dl>
+                    <div class="policy-point-card">
+                        <dt>
+                            <h3 data-translate-key="preventiveHealthTitle">1. የመከላከያ ጤና (Preventive Health)</h3>
+                        </dt>
+                        <dd>
+                            <ol>
+                                <li data-translate-key="preventiveHealthItem1">የንጹህ ውሃ አቅርቦት: ሁሉም ዜጎች በቂና ንጹህ የመጠጥ ውሃ እንዲያገኙ ማድረግ። የውሃ ምንጮችን መጠበቅና ተደራሽነትን
+                                    ማስፋፋት።</li>
+                                <li data-translate-key="preventiveHealthItem2">የንጽህና አጠባበቅ: ንጽህናን መጠበቅ አስፈላጊ ስለመሆኑ ግንዛቤ ማስጨበጥና ተገቢውን መሰረተ ልማት (ለምሳሌ፡ መጸዳጃ ቤቶች)
+                                    መገንባት።</li>
+                                <li data-translate-key="preventiveHealthItem3">የክትባት አገልግሎት: ለሁሉም ህጻናት አስፈላጊ የሆኑ ክትባቶችን በነጻና በተደራ  መንገድ መስጠት። የእናቶችንና የህጻናትን ጤና
+                                    ለመጠበቅ የሚያስችሉ የክትባት መርሃ ግብሮችን ማጠናከር።</li>
+                                <li data-translate-key="preventiveHealthItem4">የእናትና የህፃናት ጤና: በእርግዝና ወቅትና ከወሊድ በኋላ ለእናቶችና ለህፃናት የሚሰጡ የጤና አገልግሎቶችን ማጠናከር። በቂ የጤና
+                                    ባለሙያዎችን በማሰማራትና ተቋማትን በማጠናከር እናቶችና ህጻናት ተገቢውን የጤና እንክብካቤ እንዲያገኙ ማድረግ።</li>
+                                <li data-translate-key="preventiveHealthItem5">የተመጣጠነ ምግብ አቅርቦትና ትምህርት: የተመጣጠነ ምግብ እጥረት ለመከላከልና ጤናማ አመጋገብን ለማበረታታት የተለያዩ መርሃ
+                                    ግብሮችን መንደፍና መተግበር። በተለይ ህፃናትና ነፍሰጡር እናቶች ተገቢውን የተመጣጠነ ምግብ እንዲያገኙ ልዩ ትኩረት መስጠት።</li>
+                                <li data-translate-key="preventiveHealthItem6">የጤና ትምህርት: ለህብረተሰቡ ጤናማ የአኗኗር ዘይቤ፣ በሽታዎችን እንዴት መከላከል እንደሚቻል፣ የመጀመሪያ እርዳታ አሰጣጥና ሌሎች
+                                    ጠቃሚ የጤና መረጃዎች ላይ ተከታታይነት ያለው ትምህርት መስጠት። ይህንንም ለማድረግ ሁሉንም የመገናኛ ብዙሃንና የትምህርት ተቋማትን መጠቀም።</li>
+                            </ol>
+                        </dd>
+                    </div>
+
+                    <div class="policy-point-card">
+                        <dt>
+                            <h3 data-translate-key="curativeHealthTitle">2. የህክምና አገልግሎት (Curative Health)</h3>
+                        </dt>
+                        <dd>
+                            <ol>
+                                <li data-translate-key="curativeHealthItem1">የጤና ተቋማት: ሁሉንም የጤና ተቋማት (ሆስፒታሎች፣ ጤና ጣቢያዎች፣ የጤና ኬላዎች) ደረጃቸውን የጠበቁና ዘመናዊ መሣሪያዎችና
+                                    መገልገያዎች እንዲሟሉ ማድረግ። የጤና ተቋማት በሁሉም አካባቢዎች በተመጣጣኝ ሁኔታ እንዲሰራጩ ማድረግ።</li>
+                                <li data-translate-key="curativeHealthItem2">የጤና ባለሙያዎች: በቂ ቁጥር ያላቸውን ብቁ የጤና ባለሙያዎች (ዶክተሮች፣ ነርሶች፣ ፋርማሲስቶች፣ የላብራቶሪ ባለሙያዎች፣
+                                    የጤና ረዳቶች ወዘተ) ማፍራትና ለሁሉም የህብረተሰብ ክፍሎች ተደራሽ እንዲሆኑ ማድረግ። ለጤና ባለሙያዎች ተከታታይነት ያለው ስልጠና
+                                    መስጠትና የስራ ሞራላቸውን ማነቃቃት። የጤና ባለሙያዎች በገጠር አካባቢ እንዲሰሩ የሚያበረታቱ ማካካሻዎችን ማዘጋ ት።</li>
+                                <li data-translate-key="curativeHealthItem3">የድንገተኛ ጊዜ አገልግሎት: የድንገተኛ ጊዜ ህክምና አገልግሎት በአግባቡ እንዲሰጥ አምቡላንሶችን ቁጥር ማሳደግ፣ ዘመናዊ የድንገተኛ
+                                    ጊዜ ህክምና መስጫ መሳሪያዎችን ማሟላትና በቂ የሰለጠኑ የህክምና ባለሙያዎችን ማሰማራት።</li>
+                                <li data-translate-key="curativeHealthItem4">ለገጠር አካባቢዎች ትኩረት: በገጠር አካባቢዎች የጤና አገልግሎቶችን ተደራሽነት ለማረጋገጥ የሞባይል ክሊኒኮችን መጠቀም፣ የጤና
+                                    ጣቢያዎችን ቁጥር መጨመርና የቴሌሜዲስን አገልግሎትን ማስፋፋት።</li>
+                                <li data-translate-key="curativeHealthItem5">የልዩ ህክምና አገልግሎት: የልዩ ህክምና የሚያስፈልጋቸው እንደ ካንሰር፣ ኩላሊት፣ የልብ ህመም፣ የአእምሮ ህመም እና ሌሎች
+                                    በሽታዎች በአገር ውስጥ የሚሰጡበትን አቅም ማጠናከር። የልዩ ህክምና የሚያስፈልጋቸው ዜጎች ወደ ውጭ አገር ሄደው እንዲታከሙ የሚደረገውን
+                                    ወጪ ለመቀነስ ጥረት ማድረግ።</li>
+                            </ol>
+                        </dd>
+                    </div>
+                    <div class="policy-point-card">
+                        <dt>
+                            <h3 data-translate-key="medicineSupplyTitle">3. የመድሃኒት አቅርቦት</h3>
+                        </dt>
+                        <dd>
+                            <ol>
+                                <li data-translate-key="medicineSupplyItem1">ተመጣጣኝ ዋጋ: ሁሉም ዜጎች፣ በተለይም ዝቅተኛ ገቢ ያላቸው ዜጎች በተመጣጣኝ ዋጋ መድሃኒት ማግኘት እንዲችሉ ማድረግ።
+                                    የመድሃኒት ዋጋን ለመቆጣጠር የሚያስችሉ ህጎችን ማውጣትና መተግበር።</li>
+                                <li data-translate-key="medicineSupplyItem2">ጥራት ያለው መድሃኒት: በአገር ውስጥ የሚመረቱና የሚገቡ መድሃኒቶች ጥራታቸው የተረጋገጠ መሆኑን ማረጋገጥ። የሐሰተኛ መድሃኒቶች
+                                    ስርጭትን ለመከላከል የሚያስችሉ ጥብቅ ቁጥጥሮችን ማድረግ።</li>
+                                <li data-translate-key="medicineSupplyItem3">የአገር ውስጥ ምርት: በአገር ውስጥ የሚመረቱ መድሃኒቶችን ጥራት ማሻሻልና አቅርቦታቸውን ማረጋገጥ። የአገር ውስጥ የመድሃኒት አምራች
+                                    ኩባንያዎችን ማበረታታትና ድጋፍ መስጠት።</li>
+                            </ol>
+                        </dd>
+                    </div>
+                    <div class="policy-point-card">
+                        <dt>
+                            <h3 data-translate-key="healthInfoSystemTitle">4. የጤና መረጃ ሥርዓት</h3>
+                        </dt>
+                        <dd>
+                            <ol>
+                                <li data-translate-key="healthInfoSystemItem1">ዘመናዊ ሥርዓት: ዘመናዊ የኤሌክትሮኒክስ የጤና መረጃ ሥርዓት በመዘርጋት የህክምና መረጃዎችን በአግባቡ ለመሰብሰብ፣ ለማደራ ት፣
+                                    ለመተንተንና ለመጠቀም የሚያስችል አቅም መፍጠር።</li>
+                                <li data-translate-key="healthInfoSystemItem2">የውሂብ አጠቃቀም: የጤና መረጃዎችን በመጠቀም የጤና ፖሊሲዎችን ማሻሻል፣ የጤና አገልግሎቶችን ፍትሃዊነት ማረጋገጥና ለውሳኔ
+                                    አሰጣጥ መረጃዎችን ማቅረብ። የጤና መረጃዎች ጥናትና ምርምር እንዲደረግባቸው ማበረታታት።</li>
+                            </ol>
+                        </dd>
+                    </div>
+                     <div class="policy-point-card">
+                        <dt>
+                            <h3 data-translate-key="communityParticipationTitle">5. የህብረተሰብ ተሳትፎ</h3>
+                        </dt>
+                        <dd>
+                            <ol>
+                                <li data-translate-key="communityParticipationItem1">የአካባቢ ማህበረሰብ ተሳትፎ: የአካባቢውን ህብረተሰብ በጤና ጉዳዮች ላይ እንዲሳተፍ ማበረታታት። የጤና ችግሮችን በመለየት፣ መፍትሄዎችን በመፈለግና የጤና አገልግሎት አሰጣጥን
+                                    በመከታተል ረገድ የህብረተሰቡን ተሳትፎ ማረጋገጥ።</li>
+                                <li data-translate-key="communityParticipationItem2">የጤና ኮሚቴዎች: በሁሉም የአስተዳደር እርከኖች የጤና ኮሚቴዎችን በማቋቋም፣ የጤና አገልግሎቶችን አሰጣጥ እንዲከታተሉና እንዲያሻሽሉ
+                                    ማድረግ። የጤና ኮሚቴዎች የህብረተሰቡን ድምጽ በማስተጋባት በፖሊሲ አወጣጥ ሂደት ውስጥ እንዲሳተፉ ማድረግ።</li>
+                            </ol>
+                        </dd>
+                    </div>
+                    <div class="policy-point-card">
+                        <dt>
+                            <h3 data-translate-key="nutritionLifestyleTitle">6. የተመጣጠነ ምግብና ጤናማ የአኗኗር ዘይቤ</h3>
+                        </dt>
+                        <dd>
+                            <ol>
+                                <li data-translate-key="nutritionLifestyleItem1">የተመጣጠነ ምግብ ትምህርት: ህዝቡ ስለ የተመጣጠነ ምግብ አወሳሰድ በቂ ግንዛቤ እንዲኖረው በተለይ ለእናቶችና ለህጻናት ትኩረት
+                                    በመስጠት ትምህርት መስጠት።</li>
+                                <li data-translate-key="nutritionLifestyleItem2">ጤናማ የአኗኗር ዘይቤ: ዜጎች አካላዊ እንቅስቃሴ እንዲያደርጉ፣ ከአልኮልና ትምባሆ እንዲርቁ፣ አእምሯቸውን እንዲያረጋጉ የሚያግዙ
+                                    የተለያዩ ስልቶችን መንደፍና መተግበር።</li>
+                                <li data-translate-key="nutritionLifestyleItem3">የአልኮልና ትምባሆ ቁጥጥር: የአልኮልና ትምባሆ አጠቃቀምን ለመቀነስ የሚያስችሉ ጥብቅ ህጎችን ማውጣትና መተግበር።</li>
+                            </ol>
+                        </dd>
+                    </div>
+                    <div class="policy-point-card">
+                        <dt>
+                            <h3 data-translate-key="specialFocusTitle">7. ልዩ ትኩረት የሚያስፈልጋቸው ጉዳዮች</h3>
+                        </dt>
+                        <dd>
+                            <ol>
+                                <li data-translate-key="specialFocusItem1">ተላላፊ በሽታዎች: በተለይ በኤች አይ ቪ ኤድስ፣ በቲቢ፣ በወባና በሌሎች ተላላፊ በሽታዎች ላይ ትኩረት በመስጠት የመከላከያና
+                                    የህክምና ስራዎችን ማጠናከር። ለተጋለጡ የህብረተሰብ ክፍሎች ተገቢውን የጤና እንክብካቤና የስነ ልቦና ድጋፍ መስጠት</li>
+                                <li data-translate-key="specialFocusItem2">ተላላፊ ያልሆኑ በሽታዎች: የስኳር በሽታ፣ የልብ ህመም፣ ካንሰርና የመሳሰሉ ተላላፊ ያልሆኑ በሽታዎችን ለመከላከልና ለመቆጣጠር
+                                    የሚያስችሉ ፕሮግራሞችን ማዘጋጀትና መተግበር።</li>
+                                <li data-translate-key="specialFocusItem3">የአእምሮ ጤና: የአእምሮ ጤናን ለማስጠበቅና የአእምሮ ህመም ያለባቸውን ለመንከባከብ ተገቢውን አገልግሎት በአገር አቀፍ ደረጃ ተደራሽ
+                                    ማድረግ። የአእምሮ ጤና ችግር ያለባቸው ዜጎች ከማህበረሰቡ እንዳይገለሉ ለማድረግ ጥረት ማድረግ</li>
+                            </ol>
+                        </dd>
+                    </div>
+                </dl>
+
+                <h3 data-translate-key="policyImplementationTitle">የፖሊሲው ትግበራ</h3>
+                <ul>
+                    <li data-translate-key="implementationItem1">ይህ ፖሊሲ በተለያዩ የጤና ተቋማት፣ በማህበረሰብ አቀፍ የጤና ፕሮግራሞች፣ በትምህርት ቤቶችና በሌሎች አጋር አካላት አማካኝነት ይተገበራል።</li>
+                    <li data-translate-key="implementationItem2">የፖሊሲውን ውጤታማ ትግበራ ለማረጋገጥ በቂ በጀት መመደብ፣ የጤና ባለሙያዎችን ማብቃትና የክትትል ሥርዓትን ማጠናከር።</li>
+                    <li data-translate-key="implementationItem3">የፖሊሲው አፈጻጸም በየጊዜው ተገምግሞ አስፈላጊ ማስተካከያዎች ይደረጉበታል።</li>
+                    <li data-translate-key="implementationItem4">ህብረተሰቡ በፖሊሲው ትግበራ ሂደት ውስጥ በንቃት እንዲሳተፍ ማድረግ።</li>
+                    <li data-translate-key="implementationItem5">ከሌሎች አገራት ምርጥ ተሞክሮዎችን በመውሰድ በአገራችን ተጨባጭ ሁኔታ ላይ በመመስረት መተግበር።</li>
+                </ul>
+                <a href="የወማአፓ ፖሊሲዎች.pdf" class="read-more-btn"><i class="fas fa-file-pdf"></i><span data-translate-key="downloadFullPolicyBtn">ሙሉውን ፖሊሲ ያውርዱ</span></a>
+            </section>
+
+            <aside class="sidebar">
+                <h2><a href="index.html"><i class="fas fa-home"></i><span data-translate-key="sidebarHome">ዋና መነሻ</span></a></h2>
+
+                <h2><i class="fas fa-landmark"></i><span data-translate-key="sidebarPartyPolicies">የፓርቲው ፖሊሲዎች</span></h2>
+                <ul>
+                    <li>
+                <h3><i class="fas fa-chart-line"></i><span data-translate-key="sidebarEconomicPolicy">የኢኮኖሚ ፖሊሲ</span></h3>
+                <ul>
+                    <li><a href="policy-job-creation.html" class="nav-link" data-target="policy-job-creation.html"><i class="fas fa-briefcase" aria-hidden="true"></i><span data-translate-key="sidebarJobCreation">የስራ እድል ፈጠራ</span></a></li>
+                    <li><a href="policy-industrial-dev.html" class="nav-link" data-target="policy-industrial-dev.html"><i class="fas fa-industry" aria-hidden="true"></i><span data-translate-key="sidebarIndustrialDev">የኢንዱስትሪ ልማት</span></a></li>
+                    <li><a href="policy-agricultural-dev.html" class="nav-link" data-target="policy-agricultural-dev.html"><i class="fas fa-tractor" aria-hidden="true"></i><span data-translate-key="sidebarAgriDev">የግብርና ልማት</span></a></li>
+                    <li><a href="policy-finance-banking.html" class="nav-link" data-target="policy-finance-banking.html"><i class="fas fa-dollar-sign" aria-hidden="true"></i><span data-translate-key="sidebarFinanceBanking">ፋይናንስና ባንኪንግ</span></a></li>
+                    <li><a href="policy-infrastructure.html" class="nav-link" data-target="policy-infrastructure.html"><i class="fas fa-road" aria-hidden="true"></i><span data-translate-key="sidebarInfrastructure">መሠረተ ልማት</span></a></li>
+                </ul>
+                
+                <h3><i class="fas fa-users"></i><span data-translate-key="sidebarSocialPolicies">ማህበራዊ ፖሊሲዎች</span></h3>
+                <ul>
+                    <li><a href="policy 1.html" class="active-policy-link" data-target="policy 1.html"><i class="fas fa-hospital" aria-hidden="true"></i><span data-translate-key="sidebarHealth">ጤና</span></a></li>
+                    <li><a href="policy 2.html" class="nav-link" data-target="policy 2.html"><i class="fas fa-graduation-cap" aria-hidden="true"></i><span data-translate-key="sidebarEducation">ትምህርት</span></a></li>
+                    <li><a href="policy-poverty-foodsecurity.html" class="nav-link" data-target="policy-poverty-foodsecurity.html"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i><span data-translate-key="sidebarPovertyFoodSecurity">ድህነት ማጥፋት</span></a></li>
+                    <li><a href="policy-disability-rights.html" class="nav-link" data-target="policy-disability-rights.html"><i class="fas fa-wheelchair" aria-hidden="true"></i><span data-translate-key="sidebarVulnerable">ተጋላጭ ቡድኖች</span></a></li>
+                    <li><a href="policy-gender-equality.html" class="nav-link" data-target="policy-gender-equality.html"><i class="fas fa-venus-mars" aria-hidden="true"></i><span data-translate-key="sidebarGenderEq">የጾታ እኩልነት</span></a></li>
+                    <li><a href="policy-youth.html" class="nav-link"><i class="fas fa-user-graduate" aria-hidden="true"></i><span data-translate-key="socialYouth">ወጣቶች</span></a></li>
+                </ul>
+
+                <h3><i class="fas fa-globe"></i><span data-translate-key="policyOther">ሌሎች ፖሊሲዎች</span></h3>
+                <ul>
+                    <li><a href="policy-political-system.html" class="nav-link"><i class="fas fa-vote-yea" aria-hidden="true"></i><span data-translate-key="otherPoliticalSystem">የፖለቲካ ሥርዓት</span></a></li>
+                    <li><a href="policy-human-rights.html" class="nav-link"><i class="fas fa-gavel" aria-hidden="true"></i><span data-translate-key="otherHumanRights">ሰብዓዊ መብቶች</span></a></li>
+                    <li><a href="policy-security-defense.html" class="nav-link"><i class="fas fa-shield-alt" aria-hidden="true"></i><span data-translate-key="otherSecurity">መከላከያና ጸጥታ</span></a></li>
+                    <li><a href="policy-foreign.html" class="nav-link"><i class="fas fa-earth-africa" aria-hidden="true"></i><span data-translate-key="otherForeignPolicy">የውጭ ግንኙነት</span></a></li>
+                    <li><a href="policy-media.html" class="nav-link"><i class="fas fa-broadcast-tower" aria-hidden="true"></i><span data-translate-key="otherMedia">መገናኛ ብዙሃን</span></a></li>
+                    <li><a href="policy-natural-resources.html" class="nav-link"><i class="fas fa-tree" aria-hidden="true"></i><span data-translate-key="econNaturalResources">የተፈጥሮ ሀብትና መሬት</span></a></li>
+                                       <!-- Add other specific links as needed -->
+                                </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"> <!-- This was col, changed to col-md-4 for consistency with other example if any -->
+                    <div class="newsletter">
+                        <h2 data-translate-key="footerNewsletterTitle">ዜና መጽሔት ይመዝገቡ</h2>
+                        <p data-translate-key="footerNewsletterPara">የቅርብ ጊዜ መረጃዎችን እና የፓርቲ ዜናዎችን በቀጥታ ወደ ኢሜልዎ ያግኙ።</p>
+                        <form class="simplenews-subscriber-form">
+                            <label for="edit-mail-0-value" class="sr-only" data-translate-key="footerEmailLabelSr">ኢሜል</label>
+                            <input type="email" id="edit-mail-0-value" name="mail" data-translate-key="footerEmailPlaceholder" placeholder="የኢሜል አድራሻዎ"
+                                class="form-email" required>
+                            <button type="submit" class="button" data-translate-key="footerSubscribeBtn">ይመዝገቡ</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="region-footer-31">
+                        <h2 data-translate-key="footerSocialTitle">ማህበራዊ ሚዲያ</h2>
+                        <p data-translate-key="footerSocialPara">በማህበራዊ ገጾቻችን ይከተሉን፤ ይሳተፉ።</p>
+                        <ul class="social-icons">
+                            <li><a href="https://www.facebook.com/profile.php?id=61577016305943" target="_blank" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://x.com/infoeudp2017" target="_blank" title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#" target="_blank" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="https://t.me/EUDPp" target="_blank" title="Telegram" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 contact-col">
+                    <div class="region-footer-41">
+                        <h2 data-translate-key="footerContactTitle">ያግኙን</h2>
+                        <div class="contact-details">
+                            <ul class="contact" style="list-style: none; padding-left: 0;">
+                                <li>
+                                    <p><i class="fas fa-phone-alt"></i> <strong data-translate-key="footerContactPhone">ስልክ:</strong> +251-704-932-072</p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-envelope"></i> <strong data-translate-key="footerContactEmail">ኢሜይል:</strong> <a href="mailto:infoeudp2017@gmail.com">infoeudp2017@gmail.com</a></p>
+                                </li>
+                                 <li>
+                                    <p><i class="fas fa-map-marker-alt"></i> <strong data-translate-key="footerContactAddress">አድራሻ:</strong> <span data-translate-key="footerContactAddressDetail">አዲስ አበባ</span></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                <p><b data-translate-key="footerCopyright">© 2017 ዓ.ም የወላይታ ማህበረሰብ አቀፍ ፓርቲ። ሁሉም መብቶች በህግ የተጠበቁ ናቸው።</b></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            am: {
+                pageTitle: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ - የጤና ፖሊሲ",
+                logoTitle: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ",
+                langLabel: "ቋንቋ ይምረጡ",
+                langAmharic: "አማርኛ",
+                langEnglish: "English",
+                searchPlaceholder: "Search/ፈልግ",
+                searchSrOnly: "Search the site",
+                searchBtnSr: "ፈልግ",
+                headerTitle: "የጤና ፖሊሲ",
+                healthPolicyOverviewTitle: "የጤና ፖሊሲ አጠቃላይ እይታ",
+                visionTitle: "ራዕይ",
+                visionText: "ሁሉም ዜጋ፣ ያለ አድልዎ ተደራሽ፣ ፍትሃዊና ጥራት ያለው የጤና አገልግሎት የሚያገኝባትን ጤነኛ ኢትዮጵያን መፍጠር።",
+                missionTitle: "ተልዕኮ",
+                missionItem1: "በመከላከል ላይ ያተኮረ የጤና ሥርዓት መገንባት: በሽታዎች ከመከሰታቸው በፊት በመከላከል ላይ የሚያተኩር፣ ጤናማ የአኗኗር ዘይቤን የሚያበረታታና ለጤና ትምህርት ቅድሚያ የሚሰጥ የጤና ሥርዓት መፍጠር።",
+                missionItem2: "ለሁሉም ዜጎች ተደራሽና ጥራት ያለው የህክምና አገልግሎት መስጠት: የጤና አገልግሎቶች ለሁሉም ዜጎች በተመጣጣኝ ዋጋና በተመቻቸ ሁኔታ ተደራሽ እንዲሆኑ ማድረግ። በተለይም በገጠርና ሩቅ አካባቢዎች ለሚኖሩ ዜጎች የጤና አገልግሎት ተደራሽነትን ማረጋገጥ።",
+                missionItem3: "የጤና ባለሙያዎችን ቁጥርና ብቃት ማሳደግ: በቂና ብቁ የጤና ባለሙያዎችን ማፍራት፣ ስልጠና መስጠትና ሞራላቸውን ማነቃቃት። የጤና ባለሙያዎች በአገሪቱ በሙሉ ፍትሃዊ በሆነ መንገድ እንዲሰራጩ ማድረግ።",
+                missionItem4: "የጤና መረጃ ሥርዓትን ማጠናከር: ወቅታዊ፣ ትክክለኛና አስተማማኝ የጤና መረጃዎችን መሰብሰብ፣ መተንተንና ለውሳኔ አሰጣጥ መጠቀም የሚያስችል ዘመናዊ የጤና መረጃ ሥርዓት መገንባት።",
+                missionItem5: "በተመጣጣኝ ዋጋ የመድሃኒት አቅርቦትን ማረጋገጥ: ጥራት ያላቸው መድሃኒቶች በተመጣጣኝ ዋጋ ለሁሉም ዜጎች ተደራሽ እንዲሆኑ ማድረግ። የመድሃኒት አቅርቦት ሥርዓቱን ማጠናከርና የ ገር ውስጥ ምርትን ማበረታታት።",
+                missionItem6: "በጤናው ዘርፍ የህብረተሰቡን ተሳትፎ ማሳደግ: ማህበረሰቡ በጤና ፖሊሲዎች አፈፃፀም፣ በውሳኔ አሰጣጥና በክትትል ሂደቶች ላይ በንቃት እንዲሳተፍ ማድረግ።",
+                missionItem7: "ጤናማ የአኗኗር ዘይቤን ማበረታታት: ጤናማ አመጋገብን፣ የአካል ብቃት እንቅስቃሴን፣ ከአልኮልና ትምባሆ ርቀትንና የአእምሮ ጤናን የሚደግፉ ልማዶችን ማበረታታት።",
+                missionItem8: "በተላላፊና ተላላፊ ባልሆኑ በሽታዎች ላይ ትኩረት ማድረግ: በተላላፊ በሽታዎች (ኤችአይቪ ኤድስ፣ ቲቢ፣ ወባ ወዘተ) እና በተላላፊ ያልሆኑ በሽታዎች (ስኳር፣ የልብ ህመም፣ ካንሰር ወዘተ) ላይ ልዩ ትኩረት በመስጠት የመከላከያና የህክምና አገልግሎቶችን ማጠናከር።",
+                mainPolicyDirectionsTitle: "የፖሊሲው ዋና ዋና አቅጣጫዎች",
+                preventiveHealthTitle: "1. የመከላከያ ጤና (Preventive Health)",
+                preventiveHealthItem1: "የንጹህ ውሃ አቅርቦት: ሁሉም ዜጎች በቂና ንጹህ የመጠጥ ውሃ እንዲያገኙ ማድረግ። የውሃ ምንጮችን መጠበቅና ተደራሽነትን ማስፋፋት።",
+                preventiveHealthItem2: "የንጽህና አጠባበቅ: ንጽህናን መጠበቅ አስፈላጊ ስለመሆኑ ግንዛቤ ማስጨበጥና ተገቢውን መሰረተ ልማት (ለምሳሌ፡ መጸዳጃ ቤቶች) መገንባት።",
+                preventiveHealthItem3: "የክትባት አገልግሎት: ለሁሉም ህጻናት አስፈላጊ የሆኑ ክትባቶችን በነጻና በተደራ  መንገድ መስጠት። የእናቶችንና የህጻናትን ጤና ለመጠበቅ የሚያስችሉ የክትባት መርሃ ግብሮችን ማጠናከር።",
+                preventiveHealthItem4: "የእናትና የህፃናት ጤና: በእርግዝና ወቅትና ከወሊድ በኋላ ለእናቶችና ለህፃናት የሚሰጡ የጤና አገልግሎቶችን ማጠናከር። በቂ የጤና ባለሙያዎችን በማሰማራትና ተቋማትን በማጠናከር እናቶችና ህጻናት ተገቢውን የጤና እንክብካቤ እንዲያገኙ ማድረግ።",
+                preventiveHealthItem5: "የተመጣጠነ ምግብ አቅርቦትና ትምህርት: የተመጣጠነ ምግብ እጥረት ለመከላከልና ጤናማ አመጋገብን ለማበረታታት የተለያዩ መርሃ ግብሮችን መንደፍና መተግበር። በተለይ ህፃናትና ነፍሰጡር እናቶች ተገቢውን የተመጣጠነ ምግብ እንዲያገኙ ልዩ ትኩረት መስጠት።",
+                preventiveHealthItem6: "የጤና ትምህርት: ለህብረተሰቡ ጤናማ የአኗኗር ዘይቤ፣ በሽታዎችን እንዴት መከላከል እንደሚቻል፣ የመጀመሪያ እርዳታ አሰጣጥና ሌሎች ጠቃሚ የጤና መረጃዎች ላይ ተከታታይነት ያለው ትምህርት መስጠት። ይህንንም ለማድረግ ሁሉንም የመገናኛ ብዙሃንና የትምህርት ተቋማትን መጠቀም።",
+                curativeHealthTitle: "2. የህክምና አገልግሎት (Curative Health)",
+                curativeHealthItem1: "የጤና ተቋማት: ሁሉንም የጤና ተቋማት (ሆስፒታሎች፣ ጤና ጣቢያዎች፣ የጤና ኬላዎች) ደረጃቸውን የጠበቁና ዘመናዊ መሣሪያዎችና መገልገያዎች እንዲሟሉ ማድረግ። የጤና ተቋማት በሁሉም አካባቢዎች በተመጣጣኝ ሁኔታ እንዲሰራጩ ማድረግ።",
+                curativeHealthItem2: "የጤና ባለሙያዎች: በቂ ቁጥር ያላቸውን ብቁ የጤና ባለሙያዎች (ዶክተሮች፣ ነርሶች፣ ፋርማሲስቶች፣ የላብራቶሪ ባለሙያዎች፣ የጤና ረዳቶች ወዘተ) ማፍራትና ለሁሉም የህብረተሰብ ክፍሎች ተደራሽ እንዲሆኑ ማድረግ። ለጤና ባለሙያዎች ተከታታይነት ያለው ስልጠና መስጠትና የስራ ሞራላቸውን ማነቃቃት። የጤና ባለሙያዎች በገጠር አካባቢ እንዲሰሩ የሚያበረታቱ ማካካሻዎችን ማዘጋ ት።",
+                curativeHealthItem3: "የድንገተኛ ጊዜ አገልግሎት: የድንገተኛ ጊዜ ህክምና አገልግሎት በአግባቡ እንዲሰጥ አምቡላንሶችን ቁጥር ማሳደግ፣ ዘመናዊ የድንገተኛ ጊዜ ህክምና መስጫ መሳሪያዎችን ማሟላትና በቂ የሰለጠኑ የህክምና ባለሙያዎችን ማሰማራት።",
+                curativeHealthItem4: "ለገጠር አካባቢዎች ትኩረት: በገጠር አካባቢዎች የጤና አገልግሎቶችን ተደራሽነት ለማረጋገጥ የሞባይል ክሊኒኮችን መጠቀም፣ የጤና ጣቢያዎችን ቁጥር መጨመርና የቴሌሜዲስን አገልግሎትን ማስፋፋት።",
+                curativeHealthItem5: "የልዩ ህክምና አገልግሎት: የልዩ ህክምና የሚያስፈልጋቸው እንደ ካንሰር፣ ኩላሊት፣ የልብ ህመም፣ የአእምሮ ህመም እና ሌሎች በሽታዎች በአገር ውስጥ የሚሰጡበትን አቅም ማጠናከር። የልዩ ህክምና የሚያስፈልጋቸው ዜጎች ወደ ውጭ አገር ሄደው እንዲታከሙ የሚደረገውን ወጪ ለመቀነስ ጥረት ማድረግ።",
+                medicineSupplyTitle: "3. የመድሃኒት አቅርቦት",
+                medicineSupplyItem1: "ተመጣጣኝ ዋጋ: ሁሉም ዜጎች፣ በተለይም ዝቅተኛ ገቢ ያላቸው ዜጎች በተመጣጣኝ ዋጋ መድሃኒት ማግኘት እንዲችሉ ማድረግ። የመድሃኒት ዋጋን ለመቆጣጠር የሚያስችሉ ህጎችን ማውጣትና መተግበር።",
+                medicineSupplyItem2: "ጥራት ያለው መድሃኒት: በአገር ውስጥ የሚመረቱና የሚገቡ መድሃኒቶች ጥራታቸው የተረጋገጠ መሆኑን ማረጋገጥ። የሐሰተኛ መድሃኒቶች ስርጭትን ለመከላከል የሚያስችሉ ጥብቅ ቁጥጥሮችን ማድረግ።",
+                medicineSupplyItem3: "የአገር ውስጥ ምርት: በአገር ውስጥ የሚመረቱ መድሃኒቶችን ጥራት ማሻሻልና አቅርቦታቸውን ማረጋገጥ። የአገር ውስጥ የመድሃኒት አምራች ኩባንያዎችን ማበረታታትና ድጋፍ መስጠት።",
+                healthInfoSystemTitle: "4. የጤና መረጃ ሥርዓት",
+                healthInfoSystemItem1: "ዘመናዊ ሥርዓት: ዘመናዊ የኤሌክትሮኒክስ የጤና መረጃ ሥርዓት በመዘርጋት የህክምና መረጃዎችን በአግባቡ ለመሰብሰብ፣ ለማደራ ት፣ ለመተንተንና ለመጠቀም የሚያስችል አቅም መፍጠር።",
+                healthInfoSystemItem2: "የውሂብ አጠቃቀም: የጤና መረጃዎችን በመጠቀም የጤና ፖሊሲዎችን ማሻሻል፣ የጤና አገልግሎቶችን ፍትሃዊነት ማረጋገጥና ለውሳኔ አሰጣጥ መረጃዎችን ማቅረብ። የጤና መረጃዎች ጥናትና ምርምር እንዲደረግባቸው ማበረታታት።",
+                communityParticipationTitle: "5. የህብረተሰብ ተሳትፎ",
+                communityParticipationItem1: "የአካባቢ ማህበረሰብ ተሳትፎ: የአካባቢውን ህብረተሰብ በጤና ጉዳዮች ላይ እንዲሳተፍ ማበረታታት። የጤና ችግሮችን በመለየት፣ መፍትሄዎችን በመፈለግና የጤና አገልግሎት አሰጣጥን በመከታተል ረገድ የህብረተሰቡን ተሳትፎ ማረጋገጥ።",
+                communityParticipationItem2: "የጤና ኮሚቴዎች: በሁሉም የአስተዳደር እርከኖች የጤና ኮሚቴዎችን በማቋቋም፣ የጤና አገልግሎቶችን አሰጣጥ እንዲከታተሉና እንዲያሻሽሉ ማድረግ። የጤና ኮሚቴዎች የህብረተሰቡን ድምጽ በማስተጋባት በፖሊሲ አወጣጥ ሂደት ውስጥ እንዲሳተፉ ማድረግ።",
+                nutritionLifestyleTitle: "6. የተመጣጠነ ምግብና ጤናማ የአኗኗር ዘይቤ",
+                nutritionLifestyleItem1: "የተመጣጠነ ምግብ ትምህርት: ህዝቡ ስለ የተመጣጠነ ምግብ አወሳሰድ በቂ ግንዛቤ እንዲኖረው በተለይ ለእናቶችና ለህጻናት ትኩረት በመስጠት ትምህርት መስጠት።",
+                nutritionLifestyleItem2: "ጤናማ የአኗኗር ዘይቤ: ዜጎች አካላዊ እንቅስቃሴ እንዲያደርጉ፣ ከአልኮልና ትምባሆ እንዲርቁ፣ አእምሯቸውን እንዲያረጋጉ የሚያግዙ የተለያዩ ስልቶችን መንደፍና መተግበር።",
+                nutritionLifestyleItem3: "የአልኮልና ትምባሆ ቁጥጥር: የአልኮልና ትምባሆ አጠቃቀምን ለመቀነስ የሚያስችሉ ጥብቅ ህጎችን ማውጣትና መተግበር።",
+                specialFocusTitle: "7. ልዩ ትኩረት የሚያስፈልጋቸው ጉዳዮች",
+                specialFocusItem1: "ተላላፊ በሽታዎች: በተለይ በኤች አይ ቪ ኤድስ፣ በቲቢ፣ በወባና በሌሎች ተላላፊ በሽታዎች ላይ ትኩረት በመስጠት የመከላከያና የህክምና ስራዎችን ማጠናከር። ለተጋለጡ የህብረተሰብ ክፍሎች ተገቢውን የጤና እንክብካቤና የስነ ልቦና ድጋፍ መስጠት",
+                specialFocusItem2: "ተላላፊ ያልሆኑ በሽታዎች: የስኳር በሽታ፣ የልብ ህመም፣ ካንሰርና የመሳሰሉ ተላላፊ ያልሆኑ በሽታዎችን ለመከላከልና ለመቆጣጠር የሚያስችሉ ፕሮግራሞችን ማዘጋጀትና መተግበር።",
+                specialFocusItem3: "የአእምሮ ጤና: የአእምሮ ጤናን ለማስጠበቅና የአእምሮ ህመም ያለባቸውን ለመንከባከብ ተገቢውን አገልግሎት በአገር አቀፍ ደረጃ ተደራሽ ማድረግ። የአእምሮ ጤና ችግር ያለባቸው ዜጎች ከማህበረሰቡ እንዳይገለሉ ለማድረግ ጥረት ማድረግ",
+                policyImplementationTitle: "የፖሊሲው ትግበራ",
+                implementationItem1: "ይህ ፖሊሲ በተለያዩ የጤና ተቋማት፣ በማህበረሰብ አቀፍ የጤና ፕሮግራሞች፣ በትምህርት ቤቶችና በሌሎች አጋር አካላት አማካኝነት ይተገበራል።",
+                implementationItem2: "የፖሊሲውን ውጤታማ ትግበራ ለማረጋገጥ በቂ በጀት መመደብ፣ የጤና ባለሙያዎችን ማብቃትና የክትትል ሥርዓትን ማጠናከር።",
+                implementationItem3: "የፖሊሲው አፈጻጸም በየጊዜው ተገምግሞ አስፈላጊ ማስተካከያዎች ይደረጉበታል።",
+                implementationItem4: "ህብረተሰቡ በፖሊሲው ትግበራ ሂደት ውስጥ በንቃት እንዲሳተፍ ማድረግ።",
+                implementationItem5: "ከሌሎች አገራት ምርጥ ተሞክሮዎችን በመውሰድ በአገራችን ተጨባጭ ሁኔታ ላይ በመመስረት መተግበር።",
+                downloadFullPolicyBtn: "ሙሉውን ፖሊሲ ያውርዱ",
+                sidebarHome: "ዋና መነሻ",
+                sidebarPartyPolicies: "የፓርቲው ፖሊሲዎች",
+                sidebarEconomicPolicy: "የኢኮኖሚ ፖሊሲ",
+                sidebarJobCreation: "የስራ እድል ፈጠራ",
+                sidebarIndustrialDev: "የኢንዱስትሪ ልማት",
+                sidebarSubsidy: "ድጎማ",
+                sidebarAgriDev: "የግብርና ልማት",
+                sidebarSocialPolicies: "ማህበራዊ ፖሊሲዎች",
+                sidebarHealth: "ጤና",
+                sidebarEducation: "ትምህርት",
+                sidebarJustice: "የፍትህ ስርዓት",
+                sidebarGenderEq: "የጾታ እኩልነት",
+                sidebarEnvProtection: "የአካባቢ ጥበቃ",
+                sidebarForest: "የደን ጥበቃ",
+                sidebarPollution: "የብክለት ቁጥጥር",
+                sidebarWaste: "ቆሻሻ አወጋገድ",
+                sidebarSustainableAgri: "ዘላቂ ግብርና",
+                footerNewsletterTitle: "ዜና መጽሔት ይመዝገቡ",
+                footerNewsletterPara: "የቅርብ ጊዜ መረጃዎችን እና የፓርቲ ዜናዎችን በቀጥታ ወደ ኢሜልዎ ያግኙ።",
+                footerEmailLabelSr: "ኢሜል",
+                footerEmailPlaceholder: "የኢሜል አድራሻዎ",
+                footerSubscribeBtn: "ይመዝገቡ",
+                footerSocialTitle: "ማህበራዊ ሚዲያ",
+                footerSocialPara: "በማህበራዊ ገጾቻችን ይከተሉን፤ ይሳተፉ።",
+                footerContactTitle: "ያግኙን",
+                footerContactPhone: "ስልክ:",
+                footerContactEmail: "ኢሜይል:",
+                footerContactAddress: "አድራሻ:",
+                footerContactAddressDetail: "አዲስ አበባ", // Changed from Wolaita Sodo to match the document more closely.
+                footerCopyright: "© 2017 ዓ.ም የወላይታ ማህበረሰብ አቀፍ ፓርቲ። ሁሉም መብቶች በህግ የተጠበቁ ናቸው።" // Updated year from 2024 to 2017 to match document
+            },
+            en: {
+                pageTitle: "Ethiopian Unity and Development Party - Health Policy", // Updated Party Name
+                logoTitle: "Ethiopian Unity and Development Party", // Updated Party Name
+                langLabel: "Select Language",
+                langAmharic: "Amharic",
+                langEnglish: "English",
+                searchPlaceholder: "Search",
+                searchSrOnly: "Search the site",
+                searchBtnSr: "Search",
+                headerTitle: "Health Policy",
+                healthPolicyOverviewTitle: "Health Policy Overview",
+                visionTitle: "Vision",
+                visionText: "To create a healthy Ethiopia where every citizen has access to equitable, quality healthcare without discrimination.",
+                missionTitle: "Mission",
+                missionItem1: "Build a preventive healthcare system: Focus on preventing diseases before they occur, promote healthy lifestyles, and prioritize health education.",
+                missionItem2: "Provide accessible and quality medical services for all citizens: Ensure health services are available to all citizens at affordable prices and in convenient conditions. Particularly ensure access for citizens in rural and remote areas.",
+                missionItem3: "Increase the number and competence of health professionals: Produce sufficient and qualified health professionals, provide training, and boost their morale. Ensure fair distribution of health professionals throughout the country.",
+                missionItem4: "Strengthen the health information system: Develop a modern health information system capable of collecting, analyzing, and using timely, accurate, and reliable health data for decision-making.",
+                missionItem5: "Ensure affordable medicine supply: Make quality medicines accessible to all citizens at affordable prices. Strengthen the medicine supply system and encourage domestic production.",
+                missionItem6: "Enhance community participation in the health sector: Enable active community participation in health policy implementation, decision-making, and monitoring processes.",
+                missionItem7: "Promote healthy lifestyles: Encourage healthy eating, physical activity, avoidance of alcohol and tobacco, and habits supporting mental health.",
+                missionItem8: "Focus on communicable and non-communicable diseases: Strengthen prevention and treatment services with special attention to communicable diseases (HIV/AIDS, TB, malaria, etc.) and non-communicable diseases (diabetes, heart disease, cancer, etc.).",
+                mainPolicyDirectionsTitle: "Main Policy Directions",
+                preventiveHealthTitle: "1. Preventive Health",
+                preventiveHealthItem1: "Clean water supply: Ensure all citizens have access to adequate and clean drinking water. Protect water sources and expand accessibility.",
+                preventiveHealthItem2: "Sanitation: Raise awareness about the importance of hygiene and build appropriate infrastructure (e.g., toilets).",
+                preventiveHealthItem3: "Vaccination services: Provide essential vaccinations for all children free of charge and in an organized manner. Strengthen vaccination programs to protect maternal and child health.",
+                preventiveHealthItem4: "Maternal and child health: Strengthen health services provided to mothers and children during pregnancy and after childbirth. Ensure mothers and children receive appropriate healthcare by deploying adequate health professionals and strengthening institutions.",
+                preventiveHealthItem5: "Nutrition supply and education: Design and implement various programs to prevent malnutrition and promote healthy eating. Give special attention to ensuring children and pregnant mothers receive adequate nutrition.",
+                preventiveHealthItem6: "Health education: Provide continuous education to the public on healthy lifestyles, disease prevention, first aid, and other important health information. Utilize all media and educational institutions for this purpose.",
+                curativeHealthTitle: "2. Curative Health",
+                curativeHealthItem1: "Health institutions: Ensure all health institutions (hospitals, health centers, health posts) meet standards and are equipped with modern equipment and facilities. Ensure equitable distribution of health institutions in all areas.",
+                curativeHealthItem2: "Health professionals: Produce an adequate number of qualified health professionals (doctors, nurses, pharmacists, lab technicians, health assistants, etc.) and make them accessible to all segments of society. Provide continuous training for health professionals and boost their morale. Prepare incentives to encourage health professionals to work in rural areas.",
+                curativeHealthItem3: "Emergency services: Increase the number of ambulances, equip them with modern emergency medical equipment, and deploy sufficient trained medical personnel to ensure proper emergency medical services.",
+                curativeHealthItem4: "Focus on rural areas: Use mobile clinics, increase the number of health centers, and expand telemedicine services to ensure accessibility of health services in rural areas.",
+                curativeHealthItem5: "Specialized medical services: Strengthen the capacity to provide specialized medical services for diseases such as cancer, kidney disease, heart disease, mental illness, and others domestically. Strive to reduce the cost incurred by citizens seeking specialized treatment abroad.",
+                medicineSupplyTitle: "3. Medicine Supply",
+                medicineSupplyItem1: "Affordable price: Ensure all citizens, especially those with low incomes, can access medicine at affordable prices. Enact and implement laws to control medicine prices.",
+                medicineSupplyItem2: "Quality medicine: Ensure the quality of domestically produced and imported medicines. Implement strict controls to prevent the circulation of counterfeit medicines.",
+                medicineSupplyItem3: "Domestic production: Improve the quality and ensure the supply of domestically produced medicines. Encourage and support domestic pharmaceutical companies.",
+                healthInfoSystemTitle: "4. Health Information System",
+                healthInfoSystemItem1: "Modern system: Develop a modern electronic health information system to create the capacity to properly collect, organize, analyze, and use medical data.",
+                healthInfoSystemItem2: "Data utilization: Use health data to improve health policies, ensure fairness in health services, and provide information for decision-making. Encourage research and study of health data.",
+                communityParticipationTitle: "5. Community Participation",
+                communityParticipationItem1: "Local community participation: Encourage local community participation in health matters. Ensure community involvement in identifying health problems, finding solutions, and monitoring health service delivery.",
+                communityParticipationItem2: "Health committees: Establish health committees at all administrative levels to monitor and improve health service delivery. Enable health committees to voice community concerns and participate in the policy-making process.",
+                nutritionLifestyleTitle: "6. Nutrition and Healthy Lifestyle",
+                nutritionLifestyleItem1: "Nutrition education: Provide education to the public, especially mothers and children, to ensure adequate understanding of proper nutrition.",
+                nutritionLifestyleItem2: "Healthy lifestyle: Design and implement various strategies to help citizens engage in physical activity, avoid alcohol and tobacco, and maintain mental well-being.",
+                nutritionLifestyleItem3: "Alcohol and tobacco control: Enact and implement strict laws to reduce alcohol and tobacco consumption.",
+                specialFocusTitle: "7. Special Focus Areas",
+                specialFocusItem1: "Communicable diseases: Strengthen prevention and treatment efforts with a focus on HIV/AIDS, TB, malaria, and other communicable diseases. Provide appropriate healthcare and psychosocial support to vulnerable populations.",
+                specialFocusItem2: "Non-communicable diseases: Develop and implement programs to prevent and control non-communicable diseases such as diabetes, heart disease, and cancer.",
+                specialFocusItem3: "Mental health: Make appropriate mental health services accessible nationwide to protect mental health and care for those with mental illness. Strive to prevent stigmatization of citizens with mental health problems.",
+                policyImplementationTitle: "Policy Implementation",
+                implementationItem1: "This policy will be implemented through various health institutions, community-based health programs, schools, and other partner organizations.",
+                implementationItem2: "Ensure effective policy implementation by allocating sufficient budget, empowering health professionals, and strengthening monitoring systems.",
+                implementationItem3: "Policy performance will be regularly reviewed, and necessary adjustments will be made.",
+                implementationItem4: "Ensure active community participation in the policy implementation process.",
+                implementationItem5: "Adopt best practices from other countries and implement them based on our country's context.",
+                downloadFullPolicyBtn: "Download Full Policy",
+                sidebarHome: "Main Home",
+                sidebarPartyPolicies: "Party Policies",
+                sidebarEconomicPolicy: "Economic Policy",
+                sidebarJobCreation: "Job Creation",
+                sidebarIndustrialDev: "Industrial Development",
+                sidebarAgriDev: "Agricultural Development",
+                sidebarFinanceBanking: "Finance and Banking",
+                sidebarInfrastructure: "Infrastructure",
+                sidebarSocialPolicies: "Social Policies",
+                sidebarHealth: "Health",
+                sidebarEducation: "Education",
+                sidebarPovertyFoodSecurity: "Poverty & Food Security",
+                sidebarVulnerable: "Vulnerable Groups",
+                sidebarGenderEq: "Gender Equality",
+                socialYouth: "Youth",
+                policyOther: "Other Policies",
+                otherPoliticalSystem: "Political System",
+                otherHumanRights: "Human Rights",
+                otherSecurity: "Defense & Security",
+                otherForeignPolicy: "Foreign Relations",
+                otherMedia: "Media",
+                econNaturalResources: "Natural Resources & Land",
+                footerNewsletterTitle: "Subscribe to Newsletter",
+                footerNewsletterPara: "Get the latest updates and party news directly to your email.",
+                footerEmailLabelSr: "Email",
+                footerEmailPlaceholder: "Your Email Address",
+                footerSubscribeBtn: "Subscribe",
+                footerSocialTitle: "Social Media",
+                footerSocialPara: "Follow us and engage on our social media pages.",
+                footerContactTitle: "Contact Us",
+                footerContactPhone: "Phone:",
+                footerContactEmail: "Email:",
+                footerContactAddress: "Address:",
+                footerContactAddressDetail: "Addis Ababa", // Updated for consistency
+                footerCopyright: "© 2017 Ethiopian Unity and Development Party. All rights reserved." // Updated Party Name & Year
+            }
+        };
+        document.addEventListener('DOMContentLoaded', () => {
+            const languageSelector = document.getElementById('language-select');
+
+            function applyTranslations(lang) {
+                document.documentElement.lang = lang; // Set lang attribute on <html>
+                
+                // Update title, ensuring it exists
+                const titleElement = document.querySelector('title');
+                if (titleElement && translations[lang] && translations[lang].pageTitle) {
+                    titleElement.textContent = translations[lang].pageTitle;
+                }
+
+
+                document.querySelectorAll('[data-translate-key]').forEach(el => {
+                    const key = el.dataset.translateKey;
+                    if (translations[lang] && translations[lang][key] !== undefined) {
+                        const translation = translations[lang][key];
+                        if (el.tagName === 'INPUT' && (el.type === 'search' || el.type === 'email')) {
+                             el.placeholder = translation;
+                        } else if (el.tagName === 'INPUT' && (el.type === 'submit' || el.type === 'button')) {
+                             el.value = translation;
+                        } else if (el.dataset.translateAttribute) {
+                            el.setAttribute(el.dataset.translateAttribute, translation);
+                        }
+                         else {
+                            if (typeof translation === 'string' && (translation.includes('<') || translation.includes('&'))) {
+                                el.innerHTML = translation;
+                            } else {
+                                el.textContent = translation;
+                            }
+                        }
+                    } else {
+                        // console.warn(`Translation key "${key}" not found for language "${lang}".`);
+                    }
+                });
+            }
+
+            if (languageSelector) {
+                languageSelector.addEventListener('change', (e) => {
+                    const selectedLang = e.target.value;
+                    applyTranslations(selectedLang);
+                    localStorage.setItem('preferredLanguage', selectedLang);
+                });
+
+                const preferredLang = localStorage.getItem('preferredLanguage') || 'am'; 
+                languageSelector.value = preferredLang;
+                applyTranslations(preferredLang);
+            } else {
+                applyTranslations('am'); // Fallback if no selector
+            }
+
+            // Mega-menu touch handling (if applicable)
+            const navMenuItems = document.querySelectorAll('.nav-menu > li'); 
+            navMenuItems.forEach(item => {
+                const megaMenu = item.querySelector('.mega-menu');
+                if (megaMenu) {
+                    item.addEventListener('touchstart', (e) => {
+                        if (e.target.closest('.mega-menu')) {
+                            return;
+                        }
+                        const isTouched = item.classList.contains('touched');
+                        navMenuItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('touched');
+                                const otherMegaMenu = otherItem.querySelector('.mega-menu');
+                                if (otherMegaMenu) otherMegaMenu.style.display = 'none';
+                            }
+                        });
+
+                        if (!isTouched) {
+                            e.preventDefault();
+                            item.classList.add('touched');
+                            megaMenu.style.display = 'block';
+                        }
+                    });
+                }
+            });
+
+            document.addEventListener('click', (e) => {
+                let isClickInsideNav = false;
+                navMenuItems.forEach(item => {
+                    if (item.contains(e.target)) {
+                        isClickInsideNav = true;
+                    }
+                });
+
+                if (!isClickInsideNav) {
+                    navMenuItems.forEach(item => {
+                        item.classList.remove('touched');
+                        const megaMenu = item.querySelector('.mega-menu');
+                        if (megaMenu) {
+                            megaMenu.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
