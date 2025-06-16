@@ -2135,10 +2135,24 @@
             </section>
 
              <!-- SECTION - Register -->
+            <!-- SECTION - Register -->
             <section id="register" class="section">
                 <div class="container">
                     <h2 data-translate-key="registerSectionTitle">አባል ለመሆን ይመዝገቡ</h2>
-                    <form class="registration-form" id="registrationForm" name="membership-application" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                     <!-- Registration Form - Updated for Netlify Forms -->
+                    <form class="registration-form"
+                          id="registrationForm"
+                          name="membership-application" /* Netlify ይህንን ስም ለቅጹ ይጠቀማል */
+                          method="POST"
+                          data-netlify="true" /* ይህ Netlify ቅጹን እንዲያውቀው ያደርጋል */
+                          data-netlify-honeypot="bot-field" /* ለስፓም መከላከያ (አማራጭ ግን የሚመከር) */
+                          action="/thank-you/" /* (አማራጭ) ቅጹ ከተላከ በኋላ ተጠቃሚው የሚሄድበት ገጽ */
+                    >
+                        <!-- የተደበቀ መስክ ለ Netlify ስፓም መከላከያ (ከ data-netlify-honeypot ጋር ይዛመዳል) -->
+                        <p style="display:none;">
+                            <label>ይህንን መስክ ሰው ከሆኑ አይሙሉት (Don’t fill this out if you're human): <input name="bot-field" /></label>
+                        </p>
+
                         <div class="form-group">
                             <label for="fullName" data-translate-key="formFullNameLabel">ሙሉ ስም</label>
                             <input type="text" id="fullName" name="fullName" required data-translate-key="formFullNamePlaceholder" placeholder="ሙሉ ስምዎን ያስገቡ">
@@ -2196,7 +2210,7 @@
                              <span data-translate-key="formSubmitBtn">ቅጽ ላክ</span>
                         </button>
                     </form>
-                </div>
+                </div> <!-- End .container -->
             </section>
         </main>
 
