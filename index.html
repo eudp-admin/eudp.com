@@ -3024,19 +3024,19 @@ newNews1Title: "ኢአልፓ ለማዕከላዊ ኮሚቴ አባላቱ \"በስ�
                     });
                 });
 
-                const registrationForm = document.getElementById('registrationForm');
-                if (registrationForm) {
-                    registrationForm.addEventListener('submit', (e) => {
-                        e.preventDefault();
-                        const nameInput = document.getElementById('fullName');
-                        const currentLang = localStorage.getItem('preferredLanguage') || 'am';
-                        const name = nameInput && nameInput.value ? nameInput.value.trim() : '';
-                        const alertMsg1 = translations[currentLang]?.alertSuccessMsg1 || translations['am'].alertSuccessMsg1;
-                        const alertMsg2 = translations[currentLang]?.alertSuccessMsg2 || translations['am'].alertSuccessMsg2;
-                        alert(alertMsg1 + (name ? name + " " : "") + alertMsg2);
-                        e.target.reset();
-                    });
-                }
+// const registrationForm = document.getElementById('registrationForm');
+// if (registrationForm) {
+//     registrationForm.addEventListener('submit', (e) => {
+//         e.preventDefault(); // <--- ይህ መስመር የNetlifyን ስራ ያቋርጣል
+//         const nameInput = document.getElementById('fullName');
+//         const currentLang = localStorage.getItem('preferredLanguage') || 'am';
+//         const name = nameInput && nameInput.value ? nameInput.value.trim() : '';
+//         const alertMsg1 = translations[currentLang]?.alertSuccessMsg1 || translations['am'].alertSuccessMsg1;
+//         const alertMsg2 = translations[currentLang]?.alertSuccessMsg2 || translations['am'].alertSuccessMsg2;
+//         alert(alertMsg1 + (name ? name + " " : "") + alertMsg2);
+//         e.target.reset();
+//     });
+// }
 
                 const newsletterForm = document.getElementById('newsletterForm');
                  if(newsletterForm) {
