@@ -1,394 +1,183 @@
 <!DOCTYPE html>
-<html lang="am"> <!-- Default language set to Amharic -->
+<html lang="am">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title data-translate-key="pageTitleCommunityEngagement">የኢትዮጵያ አንድነት እና ልማት ፓርቲ - የማህበረሰብ ተሳትፎ</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" data-translate-key="metaDescriptionCommunity" content="የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) በማህበረሰብ ተሳትፎና በሥር-ነቀል እንቅስቃሴዎች ላይ ያለውን አቋም ይወቁ።">
+    <title data-translate-key="pageTitleCommunity">የኢትዮጵያ አንድነት እና ልማት ፓርቲ - የማህበረሰብ ተሳትፎ</title>
+
+    <link rel="icon" href="apple-touch-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary-color: #2A5C82; /* EUDP Primary Blue */
-            --secondary-color: #4CAF50; /* EUDP Accent Green */
-            --accent-color: #FFD700;    /* EUDP Highlight Gold/Yellow */
-            --dark-text: #333333;
-            --light-text: #FFFFFF;
-            --bg-light: #f8fafc; /* Page background */
-            --bg-content-box: #ffffff; /* Background for content areas like article detail */
-            --border-color: #e5e7eb; /* Softer border color */
-            --breadcrumb-color: #a0aec0;
-            --bg-soft: #E0F2FE;
-
-            /* Article specific sidebar colors (to match main policy sidebar) */
-            --sidebar-bg-article: #1e293b;
-            --sidebar-border-article: var(--secondary-color);
-
-
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --color-primary: #0D2D4E;
+            --color-secondary: #2E8B57;
+            --color-accent: #FFC107;
+            --color-text: #343a40;
+            --color-text-light: #f8f9fa;
+            --color-background: #FFFFFF;
+            --color-background-soft: #f8f9fa;
+            --color-border: #dee2e6;
+            --dark-text-for-header: #1f2937;
+            --breadcrumb-color: #d1d5db;
+            --font-secondary: 'Abyssinica SIL', serif;
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
             --radius-md: 8px;
             --radius-lg: 12px;
-            --spacing-unit: 1rem;
-            --transition: all 0.3s ease-in-out;
+            --transition-fast: all 0.2s ease-in-out;
         }
 
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Abyssinica SIL', 'Roboto', sans-serif;
+            font-family: var(--font-secondary);
+            color: var(--color-text);
+            background-color: var(--color-background-soft);
             line-height: 1.7;
-            color: var(--dark-text);
-            background: var(--bg-light);
-            font-size: 16px;
         }
-
-        input,
-        button,
-        select,
-        textarea {
-            font-family: inherit;
-            font-size: 1rem;
+        [lang="am"] body, 
+        [lang="am"] h1, [lang="am"] h2, [lang="am"] h3, 
+        [lang="am"] p, [lang="am"] a, [lang="am"] span, [lang="am"] li,
+        [lang="am"] button, [lang="am"] label, [lang="am"] input, [lang="am"] select, [lang="am"] textarea { 
+            font-family: var(--font-secondary); 
         }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: var(--color-secondary); transition: var(--transition-fast); }
+        a:hover { color: var(--color-primary); }
 
-        a {
-            text-decoration: none;
-            color: var(--secondary-color);
-            transition: var(--transition);
+        /* === SIMPLE HEADER === */
+        .simple-header {
+            background-color: var(--color-primary);
+            padding: 0.75rem 0;
+            border-bottom: 2px solid var(--color-border);
         }
-
-        .article-sidebar-column a {
-             color: var(--light-text);
+        .simple-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .article-sidebar-column a:hover {
-            color: var(--accent-color);
-        }
-
-
-        a:hover {
-            color: var(--accent-color);
-            text-decoration: underline;
-        }
-        img { max-width: 100%; height: auto; display: block; border-radius: var(--radius-md); }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Logo and Top Bar */
-        .logo-topbar-container {
-            background-color: var(--bg-soft);
+        .simple-header .logo-link {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 0.5rem 1.5rem;
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--secondary-color);
+            gap: 1rem;
+            color: var(--color-text-light);
+            font-weight: bold;
+            font-size: 1.2rem;
         }
-        .logo-container { display: flex; align-items: center; gap: 1rem; }
-        .logo-container h2 { color: var(--primary-color); font-size: 1.5rem; margin:0; }
-        .logo-container img { width: 80px; height: 80px; transition: transform 0.3s ease; border-radius: 50%; box-shadow: var(--shadow-sm); object-fit: cover; }
-        .logo-container img:hover { transform: scale(1.05); }
-        .top-bar { display: flex; align-items: center; gap: 1.5rem; }
-        .language-select { display: flex; align-items: center; gap: 0.5rem; }
-        .language-select label i { font-size: 1.2rem; color: var(--primary-color); }
-        .language-select select {
-            background: var(--bg-light); color: var(--primary-color); border: 1px solid var(--primary-color);
-            padding: 0.35rem 1.75rem 0.35rem 0.75rem; border-radius: var(--radius-md);
-            -webkit-appearance: none; -moz-appearance: none; appearance: none;
-            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%232A5C82%22%3E%3Cpath%20d%3D%22M9.293%2012.95l.707.707L15.657%208l-1.414-1.414L10%2010.828%205.757%206.586%204.343%208z%22%2F%3E%3C%2Fsvg%3E');
-            background-repeat: no-repeat; background-position: right 0.5rem center; background-size: 1em auto; cursor: pointer;
+        .simple-header .logo-link img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
         }
-        .language-select select:hover { border-color: var(--secondary-color); }
-        .search-bar { display: flex; }
-        .search-bar input[type="search"] {
-            background: var(--bg-light); border: 1px solid var(--primary-color); color: var(--dark-text);
-            padding: 0.5rem 1rem; border-radius: var(--radius-md) 0 0 var(--radius-md);
-            width: 220px; transition: var(--transition);
+        .simple-header .language-select select {
+            background: var(--color-primary);
+            color: var(--color-text-light);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 0.3rem 0.5rem;
+            border-radius: var(--radius-md);
+            cursor: pointer;
         }
-        .search-bar input[type="search"]::placeholder { color: var(--dark-text); opacity: 0.7; }
-        .search-bar input[type="search"]:focus { border-color: var(--secondary-color); box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25); outline: none; }
-        .search-bar button {
-            background: var(--secondary-color); color: var(--dark-text); padding: 0.5rem 1rem;
-            border: 1px solid var(--secondary-color); border-left: none; border-radius: 0 var(--radius-md) var(--radius-md) 0;
-            cursor: pointer; transition: var(--transition);
+        @media (max-width: 480px) {
+            .simple-header .logo-link span { display: none; }
         }
-        .search-bar button:hover { background: #e6c300; border-color: #e6c300; }
 
-        /* Article Header Bar (Dark one with breadcrumbs) */
+        /* === ARTICLE TITLE BAR === */
         .article-header-bar {
-            background-color: var(--dark-text);
-            color: var(--light-text);
-            padding: 2rem 0;
-            margin-bottom: 2rem;
+            background-color: var(--dark-text-for-header);
+            color: var(--color-text-light);
+            padding: 2.5rem 0;
+            margin-bottom: 3rem;
         }
-        .breadcrumbs {
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            color: var(--breadcrumb-color);
-        }
-        .breadcrumbs a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-        .breadcrumbs a:hover {
-            text-decoration: underline;
-        }
-        .breadcrumbs span {
-            color: var(--light-text);
-        }
-        .article-title-main {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--light-text);
-        }
+        .breadcrumbs { font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--breadcrumb-color); }
+        .breadcrumbs a { color: var(--color-accent); font-weight: bold; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .article-title-main { font-size: 2.5rem; font-weight: 700; line-height: 1.3; }
 
-        /* Main Layout for Article and its Sidebar */
-        .article-layout-container {
-             max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 2rem 1.5rem;
-        }
-        .article-content-wrapper {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
+        /* === MAIN LAYOUT === */
+        .article-layout { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+        @media (min-width: 992px) { .article-layout { grid-template-columns: 3fr 1fr; } }
+        
+        .article-main { background: var(--color-background); padding: 2.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+        .article-main .featured-image { width: 100%; max-height: 400px; object-fit: cover; border-radius: var(--radius-lg); margin-bottom: 2rem; }
+        .article-main .sub-heading { font-size: 1.6rem; color: var(--color-primary); margin-top: 2rem; margin-bottom: 1rem; }
+        .article-main p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; }
 
-        .article-main-column {
-            flex: 3;
-            min-width: 0;
-            background-color: var(--bg-content-box);
-            padding: 2rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-color);
-        }
-
-        .article-body h3.sub-heading { /* For "የሥር-ነቀል እንቅስቃሴዎች የለውጥ ልብ ናቸው" */
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--accent-color);
-        }
-
-        .article-body p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-        .article-body strong { color: var(--primary-color); } /* For any other strong tags if needed */
-        .article-body img.featured-image {
-            margin-bottom: 1.5rem;
-            width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: cover;
-        }
-
-        /* Article's Own Sidebar (Modified Colors) */
-        .article-sidebar-column {
-            flex: 1;
-            min-width: 280px;
-        }
-        .sidebar-widget {
-            background-color: var(--sidebar-bg-article);
-            color: var(--light-text);
-            padding: 1.5rem;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            margin-bottom: 1.5rem;
-        }
-        .sidebar-widget h4 {
-            font-size: 1.25rem;
-            color: var(--light-text);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--sidebar-border-article);
-        }
+        /* === SIDEBAR & WIDGETS === */
+        .article-sidebar .sidebar-widget { background: var(--color-background); padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); margin-bottom: 2rem; }
+        .sidebar-widget h4 { font-size: 1.25rem; color: var(--color-primary); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--color-accent); }
         .sidebar-widget ul { list-style: none; padding: 0; }
-        .sidebar-widget ul li { margin-bottom: 0.75rem; font-size: 0.95rem; }
-        .sidebar-widget ul li a {
-            color: var(--light-text);
-            display: block;
-            padding: 0.5rem 0;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
-        }
+        .sidebar-widget ul li a { color: var(--color-text); display: block; padding: 0.6rem 0; border-bottom: 1px solid var(--color-border); }
         .sidebar-widget ul li:last-child a { border-bottom: none; }
-        .sidebar-widget ul li a:hover { color: var(--accent-color); }
+        .sidebar-widget ul li a:hover { color: var(--color-secondary); }
 
-        .sidebar-widget .active-tab {
-            display: inline-block; padding: 0.5rem 1rem;
-            margin-right: 0.5rem; margin-bottom: 1rem;
-            border: 1px solid var(--secondary-color);
-            border-radius: var(--radius-md);
-            cursor: pointer; font-weight: 500;
-             color: var(--light-text);
-        }
-        .sidebar-widget .active-tab.current {
-            background-color: var(--secondary-color);
-            color: var(--light-text);
-        }
-        .sidebar-widget .active-tab:not(.current) {
-            background-color: transparent;
-        }
-        .sidebar-widget .active-tab:not(.current):hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
+        .share-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .share-link { display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; color: var(--color-primary) !important; font-size: 1.2rem; transition: transform 0.2s ease; }
+        .share-link:hover { transform: scale(1.1); }
+        .share-link.facebook { background-color: var(--color-background-soft); }
+        .share-link.twitter { background-color: var(--color-background-soft);}
+        .share-link.whatsapp { background-color: var(--color-background-soft); }
+        .share-link.email { background-color: var(--color-background-soft);}
 
-
-        /* Footer */
-        .footer {
-             background-color: var(--dark-text); color: var(--bg-light);
-             padding: 4rem 0; font-size: 0.95rem;
-        }
-        .footer p, .footer .contact ul li p, .footer .contact ul li a { color: rgba(248, 250, 252, 0.8); }
-        .footer .container .row { display: flex; flex-wrap: wrap; gap: 3rem; justify-content: space-between; }
-        .footer .col-md-3, .footer .col-md-4 { flex: 1 1 280px; min-width: 250px; }
-        .footer .col-md-3.contact-col { flex: 1 1 200px; }
-        .footer h2 {
-             color: var(--accent-color); font-size: 1.5rem; margin-bottom: 1.8rem;
-             position: relative; padding-bottom: 0.6rem;
-        }
-        .footer h2::after {
-             content: ''; position: absolute; bottom: 0; left: 0;
-             width: 70px; height: 3px; background-color: var(--secondary-color);
-             border-radius: 1.5px;
-        }
-        .footer .simplenews-subscriber-form { display: flex; gap: 0.5rem; margin-top: 1.8rem; flex-wrap: wrap; }
-        .footer .simplenews-subscriber-form input[type="email"] {
-             flex-grow: 1; padding: 0.85rem 1rem; border: 1px solid #555;
-             border-radius: var(--radius-sm); background-color: #444; color: var(--light-text);
-        }
-        .footer .simplenews-subscriber-form input[type="email"]::placeholder { color: rgba(248, 250, 252, 0.5); }
-        .footer .simplenews-subscriber-form button {
-             padding: 0.85rem 1.8rem; background-color: orange; color: var(--light-text);
-             border: none; border-radius: var(--radius-sm); cursor: pointer;
-             transition: var(--transition); font-weight: bold;
-        }
-        .footer .simplenews-subscriber-form button:hover { background-color: var(--primary-color); }
-        .social-icons { list-style: none; display: flex; gap: 1.2rem; margin-top: 1.8rem; padding: 0; }
-        .social-icons li { display: inline-block; }
-        .social-icons a {
-             display: flex; align-items: center; justify-content: center;
-             width: 45px; height: 45px; border-radius: 100%;
-             background-color: var(--primary-color); color: var(--light-text);
-             font-size: 1.4rem; transition: var(--transition);
-        }
-        .social-icons a:hover {
-              background-color: var(--secondary-color); color: var(--light-text);
-              transform: translateY(-5px); text-decoration: none;
-        }
-        .footer .contact-details ul.contact { list-style: none; padding-left: 0; margin-top: 1.8rem; }
-        .footer .contact-details ul.contact li {
-             margin-bottom: 1.2rem; display: flex;
-             align-items: flex-start; gap: 0.8rem;
-        }
-        .footer .contact-details ul.contact li:last-child { margin-bottom: 0; }
-        .footer .contact-details ul.contact li i { color: var(--secondary-color); font-size: 1.3rem; margin-top: 5px; }
-        .footer .contact-details ul.contact li strong { color: var(--accent-color); }
-        .footer .contact-details ul.contact li a { text-decoration: underline; }
-        .footer .contact-details ul.contact li a:hover { color: var(--secondary-color); }
-        .footer-copyright {
-             text-align: center; margin-top: 4rem; padding-top: 2rem;
-             border-top: 1px solid #555; font-size: 0.9rem;
-             color: rgba(248, 250, 252, 0.6); width: 100%;
-        }
-        .footer-copyright p b { color: rgba(248, 250, 252, 0.6); font-weight: bold; }
-
-        @media (max-width: 992px) {
-            .footer .col-md-3, .footer .col-md-4 { flex-basis: calc(50% - 1.5rem); }
-            .article-layout-container { padding: 0 1rem; margin: 1.5rem auto;}
-        }
-        @media (max-width: 768px) {
-            .article-content-wrapper { flex-direction: column; }
-            .article-title-main { font-size: 2rem; }
-            .article-body p { font-size: 1rem; }
-            .logo-topbar-container { flex-direction: column; padding: 1rem; text-align: center; }
-            .logo-container { margin-bottom: 1rem; }
-            .logo-container img { width:100px; height:100px; }
-            .logo-container h2 { font-size: 1.3rem; }
-            .top-bar { flex-direction: column; gap: 1rem; width: 100%; }
-            .search-bar { width: 100%; }
-            .search-bar input[type="search"]{ width: 100%; flex-grow: 1; }
-            .footer .col-md-3, .footer .col-md-4 { flex-basis: 100%; margin-bottom: 1.5rem; }
-            .footer .simplenews-subscriber-form input[type="email"]{ margin-bottom: 0.5rem; margin-right: 0; width: 100%; }
-            .footer .simplenews-subscriber-form { flex-direction: column; }
-            .footer .simplenews-subscriber-form button{ width: 100%; }
-        }
-
+        /* === FOOTER === */
+        .footer { background-color: var(--color-primary); color: rgba(255, 255, 255, 0.7); padding: 5rem 0 2rem 0; font-size: 0.95rem; margin-top: 3rem;}
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 4rem; }
+        .footer__title { font-size: 1.2rem; color: var(--color-text-light); margin-bottom: 1.5rem; font-weight: bold; }
+        .footer a { color: rgba(255, 255, 255, 0.7); }
+        .footer a:hover { color: var(--color-accent); }
+        .footer-grid ul { list-style: none; padding: 0;}
+        .footer-grid ul li { margin-bottom: 0.8rem; }
+        .footer-grid .contact-list i { margin-right: 0.8rem; color: var(--color-accent); width: 20px; text-align: center; }
+        .footer__social-icons { list-style: none; display: flex; gap: 1rem; margin-top: 1.5rem; padding: 0;}
+        .footer__social-icons a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.1); border-radius: 50%; }
+        .footer__social-icons a:hover { background-color: var(--color-accent); color: var(--color-primary); }
+        .newsletter-form { display: flex; margin-top: 1rem; }
+        .newsletter-form input { flex-grow: 1; padding: 0.7rem; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: var(--color-text-light); border-radius: var(--radius-md) 0 0 var(--radius-md); outline: none; }
+        .newsletter-form button { padding: 0.7rem 1.2rem; border: none; background: var(--color-accent); color: var(--color-primary); cursor: pointer; font-weight: bold; border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+        .footer-copyright { text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; }
     </style>
 </head>
 
 <body>
 
-    <!-- Logo and Top Bar -->
-    <div class="logo-topbar-container">
-        <div class="logo-container">
-            <img src="2025-05-17 18.49.47.jpg" alt="የኢትዮጵያ አንድነት እና ልማት ፓርቲ አርማ">
-            <h2 data-translate-key="logoTitle">የኢትዮጵያ አንድነት እና ልማት ፓርቲ</h2>
-        </div>
-        <div class="top-bar">
+    <header class="simple-header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="2025-05-17 18.49.47.jpg" alt="Party Logo">
+                <span data-translate-key="partyNameHeaderShort">የኢትዮጵያ አንድነት እና ልማት ፓርቲ</span>
+            </a>
             <div class="language-select">
-                <label for="language-select-main" class="sr-only" data-translate-key="langLabel">ቋንቋ ይምረጡ</label>
-                <i class="fas fa-language" aria-hidden="true"></i>
-                <select id="language-select-main" aria-label="Select Language">
-                    <option value="am" data-translate-key="langAmharic">አማርኛ</option>
-                    <option value="en" data-translate-key="langEnglish">English</option>
+                <select id="language-select" aria-label="Select Language">
+                    <option value="am">አማርኛ</option>
+                    <option value="en">English</option>
                 </select>
             </div>
-            <form class="search-bar" role="search">
-                <label for="site-search-main" class="sr-only" data-translate-key="searchSrOnly">Search the site</label>
-                <input type="search" id="site-search-main" data-translate-key="searchPlaceholder" placeholder="Search/ፈልግ" aria-label="Search" />
-                <button type="submit">
-                    <i class="fas fa-search" aria-hidden="true"></i>
-                    <span class="sr-only" data-translate-key="searchBtnSr">ፈልግ</span>
-                </button>
-            </form>
         </div>
-    </div>
+    </header>
 
-    <!-- Article Header Bar (Dark one with breadcrumbs) -->
-    <header class="article-header-bar">
+   <header class="article-header-bar">
         <div class="container">
             <div class="breadcrumbs">
-                <a href="index.html" data-translate-key="breadcrumbHomeText">መነሻ ገጽ</a> &gt;
-                <span data-translate-key="headerTitleCommunity">የማህበረሰብ ተሳትፎ</span>
+                <a href="index.html" data-translate-key="breadcrumbHome">መነሻ ገጽ</a> >
+                <span data-translate-key="breadcrumbCommunity">የማህበረሰብ ተሳትፎ</span>
             </div>
             <h1 class="article-title-main" data-translate-key="headerTitleCommunity">የማህበረሰብ ተሳትፎና የሥር-ነቀል እንቅስቃሴዎች</h1>
         </div>
     </header>
 
-    <!-- Main Content Area for Article and its Sidebar -->
-    <div class="article-layout-container">
-        <div class="article-content-wrapper">
-            <main class="article-main-column">
-                <article class="article-body">
+    <main>
+        <div class="container">
+            <div class="article-layout">
+                <!-- === CORRECTED ARTICLE STRUCTURE === -->
+                <article class="article-main">
                     <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="የማህበረሰብ ተሳትፎ" class="featured-image">
+                    
                     <h3 class="sub-heading" data-translate-key="communitySubtitleChangeHeart">የሥር-ነቀል እንቅስቃሴዎች የለውጥ ልብ ናቸው</h3>
                     <p data-translate-key="communityParaImpact">
                         የአካባቢ ተነሳሽነቶች እንዴት ሀገራዊ ተፅዕኖ እያሳደሩና የፓርቲያችንን የወደፊት እጣ ፈንታ እየቀረፁ እንደሆነ እንመለከታለን። በዚህም ስራ የፓርቲያችን አባላትና ደጋፊዎች ከማህበረሰቡ ጋር በመሆን በመሬት ላይ ያለውን እውነታ በመረዳትና የህዝቡን የልብ ትርታ በማዳመጥ ለጋራ ችግሮች የጋራ መፍትሄዎችን ያመነጫሉ።
@@ -403,216 +192,154 @@
                         የማህበረሰቡን ጥበብና እውቀት በመጠቀም፣ እንዲሁም የወጣቶችንና የሴቶችን ንቁ ተሳትፎ በማረጋገጥ፣ የሀገራችንን የዴሞክራሲ ስርዓት ግንባታ እናጠናክራለን፤ የኢኮኖሚና ማህበራዊ ልማትን እናፋጥናለን።
                     </p>
                 </article>
-            </main>
-            <aside class="article-sidebar-column">
-                <div class="sidebar-widget">
-                    <span class="active-tab current" data-translate-key="sidebarTabPopular">ተመራጭ ዜና</span>
-                    <span class="active-tab" data-translate-key="sidebarTabRecent">የቅርብ ጊዜ</span>
-                </div>
-                <div class="sidebar-widget">
-                    <h4 data-translate-key="sidebarTitleNews">ዜናዎች</h4>
-                    <ul>
-                        <!-- Link to News Article 1 from news.html -->
-                        <li>
-                            <a href="news.html#news-article-1" data-translate-key="newNews1Title">
-                                <!-- Text content will be filled by translation -->
-                            </a>
-                        </li>
-                        <!-- Link to News Article 2 from news.html -->
-                        <li>
-                            <a href="news.html#news-article-2" data-translate-key="newNews2Title">
-                                <!-- Text content will be filled by translation -->
-                            </a>
-                        </li>
-                        <!-- Link to News Article 3 from news.html -->
-                        <li>
-                            <a href="news.html#news-article-3" data-translate-key="newNews3Title">
-                                <!-- Text content will be filled by translation -->
-                            </a>
-                        </li>
-                        <!-- Add more links similarly if you have more articles in news.html -->
-                    </ul>
-                </div>
-            </aside>
-        </div>
-    </div>
-
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="newsletter">
-                        <h2 data-translate-key="footerNewsletterTitle">ዜና መጽሔት ይመዝገቡ</h2>
-                        <p data-translate-key="footerNewsletterPara">የቅርብ ጊዜ መረጃዎችን እና የፓርቲ ዜናዎችን በቀጥታ ወደ ኢሜልዎ ያግኙ።</p>
-                        <form class="simplenews-subscriber-form">
-                            <label for="edit-mail-0-value" class="sr-only" data-translate-key="footerEmailLabelSr">ኢሜል</label>
-                            <input type="email" id="edit-mail-0-value" name="mail" data-translate-key="footerEmailPlaceholder" placeholder="የኢሜል አድራሻዎ"
-                                class="form-email" required>
-                            <button type="submit" class="button" data-translate-key="footerSubscribeBtn">ይመዝገቡ</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="region-footer-31">
-                        <h2 data-translate-key="footerSocialTitle">ማህበራዊ ሚዲያ</h2>
-                        <p data-translate-key="footerSocialPara">በማህበራዊ ገጾቻችን ይከተሉን፤ ይሳተፉ።</p>
-                        <ul class="social-icons">
-                            <li><a href="https://www.facebook.com/profile.php?id=61577016305943" target="_blank" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="https://x.com/infoeudp2017" target="_blank" title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#" target="_blank" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
-                            <li><a href="https://t.me/EUDPp" target="_blank" title="Telegram" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3 contact-col">
-                    <div class="region-footer-41">
-                        <h2 data-translate-key="footerContactTitle">ያግኙን</h2>
-                        <div class="contact-details">
-                            <ul class="contact" style="list-style: none; padding-left: 0;">
-                                <li>
-                                    <p><i class="fas fa-phone-alt"></i> <strong data-translate-key="footerContactPhone">ስልክ:</strong> +251-704-932-072</p>
-                                </li>
-                                <li>
-                                    <p><i class="fas fa-envelope"></i> <strong data-translate-key="footerContactEmail">ኢሜይል:</strong> <a href="mailto:infoeudp2017@gmail.com">infoeudp2017@gmail.com</a></p>
-                                </li>
-                                 <li>
-                                    <p><i class="fas fa-map-marker-alt"></i> <strong data-translate-key="footerContactAddress">አድራሻ:</strong> <span data-translate-key="footerContactAddressDetail">አዲስ አበባ</span></p>
-                                </li>
-                            </ul>
+                
+                <aside class="article-sidebar">
+                    <div class="sidebar-widget">
+                        <h4 data-translate-key="shareTitle">ይህን ጽሑፍ ያጋሩ</h4>
+                        <div class="share-links">
+                            <a href="#" class="share-link facebook" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" data-translate-key="shareFacebookAria"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="share-link twitter" target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter" data-translate-key="shareTwitterAria"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="share-link whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" data-translate-key="shareWhatsappAria"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="share-link email" aria-label="Share via Email" data-translate-key="shareEmailAria"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="footer-copyright">
-                <p><b data-translate-key="footerCopyright">© 2017 ዓ.ም የኢትዮጵያ አንድነት እና ልማት ፓርቲ። ሁሉም መብቶች በህግ የተጠበቁ ናቸው።</b></p>
+                    <div class="sidebar-widget">
+                        <h4 data-translate-key="sidebarTitleNews">ተመራጭ ዜናዎች</h4>
+                        <ul>
+                            <li><a href="news.html#news-article-1" data-translate-key="newNews1Title">ኢአልፓ ለማዕከላዊ ኮሚቴ አባላቱ ሥልጠና ሰጠ</a></li>
+                            <li><a href="news.html#news-article-2" data-translate-key="newNews2Title">ኢአልፓ የቴሌግራም ቻናልና የፌስቡክ ገጽ ይፋ አደረገ</a></li>
+                            <li><a href="news.html#news-article-3" data-translate-key="newNews3Title">ኢአልፓ በ"አካባቢ ጥበቃ" ፖሊሲው ላይ ተወያየ</a></li>
+                        </ul>
+                    </div>
+                </aside>
             </div>
         </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer__about"><h3 class="footer__title" data-translate-key="footerPartyName">የኢትዮጵያ አንድነት እና ልማት ፓርቲ</h3><p data-translate-key="footerPartyDesc">ለሀገራችን ዘላቂ ሰላም፣ ሁሉን አቀፍ ዴሞክራሲ፣ ፈጣንና ፍትሃዊ ልማት እንዲሁም የዜጎችን ክብር ለማረጋገጥ እንሰራለን።</p></div>
+                <div class="footer__links"><h3 class="footer__title" data-translate-key="footerQuickLinks">ፈጣን አገናኞች</h3><ul><li><a href="index.html#home" data-translate-key="navHome">መነሻ</a></li><li><a href="news.html" data-translate-key="navNews">ዜና</a></li><li><a href="index.html#membership" data-translate-key="navMembership">አባልነት</a></li></ul></div>
+                <div class="footer__contact"><h3 class="footer__title" data-translate-key="footerContactUs">ያግኙን</h3><ul class="contact-list"><li><i class="fas fa-phone-alt"></i> <a href="tel:+251970837345">+251-970-837-345</a></li><li><i class="fas fa-envelope"></i> <a href="mailto:infoeudp2017@gmail.com">infoeudp2017@gmail.com</a></li><li><i class="fas fa-map-marker-alt"></i> <span data-translate-key="footerAddress">አዲስ አበባ</span></li></ul></div>
+                <div class="footer__social"><h3 class="footer__title" data-translate-key="footerNewsletter">ዜና መጽሔት</h3><p data-translate-key="footerNewsletterDesc">የቅርብ ጊዜ መረጃዎችን በቀጥታ ያግኙ።</p><form class="newsletter-form" id="newsletterForm"><input type="email" id="newsletter-email" name="email" required data-translate-key="footerEmailPlaceholder" placeholder="የኢሜል አድራሻዎ"><button type="submit" data-translate-key="footerSubscribe">ይመዝገቡ</button></form><h3 class="footer__title" style="margin-top: 1.5rem;" data-translate-key="footerFollowUs">ይከተሉን</h3><ul class="footer__social-icons"><li><a href="https://www.facebook.com/profile.php?id=61577016305943" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li><li><a href="https://x.com/infoeudp2017" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li><li><a href="https://t.me/EUDPp" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a></li></ul></div>
+            </div>
+            <div class="footer-copyright"><p data-translate-key="footerCopyright">© 2025 የኢትዮጵያ አንድነት እና ልማት ፓርቲ። ሁሉም መብቶች የተጠበቁ ናቸው።</p></div>
+        </div>
     </footer>
-
+    
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const languageSelector = document.getElementById('language-select-main');
+    const translations = {
+        am: {
+            partyNameHeaderShort: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ",
+            metaDescriptionCommunity: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) በማህበረሰብ ተሳትፎና በሥር-ነቀል እንቅስቃሴዎች ላይ ያለውን አቋም ይወቁ።",
+            pageTitleCommunity: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ - የማህበረሰብ ተሳትፎ",
+            breadcrumbHome: "መነሻ ገጽ",
+            breadcrumbCommunity: "የማህበረሰብ ተሳትፎ",
+            headerTitleCommunity: "የማህበረሰብ ተሳትፎና የሥር-ነቀል እንቅስቃሴዎች",
+            communitySubtitleChangeHeart: "የሥር-ነቀል እንቅስቃሴዎች የለውጥ ልብ ናቸው",
+            communityParaImpact: "የአካባቢ ተነሳሽነቶች እንዴት ሀገራዊ ተፅዕኖ እያሳደሩና የፓርቲያችንን የወደፊት እጣ ፈንታ እየቀረፁ እንደሆነ እንመለከታለን። በዚህም ስራ የፓርቲያችን አባላትና ደጋፊዎች ከማህበረሰቡ ጋር በመሆን በመሬት ላይ ያለውን እውነታ በመረዳትና የህዝቡን የልብ ትርታ በማዳመጥ ለጋራ ችግሮች የጋራ መፍትሄዎችን ያመነጫሉ።",
+            communityParaStrategy: "ፓርቲያችን በሁሉም ደረጃዎች የማህበረሰብ ተሳትፎን ያበረታታል። ከቀበሌ እስከ ፌደራል ባሉ መዋቅሮች ውስጥ ህዝቡ በውሳኔ አሰጣጥ ሂደቶች ላይ ሙሉ ተሳትፎ እንዲኖረው ምቹ ሁኔታዎችን ይፈጥራል። ይህም የባለቤትነት ስሜትን በማሳደግ የልማት ስራዎችን ውጤታማና ዘላቂ ያደርጋል።",
+            communityParaInitiatives: "የአካባቢ ተነሳሽነቶች፣ የበጎ ፈቃድ አገልግሎቶች፣ የማህበረሰብ ውይይቶችና የህዝብ መድረኮች የፓርቲያችን የሥር-ነቀል ስትራቴጂ አካላት ናቸው። በእነዚህ መድረኮች አማካኝነት የማህበረሰቡን ፍላጎቶችና ቅሬታዎች በመለየት ፈጣንና ተገቢ ምላሽ ለመስጠት እንተጋለን።",
+            communityParaFuture: "የማህበረሰቡን ጥበብና እውቀት በመጠቀም፣ እንዲሁም የወጣቶችንና የሴቶችን ንቁ ተሳትፎ በማረጋገጥ የሀገራችንን የዴሞክራሲ ስርዓት ግንባታ እናጠናክራለን፤ የኢኮኖሚና ማህበራዊ ልማትን እናፋጥናለን።",
+            sidebarTitleNews: "ተመራጭ ዜናዎች",
+            newNews1Title: "ኢአልፓ ለማዕከላዊ ኮሚቴ አባላቱ ሥልጠና ሰጠ",
+            newNews2Title: "ኢአልፓ የቴሌግራም ቻናልና የፌስቡክ ገጽ ይፋ አደረገ",
+            newNews3Title: "ኢአልፓ በ\"አካባቢ ጥበቃ\" ፖሊሲው ላይ ተወያየ",
+            shareTitle: "ይህን ጽሑፍ ያጋሩ",
+            shareFacebookAria: "በፌስቡክ ያጋሩ", shareTwitterAria: "በትዊተር ያጋሩ", shareWhatsappAria: "በዋትስአፕ ያጋሩ", shareEmailAria: "በኢሜይል ያጋሩ",
+            footerPartyName: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ", footerPartyDesc: "ለሀገራችን ዘላቂ ሰላም፣ ሁሉን አቀፍ ዴሞክራሲ፣ ፈጣንና ፍትሃዊ ልማት እንዲሁም የዜጎችን ክብር ለማረጋገጥ እንሰራለን።", footerQuickLinks: "ፈጣን አገናኞች", navHome: "መነሻ", navNews: "ዜና", navMembership: "አባልነት", footerContactUs: "ያግኙን", footerAddress: "አዲስ አበባ", footerNewsletter: "ዜና መጽሔት", footerNewsletterDesc: "የቅርብ ጊዜ መረጃዎችን በቀጥታ ያግኙ።", footerEmailPlaceholder: "የኢሜል አድራሻዎ", footerSubscribe: "ይመዝገቡ", footerFollowUs: "ይከተሉን", footerCopyright: "© 2025 የኢትዮጵያ አንድነት እና ልማት ፓርቲ። ሁሉም መብቶች የተጠበቁ ናቸው።",
+            alertNewsletterConfirm: "ለዜና መጽሔታችን ስለተመዘገቡ እናመሰግናለን!",
+        },
+        en: {
+            partyNameHeaderShort: "Ethiopian Unity & Development Party",
+            metaDescriptionCommunity: "Learn about the Ethiopian Unity and Development Party's (EUDP) stance on community engagement and grassroots movements.",
+            pageTitleCommunity: "EUDP - Community Engagement",
+            breadcrumbHome: "Home",
+            breadcrumbCommunity: "Community Engagement",
+            headerTitleCommunity: "Community Engagement & Grassroots Movements",
+            communitySubtitleChangeHeart: "Grassroots Movements are the Heart of Change",
+            communityParaImpact: "We explore how local initiatives are making a national impact and shaping the future of our party. Through this work, our party members and supporters, together with the community, understand the reality on the ground, listen to the pulse of the people, and generate common solutions for common problems.",
+            communityParaStrategy: "Our party encourages community participation at all levels. It creates conducive conditions for the public to have full participation in decision-making processes in structures from the kebele to the federal level. This enhances a sense of ownership and makes development efforts effective and sustainable.",
+            communityParaInitiatives: "Local initiatives, volunteer services, community dialogues, and public forums are components of our party's grassroots strategy. Through these platforms, we strive to identify community needs and grievances and provide prompt and appropriate responses.",
+            communityParaFuture: "By utilizing the wisdom and knowledge of the community, and by ensuring the active participation of youth and women, we will strengthen our country's democratic system building and accelerate economic and social development.",
+            sidebarTitleNews: "Popular News",
+            newNews1Title: "EUDP Trains Central Committee Members",
+            newNews2Title: "EUDP Launches Official Social Media Channels",
+            newNews3Title: "EUDP Discusses 'Environmental Protection' Policy",
+            shareTitle: "Share this Article",
+            shareFacebookAria: "Share on Facebook", shareTwitterAria: "Share on Twitter", shareWhatsappAria: "Share on WhatsApp", shareEmailAria: "Share via Email",
+            footerPartyName: "Ethiopian Unity & Development Party", footerPartyDesc: "We work to ensure lasting peace, inclusive democracy, rapid and equitable development, and the dignity of citizens.", footerQuickLinks: "Quick Links", navHome: "Home", navNews: "News", navMembership: "Membership", footerContactUs: "Contact Us", footerAddress: "Addis Ababa", footerNewsletter: "Newsletter", footerNewsletterDesc: "Get the latest updates directly.", footerEmailPlaceholder: "Your email address", footerSubscribe: "Subscribe", footerFollowUs: "Follow Us", footerCopyright: "© 2025 Ethiopian Unity and Development Party. All rights reserved.",
+            alertNewsletterConfirm: "Thank you for subscribing to our newsletter!",
+        }
+    };
 
-            const translations = {
-                am: {
-                    pageTitleCommunityEngagement: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ - የማህበረሰብ ተሳትፎ",
-                    logoTitle: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ",
-                    langLabel: "ቋንቋ ይምረጡ",
-                    langAmharic: "አማርኛ",
-                    langEnglish: "English",
-                    searchPlaceholder: "Search/ፈልግ",
-                    searchSrOnly: "Search the site",
-                    searchBtnSr: "ፈልግ",
-                    breadcrumbHomeText: "መነሻ ገጽ",
-                    headerTitleCommunity: "የማህበረሰብ ተሳትፎና የሥር-ነቀል እንቅስቃሴዎች",
-                    communitySubtitleChangeHeart: "የሥር-ነቀል እንቅስቃሴዎች የለውጥ ልብ ናቸው",
-                    communityParaImpact: "የአካባቢ ተነሳሽነቶች እንዴት ሀገራዊ ተፅዕኖ እያሳደሩና የፓርቲያችንን የወደፊት እጣ ፈንታ እየቀረፁ እንደሆነ እንመለከታለን። በዚህም ስራ የፓርቲያችን አባላትና ደጋፊዎች ከማህበረሰቡ ጋር በመሆን በመሬት ላይ ያለውን እውነታ በመረዳትና የህዝቡን የልብ ትርታ በማዳመጥ ለጋራ ችግሮች የጋራ መፍትሄዎችን ያመነጫሉ።",
-                    communityParaStrategy: "ፓርቲያችን በሁሉም ደረጃዎች የማህበረሰብ ተሳትፎን ያበረታታል። ከቀበሌ እስከ ፌደራል ባሉ መዋቅሮች ውስጥ ህዝቡ በውሳኔ አሰጣጥ ሂደቶች ላይ ሙሉ ተሳትፎ እንዲኖረው ምቹ ሁኔታዎችን ይፈጥራል። ይህም የባለቤትነት ስሜትን በማሳደግ የልማት ስራዎችን ውጤታማና ዘላቂ ያደርጋል።",
-                    communityParaInitiatives: "የአካባቢ ተነሳሽነቶች፣ የበጎ ፈቃድ አገልግሎቶች፣ የማህበረሰብ ውይይቶችና የህዝብ መድረኮች የፓርቲያችን የሥር-ነቀል ስትራቴጂ አካላት ናቸው። በእነዚህ መድረኮች አማካኝነት የማህበረሰቡን ፍላጎቶችና ቅሬታዎች በመለየት ፈጣንና ተገቢ ምላሽ ለመስጠት እንተጋለን።",
-                    communityParaFuture: "የማህበረሰቡን ጥበብና እውቀት በመጠቀም፣ እንዲሁም የወጣቶችንና የሴቶችን ንቁ ተሳትፎ በማረጋገጥ、 የሀገራችንን የዴሞክራሲ ስርዓት ግንባታ እናጠናክራለን፤ የኢኮኖሚና ማህበራዊ ልማትን እናፋጥናለን።",
-                    sidebarTabPopular: "ተመራጭ ዜና",
-                    sidebarTabRecent: "የቅርብ ጊዜ",
-                    sidebarTitleNews: "ዜናዎች",
-        newNews1Title: "ኢአልፓ ለማዕከላዊ ኮሚቴ አባላቱ \"በስትራቴጂያዊ አመራርና በፖሊሲ ትንተና\" ላይ ያተኮረ ሥልጠና ሰጠ",
-        newNews2Title: "ኢአልፓ የቴሌግራም ቻናልና የፌስቡክ ገጽ ይፋ አደረገ፡ \"ከሕዝብ ጋር ያለንን ትስስር እናጠናክራለን\" - ፓርቲው",
-        newNews3Title: "ኢአልፓ በ\"አካባቢ ጥበቃና አረንጓዴ ልማት\" ፖሊሲው ላይ ከባለድርሻ አካላት ጋር የውይይት መድረክ አካሄደ",
-                    footerNewsletterPara: "የቅርብ ጊዜ መረጃዎችን እና የፓርቲ ዜናዎችን በቀጥታ ወደ ኢሜልዎ ያግኙ።",
-                    footerNewsletterTitle: "ዜና መጽሔት ይመዝገቡ",
-                    footerNewsletterPara: "የቅርብ ጊዜ መረጃዎችን እና የፓርቲ ዜናዎችን በቀጥታ ወደ ኢሜልዎ ያግኙ።",
-                    footerEmailLabelSr: "ኢሜል",
-                    footerEmailPlaceholder: "የኢሜል አድራሻዎ",
-                    footerSubscribeBtn: "ይመዝገቡ",
-                    footerSocialTitle: "ማህበራዊ ሚዲያ",
-                    footerSocialPara: "በማህበራዊ ገጾቻችን ይከተሉን፤ ይሳተፉ።",
-                    footerContactTitle: "ያግኙን",
-                    footerContactPhone: "ስልክ:",
-                    footerContactEmail: "ኢሜይል:",
-                    footerContactAddress: "አድራሻ:",
-                    footerContactAddressDetail: "አዲስ አበባ",
-                    footerCopyright: "© 2017 ዓ.ም የኢትዮጵያ አንድነት እና ልማት ፓርቲ። ሁሉም መብቶች በህግ የተጠበቁ ናቸው።"
-                },
-                en: {
-                    pageTitleCommunityEngagement: "Ethiopian Unity and Development Party - Community Engagement",
-                    logoTitle: "Ethiopian Unity and Development Party",
-                    langLabel: "Select Language",
-                    langAmharic: "Amharic",
-                    langEnglish: "English",
-                    searchPlaceholder: "Search",
-                    searchSrOnly: "Search the site",
-                    searchBtnSr: "Search",
-                    breadcrumbHomeText: "Home",
-                    headerTitleCommunity: "Community Engagement & Grassroots Movements",
-                    communitySubtitleChangeHeart: "Grassroots Movements are the Heart of Change",
-                    communityParaImpact: "We explore how local initiatives are making a national impact and shaping the future of our party. Through this work, our party members and supporters, together with the community, understand the reality on the ground, listen to the pulse of the people, and generate common solutions for common problems.",
-                    communityParaStrategy: "Our party encourages community participation at all levels. It creates conducive conditions for the public to have full participation in decision-making processes in structures from the kebele to the federal level. This enhances a sense of ownership and makes development efforts effective and sustainable.",
-                    communityParaInitiatives: "Local initiatives, volunteer services, community dialogues, and public forums are components of our party's grassroots strategy. Through these platforms, we strive to identify community needs and grievances and provide prompt and appropriate responses.",
-                    communityParaFuture: "By utilizing the wisdom and knowledge of the community, and by ensuring the active participation of youth and women, we will strengthen our country's democratic system building and accelerate economic and social development.",
-                    sidebarTabPopular: "Popular News",
-                    sidebarTabRecent: "Recent",
-                    sidebarTitleNews: "News",
-        newNews1Title: "EUDP Conducts Training for Central Committee Members on \"Strategic Leadership and Policy Analysis\"",
-        newNews2Title: "EUDP Launches Telegram Channel and Facebook Page: \"We Will Strengthen Our Ties with the Public\" - The Party",
-        newNews3Title: "EUDP Holds Stakeholder Discussion Forum on its \"Environmental Protection and Green Development\" Policy",
-                    footerNewsletterTitle: "Subscribe to Newsletter",
-                    footerNewsletterPara: "Get the latest updates and party news directly to your email.",
-                    footerEmailLabelSr: "Email",
-                    footerEmailPlaceholder: "Your Email Address",
-                    footerSubscribeBtn: "Subscribe",
-                    footerSocialTitle: "Social Media",
-                    footerSocialPara: "Follow us and engage on our social media pages.",
-                    footerContactTitle: "Contact Us",
-                    footerContactPhone: "Phone:",
-                    footerContactEmail: "Email:",
-                    footerContactAddress: "Address:",
-                    footerContactAddressDetail: "Addis Ababa",
-                    footerCopyright: "© 2024 Ethiopian Unity and Development Party. All rights reserved."
+    document.addEventListener('DOMContentLoaded', () => {
+        const languageSelector = document.getElementById('language-select');
+
+        function applyTranslations(lang) {
+            document.documentElement.lang = lang;
+            const langData = translations[lang];
+            if (!langData) return;
+            document.querySelectorAll('[data-translate-key]').forEach(el => {
+                const key = el.dataset.translateKey;
+                if (langData[key]) {
+                    if (el.tagName === 'META') { el.content = langData[key]; }
+                    else if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) { el.placeholder = langData[key]; }
+                    else if (el.hasAttribute('aria-label') && el.classList.contains('share-link')) { el.setAttribute('aria-label', langData[key]); }
+                    else { el.innerHTML = langData[key]; }
                 }
-            };
+            });
+            document.title = langData.pageTitleCommunity || document.title;
+        }
 
-            function applyTranslations(lang) {
-                document.documentElement.lang = lang;
-                const titleElement = document.querySelector('title');
-                if (titleElement && translations[lang] && translations[lang].pageTitleCommunityEngagement) { // Use specific title key
-                    titleElement.textContent = translations[lang].pageTitleCommunityEngagement;
-                }
+        function initLanguageSwitcher() {
+            if (!languageSelector) return;
+            const savedLanguage = localStorage.getItem('eudp_lang') || 'am';
+            languageSelector.value = savedLanguage;
+            applyTranslations(savedLanguage);
+            languageSelector.addEventListener('change', (e) => {
+                const newLang = e.target.value;
+                localStorage.setItem('eudp_lang', newLang);
+                applyTranslations(newLang);
+                initShareButtons();
+            });
+        }
 
-                document.querySelectorAll('[data-translate-key]').forEach(el => {
-                    const key = el.dataset.translateKey;
-                    if (translations[lang] && translations[lang][key] !== undefined) {
-                        const translation = translations[lang][key];
-                        if (el.tagName === 'INPUT' && (el.type === 'search' || el.type === 'email')) {
-                             el.placeholder = translation;
-                        } else if (el.tagName === 'INPUT' && (el.type === 'submit' || el.type === 'button')) {
-                             el.value = translation;
-                        } else if (el.dataset.translateAttribute) {
-                            el.setAttribute(el.dataset.translateAttribute, translation);
-                        } else {
-                            if (typeof translation === 'string' && (translation.includes('<') || translation.includes('&'))) {
-                                el.innerHTML = translation;
-                            } else {
-                                el.textContent = translation;
-                            }
-                        }
-                    }
+        function initShareButtons() {
+            const pageUrl = encodeURIComponent(window.location.href);
+            const titleElement = document.querySelector('[data-translate-key="headerTitleCommunity"]');
+            const shareText = titleElement ? encodeURIComponent(titleElement.textContent) : "Article from EUDP";
+            
+            const fbLink = document.querySelector('.share-link.facebook');
+            if(fbLink) fbLink.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+
+            const twitterLink = document.querySelector('.share-link.twitter');
+            if(twitterLink) twitterLink.href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${shareText}`;
+            
+            const whatsappLink = document.querySelector('.share-link.whatsapp');
+            if(whatsappLink) whatsappLink.href = `https://api.whatsapp.com/send?text=${shareText}%20${pageUrl}`;
+
+            const emailLink = document.querySelector('.share-link.email');
+            if(emailLink) emailLink.href = `mailto:?subject=${shareText}&body=Check out this article:%0A%0A${pageUrl}`;
+        }
+
+        function initNewsletterForm() {
+            const newsForm = document.getElementById('newsletterForm');
+            if (newsForm) {
+                newsForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const lang = localStorage.getItem('eudp_lang') || 'am';
+                    alert(translations[lang].alertNewsletterConfirm);
+                    newsForm.reset();
                 });
             }
+        }
 
-            if (languageSelector) {
-                languageSelector.addEventListener('change', (e) => {
-                    const selectedLang = e.target.value;
-                    applyTranslations(selectedLang);
-                    localStorage.setItem('preferredLanguage', selectedLang);
-                });
-
-                const preferredLang = localStorage.getItem('preferredLanguage') || 'am';
-                languageSelector.value = preferredLang;
-                applyTranslations(preferredLang);
-            } else {
-                applyTranslations('am');
-            }
-        });
+        initLanguageSwitcher();
+        initShareButtons();
+        initNewsletterForm();
+    });
     </script>
 
 </body>
