@@ -471,15 +471,7 @@
         
         /* --- MOBILE RESPONSIVENESS REFACTOR --- */
         @media (max-width: 992px) {
-            .header {
-                padding: 0 1rem;
-            }
-             .header__container {
-                gap: 1rem;
-            }
-            .header__logo {
-                flex-grow: 1; /* ADDED to push other items right */
-            }
+.header { padding: 0 1rem; background-color: var(--color-primary); }
             .header__nav {
                 display: none; 
                 position: absolute; 
@@ -509,18 +501,10 @@
             .mega-menu-column a.nav-link:hover { background-color: transparent; color: var(--color-accent); }
             .mega-menu-column h3 { color: var(--color-accent); border-color: var(--color-secondary); }
             .nav-menu li.mega-menu-open > .mega-menu { display: block; }
-            
-            .header__utilities {
-                display: flex; /* CHANGED from none */
-                gap: 0.5rem; /* Reduced gap for mobile */
-            }
+            .header__utilities { display: none; }
             .mobile-menu-btn { display: block; }
-
-            .section {
-                padding: 5rem 0; /* CHANGED from 3rem to prevent title cutoff */
-            }
+            .section { padding: 3rem 0; }
             .section__title { font-size: 2rem; }
-        }
 
         @media (max-width: 480px) {
             .header__logo img { height: 50px; width: 50px; }
