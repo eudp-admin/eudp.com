@@ -1,902 +1,486 @@
 <!DOCTYPE html>
-<html lang="am"> <!-- Default language set to Amharic -->
+<html lang="am">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" data-translate-key="metaDescription" content="የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) የድህነት ማስወገድና የምግብ ዋስትና ፖሊሲ። እያንዳንዱ ዜጋ በቂና የተመጣጠነ ምግብ እንዲያገኝ የተቀረጹ አቅጣጫዎች።">
     <title data-translate-key="pageTitle">የኢትዮጵያ አንድነት እና ልማት ፓርቲ - ድህነትን ማስወገድና የምግብ ዋስትና ፖሊሲ</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="icon" href="apple-touch-icon.png" type="image/x-icon">
+
+    <!-- Icons and Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            /* Styles from policy-job-creation.html (EUDP Theme) */
-            --primary-color: #2A5C82;   /* EUDP Primary Blue */
-            --secondary-color: #4CAF50; /* EUDP Accent Green */
-            --accent-color: #FFD700;    /* EUDP Highlight Gold/Yellow */
-            --dark-text: #333333;       /* Dark text color */
-            --light-text: #FFFFFF;      /* Light text color */
-            
-            --light-gray-bg-template: #f4f4f8;
-            --bg-light: var(--light-gray-bg-template); 
-            
-            --bg-soft: #E0F2FE;         /* Lighter, softer blue background for top bar */
-            
-            --template-hero-overlay-color: rgba(10, 36, 99, 0.85); 
-            --bg-hero: linear-gradient(var(--template-hero-overlay-color), var(--template-hero-overlay-color)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            
-            --border-color: #ccc;       /* Standard border color */
 
-            --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); /* Using EUDP colors */
-            
+    <style>
+        /* === UNIFIED CORE DESIGN SYSTEM === */
+        :root {
+            --color-primary: #0D2D4E;
+            --color-secondary: #2E8B57;
+            --color-accent: #FFC107;
+            --color-text: #343a40;
+            --color-text-light: #f8f9fa;
+            --color-background: #FFFFFF;
+            --color-background-soft: #f8f9fa;
+            --color-border: #dee2e6;
+            --font-primary: 'Times New Roman', serif;
+            --font-secondary: 'Abyssinica SIL', serif;
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07);
-            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
             --radius-sm: 4px;
             --radius-md: 8px;
-            --radius-lg: 12px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-lg: 16px;
+            --transition-fast: all 0.2s ease-in-out;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --header-height: 80px;
         }
 
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* === GENERAL STYLES === */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Abyssinica SIL', sans-serif;
+            font-family: var(--font-primary);
+            color: var(--color-text);
+            background-color: var(--color-background-soft);
             line-height: 1.7;
-            color: var(--dark-text); 
-            background: var(--bg-light); 
             font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+        [lang="am"] body, 
+        [lang="am"] h1, [lang="am"] h2, [lang="am"] h3, [lang="am"] h4,
+        [lang="am"] p, [lang="am"] a, [lang="am"] span, [lang="am"] li,
+        [lang="am"] button, [lang="am"] label, [lang="am"] input, [lang="am"] select, [lang="am"] textarea, [lang="am"] b { 
+            font-family: var(--font-secondary); 
         }
 
-        input,
-        button,
-        select,
-        textarea {
-            font-family: inherit;
-            font-size: 1rem;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        img { max-width: 100%; height: auto; display: block; }
 
-        a {
-            text-decoration: none;
-            color: var(--secondary-color);
-            transition: var(--transition);
-        }
-
-        a:hover {
-            color: var(--accent-color);
-            text-decoration: underline;
-        }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Logo and Top Bar - Aligned with policy-job-creation.html */
-        .logo-topbar-container {
-            background-color: var(--bg-soft); 
+        /* === HEADER (UNIFIED) === */
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
             display: flex;
             align-items: center;
+            padding: 0 2rem;
+            background-color: var(--color-primary);
+            box-shadow: var(--shadow-md);
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .header__container {
+            display: flex;
             justify-content: space-between;
-            padding: 0.5rem 1.5rem;
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--secondary-color);
-        }
-
-        .logo-container { 
-            display: flex;
             align-items: center;
-            gap: 1rem;
+            width: 100%;
         }
-
-        .logo-container h2 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin:0;
-        }
-
-        .logo-container img {
-            width: 80px; 
-            height: 80px; 
-            transition: transform 0.3s ease;
-            border-radius: 50%; 
-            box-shadow: var(--shadow-sm); 
-            object-fit: cover; 
-        }
-        .logo-container img:hover {
-            transform: scale(1.05);
-        }
-
-        .top-bar {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-        .language-select {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .language-select label i {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-        }
+        .header__logo { display: flex; align-items: center; gap: 1rem; color: var(--color-text-light); text-decoration: none;}
+        .header__logo img { height: 60px; width: 60px; border-radius: 50%; object-fit: cover; }
+        .header__logo h1 { font-size: 1.4rem; color: var(--color-text-light); margin: 0; }
+        
+        .header__utilities { display: flex; align-items: center; gap: 1.5rem; }
         .language-select select {
-            background: var(--bg-light);
-            color: var(--primary-color);
-            border: 1px solid var(--primary-color);
-            padding: 0.35rem 1.75rem 0.35rem 0.75rem; 
+            background: transparent;
+            color: var(--color-text-light);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 0.3rem 0.5rem;
             border-radius: var(--radius-md);
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-             background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%232A5C82%22%3E%3Cpath%20d%3D%22M9.293%2012.95l.707.707L15.657%208l-1.414-1.414L10%2010.828%205.757%206.586%204.343%208z%22%2F%3E%3C%2Fsvg%3E');
-             background-repeat: no-repeat;
-             background-position: right 0.5rem center;
-             background-size: 1em auto;
-             cursor: pointer;
-        }
-         .language-select select:hover {
-            border-color: var(--secondary-color);
-        }
-
-        .search-bar {
-            display: flex;
-        }
-        .search-bar input[type="search"] {
-            background: var(--bg-light);
-            border: 1px solid var(--primary-color);
-            color: var(--dark-text); 
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius-md) 0 0 var(--radius-md);
-            width: 220px;
-            transition: var(--transition);
-        }
-         .search-bar input[type="search"]::placeholder {
-            color: var(--dark-text); 
-            opacity: 0.7;
-        }
-        .search-bar input[type="search"]:focus {
-             border-color: var(--secondary-color);
-             box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25); 
-             outline: none;
-        }
-
-        .search-bar button {
-            background: var(--secondary-color); 
-            color: var(--dark-text); 
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--secondary-color); 
-            border-left: none;
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
             cursor: pointer;
-            transition: var(--transition);
         }
-        .search-bar button:hover {
-            background: #e6c300; 
-            border-color: #e6c300; 
-        }
+        .language-select select option { background-color: var(--color-primary); }
 
-        /* Page Header - Aligned with policy-job-creation.html */
-        .page-header {
-            background: var(--template-hero-overlay-color); 
-            color: white;
-            padding: 2.5rem 0;
+        /* === PAGE BANNER (UNIFIED) === */
+        .page-banner {
+            position: relative;
+            padding: 4rem 1.5rem;
+            color: var(--color-text-light);
             text-align: center;
-            margin-bottom: 0;
-            box-shadow: var(--shadow-md);
-            border-bottom: 3px solid var( --secondary-color);
-        }
-
-        .page-header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            color: white;
-            font-weight: 700;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-
-        /* Main Layout */
-        .main-layout {
             display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-            flex-direction: row-reverse;
-            gap: 2rem;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            overflow: hidden;
         }
-
-        /* Sidebar - Aligned with policy-job-creation.html */
-        .sidebar {
-            padding: 1.5rem;
-            margin-top: 0;
-            width: 30%;
-            max-width: 300px;
-            background-color: #1e293b; 
-            color: var(--light-text); 
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            align-self: flex-start;
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Changed background image to be relevant to Poverty & Food Security */
+            background: linear-gradient(rgba(13, 45, 78, 0.8), rgba(46, 139, 87, 0.7)), url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&q=80&w=2070') no-repeat center center/cover;
+            z-index: -1;
         }
-
-        .sidebar h2 {
-            margin-bottom: 0.75rem;
-            color: white; 
-            font-size: 1.25rem;
-            border-bottom: 1px solid var(--secondary-color);
-            padding-bottom: 0.5rem;
+        .page-banner__title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         }
-         .sidebar h3 { 
-            margin-bottom: 0.75rem;
-            color: white; 
-            font-size: 1rem; 
-            padding-bottom: 0.5rem; 
-        }
-
-        .sidebar h2 a {
-            color: white; 
-        }
-        .sidebar h2 a:hover {
-            color: white; 
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 1.5rem;
-        }
-        .sidebar ul li {
-            margin-bottom: 0.5rem; 
-        }
-        .sidebar ul ul { 
-            padding-left: 1rem; 
-            margin-top: 0.5rem; 
-        }
-
-        .sidebar a {
-            color: white; 
-            display: block;
-            padding: 0.5rem 0.75rem;
-            transition: var(--transition);
+        .breadcrumbs {
+            display: flex;
+            gap: 0.5rem;
+            background-color: rgba(0, 0, 0, 0.25);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
             font-size: 0.95rem;
-            border-radius: var(--radius-sm);
         }
-
-        .sidebar a:hover, .sidebar a.active-policy-link:hover {
-            background-color: var(--primary-color); 
-            color: white;
+        .breadcrumbs a {
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
+            transition: var(--transition-fast);
         }
-        .sidebar a i {
-            margin-right: 0.75rem;
-            width: 20px;
-        }
-        .sidebar .active-policy-link {
-            font-weight: bold;
-            background-color: var(--secondary-color); 
-            color: white;
-        }
-         .sidebar ul li h3 { 
-            font-size: 1rem; 
-            color: white; 
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-            padding-left: 0; 
-        }
-         .sidebar ul li h3 i {
-            margin-right: 0.75rem;
-            width: 20px;
-        }
+        .breadcrumbs a:hover { color: var(--color-accent); }
+        .breadcrumbs span { color: var(--color-text-light); font-weight: bold; }
+        .breadcrumbs .separator { color: rgba(255, 255, 255, 0.5); }
 
-
-        /* Main Content Section */
-        .section {
-            display: block;
-            background: white;
-            padding: 2.5rem;
+        /* === POLICY PAGE LAYOUT (UNIFIED) === */
+        .policy-section { padding: 5rem 0; }
+        .policy-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+        
+        /* === SIDEBAR (UNIFIED) === */
+        .policy-sidebar {
+            position: sticky;
+            top: calc(var(--header-height) + 2rem);
+            background-color: var(--color-background);
+            padding: 1.5rem;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
-            width: 70%;
-            flex: 1;
         }
-
-        .section > h2 { 
-            color: var(--primary-color);
-            text-align: center; 
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 4px solid var(--primary-color); 
+        .policy-sidebar .sidebar-block { margin-bottom: 2rem; }
+        .policy-sidebar .sidebar-block:last-child { margin-bottom: 0; }
+        .policy-sidebar h2, .policy-sidebar h3 {
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
             padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
-        .section > h3 { 
-            color: var(--dark-text); 
-            font-size: 1.5rem; 
-            margin-top: 2rem; 
-            margin-bottom: 1rem; 
+        .policy-sidebar h2 a, .policy-sidebar h3 a { color: inherit; text-decoration: none; }
+        .policy-sidebar ul { list-style: none; padding-left: 0.5rem; }
+        .policy-sidebar ul ul { padding-left: 1.5rem; border-left: 2px solid var(--color-border); margin-top: 1rem; }
+        .policy-sidebar li { margin-bottom: 0.25rem; }
+        .policy-sidebar a {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem;
+            color: var(--color-text); text-decoration: none; border-radius: var(--radius-md);
+            transition: var(--transition-fast); font-size: 0.95rem;
         }
-        .section > h3:first-of-type { 
-            margin-top: 0.5rem;
+        .policy-sidebar a i { color: var(--color-secondary); width: 20px; text-align: center; }
+        .policy-sidebar a:hover { background-color: var(--color-background-soft); color: var(--color-primary); }
+        .policy-sidebar a.active-policy-link {
+            background-color: var(--color-secondary); color: var(--color-text-light); font-weight: bold;
         }
-
-        .policy-vision-mission {
-            background-color: var(--bg-light); 
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: var(--radius-md);
-            border-left: 5px solid var(--secondary-color);
-            box-shadow: var(--shadow-sm);
+        .policy-sidebar a.active-policy-link i { color: var(--color-text-light); }
+        
+        /* === MAIN CONTENT (UNIFIED) === */
+        .policy-main-content {
+            background: var(--color-background); padding: 2.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);
         }
-        .policy-vision-mission h3 {
-            margin-top: 0;
-            color: var(--secondary-color);
-            font-size: 1.5rem; 
-            border-bottom: none;
-            padding-bottom: 0;
+        .policy-main-content h2.section-title {
+            font-size: 2.2rem; color: var(--color-primary); text-align: center; margin-bottom: 2.5rem; position: relative;
         }
-        .policy-vision-mission p, .policy-vision-mission ul, .policy-vision-mission ol {
-            font-size: 1.05rem;
+        .policy-main-content h2.section-title::after {
+            content: ''; position: absolute; bottom: -10px; left: 50%;
+            transform: translateX(-50%); width: 80px; height: 4px;
+            background-color: var(--color-secondary); border-radius: 2px;
         }
-        .policy-vision-mission ul li, .policy-vision-mission ol li {
-            margin-bottom: 0.75rem;
+        .policy-main-content h3 {
+            font-size: 1.5rem; color: var(--color-primary); margin-top: 2.5rem; margin-bottom: 1rem;
         }
+        
+        .policy-highlight-box {
+            background-color: var(--color-background-soft); padding: 1.5rem 2rem;
+            margin-bottom: 2rem; border-radius: var(--radius-lg); border-left: 5px solid var(--color-secondary);
+        }
+        .policy-highlight-box h3 { color: var(--color-secondary); margin-top: 0; font-size: 1.3rem; }
+        .policy-highlight-box p, .policy-highlight-box ol { font-size: 1.05rem; padding-left: 1rem; }
+        .policy-highlight-box ol li { margin-bottom: 0.75rem; }
 
         .policy-point-card {
-            background-color: #ffffff;
-            border: 1px solid var(--border-color); 
-            padding: 1.5rem;
-            margin-top: 1rem; 
-            margin-bottom: 2rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
+            background: var(--color-background); border: 1px solid var(--color-border); padding: 2rem;
+            margin-top: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
         }
-        .policy-point-card h4 { 
-            margin-top: 0;
-            color: var(--primary-color); 
-            font-size: 1.3rem; 
-            border-bottom: 2px solid var(--accent-color); 
-            padding-bottom: 0.5rem; 
-            margin-bottom: 1rem; 
+        .policy-point-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--color-secondary); }
+        .policy-point-card dt h4 {
+            margin-top: 0; font-size: 1.4rem; color: var(--color-primary);
+            padding-bottom: 0.75rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--color-accent);
         }
-        .policy-point-card ol, .policy-point-card ul {
-            list-style-type: decimal; 
-            padding-left: 1.5rem;
-        }
-        .policy-point-card ol li, .policy-point-card ul li {
-            margin-bottom: 0.75rem;
-            line-height: 1.6;
-        }
-        .policy-point-card ol li::marker {
-            font-weight: bold;
-            color: var(--accent-color); 
-        }
-         .section > h4 { 
-            font-size: 1.4rem;
-            color: var(--primary-color); 
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Policy Implementation List */
-        .section > ul#implementation-list { 
-            list-style-type: disc;
-            padding-left: 1.5rem;
-            margin-top: 1rem;
-        }
-        .section > ul#implementation-list li {
-            margin-bottom: 0.75rem;
-            font-size: 1.05rem;
-        }
-
-        .read-more-btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white; 
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius-md);
-            font-weight: bold;
-            text-decoration: none;
-            transition: var(--transition);
-            margin-top: 2rem;
-            box-shadow: var(--shadow-sm);
-        }
-        .read-more-btn:hover {
-            background-color: #c56a19; 
-            color: white;
-            text-decoration: none;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        .read-more-btn i {
-            margin-right: 0.5rem;
-        }
-
-        /* Footer - Aligned with policy-job-creation.html */
-        .footer {
-             background-color: var(--dark-text);
-             color: var(--bg-light); 
-             padding: 4rem 0; 
-             font-size: 0.95rem;
-        }
-        .footer p, .footer .contact ul li p, .footer .contact ul li a {
-            color: rgba(248, 250, 252, 0.8);
-        }
-
-        .footer .container .row { 
-             display: flex;
-             flex-wrap: wrap;
-             gap: 3rem; 
-             justify-content: space-between;
-        }
-
-        .footer .col-md-3, 
-        .footer .col-md-4 {
-             flex: 1 1 280px; 
-             min-width: 250px; 
-        }
-         .footer .col-md-3.contact-col { 
-              flex: 1 1 200px; 
-         }
-
-
-        .footer h2 {
-             color: var(--accent-color);
-             font-size: 1.5rem; 
-             margin-bottom: 1.8rem; 
-             position: relative;
-             padding-bottom: 0.6rem; 
-        }
-         .footer h2::after { 
-             content: '';
-             position: absolute;
-             bottom: 0;
-             left: 0;
-             width: 70px; 
-             height: 3px; 
-             background-color: var(--secondary-color);
-             border-radius: 1.5px;
-         }
-
-        .footer .simplenews-subscriber-form {
-             display: flex;
-             gap: 0.5rem;
-             margin-top: 1.8rem; 
-             flex-wrap: wrap; 
-        }
-        .footer .simplenews-subscriber-form input[type="email"] {
-             flex-grow: 1;
-             padding: 0.85rem 1rem; 
-             border: 1px solid #555;
-             border-radius: var(--radius-sm);
-             background-color: #444;
-             color: var(--light-text);
-        }
-         .footer .simplenews-subscriber-form input[type="email"]::placeholder {
-              color: rgba(248, 250, 252, 0.5);
-         }
-
-        .footer .simplenews-subscriber-form button {
-             padding: 0.85rem 1.8rem; 
-             background-color: orange; 
-             color: var(--light-text);
-             border: none;
-             border-radius: var(--radius-sm);
-             cursor: pointer;
-             transition: var(--transition);
-             font-weight: bold;
-        }
-         .footer .simplenews-subscriber-form button:hover {
-              background-color: var(--primary-color); 
-         }
-
-        .social-icons {
-             list-style: none;
-             display: flex;
-             gap: 1.2rem; 
-             margin-top: 1.8rem; 
-             padding: 0; 
-        }
-         .social-icons li {
-              display: inline-block;
-         }
-
-        .social-icons a { 
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             width: 45px; 
-             height: 45px;
-             border-radius: 100%;
-             background-color: var(--primary-color); 
-             color: var(--light-text);
-             font-size: 1.4rem; 
-             transition: var(--transition);
-        }
-         .social-icons a:hover {
-              background-color: var(--secondary-color);
-              color: var(--light-text);
-              transform: translateY(-5px); 
-              text-decoration: none; 
-         }
+        .policy-point-card dd ol { list-style-type: decimal; padding-left: 1.5rem; }
+        .policy-point-card dd ol li { margin-bottom: 1rem; padding-left: 0.5rem; }
+        .policy-point-card dd ol li::marker { font-weight: bold; color: var(--color-secondary); }
         
-        .footer .contact-details ul.contact {
-             list-style: none;
-             padding-left: 0;
-             margin-top: 1.8rem; 
+        .policy-main-content > ul { list-style-type: none; padding-left: 0; }
+        .policy-main-content > ul li { position: relative; padding-left: 2rem; margin-bottom: 1rem; }
+        .policy-main-content > ul li::before {
+            content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+            position: absolute; left: 0; top: 5px; color: var(--color-secondary);
         }
-        .footer .contact-details ul.contact li {
-             margin-bottom: 1.2rem; 
-             display: flex;
-             align-items: flex-start;
-             gap: 0.8rem; 
+        
+        .download-btn {
+            display: inline-flex; align-items: center; gap: 0.75rem; background-color: var(--color-accent);
+            color: var(--color-primary); padding: 0.8rem 2rem; border-radius: 50px;
+            font-weight: bold; text-decoration: none; box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease; margin-top: 2.5rem;
         }
-         .footer .contact-details ul.contact li:last-child {
-              margin-bottom: 0;
-         }
-         .footer .contact-details ul.contact li i {
-              color: var(--secondary-color);
-              font-size: 1.3rem; 
-              margin-top: 5px; 
-         }
-         .footer .contact-details ul.contact li strong {
-              color: var(--accent-color);
-          }
-         .footer .contact-details ul.contact li a { 
-             text-decoration: underline;
-         }
-          .footer .contact-details ul.contact li a:hover {
-               color: var(--secondary-color);
-          }
+        .download-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3); }
 
-
-        .footer-copyright {
-             text-align: center;
-             margin-top: 4rem; 
-             padding-top: 2rem; 
-             border-top: 1px solid #555; 
-             font-size: 0.9rem; 
-             color: rgba(248, 250, 252, 0.6);
-             width: 100%; 
+        /* === FOOTER (UNIFIED) === */
+        .footer {
+            background-color: var(--color-primary); color: rgba(255, 255, 255, 0.7);
+            padding: 5rem 0 2rem 0; font-size: 0.95rem;
         }
-        .footer-copyright p b { 
-            color: rgba(248, 250, 252, 0.6);
-            font-weight: bold; 
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 4rem; }
+        .footer__title { font-size: 1.2rem; color: var(--color-text-light); margin-bottom: 1.5rem; font-weight: bold; }
+        .footer p, .footer li { line-height: 1.8; }
+        .footer a { color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: var(--transition-fast); }
+        .footer a:hover { color: var(--color-accent); }
+        .footer-grid ul { list-style: none; }
+        .footer-grid ul li { margin-bottom: 0.8rem; }
+        .footer-grid .contact-list i { margin-right: 0.8rem; color: var(--color-accent); width: 20px; text-align: center; }
+        .footer__social-icons { list-style: none; display: flex; gap: 1rem; margin-top: 1.5rem; }
+        .footer__social-icons a {
+            display: flex; align-items: center; justify-content: center; width: 40px; height: 40px;
+            background-color: rgba(255, 255, 255, 0.1); border-radius: 50%;
         }
-
-
+        .footer__social-icons a:hover { background-color: var(--color-accent); color: var(--color-primary); }
+        
+        .newsletter-form { display: flex; margin-top: 1rem; }
+        .newsletter-form input {
+            flex-grow: 1; padding: 0.7rem; border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.2); color: var(--color-text-light);
+            border-radius: var(--radius-md) 0 0 var(--radius-md); outline: none;
+        }
+        .newsletter-form button {
+            padding: 0.7rem 1.2rem; border: none; background: var(--color-accent);
+            color: var(--color-primary); cursor: pointer; font-weight: bold;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+        .footer-copyright { text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; font-size: 0.9rem; }
+        
+        /* === RESPONSIVENESS (UNIFIED) === */
         @media (max-width: 992px) {
-            .footer .col-md-3, 
-            .footer .col-md-4 {
-                flex-basis: calc(50% - 1.5rem); 
-            }
-            .main-layout {
-                padding: 1.5rem;
-            }
+            .header { padding: 0 1rem; }
+            .policy-layout { grid-template-columns: 1fr; }
+            .policy-sidebar { position: static; }
         }
-
-        @media (max-width: 768px) {
-            body {
-                font-size: 15px;
-            }
-            .page-header h1 {
-                font-size: 2.2rem;
-            }
-            .section > h2 {
-                font-size: 1.7rem;
-            }
-            .section > h3 {
-                font-size: 1.4rem; 
-            }
-            .policy-point-card h4 { 
-                font-size: 1.15rem; 
-            }
-            .section > h4 { 
-                font-size: 1.25rem; 
-            }
-
-            .main-layout {
-                padding: 1rem;
-                flex-direction: column;
-            }
-            .sidebar, .section {
-                width: 100%;
-                max-width: none;
-            }
-            .sidebar {
-                margin-bottom: 1.5rem;
-            }
-
-            .logo-topbar-container {
-                flex-direction: column;
-                padding: 1rem;
-                 text-align: center;
-            }
-             .logo-container {
-                margin-bottom: 1rem;
-            }
-            .logo-container img {
-                width:100px; height:100px; 
-            }
-            .logo-container h2 {
-                font-size: 1.3rem; 
-            }
-            .top-bar {
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-            }
-            .search-bar {
-                width: 100%;
-            }
-            .search-bar input[type="search"]{
-                width: 100%;
-                flex-grow: 1;
-            }
-
-            .footer .col-md-3,
-            .footer .col-md-4 {
-                flex-basis: 100%;
-                margin-bottom: 1.5rem; 
-            }
-            .footer .simplenews-subscriber-form input[type="email"]{
-                 margin-bottom: 0.5rem; 
-                 margin-right: 0;
-                 width: 100%;
-            }
-             .footer .simplenews-subscriber-form {
-                flex-direction: column; 
-            }
-            .footer .simplenews-subscriber-form button{
-                width: 100%; 
-            }
+        @media (max-width: 480px) {
+            .header__logo img { height: 50px; width: 50px; }
+            .header__logo h1 { display: none; }
+            .page-banner__title { font-size: 2.2rem; }
+            .breadcrumbs { font-size: 0.85rem; padding: 0.4rem 1rem; }
+            .policy-main-content { padding: 1.5rem; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Logo and Top Bar -->
-    <div class="logo-topbar-container">
-        <div class="logo-container">
-            <img src="2025-05-17 18.49.47.jpg" alt="የኢትዮጵያ አንድነት እና ልማት ፓርቲ አርማ">
-            <h2 data-translate-key="logoTitle">የኢትዮጵያ አንድነት እና ልማት ፓርቲ</h2>
-        </div>
-
-        <div class="top-bar">
-            <div class="language-select">
-                <label for="language-select" class="sr-only" data-translate-key="langLabel">ቋንቋ ይምረጡ</label>
-                <i class="fas fa-language" aria-hidden="true"></i>
-                <select id="language-select" aria-label="Select Language">
-                    <option value="am" data-translate-key="langAmharic">አማርኛ</option>
-                    <option value="en" data-translate-key="langEnglish">English</option>
-                </select>
+    <header class="header">
+        <div class="header__container container">
+            <a href="index.html" class="header__logo">
+                <img src="2025-05-17 18.49.47.jpg" alt="Party Logo">
+                <h1 data-translate-key="partyNameHeader">የኢትዮጵያ አንድነት እና ልማት ፓርቲ</h1>
+            </a>
+            <div class="header__utilities">
+                <div class="language-select">
+                    <select id="language-select" aria-label="Select Language">
+                        <option value="am">አማርኛ</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
             </div>
-
-            <form class="search-bar" role="search">
-                <label for="site-search" class="sr-only" data-translate-key="searchSrOnly">Search the site</label>
-                <input type="search" id="site-search" data-translate-key="searchPlaceholder" placeholder="Search/ፈልግ" aria-label="Search" />
-                <button type="submit">
-                    <i class="fas fa-search" aria-hidden="true"></i>
-                    <span class="sr-only" data-translate-key="searchBtnSr">ፈልግ</span>
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Page Header -->
-    <header class="page-header">
-        <div class="container">
-            <h1 data-translate-key="headerTitle">ድህነትን ማስወገድና የምግብ ዋስትና ፖሊሲ</h1>
-        </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="main-layout">
-            <section id="poverty-foodsecurity-policy" class="section active">
-                <h2 data-translate-key="povertyFoodPolicyOverviewTitle">የድህነት ማስወገድና የምግብ ዋስትና ፖሊሲ አጠቃላይ እይታ</h2>
+    <main>
+        <section class="page-banner">
+            <h1 class="page-banner__title" data-translate-key="headerTitle">ድህነትን ማስወገድና የምግብ ዋስትና ፖሊሲ</h1>
+            <div class="breadcrumbs">
+                <a href="index.html" data-translate-key="breadcrumbHome">መነሻ</a>
+                <span class="separator">/</span>
+                <span data-translate-key="breadcrumbPolicies">ፖሊሲዎች</span>
+                <span class="separator">/</span>
+                <span data-translate-key="breadcrumbPovertyFoodSecurity">ድህነት ማጥፋት</span>
+            </div>
+        </section>
 
-                <div class="policy-vision-mission">
-                    <h3 data-translate-key="visionTitlePovertyFood">ራዕይ</h3>
-                    <p data-translate-key="visionTextPovertyFood">ድህነት የተወገደባት፣ እያንዳንዱ ዜጋ በቂና የተመጣጠነ ምግብ የሚያገኝባትና የኑሮ ደረጃው የተሻሻለባት ኢትዮጵያን መፍጠር።</p>
-                </div>
-
-                <div class="policy-vision-mission">
-                    <h3 data-translate-key="missionTitlePovertyFood">ተልዕኮ</h3>
-                    <ol>
-                        <li data-translate-key="missionItemPovertyFood1"><b>የግብርና ምርታማነትን ማሳደግ:</b> የአነስተኛ አርሶ አደሮችን ምርታማነት በማሳደግ፣ የመስኖ ልማትን በማስፋፋትና የድህረ-ምርት ብክነትን በመቀነስ የምግብ አቅርቦትን ማሳደግ።</li>
-                        <li data-translate-key="missionItemPovertyFood2"><b>የገቢ ማስገኛ እድሎችን መፍጠር:</b> ከግብርና ውጪ የሆኑ የስራ እድሎችን በገጠርና በከተማ በማስፋፋት የዜጎችን የገቢ አቅም ማሳደግ።</li>
-                        <li data-translate-key="missionItemPovertyFood3"><b>የማህበራዊ ጥበቃ መረቦችን ማጠናከር:</b> ለአደጋ ተጋላጭ ለሆኑ የህብረተሰብ ክፍሎች (አረጋውያን፣ አካል ጉዳተኞች፣ ህጻናት) የማህበራዊ ድጋፍ ፕሮግራሞችን በማስፋፋትና በማጠናከር የኑሮ ዋስትናቸውን ማረጋገጥ።</li>
-                        <li data-translate-key="missionItemPovertyFood4"><b>የተመጣጠነ ምግብ አቅርቦትን ማሻሻል:</b> በተለይም ለእናቶችና ህጻናት የተመጣጠነ ምግብ አስፈላጊነት ላይ ግንዛቤ በመፍጠርና አቅርቦቱን በማሻሻል የጤናና የአዕምሮ እድገታቸውን መደገፍ።</li>
-                        <li data-translate-key="missionItemPovertyFood5"><b>የአየር ንብረት ለውጥን መቋቋም:</b> የአየር ንብረት ለውጥ በግብርናና በምግብ ዋስትና ላይ የሚያደርሰውን አሉታዊ ተጽዕኖ የሚቋቋሙ ዘላቂ የመሬት አጠቃቀምና የግብርና አሰራሮችን ማበረታታት።</li>
-                    </ol>
-                </div>
-
-                <h3 data-translate-key="mainPolicyDirectionsPovertyFoodTitle">የፖሊሲው ዋና ዋና አቅጣጫዎች</h3>
-
-                <div class="policy-point-card">
-                    <h4 data-translate-key="agriProductivityTitle">1. የግብርና ምርታማነትና የምግብ አቅርቦት</h4>
-                    <ol>
-                        <li data-translate-key="agriProdItem1">የተሻሻሉ ዘሮችን፣ ማዳበሪያዎችንና ዘመናዊ የእርሻ ዘዴዎችን ለአርሶ አደሩ ተደራሽ ማድረግ።</li>
-                        <li data-translate-key="agriProdItem2">የመስኖ ልማትን በማስፋፋት ከዝናብ ጥገኝነት መላቀቅና የሰብል ምርትን በዓመት ብዙ ጊዜ ማምረት ማስቻል።</li>
-                        <li data-translate-key="agriProdItem3">የእንስሳት ሀብት ልማትን በማሻሻል (የዝርያ ማሻሻል፣ የእንስሳት ጤና፣ የመኖ አቅርቦት) የስጋ፣ የወተትና የእንቁላል ምርትን ማሳደግ።</li>
-                        <li data-translate-key="agriProdItem4">የድህረ-ምርት ብክነትን ለመቀነስ የሚያስችሉ የማከማቻና የማቀነባበሪያ ቴክኖሎጂዎችን ማስተዋወቅና የአርሶ አደሩን አቅም መገንባት።</li>
-                    </ol>
-                </div>
-
-                <div class="policy-point-card">
-                    <h4 data-translate-key="incomeGenerationTitle">2. የገቢ ማስገኛና የስራ እድል ፈጠራ</h4>
-                    <ol>
-                        <li data-translate-key="incomeGenItem1">ጥቃቅንና አነስተኛ ኢንተርፕራይዞችን (MSMEs) በመደገፍ በተለይም ለወጣቶችና ለሴቶች የስራ እድል መፍጠር።</li>
-                        <li data-translate-key="incomeGenItem2">የገጠር ኢኮኖሚን በማዳበር (Rural Non-Farm Economy) ከግብርና ውጪ የሆኑ የገቢ ምንጮችን ማስፋት።</li>
-                        <li data-translate-key="incomeGenItem3">የቴክኒክና ሙያ ስልጠናዎችን ከገበያ ፍላጎት ጋር በማጣጣም የሰለጠነ የሰው ኃይል ማፍራት።</li>
-                    </ol>
-                </div>
-
-                <div class="policy-point-card">
-                    <h4 data-translate-key="socialProtectionTitle">3. የማህበራዊ ጥበቃና ድጋፍ</h4>
-                    <ol>
-                        <li data-translate-key="socialProtectItem1">ለአቅመ ደካሞች፣ ለአረጋውያንና በጠና ለታመሙ ዜጎች ቀጥተኛ የገንዘብና የምግብ ድጋፍ ፕሮግራሞችን ማስፋት።</li>
-                        <li data-translate-key="socialProtectItem2">የማህበረሰብ አቀፍ የጤና መድን ሽፋንን በማሳደግ የጤና ወጪ ጫናን መቀነስ።</li>
-                        <li data-translate-key="socialProtectItem3">ለተፈጥሮና ሰው ሰራሽ አደጋዎች ፈጣን ምላሽ የሚሰጥ የአደጋ ስጋት አመራር ሥርዓት ማጠናከር።</li>
-                    </ol>
-                </div>
-                 <div class="policy-point-card">
-                    <h4 data-translate-key="nutritionImprovementTitle">4. የተመጣጠነ ምግብ ማሻሻያ</h4>
-                    <ol>
-                        <li data-translate-key="nutritionItem1">ስለተመጣጠነ ምግብ አስፈላጊነትና አዘገጃጀት ለህብረተሰቡ ሰፊ የግንዛቤ ማስጨበጫ ትምህርት መስጠት።</li>
-                        <li data-translate-key="nutritionItem2">በንጥረ-ምግብ የበለጸጉ ምግቦችን (Bio-fortified crops) ምርትና አጠቃቀም ማበረታታት።</li>
-                        <li data-translate-key="nutritionItem3">የትምህርት ቤት ምገባ ፕሮግራሞችን በማስፋፋት የተማሪዎችን የተመጣጠነ ምግብ አቅርቦት ማሻሻል።</li>
-                    </ol>
-                </div>
-                
-                <h3 data-translate-key="policyImplementationPovertyFoodTitle">የፖሊሲው ትግበራ</h3>
-                <ul id="implementation-list">
-                    <li data-translate-key="implementationPovertyFoodItem1">ይህ ፖሊሲ ከግብርና ሚኒስቴር፣ ከጤና ሚኒስቴር፣ ከስራና ክህሎት ሚኒስቴር፣ ከሴቶችና ማህበራዊ ጉዳይ ሚኒስቴር፣ ከክልል መንግስታት፣ ከሲቪል ማህበረሰብ ድርጅቶችና ከዓለም አቀፍ አጋሮች ጋር በቅንጅት ይተገበራል።</li>
-                    <li data-translate-key="implementationPovertyFoodItem2">የማህበረሰቡን ንቁ ተሳትፎና ባለቤትነት በማረጋገጥ የፖሊሲውን ግቦች ማሳካት።</li>
-                    <li data-translate-key="implementationPovertyFoodItem3">ለፖሊሲው ትግበራ በቂ የፋይናንስና የሰው ሃይል መመደብ እንዲሁም ግልጽ የክትትልና የግምገማ ሥርዓት መዘርጋት።</li>
-                </ul>
-                <a href="የኢአልፓ_ፖሊሲዎች_ሙሉ_ሰነድ.pdf" class="read-more-btn"><i class="fas fa-file-pdf"></i><span data-translate-key="downloadFullPolicyBtn">ሙሉውን ፖሊሲ ያውርዱ</span></a>
-            </section>
-
-            <aside class="sidebar">
-                <h2><a href="index.html"><i class="fas fa-home"></i><span data-translate-key="sidebarHome">ዋና መነሻ</span></a></h2>
-
-                <h2><i class="fas fa-landmark"></i><span data-translate-key="sidebarPartyPolicies">የፓርቲው ፖሊሲዎች</span></h2>
-                <h3><i class="fas fa-chart-line"></i><span data-translate-key="sidebarEconomicPolicy">የኢኮኖሚ ፖሊሲ</span></h3>
-                <ul>
-                    <li><a href="policy-job-creation.html" class="nav-link" data-target="policy-job-creation.html"><i class="fas fa-briefcase" aria-hidden="true"></i><span data-translate-key="sidebarJobCreation">የስራ እድል ፈጠራ</span></a></li>
-                    <li><a href="policy-industrial-dev.html" class="nav-link" data-target="policy-industrial-dev.html"><i class="fas fa-industry" aria-hidden="true"></i><span data-translate-key="sidebarIndustrialDev">የኢንዱስትሪ ልማት</span></a></li>
-                    <li><a href="policy-agricultural-dev.html" class="nav-link" data-target="policy-agricultural-dev.html"><i class="fas fa-tractor" aria-hidden="true"></i><span data-translate-key="sidebarAgriDev">የግብርና ልማት</span></a></li>
-                    <li><a href="policy-finance-banking.html" class="nav-link" data-target="policy-finance-banking.html"><i class="fas fa-dollar-sign" aria-hidden="true"></i><span data-translate-key="sidebarFinanceBanking">ፋይናንስና ባንኪንግ</span></a></li>
-                    <li><a href="policy-infrastructure.html" class="nav-link" data-target="policy-infrastructure.html"><i class="fas fa-road" aria-hidden="true"></i><span data-translate-key="sidebarInfrastructure">መሠረተ ልማት</span></a></li>
-                </ul>
-                
-                <h3><i class="fas fa-users"></i><span data-translate-key="sidebarSocialPolicies">ማህበራዊ ፖሊሲዎች</span></h3>
-                <ul>
-                    <li><a href="policy 1.html" class="nav-link" data-target="policy 1.html"><i class="fas fa-hospital" aria-hidden="true"></i><span data-translate-key="sidebarHealth">ጤና</span></a></li>
-                    <li><a href="policy 2.html" class="nav-link" data-target="policy 2.html"><i class="fas fa-graduation-cap" aria-hidden="true"></i><span data-translate-key="sidebarEducation">ትምህርት</span></a></li>
-                    <li><a href="policy-poverty-foodsecurity.html" class="active-policy-link" data-target="policy-poverty-foodsecurity.html"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i><span data-translate-key="sidebarPovertyFoodSecurity">ድህነት ማጥፋት</span></a></li>
-                    <li><a href="policy-disability-rights.html" class="nav-link" data-target="policy-disability-rights.html"><i class="fas fa-wheelchair" aria-hidden="true"></i><span data-translate-key="sidebarVulnerable">ተጋላጭ ቡድኖች</span></a></li>
-                    <li><a href="policy-gender-equality.html" class="nav-link" data-target="policy-gender-equality.html"><i class="fas fa-venus-mars" aria-hidden="true"></i><span data-translate-key="sidebarGenderEq">የጾታ እኩልነት</span></a></li>
-                    <li><a href="policy-youth.html" class="nav-link"><i class="fas fa-user-graduate" aria-hidden="true"></i><span data-translate-key="socialYouth">ወጣቶች</span></a></li>
-                </ul>
-
-                <h3><i class="fas fa-globe"></i><span data-translate-key="policyOther">ሌሎች ፖሊሲዎች</span></h3>
-                <ul>
-                    <li><a href="policy-political-system.html" class="nav-link"><i class="fas fa-vote-yea" aria-hidden="true"></i><span data-translate-key="otherPoliticalSystem">የፖለቲካ ሥርዓት</span></a></li>
-                    <li><a href="policy-human-rights.html" class="nav-link"><i class="fas fa-gavel" aria-hidden="true"></i><span data-translate-key="otherHumanRights">ሰብዓዊ መብቶች</span></a></li>
-                    <li><a href="policy-security-defense.html" class="nav-link"><i class="fas fa-shield-alt" aria-hidden="true"></i><span data-translate-key="otherSecurity">መከላከያና ጸጥታ</span></a></li>
-                    <li><a href="policy-foreign.html" class="nav-link"><i class="fas fa-earth-africa" aria-hidden="true"></i><span data-translate-key="otherForeignPolicy">የውጭ ግንኙነት</span></a></li>
-                    <li><a href="policy-media.html" class="nav-link"><i class="fas fa-broadcast-tower" aria-hidden="true"></i><span data-translate-key="otherMedia">መገናኛ ብዙሃን</span></a></li>
-                    <li><a href="policy-natural-resources.html" class="nav-link"><i class="fas fa-tree" aria-hidden="true"></i><span data-translate-key="econNaturalResources">የተፈጥሮ ሀብትና መሬት</span></a></li>
-                </ul>
-            </aside>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="newsletter">
-                        <h2 data-translate-key="footerNewsletterTitle">ዜና መጽሔት ይመዝገቡ</h2>
-                        <p data-translate-key="footerNewsletterPara">የቅርብ ጊዜ መረጃዎችን እና የፓርቲ ዜናዎችን በቀጥታ ወደ ኢሜልዎ ያግኙ።</p>
-                        <form class="simplenews-subscriber-form">
-                            <label for="edit-mail-0-value" class="sr-only" data-translate-key="footerEmailLabelSr">ኢሜል</label>
-                            <input type="email" id="edit-mail-0-value" name="mail" data-translate-key="footerEmailPlaceholder" placeholder="የኢሜል አድራሻዎ"
-                                class="form-email" required>
-                            <button type="submit" class="button" data-translate-key="footerSubscribeBtn">ይመዝገቡ</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="region-footer-31">
-                        <h2 data-translate-key="footerSocialTitle">ማህበራዊ ሚዲያ</h2>
-                        <p data-translate-key="footerSocialPara">በማህበራዊ ገጾቻችን ይከተሉን፤ ይሳተፉ።</p>
-                        <ul class="social-icons">
-                            <li><a href="https://www.facebook.com/profile.php?id=61577016305943" target="_blank" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="https://x.com/infoeudp2017" target="_blank" title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#" target="_blank" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
-                            <li><a href="https://t.me/EUDPp" target="_blank" title="Telegram" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3 contact-col">
-                    <div class="region-footer-41">
-                        <h2 data-translate-key="footerContactTitle">ያግኙን</h2>
-                        <div class="contact-details">
-                            <ul class="contact" style="list-style: none; padding-left: 0;">
+        <section class="policy-section">
+            <div class="container">
+                <div class="policy-layout">
+                    <aside class="policy-sidebar">
+                        <div class="sidebar-block">
+                           <h3><i class="fas fa-landmark"></i><span data-translate-key="sidebarPartyPolicies">የፓርቲው ፖሊሲዎች</span></h3>
+                            <ul>
                                 <li>
-                                    <p><i class="fas fa-phone-alt"></i> <strong data-translate-key="footerContactPhone">ስልክ:</strong> +251-704-932-072</p>
+                                    <h4><i class="fas fa-chart-line"></i><span data-translate-key="sidebarEconomicPolicy">የኢኮኖሚ ፖሊሲ</span></h4>
+                                    <ul>
+                                        <li><a href="policy-job-creation.html"><i class="fas fa-briefcase"></i><span data-translate-key="sidebarJobCreation">የስራ እድል ፈጠራ</span></a></li>
+                                        <li><a href="policy-industrial-dev.html"><i class="fas fa-industry"></i><span data-translate-key="sidebarIndustrialDev">የኢንዱስትሪ ልማት</span></a></li>
+                                        <li><a href="policy-agricultural-dev.html"><i class="fas fa-tractor"></i><span data-translate-key="sidebarAgriDev">የግብርና ልማት</span></a></li>
+                                        <li><a href="policy-finance-banking.html"><i class="fas fa-dollar-sign"></i><span data-translate-key="sidebarFinanceBanking">ፋይናንስና ባንኪንግ</span></a></li>
+                                        <li><a href="policy-infrastructure.html"><i class="fas fa-road"></i><span data-translate-key="sidebarInfrastructure">መሠረተ ልማት</span></a></li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <p><i class="fas fa-envelope"></i> <strong data-translate-key="footerContactEmail">ኢሜይል:</strong> <a href="mailto:infoeudp2017@gmail.com">infoeudp2017@gmail.com</a></p>
+                                    <h4><i class="fas fa-users"></i><span data-translate-key="sidebarSocialPolicies">ማህበራዊ ፖሊሲዎች</span></h4>
+                                    <ul>
+                                        <li><a href="policy 1.html"><i class="fas fa-hospital"></i><span data-translate-key="sidebarHealth">ጤና</span></a></li>
+                                        <li><a href="policy 2.html"><i class="fas fa-graduation-cap"></i><span data-translate-key="sidebarEducation">ትምህርት</span></a></li>
+                                        <li><a href="policy-poverty-foodsecurity.html" class="active-policy-link"><i class="fas fa-hand-holding-heart"></i><span data-translate-key="sidebarPovertyFoodSecurity">ድህነት ማጥፋት</span></a></li>
+                                        <li><a href="policy-disability-rights.html"><i class="fas fa-wheelchair"></i><span data-translate-key="sidebarVulnerable">ተጋላጭ ቡድኖች</span></a></li>
+                                        <li><a href="policy-gender-equality.html"><i class="fas fa-venus-mars"></i><span data-translate-key="sidebarGenderEq">የጾታ እኩልነት</span></a></li>
+                                        <li><a href="policy-youth.html"><i class="fas fa-user-graduate"></i><span data-translate-key="socialYouth">ወጣቶች</span></a></li>
+                                    </ul>
                                 </li>
-                                 <li>
-                                    <p><i class="fas fa-map-marker-alt"></i> <strong data-translate-key="footerContactAddress">አድራሻ:</strong> <span data-translate-key="footerContactAddressDetail">አዲስ አበባ</span></p>
+                                <li>
+                                    <h4><i class="fas fa-globe"></i><span data-translate-key="policyOther">ሌሎች ፖሊሲዎች</span></h4>
+                                    <ul>
+                                        <li><a href="policy-political-system.html"><i class="fas fa-vote-yea"></i><span data-translate-key="otherPoliticalSystem">የፖለቲካ ሥርዓት</span></a></li>
+                                        <li><a href="policy-human-rights.html"><i class="fas fa-gavel"></i><span data-translate-key="otherHumanRights">ሰብዓዊ መብቶች</span></a></li>
+                                        <li><a href="policy-security-defense.html"><i class="fas fa-shield-alt"></i><span data-translate-key="otherSecurity">መከላከያና ጸጥታ</span></a></li>
+                                        <li><a href="policy-foreign.html"><i class="fas fa-earth-africa"></i><span data-translate-key="otherForeignPolicy">የውጭ ግንኙነት</span></a></li>
+                                        <li><a href="policy-media.html"><i class="fas fa-broadcast-tower"></i><span data-translate-key="otherMedia">መገናኛ ብዙሃን</span></a></li>
+                                        <li><a href="policy-natural-resources.html"><i class="fas fa-tree"></i><span data-translate-key="econNaturalResources">የተፈጥሮ ሀብትና መሬት</span></a></li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </aside>
+
+                    <article class="policy-main-content">
+                        <h2 class="section-title" data-translate-key="povertyFoodPolicyOverviewTitle">ድህነትን ማስወገድና የምግብ ዋስትና ፖሊሲ</h2>
+        
+                        <div class="policy-highlight-box">
+                            <h3 data-translate-key="visionTitlePovertyFood">ራዕይ</h3>
+                            <p data-translate-key="visionTextPovertyFood">ድህነት የተወገደባት፣ እያንዳንዱ ዜጋ በቂና የተመጣጠነ ምግብ የሚያገኝባትና የኑሮ ደረጃው የተሻሻለባት ኢትዮጵያን መፍጠር።</p>
+                        </div>
+        
+                        <div class="policy-highlight-box">
+                            <h3 data-translate-key="missionTitlePovertyFood">ተልዕኮ</h3>
+                            <ol>
+                                <li data-translate-key="missionItemPovertyFood1"><b>የግብርና ምርታማነትን ማሳደግ:</b> የአነስተኛ አርሶ አደሮችን ምርታማነት በማሳደግ፣ የመስኖ ልማትን በማስፋፋትና የድህረ-ምርት ብክነትን በመቀነስ የምግብ አቅርቦትን ማሳደግ።</li>
+                                <li data-translate-key="missionItemPovertyFood2"><b>የገቢ ማስገኛ እድሎችን መፍጠር:</b> ከግብርና ውጪ የሆኑ የስራ እድሎችን በገጠርና በከተማ በማስፋፋት የዜጎችን የገቢ አቅም ማሳደግ።</li>
+                                <li data-translate-key="missionItemPovertyFood3"><b>የማህበራዊ ጥበቃ መረቦችን ማጠናከር:</b> ለአደጋ ተጋላጭ ለሆኑ የህብረተሰብ ክፍሎች የማህበራዊ ድጋፍ ፕሮግራሞችን በማስፋፋትና በማጠናከር የኑሮ ዋስትናቸውን ማረጋገጥ።</li>
+                                <li data-translate-key="missionItemPovertyFood4"><b>የተመጣጠነ ምግብ አቅርቦትን ማሻሻል:</b> በተለይም ለእናቶችና ህጻናት የተመጣጠነ ምግብ አስፈላጊነት ላይ ግንዛቤ በመፍጠርና አቅርቦቱን በማሻሻል የጤናና የአዕምሮ እድገታቸውን መደገፍ።</li>
+                            </ol>
+                        </div>
+        
+                        <h3><i class="fas fa-directions"></i> <span data-translate-key="mainPolicyDirectionsPovertyFoodTitle">የፖሊሲው ዋና ዋና አቅጣጫዎች</span></h3>
+                        <dl>
+                            <div class="policy-point-card">
+                                <dt><h4 data-translate-key="agriProductivityTitle">1. የግብርና ምርታማነትና የምግብ አቅርቦት</h4></dt>
+                                <dd>
+                                    <ol>
+                                        <li data-translate-key="agriProdItem1">የተሻሻሉ ዘሮችን፣ ማዳበሪያዎችንና ዘመናዊ የእርሻ ዘዴዎችን ለአርሶ አደሩ ተደራሽ ማድረግ።</li>
+                                        <li data-translate-key="agriProdItem2">የመስኖ ልማትን በማስፋፋት ከዝናብ ጥገኝነት መላቀቅና የሰብል ምርትን በዓመት ብዙ ጊዜ ማምረት ማስቻል።</li>
+                                        <li data-translate-key="agriProdItem3">የድህረ-ምርት ብክነትን ለመቀነስ የሚያስችሉ የማከማቻና የማቀነባበሪያ ቴክኖሎጂዎችን ማስተዋወቅ።</li>
+                                    </ol>
+                                </dd>
+                            </div>
+        
+                            <div class="policy-point-card">
+                                <dt><h4 data-translate-key="incomeGenerationTitle">2. የገቢ ማስገኛና የስራ እድል ፈጠራ</h4></dt>
+                                <dd>
+                                    <ol>
+                                        <li data-translate-key="incomeGenItem1">ጥቃቅንና አነስተኛ ኢንተርፕራይዞችን (MSMEs) በመደገፍ በተለይም ለወጣቶችና ለሴቶች የስራ እድል መፍጠር።</li>
+                                        <li data-translate-key="incomeGenItem2">የገጠር ኢኮኖሚን በማዳበር (Rural Non-Farm Economy) ከግብርና ውጪ የሆኑ የገቢ ምንጮችን ማስፋት።</li>
+                                        <li data-translate-key="incomeGenItem3">የቴክኒክና ሙያ ስልጠናዎችን ከገበያ ፍላጎት ጋር በማጣጣም የሰለጠነ የሰው ኃይል ማፍራት።</li>
+                                    </ol>
+                                </dd>
+                            </div>
+                            
+                            <div class="policy-point-card">
+                                <dt><h4 data-translate-key="socialProtectionTitle">3. የማህበራዊ ጥበቃና ድጋፍ</h4></dt>
+                                <dd>
+                                    <ol>
+                                        <li data-translate-key="socialProtectItem1">ለአቅመ ደካሞች፣ ለአረጋውያንና በጠና ለታመሙ ዜጎች ቀጥተኛ የገንዘብና የምግብ ድጋፍ ፕሮግራሞችን ማስፋት።</li>
+                                        <li data-translate-key="socialProtectItem2">የማህበረሰብ አቀፍ የጤና መድን ሽፋንን በማሳደግ የጤና ወጪ ጫናን መቀነስ።</li>
+                                        <li data-translate-key="socialProtectItem3">ለተፈጥሮና ሰው ሰራሽ አደጋዎች ፈጣን ምላሽ የሚሰጥ የአደጋ ስጋት አመራር ሥርዓት ማጠናከር።</li>
+                                    </ol>
+                                </dd>
+                            </div>
+                        </dl>
+        
+                        <h3><i class="fas fa-cogs"></i> <span data-translate-key="policyImplementationPovertyFoodTitle">የፖሊሲው ትግበራ</span></h3>
+                        <ul>
+                            <li data-translate-key="implementationPovertyFoodItem1">ይህ ፖሊሲ ከግብርና ሚኒስቴር፣ ከጤና ሚኒስቴር፣ ከስራና ክህሎት ሚኒስቴር፣ ከሴቶችና ማህበራዊ ጉዳይ ሚኒስቴር እና ከሌሎች ባለድርሻ አካላት ጋር በቅንጅት ይተገበራል።</li>
+                            <li data-translate-key="implementationPovertyFoodItem2">የማህበረሰቡን ንቁ ተሳትፎና ባለቤትነት በማረጋገጥ የፖሊሲውን ግቦች ማሳካት።</li>
+                        </ul>
+                        
+                        <a href="የኢአልፓ_ፖሊሲዎች_ሙሉ_ሰነድ.pdf" download class="download-btn">
+                            <i class="fas fa-file-pdf"></i>
+                            <span data-translate-key="downloadFullPolicyBtn">ሙሉውን ፖሊሲ ያውርዱ</span>
+                        </a>
+                    </article>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <div class="footer-copyright">
-                <p><b data-translate-key="footerCopyright">© 2017 ዓ.ም የኢትዮጵያ አንድነት እና ልማት ፓርቲ። ሁሉም መብቶች በህግ የተጠበቁ ናቸው።</b></p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer__about"><h3 class="footer__title" data-translate-key="footerPartyName">የኢትዮጵያ አንድነት እና ልማት ፓርቲ</h3><p data-translate-key="footerPartyDesc">ለሀገራችን ዘላቂ ሰላም፣ ሁሉን አቀፍ ዴሞክራሲ፣ ፈጣንና ፍትሃዊ ልማት እንዲሁም የዜጎችን ክብር ለማረጋገጥ እንሰራለን።</p></div>
+                <div class="footer__links"><h3 class="footer__title" data-translate-key="footerQuickLinks">ፈጣን አገናኞች</h3><ul><li><a href="index.html">መነሻ</a></li><li><a href="news.html">ዜና</a></li><li><a href="membership.html">አባልነት</a></li></ul></div>
+                <div class="footer__contact"><h3 class="footer__title" data-translate-key="footerContactUs">ያግኙን</h3><ul class="contact-list"><li><i class="fas fa-phone-alt"></i> <a href="tel:+251970837345">+251-970-837-345</a></li><li><i class="fas fa-envelope"></i> <a href="mailto:infoeudp2017@gmail.com">infoeudp2017@gmail.com</a></li><li><i class="fas fa-map-marker-alt"></i> <span data-translate-key="footerAddress">አዲስ አበባ</span></li></ul></div>
+                <div class="footer__social"><h3 class="footer__title" data-translate-key="footerNewsletter">ዜና ይመዝገቡ</h3><p data-translate-key="footerNewsletterDesc">የቅርብ ጊዜ መረጃዎችን በቀጥታ ወደ ኢሜልዎ ያግኙ።</p><form class="newsletter-form"><input type="email" required data-translate-key="footerEmailPlaceholder" placeholder="የኢሜል አድራሻዎ"><button type="submit" data-translate-key="footerSubscribe">ይመዝገቡ</button></form><h3 class="footer__title" style="margin-top: 2rem;" data-translate-key="footerFollowUs">ይከተሉን</h3><ul class="footer__social-icons"><li><a href="https://www.facebook.com/profile.php?id=61577016305943" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li><li><a href="https://x.com/infoeudp2017" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li><li><a href="https://t.me/EUDPp" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a></li></ul></div>
             </div>
+            <div class="footer-copyright"><p data-translate-key="footerCopyright">© 2025 የኢትዮጵያ አንድነት እና ልማት ፓርቲ። ሁሉም መብቶች በህግ የተጠበቁ ናቸው።</p></div>
         </div>
     </footer>
-
+    
     <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
         const translations = {
             am: {
-                pageTitle: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ - ድህነትን ማስወገድና የምግብ ዋስትና ፖሊሲ", 
-                logoTitle: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ", 
-                langLabel: "ቋንቋ ይምረጡ",
-                langAmharic: "አማርኛ",
-                langEnglish: "English",
-                searchPlaceholder: "Search/ፈልግ",
-                searchSrOnly: "Search the site",
-                searchBtnSr: "ፈልግ",
-                headerTitle: "ድህነትን ማስወገድና የምግብ ዋስትና ፖሊሲ", 
-                povertyFoodPolicyOverviewTitle: "የድህነት ማስወገድና የምግብ ዋስትና ፖሊሲ አጠቃላይ እይታ",
-                visionTitlePovertyFood: "ራዕይ", 
+                // Meta and Page Title
+                pageTitle: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ - ድህነትን ማስወገድና የምግብ ዋስትና ፖሊሲ",
+                metaDescription: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) የድህነት ማስወገድና የምግብ ዋስትና ፖሊሲ። እያንዳንዱ ዜጋ በቂና የተመጣጠነ ምግብ እንዲያገኝ የተቀረጹ አቅጣጫዎች።",
+                partyNameHeader: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ",
+                
+                // Breadcrumbs
+                breadcrumbHome: "መነሻ",
+                breadcrumbPolicies: "ፖሊሲዎች",
+                breadcrumbPovertyFoodSecurity: "ድህነት ማጥፋት",
+
+                // Banner and Main Content Titles
+                headerTitle: "ድህነትን ማስወገድና የምግብ ዋስትና ፖሊሲ",
+                povertyFoodPolicyOverviewTitle: "ድህነትን ማስወገድና የምግብ ዋስትና ፖሊሲ",
+                
+                // Highlight Boxes
+                visionTitlePovertyFood: "ራዕይ",
                 visionTextPovertyFood: "ድህነት የተወገደባት፣ እያንዳንዱ ዜጋ በቂና የተመጣጠነ ምግብ የሚያገኝባትና የኑሮ ደረጃው የተሻሻለባት ኢትዮጵያን መፍጠር።",
-                missionTitlePovertyFood: "ተልዕኮ", 
+                missionTitlePovertyFood: "ተልዕኮ",
                 missionItemPovertyFood1: "<b>የግብርና ምርታማነትን ማሳደግ:</b> የአነስተኛ አርሶ አደሮችን ምርታማነት በማሳደግ፣ የመስኖ ልማትን በማስፋፋትና የድህረ-ምርት ብክነትን በመቀነስ የምግብ አቅርቦትን ማሳደግ።",
                 missionItemPovertyFood2: "<b>የገቢ ማስገኛ እድሎችን መፍጠር:</b> ከግብርና ውጪ የሆኑ የስራ እድሎችን በገጠርና በከተማ በማስፋፋት የዜጎችን የገቢ አቅም ማሳደግ።",
-                missionItemPovertyFood3: "<b>የማህበራዊ ጥበቃ መረቦችን ማጠናከር:</b> ለአደጋ ተጋላጭ ለሆኑ የህብረተሰብ ክፍሎች (አረጋውያን፣ አካል ጉዳተኞች、 ህጻናት) የማህበራዊ ድጋፍ ፕሮግራሞችን በማስፋፋትና በማጠናከር የኑሮ ዋስትናቸውን ማረጋገጥ።",
+                missionItemPovertyFood3: "<b>የማህበራዊ ጥበቃ መረቦችን ማጠናከር:</b> ለአደጋ ተጋላጭ ለሆኑ የህብረተሰብ ክፍሎች የማህበራዊ ድጋፍ ፕሮግራሞችን በማስፋፋትና በማጠናከር የኑሮ ዋስትናቸውን ማረጋገጥ።",
                 missionItemPovertyFood4: "<b>የተመጣጠነ ምግብ አቅርቦትን ማሻሻል:</b> በተለይም ለእናቶችና ህጻናት የተመጣጠነ ምግብ አስፈላጊነት ላይ ግንዛቤ በመፍጠርና አቅርቦቱን በማሻሻል የጤናና የአዕምሮ እድገታቸውን መደገፍ።",
-                missionItemPovertyFood5: "<b>የአየር ንብረት ለውጥን መቋቋም:</b> የአየር ንብረት ለውጥ በግብርናና በምግብ ዋስትና ላይ የሚያደርሰውን አሉታዊ ተጽዕኖ የሚቋቋሙ ዘላቂ የመሬት አጠቃቀምና የግብርና አሰራሮችን ማበረታታት።",
+
+                // Policy Cards
                 mainPolicyDirectionsPovertyFoodTitle: "የፖሊሲው ዋና ዋና አቅጣጫዎች",
                 agriProductivityTitle: "1. የግብርና ምርታማነትና የምግብ አቅርቦት",
                 agriProdItem1: "የተሻሻሉ ዘሮችን፣ ማዳበሪያዎችንና ዘመናዊ የእርሻ ዘዴዎችን ለአርሶ አደሩ ተደራሽ ማድረግ።",
                 agriProdItem2: "የመስኖ ልማትን በማስፋፋት ከዝናብ ጥገኝነት መላቀቅና የሰብል ምርትን በዓመት ብዙ ጊዜ ማምረት ማስቻል።",
-                agriProdItem3: "የእንስሳት ሀብት ልማትን በማሻሻል (የዝርያ ማሻሻል、 የእንስሳት ጤና、 የመኖ አቅርቦት) የስጋ፣ የወተትና የእንቁላል ምርትን ማሳደግ።",
-                agriProdItem4: "የድህረ-ምርት ብክነትን ለመቀነስ የሚያስችሉ የማከማቻና የማቀነባበሪያ ቴክኖሎጂዎችን ማስተዋወቅና የአርሶ አደሩን አቅም መገንባት።",
+                agriProdItem3: "የድህረ-ምርት ብክነትን ለመቀነስ የሚያስችሉ የማከማቻና የማቀነባበሪያ ቴክኖሎጂዎችን ማስተዋወቅ።",
                 incomeGenerationTitle: "2. የገቢ ማስገኛና የስራ እድል ፈጠራ",
                 incomeGenItem1: "ጥቃቅንና አነስተኛ ኢንተርፕራይዞችን (MSMEs) በመደገፍ በተለይም ለወጣቶችና ለሴቶች የስራ እድል መፍጠር።",
                 incomeGenItem2: "የገጠር ኢኮኖሚን በማዳበር (Rural Non-Farm Economy) ከግብርና ውጪ የሆኑ የገቢ ምንጮችን ማስፋት።",
@@ -905,240 +489,173 @@
                 socialProtectItem1: "ለአቅመ ደካሞች፣ ለአረጋውያንና በጠና ለታመሙ ዜጎች ቀጥተኛ የገንዘብና የምግብ ድጋፍ ፕሮግራሞችን ማስፋት።",
                 socialProtectItem2: "የማህበረሰብ አቀፍ የጤና መድን ሽፋንን በማሳደግ የጤና ወጪ ጫናን መቀነስ።",
                 socialProtectItem3: "ለተፈጥሮና ሰው ሰራሽ አደጋዎች ፈጣን ምላሽ የሚሰጥ የአደጋ ስጋት አመራር ሥርዓት ማጠናከር።",
-                nutritionImprovementTitle: "4. የተመጣጠነ ምግብ ማሻሻያ",
-                nutritionItem1: "ስለተመጣጠነ ምግብ አስፈላጊነትና አዘገጃጀት ለህብረተሰቡ ሰፊ የግንዛቤ ማስጨበጫ ትምህርት መስጠት።",
-                nutritionItem2: "በንጥረ-ምግብ የበለጸጉ ምግቦችን (Bio-fortified crops) ምርትና አጠቃቀም ማበረታታት።",
-                nutritionItem3: "የትምህርት ቤት ምገባ ፕሮግራሞችን በማስፋፋት የተማሪዎችን የተመጣጠነ ምግብ አቅርቦት ማሻሻል።",
+                
+                // Implementation Section
                 policyImplementationPovertyFoodTitle: "የፖሊሲው ትግበራ",
-                implementationPovertyFoodItem1: "ይህ ፖሊሲ ከግብርና ሚኒስቴር፣ ከጤና ሚኒስቴር、 ከስራና ክህሎት ሚኒስቴር、 ከሴቶችና ማህበራዊ ጉዳይ ሚኒስቴር、 ከክልል መንግስታት、 ከሲቪል ማህበረሰብ ድርጅቶችና ከዓለም አቀፍ አጋሮች ጋር በቅንጅት ይተገበራል።",
+                implementationPovertyFoodItem1: "ይህ ፖሊሲ ከግብርና ሚኒስቴር፣ ከጤና ሚኒስቴር፣ ከስራና ክህሎት ሚኒስቴር፣ ከሴቶችና ማህበራዊ ጉዳይ ሚኒስቴር እና ከሌሎች ባለድርሻ አካላት ጋር በቅንጅት ይተገበራል።",
                 implementationPovertyFoodItem2: "የማህበረሰቡን ንቁ ተሳትፎና ባለቤትነት በማረጋገጥ የፖሊሲውን ግቦች ማሳካት።",
-                implementationPovertyFoodItem3: "ለፖሊሲው ትግበራ በቂ የፋይናንስና የሰው ሃይል መመደብ እንዲሁም ግልጽ የክትትልና የግምገማ ሥርዓት መዘርጋት።",
                 downloadFullPolicyBtn: "ሙሉውን ፖሊሲ ያውርዱ",
-                sidebarHome: "ዋና መነሻ",
+
+                // Sidebar (Unified Keys)
                 sidebarPartyPolicies: "የፓርቲው ፖሊሲዎች",
                 sidebarEconomicPolicy: "የኢኮኖሚ ፖሊሲ",
                 sidebarJobCreation: "የስራ እድል ፈጠራ",
                 sidebarIndustrialDev: "የኢንዱስትሪ ልማት",
                 sidebarAgriDev: "የግብርና ልማት",
-                sidebarFinanceBanking: "የፋይናንስና ባንኪንግ",
-                sidebarInfrastructure: "የመሠረተ ልማት",
-                sidebarSubsidy: "ድጎማ",
+                sidebarFinanceBanking: "ፋይናንስና ባንኪንግ",
+                sidebarInfrastructure: "መሠረተ ልማት",
                 sidebarSocialPolicies: "ማህበራዊ ፖሊሲዎች",
                 sidebarHealth: "ጤና",
                 sidebarEducation: "ትምህርት",
-                sidebarPovertyFoodSecurity: "ድህነትን ማስወገድና የምግብ ዋስትና",
+                sidebarPovertyFoodSecurity: "ድህነት ማጥፋት",
                 sidebarVulnerable: "ተጋላጭ ቡድኖች",
-                sidebarOrphansElderlyCare: "የወላጅ አልባ ህጻናትና የአረጋውያን እንክብካቤ",
-                sidebarJustice: "የፍትህ ስርዓት",
                 sidebarGenderEq: "የጾታ እኩልነት",
                 socialYouth: "ወጣቶች",
-                sidebarEnvProtection: "የአካባቢ ጥበቃ",
-                sidebarForest: "የደን ጥበቃ",
-                sidebarNaturalResources: "የተፈጥሮ ሀብትና መሬት አጠቃቀም", /* This key is present but HTML uses econNaturalResources */
-                econNaturalResources: "የተፈጥሮ ሀብትና መሬት", /* Added for HTML match */
-                sidebarPollution: "የብክለት ቁጥጥር",
-                sidebarWaste: "ቆሻሻ አወጋገድ",
-                sidebarSustainableAgri: "ዘላቂ ግብርና",
                 policyOther: "ሌሎች ፖሊሲዎች",
                 otherPoliticalSystem: "የፖለቲካ ሥርዓት",
                 otherHumanRights: "ሰብዓዊ መብቶች",
                 otherSecurity: "መከላከያና ጸጥታ",
                 otherForeignPolicy: "የውጭ ግንኙነት",
                 otherMedia: "መገናኛ ብዙሃን",
-                footerNewsletterTitle: "ዜና መጽሔት ይመዝገቡ", 
-                footerNewsletterPara: "የቅርብ ጊዜ መረጃዎችን እና የፓርቲ ዜናዎችን በቀጥታ ወደ ኢሜልዎ ያግኙ።", 
-                footerEmailLabelSr: "ኢሜል", 
-                footerEmailPlaceholder: "የኢሜል አድራሻዎ", 
-                footerSubscribeBtn: "ይመዝገቡ", 
-                footerSocialTitle: "ማህበራዊ ሚዲያ", 
-                footerSocialPara: "በማህበራዊ ገጾቻችን ይከተሉን፤ ይሳተፉ።", 
-                footerContactTitle: "ያግኙን", 
-                footerContactPhone: "ስልክ:", 
-                footerContactEmail: "ኢሜይል:", 
-                footerContactAddress: "አድራሻ:", 
-                footerContactAddressDetail: "አዲስ አበባ",  
-                footerCopyright: "© 2017 ዓ.ም የኢትዮጵያ አንድነት እና ልማት ፓርቲ። ሁሉም መብቶች በህግ የተጠበቁ ናቸው።" 
+                econNaturalResources: "የተፈጥሮ ሀብትና መሬት",
+                
+                // Footer (Unified Keys)
+                footerPartyName: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ",
+                footerPartyDesc: "ለሀገራችን ዘላቂ ሰላም፣ ሁሉን አቀፍ ዴሞክራሲ፣ ፈጣንና ፍትሃዊ ልማት እንዲሁም የዜጎችን ክብር ለማረጋገጥ እንሰራለን።",
+                footerQuickLinks: "ፈጣን አገናኞች",
+                footerContactUs: "ያግኙን",
+                footerAddress: "አዲስ አበባ",
+                footerNewsletter: "ዜና ይመዝገቡ",
+                footerNewsletterDesc: "የቅርብ ጊዜ መረጃዎችን በቀጥታ ወደ ኢሜልዎ ያግኙ።",
+                footerEmailPlaceholder: "የኢሜል አድራሻዎ",
+                footerSubscribe: "ይመዝገቡ",
+                footerFollowUs: "ይከተሉን",
+                footerCopyright: "© 2025 የኢትዮጵያ አንድነት እና ልማት ፓርቲ። ሁሉም መብቶች በህግ የተጠበቁ ናቸው።",
             },
             en: {
-                pageTitle: "Ethiopian Unity and Development Party - Poverty Eradication and Food Security Policy", 
-                logoTitle: "Ethiopian Unity and Development Party", 
-                langLabel: "Select Language",
-                langAmharic: "Amharic",
-                langEnglish: "English",
-                searchPlaceholder: "Search",
-                searchSrOnly: "Search the site",
-                searchBtnSr: "Search",
-                headerTitle: "Poverty Eradication and Food Security Policy", 
-                povertyFoodPolicyOverviewTitle: "Poverty Eradication and Food Security Policy Overview",
+                // Meta and Page Title
+                pageTitle: "Ethiopian Unity and Development Party - Poverty Eradication and Food Security Policy",
+                metaDescription: "The Poverty Eradication and Food Security Policy of EUDP. Directives to ensure every citizen has access to adequate and nutritious food.",
+                partyNameHeader: "Ethiopian Unity and Development Party",
+
+                // Breadcrumbs
+                breadcrumbHome: "Home",
+                breadcrumbPolicies: "Policies",
+                breadcrumbPovertyFoodSecurity: "Poverty Eradication",
+
+                // Banner and Main Content Titles
+                headerTitle: "Poverty Eradication and Food Security Policy",
+                povertyFoodPolicyOverviewTitle: "Poverty Eradication and Food Security Policy",
+                
+                // Highlight Boxes
                 visionTitlePovertyFood: "Vision",
                 visionTextPovertyFood: "To create an Ethiopia where poverty is eradicated, every citizen has access to adequate and nutritious food, and living standards are improved.",
                 missionTitlePovertyFood: "Mission",
-                missionItemPovertyFood1: "<b>Increase agricultural productivity:</b> Enhance food supply by increasing the productivity of smallholder farmers, expanding irrigation development, and reducing post-harvest losses.",
-                missionItemPovertyFood2: "<b>Create income-generating opportunities:</b> Increase citizens' income capacity by expanding non-farm job opportunities in rural and urban areas.",
-                missionItemPovertyFood3: "<b>Strengthen social protection nets:</b> Ensure the livelihood security of vulnerable groups (elderly, persons with disabilities, children) by expanding and strengthening social support programs.",
-                missionItemPovertyFood4: "<b>Improve nutrition supply:</b> Support health and cognitive development, especially for mothers and children, by raising awareness about the importance of nutritious food and improving its supply.",
-                missionItemPovertyFood5: "<b>Combat climate change:</b> Promote sustainable land use and agricultural practices that withstand the adverse effects of climate change on agriculture and food security.",
+                missionItemPovertyFood1: "<b>Increase agricultural productivity:</b> Enhance food supply by increasing the productivity of smallholder farmers, expanding irrigation, and reducing post-harvest losses.",
+                missionItemPovertyFood2: "<b>Create income-generating opportunities:</b> Increase citizens' income by expanding non-farm job opportunities in rural and urban areas.",
+                missionItemPovertyFood3: "<b>Strengthen social protection nets:</b> Ensure the livelihood security of vulnerable groups by expanding and strengthening social support programs.",
+                missionItemPovertyFood4: "<b>Improve nutrition supply:</b> Support health and cognitive development, especially for mothers and children, by raising awareness and improving the supply of nutritious food.",
+
+                // Policy Cards
                 mainPolicyDirectionsPovertyFoodTitle: "Main Policy Directions",
                 agriProductivityTitle: "1. Agricultural Productivity and Food Supply",
                 agriProdItem1: "Make improved seeds, fertilizers, and modern farming techniques accessible to farmers.",
-                agriProdItem2: "Reduce dependence on rainfall and enable multiple cropping seasons per year by expanding irrigation development.",
-                agriProdItem3: "Increase meat, milk, and egg production by improving livestock development (breed improvement, animal health, feed supply).",
-                agriProdItem4: "Introduce storage and processing technologies and build farmers' capacity to reduce post-harvest losses.",
+                agriProdItem2: "Reduce dependence on rainfall and enable multiple cropping seasons by expanding irrigation.",
+                agriProdItem3: "Introduce storage and processing technologies to reduce post-harvest losses.",
                 incomeGenerationTitle: "2. Income Generation and Job Creation",
                 incomeGenItem1: "Create job opportunities, especially for youth and women, by supporting Micro, Small, and Medium Enterprises (MSMEs).",
                 incomeGenItem2: "Expand non-farm income sources by developing the rural non-farm economy.",
                 incomeGenItem3: "Produce a skilled workforce by aligning technical and vocational training with market demand.",
                 socialProtectionTitle: "3. Social Protection and Support",
-                socialProtectItem1: "Expand direct cash and food support programs for the destitute, elderly, and chronically ill citizens.",
+                socialProtectItem1: "Expand direct cash and food support programs for the destitute, elderly, and chronically ill.",
                 socialProtectItem2: "Reduce the burden of health costs by increasing community-based health insurance coverage.",
-                socialProtectItem3: "Strengthen the disaster risk management system for a rapid response to natural and man-made disasters.",
-                nutritionImprovementTitle: "4. Nutrition Improvement",
-                nutritionItem1: "Provide extensive public awareness education on the importance and preparation of nutritious food.",
-                nutritionItem2: "Promote the production and consumption of bio-fortified crops.",
-                nutritionItem3: "Improve students' nutritional intake by expanding school feeding programs.",
+                socialProtectItem3: "Strengthen the disaster risk management system for a rapid response to disasters.",
+                
+                // Implementation Section
                 policyImplementationPovertyFoodTitle: "Policy Implementation",
-                implementationPovertyFoodItem1: "This policy will be implemented in coordination with the Ministry of Agriculture, Ministry of Health, Ministry of Labor and Skills, Ministry of Women and Social Affairs, regional governments, civil society organizations, and international partners.",
+                implementationPovertyFoodItem1: "This policy will be implemented in coordination with the Ministry of Agriculture, Ministry of Health, Ministry of Labor and Skills, Ministry of Women and Social Affairs, and other stakeholders.",
                 implementationPovertyFoodItem2: "Achieve policy goals by ensuring active community participation and ownership.",
-                implementationPovertyFoodItem3: "Allocate sufficient financial and human resources for policy implementation and establish a transparent monitoring and evaluation system.",
                 downloadFullPolicyBtn: "Download Full Policy",
-                sidebarHome: "Main Home",
+
+                // Sidebar (Unified Keys)
                 sidebarPartyPolicies: "Party Policies",
                 sidebarEconomicPolicy: "Economic Policy",
                 sidebarJobCreation: "Job Creation",
                 sidebarIndustrialDev: "Industrial Development",
                 sidebarAgriDev: "Agricultural Development",
-                sidebarFinanceBanking: "Finance and Banking",
+                sidebarFinanceBanking: "Finance & Banking",
                 sidebarInfrastructure: "Infrastructure",
-                sidebarSubsidy: "Subsidy",
                 sidebarSocialPolicies: "Social Policies",
                 sidebarHealth: "Health",
                 sidebarEducation: "Education",
-                sidebarPovertyFoodSecurity: "Poverty & Food Security",
+                sidebarPovertyFoodSecurity: "Poverty Eradication",
                 sidebarVulnerable: "Vulnerable Groups",
-                sidebarOrphansElderlyCare: "Orphans & Elderly Care",
-                sidebarJustice: "Justice System",
                 sidebarGenderEq: "Gender Equality",
                 socialYouth: "Youth",
-                sidebarEnvProtection: "Environmental Protection",
-                sidebarForest: "Forest Conservation",
-                sidebarNaturalResources: "Natural Resources & Land Use", /* This key is present but HTML uses econNaturalResources */
-                econNaturalResources: "Natural Resources & Land", /* Added for HTML match */
-                sidebarPollution: "Pollution Control",
-                sidebarWaste: "Waste Management",
-                sidebarSustainableAgri: "Sustainable Agriculture",
                 policyOther: "Other Policies",
                 otherPoliticalSystem: "Political System",
                 otherHumanRights: "Human Rights",
-                otherSecurity: "Defense & Security",
-                otherForeignPolicy: "Foreign Relations",
+                otherSecurity: "Security & Defense",
+                otherForeignPolicy: "Foreign Policy",
                 otherMedia: "Media",
-                footerNewsletterTitle: "Subscribe to Newsletter", 
-                footerNewsletterPara: "Get the latest updates and party news directly to your email.", 
-                footerEmailLabelSr: "Email", 
-                footerEmailPlaceholder: "Your Email Address", 
-                footerSubscribeBtn: "Subscribe", 
-                footerSocialTitle: "Social Media", 
-                footerSocialPara: "Follow us and engage on our social media pages.", 
-                footerContactTitle: "Contact Us", 
-                footerContactPhone: "Phone:", 
-                footerContactEmail: "Email:", 
-                footerContactAddress: "Address:", 
-                footerContactAddressDetail: "Addis Ababa", 
-                footerCopyright: "© 2017 Ethiopian Unity and Development Party. All rights reserved." 
+                econNaturalResources: "Natural Resources & Land",
+
+                // Footer (Unified Keys)
+                footerPartyName: "Ethiopian Unity and Development Party",
+                footerPartyDesc: "We work for lasting peace, inclusive democracy, rapid and equitable development, and the dignity of our citizens.",
+                footerQuickLinks: "Quick Links",
+                footerContactUs: "Contact Us",
+                footerAddress: "Addis Ababa",
+                footerNewsletter: "Subscribe",
+                footerNewsletterDesc: "Get the latest updates directly to your inbox.",
+                footerEmailPlaceholder: "Your email address",
+                footerSubscribe: "Subscribe",
+                footerFollowUs: "Follow Us",
+                footerCopyright: "© 2025 Ethiopian Unity and Development Party. All rights reserved.",
             }
         };
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const languageSelector = document.getElementById('language-select');
+        const languageSelector = document.getElementById('language-select');
 
-            function applyTranslations(lang) {
-                document.documentElement.lang = lang;
-                const titleElement = document.querySelector('title');
-                if (titleElement && translations[lang] && translations[lang].pageTitle) {
-                    titleElement.textContent = translations[lang].pageTitle;
-                }
+        function applyTranslations(lang) {
+            document.documentElement.lang = lang;
+            const langData = translations[lang];
+            if (!langData) return;
 
-                document.querySelectorAll('[data-translate-key]').forEach(el => {
-                    const key = el.dataset.translateKey;
-                    if (translations[lang] && translations[lang][key] !== undefined) {
-                        const translation = translations[lang][key];
-                        if (el.tagName === 'INPUT' && (el.type === 'search' || el.type === 'email')) {
-                             el.placeholder = translation;
-                        } else if (el.tagName === 'INPUT' && (el.type === 'submit' || el.type === 'button')) {
-                             el.value = translation;
-                        } else if (el.dataset.translateAttribute) {
-                            el.setAttribute(el.dataset.translateAttribute, translation);
+            document.querySelectorAll('[data-translate-key]').forEach(el => {
+                const key = el.dataset.translateKey;
+                if (langData[key] !== undefined) {
+                    const translation = langData[key];
+                    if (el.tagName === 'META') {
+                        el.content = translation;
+                    } else if (el.placeholder) {
+                        el.placeholder = translation;
+                    } else {
+                         if (el.querySelector('i.fas') && el.querySelector('span')) {
+                             el.querySelector('span').innerHTML = translation;
+                         } else if (typeof translation === 'string' && (translation.includes('<') || translation.includes('&'))) {
+                            el.innerHTML = translation;
                         } else {
-                            if (typeof translation === 'string' && (translation.includes('<') || translation.includes('&'))) {
-                                el.innerHTML = translation;
-                            } else {
-                                el.textContent = translation;
-                            }
+                            el.textContent = translation;
                         }
                     }
-                });
-            }
-
-            if (languageSelector) {
-                languageSelector.addEventListener('change', (e) => {
-                    const selectedLang = e.target.value;
-                    applyTranslations(selectedLang);
-                    localStorage.setItem('preferredLanguage', selectedLang);
-                });
-
-                const preferredLang = localStorage.getItem('preferredLanguage') || 'am';
-                languageSelector.value = preferredLang;
-                applyTranslations(preferredLang);
-            } else {
-                applyTranslations('am'); 
-            }
-
-            const navMenuItems = document.querySelectorAll('.nav-menu > li');
-            navMenuItems.forEach(item => {
-                const megaMenu = item.querySelector('.mega-menu');
-                if (megaMenu) {
-                    item.addEventListener('touchstart', (e) => {
-                        if (e.target.closest('.mega-menu')) {
-                            return;
-                        }
-                        const isTouched = item.classList.contains('touched');
-                        navMenuItems.forEach(otherItem => {
-                            if (otherItem !== item) {
-                                otherItem.classList.remove('touched');
-                                const otherMegaMenu = otherItem.querySelector('.mega-menu');
-                                if (otherMegaMenu) otherMegaMenu.style.display = 'none';
-                            }
-                        });
-
-                        if (!isTouched) {
-                            e.preventDefault();
-                            item.classList.add('touched');
-                            megaMenu.style.display = 'block';
-                        }
-                    });
                 }
             });
+            document.title = langData.pageTitle;
+        }
+        
+        const key = 'eudp_lang'; 
 
-            document.addEventListener('click', (e) => {
-                let isClickInsideNav = false;
-                navMenuItems.forEach(item => {
-                    if (item.contains(e.target)) {
-                        isClickInsideNav = true;
-                    }
-                });
-
-                if (!isClickInsideNav) {
-                    navMenuItems.forEach(item => {
-                        item.classList.remove('touched');
-                        const megaMenu = item.querySelector('.mega-menu');
-                        if (megaMenu) {
-                            megaMenu.style.display = 'none';
-                        }
-                    });
-                }
-            });
+        languageSelector.addEventListener('change', (e) => {
+            const newLang = e.target.value;
+            localStorage.setItem(key, newLang);
+            applyTranslations(newLang);
         });
-    </script>
 
+        const savedLanguage = localStorage.getItem(key) || 'am';
+        languageSelector.value = savedLanguage;
+        applyTranslations(savedLanguage);
+    });
+</script>
 </body>
 </html>
