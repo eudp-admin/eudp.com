@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" data-translate-key="metaDescription" content="የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) የትምህርት ፖሊሲ። ጥራት ያለው፣ ሁሉን አቀፍና ተወዳዳሪ ዜጋን ለመፍጠር የተቀረጹ አቅጣጫዎች።">
+    <meta name="description" data-translate-key="metaDescription" content="የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) የትምህርት ፖሊሲ። ጥራት ያለው፣ ሁሉን አቀፍና ፍትሃዊ ትምህርትን ለማረጋገጥ የተቀረጹ ዝርዝር አቅጣጫዎች።">
     <title data-translate-key="pageTitle">የኢትዮጵያ አንድነት እና ልማት ፓርቲ - የትምህርት ፖሊሲ</title>
 
     <link rel="icon" href="apple-touch-icon.png" type="image/x-icon">
@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap" rel="stylesheet">
 
     <style>
-        /* === CORE DESIGN SYSTEM (Same as Health Policy Page) === */
+        /* === CORE DESIGN SYSTEM FROM PAGE 1 (HEALTH POLICY) === */
         :root {
             --color-primary: #0D2D4E;
             --color-secondary: #2E8B57;
@@ -54,14 +54,14 @@
         [lang="am"] body, 
         [lang="am"] h1, [lang="am"] h2, [lang="am"] h3, 
         [lang="am"] p, [lang="am"] a, [lang="am"] span, [lang="am"] li,
-        [lang="am"] button, [lang="am"] label, [lang="am"] input, [lang="am"] select, [lang="am"] textarea { 
+        [lang="am"] button, [lang="am"] label, [lang="am"] input, [lang="am"] select, [lang="am"] textarea, [lang="am"] b { 
             font-family: var(--font-secondary); 
         }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
         img { max-width: 100%; height: auto; display: block; }
 
-        /* === HEADER === */
+        /* === HEADER (FROM HEALTH POLICY) === */
         .header {
             position: sticky;
             top: 0;
@@ -74,6 +74,7 @@
             padding: 0 2rem;
             background-color: var(--color-primary);
             box-shadow: var(--shadow-md);
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
         }
         .header__container {
             display: flex;
@@ -84,6 +85,12 @@
         .header__logo { display: flex; align-items: center; gap: 1rem; color: var(--color-text-light); text-decoration: none;}
         .header__logo img { height: 60px; width: 60px; border-radius: 50%; object-fit: cover; }
         .header__logo h1 { font-size: 1.4rem; color: var(--color-text-light); margin: 0; }
+        
+        .header__nav { display: flex; align-items: center; gap: 2rem; }
+        .nav-menu { list-style: none; display: flex; gap: 1.5rem; }
+        .nav-link { color: var(--color-text-light); text-decoration: none; font-weight: 500; position: relative; padding: 0.5rem 0; transition: var(--transition-fast); }
+        .nav-link:hover, .nav-link.active { color: var(--color-accent); }
+        
         .header__utilities { display: flex; align-items: center; gap: 1.5rem; }
         .language-select select {
             background: transparent;
@@ -96,7 +103,7 @@
         .language-select select option { background-color: var(--color-primary); }
         .mobile-menu-btn { display: none; background: none; border: none; color: var(--color-text-light); font-size: 1.5rem; cursor: pointer; }
 
-        /* === PAGE BANNER === */
+        /* === PAGE BANNER (UNIFIED) === */
         .page-banner {
             position: relative;
             padding: 4rem 1.5rem;
@@ -116,6 +123,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            /* Changed background image to be relevant to education */
             background: linear-gradient(rgba(13, 45, 78, 0.8), rgba(46, 139, 87, 0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=2070') no-repeat center center/cover;
             z-index: -1;
         }
@@ -138,18 +146,11 @@
             text-decoration: none;
             transition: var(--transition-fast);
         }
-        .breadcrumbs a:hover {
-            color: var(--color-accent);
-        }
-        .breadcrumbs span {
-            color: var(--color-text-light);
-            font-weight: bold;
-        }
-        .breadcrumbs .separator {
-            color: rgba(255, 255, 255, 0.5);
-        }
+        .breadcrumbs a:hover { color: var(--color-accent); }
+        .breadcrumbs span { color: var(--color-text-light); font-weight: bold; }
+        .breadcrumbs .separator { color: rgba(255, 255, 255, 0.5); }
 
-        /* === POLICY PAGE LAYOUT === */
+        /* === POLICY PAGE LAYOUT (UNIFIED) === */
         .policy-section {
             padding: 5rem 0;
         }
@@ -160,7 +161,7 @@
             align-items: flex-start;
         }
         
-        /* === SIDEBAR === */
+        /* === SIDEBAR (UNIFIED) === */
         .policy-sidebar {
             position: sticky;
             top: calc(var(--header-height) + 2rem);
@@ -169,12 +170,8 @@
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
         }
-        .policy-sidebar .sidebar-block {
-             margin-bottom: 2rem;
-        }
-        .policy-sidebar .sidebar-block:last-child {
-            margin-bottom: 0;
-        }
+        .policy-sidebar .sidebar-block { margin-bottom: 2rem; }
+        .policy-sidebar .sidebar-block:last-child { margin-bottom: 0; }
         .policy-sidebar h2, .policy-sidebar h3 {
             font-size: 1.2rem;
             color: var(--color-primary);
@@ -201,7 +198,7 @@
         }
         .policy-sidebar a.active-policy-link i { color: var(--color-text-light); }
         
-        /* === MAIN CONTENT === */
+        /* === MAIN CONTENT (UNIFIED) === */
         .policy-main-content {
             background: var(--color-background); padding: 2.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);
         }
@@ -231,13 +228,14 @@
             transition: var(--transition-smooth);
         }
         .policy-point-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--color-secondary); }
-        .policy-point-card dt h3, .policy-point-card h4 {
+        /* Using h4 for sub-points to maintain semantic structure */
+        .policy-point-card dt h4 {
             margin-top: 0; font-size: 1.4rem; color: var(--color-primary);
             padding-bottom: 0.75rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--color-accent);
         }
-        .policy-point-card ol { list-style-type: decimal; padding-left: 1.5rem; }
-        .policy-point-card ol li { margin-bottom: 1rem; padding-left: 0.5rem; }
-        .policy-point-card ol li::marker { font-weight: bold; color: var(--color-secondary); }
+        .policy-point-card dd ol { list-style-type: decimal; padding-left: 1.5rem; }
+        .policy-point-card dd ol li { margin-bottom: 1rem; padding-left: 0.5rem; }
+        .policy-point-card dd ol li::marker { font-weight: bold; color: var(--color-secondary); }
         
         .policy-main-content > ul { list-style-type: none; padding-left: 0; }
         .policy-main-content > ul li { position: relative; padding-left: 2rem; margin-bottom: 1rem; }
@@ -254,7 +252,7 @@
         }
         .download-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3); }
 
-        /* === FOOTER === */
+        /* === FOOTER (UNIFIED) === */
         .footer {
             background-color: var(--color-primary); color: rgba(255, 255, 255, 0.7);
             padding: 5rem 0 2rem 0; font-size: 0.95rem;
@@ -287,10 +285,10 @@
         }
         .footer-copyright { text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; font-size: 0.9rem; }
         
-        /* === RESPONSIVENESS === */
+        /* === RESPONSIVENESS (UNIFIED) === */
         @media (max-width: 992px) {
             .header { padding: 0 1rem; }
-            .mobile-menu-btn { display: block; }
+            .header__nav { display: none; }
             .policy-layout { grid-template-columns: 1fr; }
             .policy-sidebar { position: static; }
         }
@@ -320,10 +318,6 @@
                     </select>
                 </div>
             </div>
-            <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
     </header>
 
     <main>
@@ -343,11 +337,7 @@
                 <div class="policy-layout">
                     <aside class="policy-sidebar">
                         <div class="sidebar-block">
-                            <h2><a href="index.html"><i class="fas fa-home"></i><span data-translate-key="sidebarHome">ዋና መነሻ</span></a></h2>
-                        </div>
-        
-                        <div class="sidebar-block">
-                            <h3><i class="fas fa-landmark"></i><span data-translate-key="sidebarPartyPolicies">የፓርቲው ፖሊሲዎች</span></h3>
+                           <h3><i class="fas fa-landmark"></i><span data-translate-key="sidebarPartyPolicies">የፓርቲው ፖሊሲዎች</span></h3>
                             <ul>
                                 <li>
                                     <h4><i class="fas fa-chart-line"></i><span data-translate-key="sidebarEconomicPolicy">የኢኮኖሚ ፖሊሲ</span></h4>
@@ -362,8 +352,8 @@
                                 <li>
                                     <h4><i class="fas fa-users"></i><span data-translate-key="sidebarSocialPolicies">ማህበራዊ ፖሊሲዎች</span></h4>
                                     <ul>
-                                        <li><a href="policy-1.html"><i class="fas fa-hospital"></i><span data-translate-key="sidebarHealth">ጤና</span></a></li>
-                                        <li><a href="policy-2.html" class="active-policy-link"><i class="fas fa-graduation-cap"></i><span data-translate-key="sidebarEducation">ትምህርት</span></a></li>
+                                        <li><a href="policy 1.html"><i class="fas fa-hospital"></i><span data-translate-key="sidebarHealth">ጤና</span></a></li>
+                                        <li><a href="policy 2.html" class="active-policy-link"><i class="fas fa-graduation-cap"></i><span data-translate-key="sidebarEducation">ትምህርት</span></a></li>
                                         <li><a href="policy-poverty-foodsecurity.html"><i class="fas fa-hand-holding-heart"></i><span data-translate-key="sidebarPovertyFoodSecurity">ድህነት ማጥፋት</span></a></li>
                                         <li><a href="policy-disability-rights.html"><i class="fas fa-wheelchair"></i><span data-translate-key="sidebarVulnerable">ተጋላጭ ቡድኖች</span></a></li>
                                         <li><a href="policy-gender-equality.html"><i class="fas fa-venus-mars"></i><span data-translate-key="sidebarGenderEq">የጾታ እኩልነት</span></a></li>
@@ -396,47 +386,54 @@
                         <div class="policy-highlight-box">
                             <h3 data-translate-key="missionTitleEducation">ተልዕኮ</h3>
                             <ol>
-                                <li data-translate-key="missionItemEducation1"><b>የትምህርት ተደራሽነትንና ፍትሃዊነትን ማረጋገጥ:</b> የቅድመ መደበኛ፣ የመጀመሪያ ደረጃ፣ የሁለተኛ ደረጃና የከፍተኛ ትምህርት ተቋማትን በሁሉም አካባቢዎች በማስፋፋትና በማጠናከር የትምህርት እድልን ለሁሉም ዜጎች ተደራሽ ማድረግ።</li>
-                                <li data-translate-key="missionItemEducation2"><b>የትምህርት ጥራትን ማሻሻል:</b> ብቁና በቂ መምህራንን በማፍራት፣ ዘመናዊ ሥርዓተ ትምህርትን በመቅረጽ፣ አስፈላጊ የትምህርት መርጃ መሳሪያዎችን በማሟላትና ቀጣይነት ያለው የክትትልና የግምገማ ሥርዓት በመዘርጋት የትምህርት ጥራትን ማሳደግ።</li>
-                                <li data-translate-key="missionItemEducation3"><b>የቴክኒክና ሙያ ትምህርትና ስልጠናን (TVET) ማጠናከር:</b> ከገበያ ፍላጎት ጋር የተጣጣመ የክህሎት ስልጠና በመስጠት ወጣቶች ለስራ ብቁ እንዲሆኑና የራሳቸውን ስራ እንዲፈጥሩ ማስቻል።</li>
+                                <li data-translate-key="missionItemEducation1"><b>የትምህርት ተደራሽነትንና ፍትሃዊነትን ማረጋገጥ:</b> የቅድመ መደበኛ፣ የመጀመሪያ ደረጃ、 የሁለተኛ ደረጃና የከፍተኛ ትምህርት ተቋማትን በሁሉም አካባቢዎች በማስፋፋትና በማጠናከር የትምህርት እድልን ለሁሉም ዜጎች ተደራሽ ማድረግ።</li>
+                                <li data-translate-key="missionItemEducation2"><b>የትምህርት ጥራትን ማሻሻል:</b> ብቁና በቂ መምህራንን በማፍራት፣ ዘመናዊ ሥርዓተ ትምህርትን በመቅረጽ、 አስፈላጊ የትምህርት መርጃ መሳሪያዎችን በማሟላትና ቀጣይነት ያለው የክትትልና የግምገማ ሥርዓት በመዘርጋት የትምህርት ጥራትን ማሳደግ።</li>
                                 <li data-translate-key="missionItemEducation4"><b>የከፍተኛ ትምህርትና ምርምርን ማጎልበት:</b> የከፍተኛ ትምህርት ተቋማት ችግር ፈቺ ምርምሮችን እንዲያካሂዱና ለሀገር ልማት አስተዋጽኦ የሚያደርጉ ምሩቃንን እንዲያፈሩ መደገፍ።</li>
                                 <li data-translate-key="missionItemEducation5"><b>የመምህራንን ሙያዊ ብቃትና የኑሮ ደረጃ ማሻሻል:</b> ለመምህራን ቀጣይነት ያለው የሙያ ማሻሻያ ስልጠናዎችን በመስጠትና ማህበራዊና ኢኮኖሚያዊ ዋስትናቸውን በማረጋገጥ በሙያቸው እንዲረኩና የተሻለ ውጤት እንዲያስመዘግቡ ማድረግ።</li>
                             </ol>
                         </div>
         
                         <h3><i class="fas fa-directions"></i> <span data-translate-key="mainPolicyDirectionsEducationTitle">የፖሊሲው ዋና ዋና አቅጣጫዎች</span></h3>
-                        
-                        <div class="policy-point-card">
-                            <h4 data-translate-key="primarySecondaryEduTitle">1. የመጀመሪያና ሁለተኛ ደረጃ ትምህርት</h4>
-                            <ol>
-                                <li data-translate-key="primarySecondaryEduItem1">የትምህርት ቤቶችን የመሠረተ ልማት አቅርቦት (ክፍሎች፣ ቤተ መጻሕፍት፣ ላቦራቶሪዎች) ማሻሻል።</li>
-                                <li data-translate-key="primarySecondaryEduItem2">ሥርዓተ ትምህርቱን ከዘመኑ የቴክኖሎጂና የሳይንስ ግኝቶች ጋር በማጣጣም የተማሪዎችን የፈጠራና የችግር ፈቺነት ክህሎት ማዳበር።</li>
-                                <li data-translate-key="primarySecondaryEduItem3">ልዩ ፍላጎት ላላቸው ተማሪዎች ምቹ የትምህርት አካባቢ መፍጠር።</li>
-                            </ol>
-                        </div>
-
-                        <div class="policy-point-card">
-                            <h4 data-translate-key="tvetEduTitle">2. የቴክኒክና ሙያ ትምህርትና ስልጠና (TVET)</h4>
-                            <ol>
-                                <li data-translate-key="tvetEduItem1">የTVET ተቋማትን ከኢንዱስትሪዎች ጋር በማስተሳሰር የሥልጠና ፕሮግራሞች ከገበያ ፍላጎት ጋር እንዲጣጣሙ ማድረግ።</li>
-                                <li data-translate-key="tvetEduItem2">ሠልጣኞች ተግባር-ተኮር የሆኑ የክህሎት ስልጠናዎችን እንዲያገኙና በቀላሉ ወደ ሥራው ዓለም እንዲገቡ ማስቻል።</li>
-                            </ol>
-                        </div>
-
-                         <div class="policy-point-card">
-                            <h4 data-translate-key="higherEduTitle">3. ከፍተኛ ትምህርትና ምርምር</h4>
-                            <ol>
-                                <li data-translate-key="higherEduItem1">የከፍተኛ ትምህርት ተቋማት የራሳቸውን የገቢ ምንጭ እንዲያመነጩና የፋይናንስ አቅማቸውን እንዲያጠናክሩ መደገፍ።</li>
-                                <li data-translate-key="higherEduItem2">የምርምርና የፈጠራ ሥራዎችን በማበረታታት ለሀገራዊ ችግሮች መፍትሄ የሚሆኑ ውጤቶችን ማምጣት።</li>
-                                <li data-translate-key="higherEduItem3">የዩኒቨርሲቲዎችን ከአለማቀፍ የትምህርትና የምርምር ተቋማት ጋር ያላቸውን ትስስር ማጠናከር።</li>
-                            </ol>
-                        </div>
-                        
+                        <dl>
+                            <div class="policy-point-card">
+                                <dt><h4 data-translate-key="primarySecondaryEduTitle">1. የመጀመሪያና ሁለተኛ ደረጃ ትምህርት</h4></dt>
+                                <dd>
+                                    <ol>
+                                        <li data-translate-key="primarySecondaryEduItem1">የትምህርት ቤቶችን የመሠረተ ልማት አቅርቦት (ክፍሎች፣ ቤተ መጻሕፍት、 ላቦራቶሪዎች) ማሻሻል።</li>
+                                        <li data-translate-key="primarySecondaryEduItem2">ሥርዓተ ትምህርቱን ከዘመኑ የቴክኖሎጂና የሳይንስ ግኝቶች ጋር በማጣጣም የተማሪዎችን የፈጠራና የችግር ፈቺነት ክህሎት ማዳበር።</li>
+                                        <li data-translate-key="primarySecondaryEduItem3">ልዩ ፍላጎት ላላቸው ተማሪዎች ምቹ የትምህርት አካባቢ መፍጠር።</li>
+                                    </ol>
+                                </dd>
+                            </div>
+        
+                            <div class="policy-point-card">
+                                <dt><h4 data-translate-key="tvetEduTitle">2. የቴክኒክና ሙያ ትምህርትና ስልጠና (TVET)</h4></dt>
+                                <dd>
+                                    <ol>
+                                        <li data-translate-key="missionItemEducation3"><b>የቴክኒክና ሙያ ትምህርትና ስልጠናን (TVET) ማጠናከር:</b> ከገበያ ፍላጎት ጋር የተጣጣመ የክህሎት ስልጠና በመስጠት ወጣቶች ለስራ ብቁ እንዲሆኑና የራሳቸውን ስራ እንዲፈጥሩ ማስቻል።</li>
+                                        <li data-translate-key="tvetEduItem1">የTVET ተቋማትን ከኢንዱስትሪዎችና ከንግድ ተቋማት ጋር በማስተሳሰር የሥልጠና ፕሮግራሞች ከገበያ ፍላጎት ጋር እንዲጣጣሙ ማድረግ።</li>
+                                        <li data-translate-key="tvetEduItem2">ሠልጣኞች ተግባር-ተኮር የሆኑ የክህሎት ስልጠናዎችን እንዲያገኙና በቀላሉ ወደ ሥራው ዓለም እንዲገቡ ማስቻል።</li>
+                                    </ol>
+                                </dd>
+                            </div>
+                            
+                            <div class="policy-point-card">
+                                <dt><h4 data-translate-key="higherEduTitle">3. ከፍተኛ ትምህርትና ምርምር</h4></dt>
+                                <dd>
+                                    <ol>
+                                        <li data-translate-key="higherEduItem1">የከፍተኛ ትምህርት ተቋማት የራሳቸውን የገቢ ምንጭ እንዲያመነጩና የፋይናንስ አቅማቸውን እንዲያጠናክሩ መደገፍ።</li>
+                                        <li data-translate-key="higherEduItem2">የምርምርና የፈጠራ ሥራዎችን በማበረታታት ለሀገራዊ ችግሮች መፍትሄ የሚሆኑ ውጤቶችን ማምጣት።</li>
+                                        <li data-translate-key="higherEduItem3">የዩኒቨርሲቲዎችን ከአለማቀፍ የትምህርትና የምርምር ተቋማት ጋር ያላቸውን ትስስር ማጠናከር።</li>
+                                    </ol>
+                                </dd>
+                            </div>
+                        </dl>
+        
                         <h3><i class="fas fa-cogs"></i> <span data-translate-key="policyImplementationEducationTitle">የፖሊሲው ትግበራ</span></h3>
                         <ul>
-                            <li data-translate-key="implementationEducationItem1">ይህ ፖሊሲ ከትምህርት ሚኒስቴር፣ ከክልል ትምህርት ቢሮዎችና ከሌሎች ባለድርሻ አካላት ጋር በቅንጅት ይተገበራል።</li>
-                            <li data-translate-key="implementationEducationItem2">ለትምህርት ዘርፉ በቂ በጀት ይመደባል፤ የግሉ ዘርፍ ተሳትፎም ይበረታታል።</li>
-                            <li data-translate-key="implementationEducationItem3">የፖሊሲው አፈጻጸም በየጊዜው ተገምግሞ አስፈላጊ ማስተካከያዎች ይደረጋሉ።</li>
+                            <li data-translate-key="implementationEducationItem1">ይህ ፖሊሲ ከትምህርት ሚኒስቴር、 ከክልል ትምህርት ቢሮዎች、 ከዩኒቨርሲቲዎች、 ከTVET ኤጀንሲዎች、 ከመምህራን ማህበራትና ከወላጆች ጋር በቅንጅት ይተገበራል።</li>
+                            <li data-translate-key="implementationEducationItem2">ለትምህርት ዘርፉ በቂ በጀት በመመደብና የግሉን ዘርፍ ተሳትፎ በማበረታታት የፖሊሲውን ግቦች ማሳካት።</li>
+                            <li data-translate-key="implementationEducationItem3">የፖሊሲውን አፈጻጸም በየጊዜው በመገምገምና በማሻሻል የትምህርት ሥርዓቱን ውጤታማነት ማረጋገጥ።</li>
                         </ul>
                         
                         <a href="የኢአልፓ_ፖሊሲዎች_ሙሉ_ሰነድ.pdf" download class="download-btn">
@@ -466,40 +463,52 @@
 
         const translations = {
             am: {
+                // Meta and Page Title
                 pageTitle: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ - የትምህርት ፖሊሲ",
-                metaDescription: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) የትምህርት ፖሊሲ። ጥራት ያለው፣ ሁሉን አቀፍና ተወዳዳሪ ዜጋን ለመፍጠር የተቀረጹ አቅጣጫዎች።",
+                metaDescription: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) የትምህርት ፖሊሲ። ጥራት ያለው፣ ሁሉን አቀፍና ፍትሃዊ ትምህርትን ለማረጋገጥ የተቀረጹ ዝርዝር አቅጣጫዎች።",
                 partyNameHeader: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ",
+                
+                // Breadcrumbs
                 breadcrumbHome: "መነሻ",
                 breadcrumbPolicies: "ፖሊሲዎች",
                 breadcrumbEducation: "ትምህርት",
+
+                // Banner and Main Content Titles
                 headerTitle: "የትምህርት ፖሊሲ",
                 educationPolicyOverviewTitle: "የትምህርት ፖሊሲ አጠቃላይ እይታ",
+                
+                // Highlight Boxes
                 visionTitleEducation: "ራዕይ",
                 visionTextEducation: "ጥራት ያለው፣ ሁሉን አቀፍና ፍትሃዊ የሆነ የትምህርት ሥርዓት በመዘርጋት ፈጣሪ፣ ተወዳዳሪና በሀገራዊ እሴቶች የዳበረ ዜጋ መፍጠር።",
                 missionTitleEducation: "ተልዕኮ",
-                missionItemEducation1: "<b>የትምህርት ተደራሽነትንና ፍትሃዊነትን ማረጋገጥ:</b> የቅድመ መደበኛ፣ የመጀመሪያ ደረጃ፣ የሁለተኛ ደረጃና የከፍተኛ ትምህርት ተቋማትን በሁሉም አካባቢዎች በማስፋፋትና በማጠናከር የትምህርት እድልን ለሁሉም ዜጎች ተደራሽ ማድረግ።",
-                missionItemEducation2: "<b>የትምህርት ጥራትን ማሻሻል:</b> ብቁና በቂ መምህራንን በማፍራት፣ ዘመናዊ ሥርዓተ ትምህርትን በመቅረጽ፣ አስፈላጊ የትምህርት መርጃ መሳሪያዎችን በማሟላትና ቀጣይነት ያለው የክትትልና የግምገማ ሥርዓት በመዘርጋት የትምህርት ጥራትን ማሳደግ።",
+                missionItemEducation1: "<b>የትምህርት ተደራሽነትንና ፍትሃዊነትን ማረጋገጥ:</b> የቅድመ መደበኛ፣ የመጀመሪያ ደረጃ、 የሁለተኛ ደረጃና የከፍተኛ ትምህርት ተቋማትን በሁሉም አካባቢዎች በማስፋፋትና በማጠናከር የትምህርት እድልን ለሁሉም ዜጎች ተደራሽ ማድረግ።",
+                missionItemEducation2: "<b>የትምህርት ጥራትን ማሻሻል:</b> ብቁና በቂ መምህራንን በማፍራት፣ ዘመናዊ ሥርዓተ ትምህርትን በመቅረጽ、 አስፈላጊ የትምህርት መርጃ መሳሪያዎችን በማሟላትና ቀጣይነት ያለው የክትትልና የግምገማ ሥርዓት በመዘርጋት የትምህርት ጥራትን ማሳደግ።",
                 missionItemEducation3: "<b>የቴክኒክና ሙያ ትምህርትና ስልጠናን (TVET) ማጠናከር:</b> ከገበያ ፍላጎት ጋር የተጣጣመ የክህሎት ስልጠና በመስጠት ወጣቶች ለስራ ብቁ እንዲሆኑና የራሳቸውን ስራ እንዲፈጥሩ ማስቻል።",
                 missionItemEducation4: "<b>የከፍተኛ ትምህርትና ምርምርን ማጎልበት:</b> የከፍተኛ ትምህርት ተቋማት ችግር ፈቺ ምርምሮችን እንዲያካሂዱና ለሀገር ልማት አስተዋጽኦ የሚያደርጉ ምሩቃንን እንዲያፈሩ መደገፍ።",
                 missionItemEducation5: "<b>የመምህራንን ሙያዊ ብቃትና የኑሮ ደረጃ ማሻሻል:</b> ለመምህራን ቀጣይነት ያለው የሙያ ማሻሻያ ስልጠናዎችን በመስጠትና ማህበራዊና ኢኮኖሚያዊ ዋስትናቸውን በማረጋገጥ በሙያቸው እንዲረኩና የተሻለ ውጤት እንዲያስመዘግቡ ማድረግ።",
+                
+                // Policy Cards
                 mainPolicyDirectionsEducationTitle: "የፖሊሲው ዋና ዋና አቅጣጫዎች",
                 primarySecondaryEduTitle: "1. የመጀመሪያና ሁለተኛ ደረጃ ትምህርት",
-                primarySecondaryEduItem1: "የትምህርት ቤቶችን የመሠረተ ልማት አቅርቦት (ክፍሎች፣ ቤተ መጻሕፍት፣ ላቦራቶሪዎች) ማሻሻል።",
+                primarySecondaryEduItem1: "የትምህርት ቤቶችን የመሠረተ ልማት አቅርቦት (ክፍሎች፣ ቤተ መጻሕፍት、 ላቦራቶሪዎች) ማሻሻል።",
                 primarySecondaryEduItem2: "ሥርዓተ ትምህርቱን ከዘመኑ የቴክኖሎጂና የሳይንስ ግኝቶች ጋር በማጣጣም የተማሪዎችን የፈጠራና የችግር ፈቺነት ክህሎት ማዳበር።",
                 primarySecondaryEduItem3: "ልዩ ፍላጎት ላላቸው ተማሪዎች ምቹ የትምህርት አካባቢ መፍጠር።",
                 tvetEduTitle: "2. የቴክኒክና ሙያ ትምህርትና ስልጠና (TVET)",
-                tvetEduItem1: "የTVET ተቋማትን ከኢንዱስትሪዎች ጋር በማስተሳሰር የሥልጠና ፕሮግራሞች ከገበያ ፍላጎት ጋር እንዲጣጣሙ ማድረግ።",
+                tvetEduItem1: "የTVET ተቋማትን ከኢንዱስትሪዎችና ከንግድ ተቋማት ጋር በማስተሳሰር የሥልጠና ፕሮግራሞች ከገበያ ፍላጎት ጋር እንዲጣጣሙ ማድረግ።",
                 tvetEduItem2: "ሠልጣኞች ተግባር-ተኮር የሆኑ የክህሎት ስልጠናዎችን እንዲያገኙና በቀላሉ ወደ ሥራው ዓለም እንዲገቡ ማስቻል።",
                 higherEduTitle: "3. ከፍተኛ ትምህርትና ምርምር",
                 higherEduItem1: "የከፍተኛ ትምህርት ተቋማት የራሳቸውን የገቢ ምንጭ እንዲያመነጩና የፋይናንስ አቅማቸውን እንዲያጠናክሩ መደገፍ።",
                 higherEduItem2: "የምርምርና የፈጠራ ሥራዎችን በማበረታታት ለሀገራዊ ችግሮች መፍትሄ የሚሆኑ ውጤቶችን ማምጣት።",
                 higherEduItem3: "የዩኒቨርሲቲዎችን ከአለማቀፍ የትምህርትና የምርምር ተቋማት ጋር ያላቸውን ትስስር ማጠናከር።",
+
+                // Implementation Section
                 policyImplementationEducationTitle: "የፖሊሲው ትግበራ",
-                implementationEducationItem1: "ይህ ፖሊሲ ከትምህርት ሚኒስቴር፣ ከክልል ትምህርት ቢሮዎችና ከሌሎች ባለድርሻ አካላት ጋር በቅንጅት ይተገበራል።",
-                implementationEducationItem2: "ለትምህርት ዘርፉ በቂ በጀት ይመደባል፤ የግሉ ዘርፍ ተሳትፎም ይበረታታል።",
-                implementationEducationItem3: "የፖሊሲው አፈጻጸም በየጊዜው ተገምግሞ አስፈላጊ ማስተካከያዎች ይደረጋሉ።",
+                implementationEducationItem1: "ይህ ፖሊሲ ከትምህርት ሚኒስቴር、 ከክልል ትምህርት ቢሮዎች、 ከዩኒቨርሲቲዎች、 ከTVET ኤጀንሲዎች、 ከመምህራን ማህበራትና ከወላጆች ጋር በቅንጅት ይተገበራል።",
+                implementationEducationItem2: "ለትምህርት ዘርፉ በቂ በጀት በመመደብና የግሉን ዘርፍ ተሳትፎ በማበረታታት የፖሊሲውን ግቦች ማሳካት።",
+                implementationEducationItem3: "የፖሊሲውን አፈጻጸም በየጊዜው በመገምገምና በማሻሻል የትምህርት ሥርዓቱን ውጤታማነት ማረጋገጥ።",
                 downloadFullPolicyBtn: "ሙሉውን ፖሊሲ ያውርዱ",
-                sidebarHome: "ዋና መነሻ",
+
+                // Sidebar (Unified Keys)
                 sidebarPartyPolicies: "የፓርቲው ፖሊሲዎች",
                 sidebarEconomicPolicy: "የኢኮኖሚ ፖሊሲ",
                 sidebarJobCreation: "የስራ እድል ፈጠራ",
@@ -521,6 +530,8 @@
                 otherForeignPolicy: "የውጭ ግንኙነት",
                 otherMedia: "መገናኛ ብዙሃን",
                 econNaturalResources: "የተፈጥሮ ሀብትና መሬት",
+                
+                // Footer (Unified Keys)
                 footerPartyName: "የኢትዮጵያ አንድነት እና ልማት ፓርቲ",
                 footerPartyDesc: "ለሀገራችን ዘላቂ ሰላም፣ ሁሉን አቀፍ ዴሞክራሲ፣ ፈጣንና ፍትሃዊ ልማት እንዲሁም የዜጎችን ክብር ለማረጋገጥ እንሰራለን።",
                 footerQuickLinks: "ፈጣን አገናኞች",
@@ -534,14 +545,21 @@
                 footerCopyright: "© 2025 የኢትዮጵያ አንድነት እና ልማት ፓርቲ። ሁሉም መብቶች በህግ የተጠበቁ ናቸው።",
             },
             en: {
+                // Meta and Page Title
                 pageTitle: "Ethiopian Unity and Development Party - Education Policy",
-                metaDescription: "The Education Policy of the Ethiopian Unity and Development Party (EUDP). Directives designed to create a quality, inclusive, and competitive citizenry.",
+                metaDescription: "The Education Policy of the Ethiopian Unity and Development Party (EUDP). Detailed directives designed to ensure quality, inclusive, and equitable education.",
                 partyNameHeader: "Ethiopian Unity and Development Party",
+
+                // Breadcrumbs
                 breadcrumbHome: "Home",
                 breadcrumbPolicies: "Policies",
                 breadcrumbEducation: "Education",
+
+                // Banner and Main Content Titles
                 headerTitle: "Education Policy",
                 educationPolicyOverviewTitle: "Education Policy Overview",
+                
+                // Highlight Boxes
                 visionTitleEducation: "Vision",
                 visionTextEducation: "To create creative, competitive citizens imbued with national values by establishing a quality, inclusive, and equitable education system.",
                 missionTitleEducation: "Mission",
@@ -550,24 +568,29 @@
                 missionItemEducation3: "<b>Strengthen Technical and Vocational Education and Training (TVET):</b> Enable youth to be qualified for work and create their own jobs by providing skills training aligned with market demand.",
                 missionItemEducation4: "<b>Develop higher education and research:</b> Support higher education institutions to conduct problem-solving research and produce graduates who contribute to national development.",
                 missionItemEducation5: "<b>Improve teachers' professional competence and living standards:</b> Enable teachers to be satisfied with their profession and achieve better results by providing continuous professional development training and ensuring their social and economic security.",
+                
+                // Policy Cards
                 mainPolicyDirectionsEducationTitle: "Main Policy Directions",
                 primarySecondaryEduTitle: "1. Primary and Secondary Education",
                 primarySecondaryEduItem1: "Improve school infrastructure (classrooms, libraries, laboratories).",
                 primarySecondaryEduItem2: "Develop students' creativity and problem-solving skills by aligning the curriculum with modern technological and scientific advancements.",
                 primarySecondaryEduItem3: "Create a conducive learning environment for students with special needs.",
                 tvetEduTitle: "2. Technical and Vocational Education and Training (TVET)",
-                tvetEduItem1: "Align TVET training programs with market demand by linking institutions with industries.",
+                tvetEduItem1: "Align TVET training programs with market demand by linking institutions with industries and businesses.",
                 tvetEduItem2: "Enable trainees to acquire practical skills and easily enter the workforce.",
                 higherEduTitle: "3. Higher Education and Research",
                 higherEduItem1: "Support higher education institutions to generate their own income and strengthen their financial capacity.",
                 higherEduItem2: "Produce results that solve national problems by encouraging research and innovation.",
                 higherEduItem3: "Strengthen universities' linkages with international educational and research institutions.",
+
+                // Implementation Section
                 policyImplementationEducationTitle: "Policy Implementation",
-                implementationEducationItem1: "This policy will be implemented in coordination with the Ministry of Education, regional bureaus, and other stakeholders.",
-                implementationEducationItem2: "Sufficient budget will be allocated to the education sector, and private sector participation will be encouraged.",
-                implementationEducationItem3: "The policy's performance will be regularly reviewed, and necessary adjustments will be made.",
+                implementationEducationItem1: "This policy will be implemented in coordination with the Ministry of Education, regional education bureaus, universities, TVET agencies, teachers' associations, and parents.",
+                implementationEducationItem2: "Achieve the policy's goals by allocating sufficient budget to the education sector and encouraging private sector participation.",
+                implementationEducationItem3: "Ensure the effectiveness of the education system by regularly evaluating and improving the policy's performance.",
                 downloadFullPolicyBtn: "Download Full Policy",
-                sidebarHome: "Main Home",
+
+                // Sidebar (Unified Keys)
                 sidebarPartyPolicies: "Party Policies",
                 sidebarEconomicPolicy: "Economic Policy",
                 sidebarJobCreation: "Job Creation",
@@ -589,6 +612,8 @@
                 otherForeignPolicy: "Foreign Relations",
                 otherMedia: "Media",
                 econNaturalResources: "Natural Resources & Land",
+
+                // Footer (Unified Keys)
                 footerPartyName: "Ethiopian Unity and Development Party",
                 footerPartyDesc: "We work for lasting peace, inclusive democracy, rapid and equitable development, and the dignity of our citizens.",
                 footerQuickLinks: "Quick Links",
@@ -613,17 +638,18 @@
             document.querySelectorAll('[data-translate-key]').forEach(el => {
                 const key = el.dataset.translateKey;
                 if (langData[key] !== undefined) {
+                    const translation = langData[key];
                     if (el.tagName === 'META') {
-                        el.content = langData[key];
+                        el.content = translation;
                     } else if (el.placeholder) {
-                        el.placeholder = langData[key];
+                        el.placeholder = translation;
                     } else {
-                        const icon = el.querySelector('i.fas');
-                        const textNode = langData[key];
-                        if (icon) {
-                            el.innerHTML = `${icon.outerHTML} <span>${textNode}</span>`;
+                         if (el.querySelector('i.fas') && el.querySelector('span')) {
+                             el.querySelector('span').innerHTML = translation;
+                         } else if (typeof translation === 'string' && (translation.includes('<') || translation.includes('&'))) {
+                            el.innerHTML = translation;
                         } else {
-                            el.innerHTML = textNode;
+                            el.textContent = translation;
                         }
                     }
                 }
@@ -631,18 +657,18 @@
             document.title = langData.pageTitle;
         }
 
+        const key = 'eudp_lang'; 
+
         languageSelector.addEventListener('change', (e) => {
             const newLang = e.target.value;
-            localStorage.setItem('eudp_policy_lang', newLang);
+            localStorage.setItem(key, newLang);
             applyTranslations(newLang);
         });
 
-        const savedLanguage = localStorage.getItem('eudp_policy_lang') || 'am';
+        const savedLanguage = localStorage.getItem(key) || 'am';
         languageSelector.value = savedLanguage;
         applyTranslations(savedLanguage);
-
     });
-    </script>
-
+</script>
 </body>
 </html>
