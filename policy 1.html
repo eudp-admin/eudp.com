@@ -348,10 +348,6 @@
                 <div class="policy-layout">
                     <aside class="policy-sidebar">
                         <div class="sidebar-block">
-                            <h2><a href="index.html"><i class="fas fa-home"></i><span data-translate-key="sidebarHome">ዋና መነሻ</span></a></h2>
-                        </div>
-        
-                        <div class="sidebar-block">
                             <h3><i class="fas fa-landmark"></i><span data-translate-key="sidebarPartyPolicies">የፓርቲው ፖሊሲዎች</span></h3>
                             <ul>
                                 <li>
@@ -649,11 +645,15 @@
                     } else if (el.placeholder) {
                         el.placeholder = langData[key];
                     } else {
+                        // This handles cases where the element has an icon inside
                         const icon = el.querySelector('i.fas');
                         const textNode = langData[key];
-                        if (icon) {
+                        if (icon && el.querySelector('span')) { // Check if a span exists to be updated
+                             el.querySelector('span').textContent = textNode;
+                        } else if(icon) {
                             el.innerHTML = `${icon.outerHTML} <span>${textNode}</span>`;
-                        } else {
+                        }
+                        else {
                             el.textContent = textNode;
                         }
                     }
@@ -662,18 +662,20 @@
             document.title = langData.pageTitle;
         }
 
+        // Use the SAME localStorage key as the main page
+        const key = 'eudp_lang'; 
+
         languageSelector.addEventListener('change', (e) => {
             const newLang = e.target.value;
-            localStorage.setItem('eudp_policy_lang', newLang);
+            localStorage.setItem(key, newLang);
             applyTranslations(newLang);
         });
 
-        const savedLanguage = localStorage.getItem('eudp_policy_lang') || 'am';
+        // Read from the SAME localStorage key
+        const savedLanguage = localStorage.getItem(key) || 'am';
         languageSelector.value = savedLanguage;
         applyTranslations(savedLanguage);
-
     });
-    </script>
+</script>
 </body>
-
 </html>
