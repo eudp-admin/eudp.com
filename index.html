@@ -1050,34 +1050,31 @@
         }
         
         // === MODIFIED JAVASCRIPT FOR FORMS ===
+// === REPLACE THE ENTIRE initForms() FUNCTION IN index.html WITH THIS SIMPLER CODE ===
 function initForms() {
     const regForm = document.getElementById('registrationForm');
 
     if (regForm) {
-        // This listener saves the data just before the form submits to Netlify
+        // This listener fires right before the browser submits the form to Netlify.
+        // We do NOT prevent the default submission. This is the key change.
         regForm.addEventListener('submit', () => {
-            // Check if form is valid before saving data
-            if (!regForm.checkValidity()) {
-                // If the form is not valid, browsers will typically stop the submission.
-                // We do nothing here to let the browser's default validation message show.
-                return;
-            }
-            
-            const formData = new FormData(regForm);
-            const registrationData = {};
-            // Create a simple object from the form data
-            for (let [key, value] of formData.entries()) {
-                if (key !== 'bot-field') {
-                    registrationData[key] = value;
+            // We just save the data here. The browser will then continue its
+            // normal submission process, and Netlify will redirect to the 'action' URL.
+            // This is the most reliable way to work with Netlify's form handling.
+            if (regForm.checkValidity()) {
+                const formData = new FormData(regForm);
+                const registrationData = {};
+                for (let [key, value] of formData.entries()) {
+                    if (key !== 'bot-field') {
+                        registrationData[key] = value;
+                    }
                 }
+                localStorage.setItem('registrationData', JSON.stringify(registrationData));
             }
-            // Use localStorage because it persists through the redirect
-            // It will be cleared on the thank-you page
-            localStorage.setItem('registrationData', JSON.stringify(registrationData));
         });
     }
-    
-    // Handle newsletter form as before
+
+    // The newsletter form handler remains the same
     const newsForm = document.getElementById('newsletterForm');
     if (newsForm) {
         newsForm.addEventListener('submit', (e) => {
