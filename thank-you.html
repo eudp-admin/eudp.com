@@ -65,7 +65,7 @@
         async function configurePdfMakeWithCustomFont() {
             try {
                 // 1. የፎንት ፋይሉን ከሰርቨሩ ላይ fetch ማድረግ
-                const response = await fetch('fonts/AbyssinicaSIL-Regular.ttf');
+                const response = await fetch('AbyssinicaSIL-Regular.ttf');
                 if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
                 
                 // 2. ፋይሉን ወደ ArrayBuffer መቀየር
