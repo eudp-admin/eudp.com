@@ -18,6 +18,7 @@
             --radius-lg: 16px;
             --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
             --font-secondary: 'Abyssinica SIL', serif;
+            --font-primary: 'Times New Roman', serif;
         }
         body {
             font-family: var(--font-secondary);
@@ -40,88 +41,98 @@
             text-align: center;
             border-top: 5px solid var(--color-secondary);
         }
-        .icon-success {
-            font-size: 4rem;
-            color: var(--color-secondary);
-            margin-bottom: 1.5rem;
+        .icon-success { font-size: 4rem; color: var(--color-secondary); margin-bottom: 1.5rem; }
+        h1 { color: var(--color-primary); font-size: 2.5rem; margin-bottom: 1rem; }
+        p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem; }
+        .actions { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+        .btn { padding: 0.8rem 1.8rem; border: none; border-radius: 50px; font-family: var(--font-secondary); font-size: 1rem; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease; }
+        .btn-primary { background-color: var(--color-primary); color: white; }
+        .btn-primary:hover { background-color: #081e33; transform: translateY(-2px); }
+        .btn-secondary { background-color: var(--color-secondary); color: white; }
+        .btn-secondary:hover { background-color: #256d44; transform: translateY(-2px); }
+
+        /* === PDF TEMPLATE STYLES === */
+        /* This section will be hidden from view but used to generate the PDF */
+        #pdf-template {
+            position: absolute;
+            left: -9999px; /* Move it off-screen */
+            width: 210mm; /* A4 width */
+            padding: 15mm;
+            background: white;
+            color: #000;
+            box-sizing: border-box;
+            font-family: var(--font-primary);
+            font-size: 12pt;
         }
-        h1 {
-            color: var(--color-primary);
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .pdf-header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 10px; }
+        .pdf-header img { width: 60px; margin: 0 auto 10px; }
+        .pdf-header h2 { font-family: var(--font-secondary); font-size: 14pt; margin: 0; }
+        .pdf-header h3 { font-size: 12pt; font-weight: bold; margin: 5px 0; }
+        .pdf-header p { font-family: var(--font-secondary); font-size: 10pt; margin: 5px 0 0; }
+        
+        .id-number-row { font-weight: bold; text-align: right; margin: 15px 0; font-size: 12pt; }
+        .id-number-row span { border-bottom: 1px dotted #000; padding: 0 10px; }
+
+        .pdf-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 25px; /* row-gap, column-gap */
         }
-        p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 2rem;
+        .pdf-field { display: flex; align-items: baseline; }
+        .pdf-field .label { font-family: var(--font-secondary); font-weight: bold; white-space: nowrap; margin-right: 8px; }
+        .pdf-field .value {
+            border-bottom: 1px dotted #000;
+            width: 100%;
+            padding-left: 5px;
+            font-family: var(--font-secondary); /* Amharic font for values */
+            font-size: 11pt;
         }
-        .submission-details {
-            text-align: left;
-            margin-top: 2.5rem;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 2rem;
-            background-color: #f8f9fa;
+        .full-width { grid-column: 1 / -1; } /* Make an element span both columns */
+        .address-value { display: flex; gap: 15px; width: 100%;}
+        .address-value span { border-bottom: 1px dotted #000; padding: 0 5px; font-family: var(--font-secondary); }
+
+        .affirmation-text {
+            margin-top: 30px;
+            font-size: 10pt;
+            line-height: 1.6;
+            text-align: justify;
         }
-        .submission-details h2 {
+        .affirmation-text p { font-size: 10pt; margin-bottom: 10px; }
+        .affirmation-text .amharic { font-family: var(--font-secondary); }
+        .affirmation-text .english { font-family: var(--font-primary); font-style: italic; }
+
+        .signature-area {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .stamp-placeholder, .signature-placeholder {
+            width: 40%;
             text-align: center;
-            color: var(--color-primary);
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--color-accent);
-            padding-bottom: 0.5rem;
         }
-        .detail-item {
+        .stamp-placeholder .box {
+            height: 100px;
+            width: 100px;
+            border: 2px dashed #ccc;
+            margin: 0 auto 5px;
             display: flex;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #e9ecef;
-        }
-        .detail-item:last-child {
-            border-bottom: none;
-        }
-        .detail-item strong {
-            flex-basis: 35%;
-            color: var(--color-primary);
-        }
-        .detail-item span {
-            flex-basis: 65%;
-        }
-        .actions {
-            margin-top: 2.5rem;
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-        .btn {
-            padding: 0.8rem 1.8rem;
-            border: none;
-            border-radius: 50px;
-            font-family: var(--font-secondary);
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
+            justify-content: center;
+            color: #999;
+            font-size: 10pt;
         }
-        .btn-primary {
-            background-color: var(--color-primary);
-            color: white;
+        .signature-placeholder .line {
+            border-bottom: 1px solid #000;
+            height: 40px;
+            margin-bottom: 5px;
         }
-        .btn-primary:hover {
-            background-color: #081e33;
-            transform: translateY(-2px);
+        .signature-placeholder .label {
+            font-family: var(--font-secondary);
+            font-weight: bold;
+            font-size: 12pt;
         }
-        .btn-secondary {
-            background-color: var(--color-secondary);
-            color: white;
-        }
-        .btn-secondary:hover {
-            background-color: #256d44;
-            transform: translateY(-2px);
-        }
+
     </style>
 </head>
 <body>
@@ -130,111 +141,144 @@
         <i class="fas fa-check-circle icon-success"></i>
         <h1>ምዝገባዎ ተሳክቷል!</h1>
         <p>የኢትዮጵያ አንድነት እና ልማት ፓርቲን (ኢአልፓን) ለመቀላቀል ስላመለከቱ ከልብ እናመሰግናለን። ማመልከቻዎን ተቀብለናል፣ በቅርቡ የምንገናኝ ይሆናል።</p>
-
-        <div id="submission-container" style="display: none;">
-            <div class="submission-details" id="submission-details">
-                <h2>የሞሉት መረጃ ማጠቃለያ</h2>
-                <div id="details-list"></div>
-            </div>
-            
-            <div class="actions">
-                <a href="index.html" class="btn btn-primary"><i class="fas fa-home"></i> ወደ መነሻ ገጽ ይመለሱ</a>
-                <button id="download-pdf-btn" class="btn btn-secondary"><i class="fas fa-download"></i> መረጃውን በPDF ያውርዱ</button>
-            </div>
+        
+        <div class="actions">
+            <a href="index.html" class="btn btn-primary"><i class="fas fa-home"></i> ወደ መነሻ ገጽ ይመለሱ</a>
+            <button id="download-pdf-btn" class="btn btn-secondary"><i class="fas fa-download"></i> የአባልነት ማረጋገጫ በPDF ያውርዱ</button>
+        </div>
+    </div>
+    
+    <!-- PDF Template - Hidden from the user, used for generation -->
+    <div id="pdf-template">
+        <div class="pdf-header">
+            <img src="2025-05-17 18.49.47.jpg" alt="Party Logo">
+            <h2>የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) የአባልነት ማመልከቻ ቅጽ</h2>
+            <h3>Membership Application Form For Ethiopian Unity and Development Party (EUDP)</h3>
+            <p>ምዝገባው ከክፍያ ነፃ ነው። This Enrollment is free from any charge.</p>
         </div>
 
-        <div id="no-data-message" style="display: none;">
-             <p>ምንም ዓይነት የመመዝገቢያ መረጃ አልተገኘም። እባክዎ ወደ መነሻ ገጽ በመመለስ ቅጹን ይሙሉ!</p>
-             <div class="actions">
-                <a href="index.html" class="btn btn-primary"><i class="fas fa-home"></i> ወደ መነሻ ገጽ ይመለሱ</a>
-             </div>
+        <div class="id-number-row">
+            የአባልነት መለያ ቁጥር/ID No: <span id="pdf-idNumber"></span>
+        </div>
+
+        <div class="pdf-body">
+            <div class="pdf-field"><span class="label">1. ሙሉ ስም/Full name:</span><span class="value" id="pdf-fullName"></span></div>
+            <div class="pdf-field"><span class="label">2. ፆታ/Gender:</span><span class="value" id="pdf-gender"></span></div>
+            <div class="pdf-field"><span class="label">3. እድሜ/Age:</span><span class="value" id="pdf-age"></span></div>
+            <div class="pdf-field"><span class="label">4. የትምህርት ደረጃ/Education:</span><span class="value" id="pdf-education"></span></div>
+            
+            <div class="pdf-field full-width">
+                <span class="label">5. አድራሻ/Address:</span>
+                <div class="address-value">
+                    ክልል/Region: <span id="pdf-region"></span>
+                    ዞን/Zone: <span id="pdf-zone"></span>
+                    ከተማ/City: <span id="pdf-city"></span>
+                </div>
+            </div>
+             <div class="pdf-field full-width">
+                 <span class="label"></span>
+                <div class="address-value">
+                     ወረዳ/Woreda: <span id="pdf-woreda"></span>
+                    ቀበሌ/Kebele: <span id="pdf-kebele"></span>
+                </div>
+            </div>
+
+            <div class="pdf-field"><span class="label">6. ስልክ/Phone:</span><span class="value" id="pdf-phone"></span></div>
+            <div class="pdf-field"><span class="label">7. ኢ-ሜይል/E-mail:</span><span class="value" id="pdf-email"></span></div>
+        </div>
+
+        <div class="affirmation-text">
+            <p class="amharic">
+                እኔ ከላይ ስሜ የተጠቀሰው አመልካች በዚህ የማረጋገጫ ቅጽ ላይ በፈቃደኝነት የሞላሁት መረጃ እውነተኛና ትክክለኛ መሆኑን አረጋግጣለሁ። በዚህ ቅጽ ላይ የቀረቡትን ሌሎች መረጃዎች አንብቤ መረዳቴን እና በፈቃደኝነት መቀበሌን አረጋግጣለሁ።
+            </p>
+            <p class="english">
+                I, the registrant whose name is stated above, affirm that the information I have willingly filled in on this verification form is true and accurate. I also attest that I have read and understood the other information presented on this form and I voluntarily accept it.
+            </p>
+        </div>
+
+        <div class="signature-area">
+            <div class="stamp-placeholder">
+                <div class="box">ዲጂታል ማህተም</div>
+                <span>የፓርቲው ማህተም</span>
+            </div>
+            <div class="signature-placeholder">
+                <div class="line"></div>
+                <span class="label">ሊቀመንበር ፊርማ</span>
+            </div>
         </div>
     </div>
 
-    <!-- PDF ለመስራት የሚያስፈልጉ ላይብረሪዎች -->
+
+    <!-- PDF Generation Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // ከ localStorage የተቀመጠውን መረጃ እናመጣለን።
             const registrationDataString = localStorage.getItem('registrationData');
+            const downloadBtn = document.getElementById('download-pdf-btn');
             
-            // የትርጉም ጽሑፎች
-            const labels = {
-                fullName: 'ሙሉ ስም',
-                age: 'እድሜ',
-                gender: 'ፆታ',
-                phone: 'ስልክ ቁጥር',
-                email: 'ኢሜይል',
-                education: 'የትምህርት ደረጃ',
-                region: 'ክልል',
-                zone: 'ዞን',
-                city: 'ከተማ',
-                woreda: 'ወረዳ',
-                kebele: 'ቀበሌ',
-                reason: 'አባል መሆን የፈለጉበት ምክንያት'
-            };
-
-            if (registrationDataString) {
-                document.getElementById('submission-container').style.display = 'block';
-                const data = JSON.parse(registrationDataString);
-                const detailsList = document.getElementById('details-list');
-                
-                // የተቀመጠውን መረጃ በገጹ ላይ እናሳያለን
-                for (const key in data) {
-                    if (data.hasOwnProperty(key)) {
-                        const item = document.createElement('div');
-                        item.className = 'detail-item';
-                        
-                        // መለያውን (label) ከላይ ካለው object እናገኛለን
-                        const label = labels[key] || key;
-                        
-                        item.innerHTML = `<strong>${label}:</strong> <span>${data[key] || ' አልተሞላም'}</span>`;
-                        detailsList.appendChild(item);
-                    }
-                }
-
-                // መረጃውን ካሳየን በኋላ ከ localStorage እናጠፋዋለን።
-                localStorage.removeItem('registrationData');
-            } else {
-                // መረጃ ከሌለ ይህንን መልዕክት እናሳያለን
-                document.getElementById('no-data-message').style.display = 'block';
+            if (!registrationDataString) {
+                downloadBtn.disabled = true;
+                downloadBtn.style.cursor = 'not-allowed';
+                downloadBtn.style.opacity = '0.6';
+                downloadBtn.title = 'ምንም ዓይነት የመመዝገቢያ መረጃ አልተገኘም';
+                return;
             }
 
-            // የ PDF ማውረጃ ቁልፍ ሲነካ
-            document.getElementById('download-pdf-btn').addEventListener('click', () => {
+            const data = JSON.parse(registrationDataString);
+
+            // === Populate the hidden PDF template ===
+            // Generate a random ID
+            document.getElementById('pdf-idNumber').textContent = `EUDP-${Math.floor(100000 + Math.random() * 900000)}`;
+            
+            document.getElementById('pdf-fullName').textContent = data.fullName || '';
+            document.getElementById('pdf-age').textContent = data.age || '';
+            
+            // Translate gender and education values
+            const genderMap = { 'male': 'ወንድ', 'female': 'ሴት' };
+            document.getElementById('pdf-gender').textContent = genderMap[data.gender] || data.gender;
+
+            const educationMap = {
+                'primary': 'መሠረታዊ ትምህርት', 'secondary': 'ሁለተኛ ደረጃ', 'diploma': 'ዲፕሎማ',
+                'degree': 'የዩኒቨርስቲ ዲግሪ', 'masters': 'ማስተርስ ዲግሪ', 'phd': 'ዶክትሬት ዲግሪ', 'other': 'ሌላ'
+            };
+            document.getElementById('pdf-education').textContent = educationMap[data.education] || data.education;
+
+            document.getElementById('pdf-phone').textContent = data.phone || '';
+            document.getElementById('pdf-email').textContent = data.email || '';
+            document.getElementById('pdf-region').textContent = data.region || '';
+            document.getElementById('pdf-zone').textContent = data.zone || '';
+            document.getElementById('pdf-city').textContent = data.city || '';
+            document.getElementById('pdf-woreda').textContent = data.woreda || '';
+            document.getElementById('pdf-kebele').textContent = data.kebele || '';
+            
+            // === PDF Download Logic ===
+            downloadBtn.addEventListener('click', () => {
                 const { jsPDF } = window.jspdf;
-                const elementToPrint = document.getElementById('submission-details');
+                const pdfTemplate = document.getElementById('pdf-template');
                 
-                html2canvas(elementToPrint, { scale: 2 }).then(canvas => {
+                html2canvas(pdfTemplate, {
+                    scale: 3, // Higher scale for better quality
+                    useCORS: true 
+                }).then(canvas => {
                     const imgData = canvas.toDataURL('image/png');
+                    const pdf = new jsPDF('p', 'mm', 'a4'); // Portrait, millimeters, A4 size
                     
-                    // A4 page size = 210mm x 297mm
-                    const pdf = new jsPDF('p', 'mm', 'a4');
                     const pdfWidth = pdf.internal.pageSize.getWidth();
                     const pdfHeight = pdf.internal.pageSize.getHeight();
                     
-                    const canvasWidth = canvas.width;
-                    const canvasHeight = canvas.height;
-                    const canvasAspectRatio = canvasHeight / canvasWidth;
-
-                    let imgWidth = pdfWidth - 20; // with 10mm margin on each side
-                    let imgHeight = imgWidth * canvasAspectRatio;
-
-                    // If height is too big for the page, resize based on height instead
-                    if (imgHeight > pdfHeight - 20) {
-                        imgHeight = pdfHeight - 20;
-                        imgWidth = imgHeight / canvasAspectRatio;
-                    }
+                    const imgProps= pdf.getImageProperties(imgData);
+                    const imgWidth = pdfWidth;
+                    const imgHeight = (imgProps.height * imgWidth) / imgProps.width;
                     
-                    const x = (pdfWidth - imgWidth) / 2;
-                    const y = 10; // 10mm margin from top
-                    
-                    pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
-                    pdf.save('EUDP_Registration_Confirmation.pdf');
+                    pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, Math.min(imgHeight, pdfHeight));
+                    pdf.save('EUDP-Membership-Confirmation.pdf');
                 });
             });
+
+            // Once data is used, clear it from localStorage
+            localStorage.removeItem('registrationData');
         });
     </script>
 </body>
