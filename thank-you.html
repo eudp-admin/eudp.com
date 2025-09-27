@@ -51,8 +51,7 @@
         .btn-secondary { background-color: var(--color-secondary); color: white; }
         .btn-secondary:hover { background-color: #256d44; transform: translateY(-2px); }
 
-        /* === PDF TEMPLATE STYLES === */
-        /* This section will be hidden from view but used to generate the PDF */
+        /* === PDF TEMPLATE STYLES - HIDDEN FROM VIEW === */
         #pdf-template {
             position: absolute;
             left: -9999px; /* Move it off-screen */
@@ -61,57 +60,59 @@
             background: white;
             color: #000;
             box-sizing: border-box;
-            font-family: var(--font-primary);
             font-size: 12pt;
         }
-        .pdf-header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 10px; }
-        .pdf-header img { width: 60px; margin: 0 auto 10px; }
-        .pdf-header h2 { font-family: var(--font-secondary); font-size: 14pt; margin: 0; }
-        .pdf-header h3 { font-size: 12pt; font-weight: bold; margin: 5px 0; }
-        .pdf-header p { font-family: var(--font-secondary); font-size: 10pt; margin: 5px 0 0; }
+        .pdf-header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px; }
+        .pdf-header img.logo { width: 70px; margin-bottom: 10px; }
+        .pdf-header h2 { font-family: var(--font-secondary); font-size: 16pt; margin: 0; }
+        .pdf-header p { font-size: 12pt; font-weight: bold; margin: 5px 0; }
         
-        .id-number-row { font-weight: bold; text-align: right; margin: 15px 0; font-size: 12pt; }
-        .id-number-row span { border-bottom: 1px dotted #000; padding: 0 10px; }
-
-        .pdf-body {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px 25px; /* row-gap, column-gap */
+        .pdf-body h3 {
+            text-align: center;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            text-decoration: underline;
         }
-        .pdf-field { display: flex; align-items: baseline; }
-        .pdf-field .label { font-family: var(--font-secondary); font-weight: bold; white-space: nowrap; margin-right: 8px; }
-        .pdf-field .value {
-            border-bottom: 1px dotted #000;
-            width: 100%;
+        .detail-item {
+            display: flex;
+            padding: 0.6rem 0;
+            font-size: 12pt;
+        }
+        .detail-item strong {
+            font-family: var(--font-secondary);
+            flex-basis: 35%;
+            font-weight: bold;
+        }
+        .detail-item span {
+            font-family: var(--font-secondary);
+            flex-basis: 65%;
+            border-bottom: 1px dotted #555;
             padding-left: 5px;
-            font-family: var(--font-secondary); /* Amharic font for values */
-            font-size: 11pt;
         }
-        .full-width { grid-column: 1 / -1; } /* Make an element span both columns */
-        .address-value { display: flex; gap: 15px; width: 100%;}
-        .address-value span { border-bottom: 1px dotted #000; padding: 0 5px; font-family: var(--font-secondary); }
-
-        .affirmation-text {
-            margin-top: 30px;
-            font-size: 10pt;
-            line-height: 1.6;
-            text-align: justify;
-        }
-        .affirmation-text p { font-size: 10pt; margin-bottom: 10px; }
-        .affirmation-text .amharic { font-family: var(--font-secondary); }
-        .affirmation-text .english { font-family: var(--font-primary); font-style: italic; }
-
-        .signature-area {
-            margin-top: 40px;
+        
+        .signature-section {
+            margin-top: 50px;
+            padding-top: 20px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+            page-break-inside: avoid; /* Prevents this section from splitting across pages */
         }
-        .stamp-placeholder, .signature-placeholder {
-            width: 40%;
+        .placeholder-box {
+            width: 45%;
             text-align: center;
         }
-        .stamp-placeholder .box {
+        .placeholder-box .line {
+            border-bottom: 1px solid #000;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+        .placeholder-box .label {
+            font-family: var(--font-secondary);
+            font-weight: bold;
+            font-size: 12pt;
+        }
+        .stamp-box {
             height: 100px;
             width: 100px;
             border: 2px dashed #ccc;
@@ -122,21 +123,9 @@
             color: #999;
             font-size: 10pt;
         }
-        .signature-placeholder .line {
-            border-bottom: 1px solid #000;
-            height: 40px;
-            margin-bottom: 5px;
-        }
-        .signature-placeholder .label {
-            font-family: var(--font-secondary);
-            font-weight: bold;
-            font-size: 12pt;
-        }
-
     </style>
 </head>
 <body>
-
     <div class="container">
         <i class="fas fa-check-circle icon-success"></i>
         <h1>ምዝገባዎ ተሳክቷል!</h1>
@@ -148,62 +137,28 @@
         </div>
     </div>
     
-    <!-- PDF Template - Hidden from the user, used for generation -->
+    <!-- PDF Template - This is the hidden content that will be converted to PDF -->
     <div id="pdf-template">
         <div class="pdf-header">
-            <img src="2025-05-17 18.49.47.jpg" alt="Party Logo">
-            <h2>የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) የአባልነት ማመልከቻ ቅጽ</h2>
-            <h3>Membership Application Form For Ethiopian Unity and Development Party (EUDP)</h3>
-            <p>ምዝገባው ከክፍያ ነፃ ነው። This Enrollment is free from any charge.</p>
+            <!-- Ensure your logo image is in the same folder or provide the correct path -->
+            <img src="2025-05-17 18.49.47.jpg" alt="Party Logo" class="logo">
+            <h2>የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ)</h2>
+            <p>Ethiopian Unity and Development Party (EUDP)</p>
         </div>
-
-        <div class="id-number-row">
-            የአባልነት መለያ ቁጥር/ID No: <span id="pdf-idNumber"></span>
-        </div>
-
         <div class="pdf-body">
-            <div class="pdf-field"><span class="label">1. ሙሉ ስም/Full name:</span><span class="value" id="pdf-fullName"></span></div>
-            <div class="pdf-field"><span class="label">2. ፆታ/Gender:</span><span class="value" id="pdf-gender"></span></div>
-            <div class="pdf-field"><span class="label">3. እድሜ/Age:</span><span class="value" id="pdf-age"></span></div>
-            <div class="pdf-field"><span class="label">4. የትምህርት ደረጃ/Education:</span><span class="value" id="pdf-education"></span></div>
-            
-            <div class="pdf-field full-width">
-                <span class="label">5. አድራሻ/Address:</span>
-                <div class="address-value">
-                    ክልል/Region: <span id="pdf-region"></span>
-                    ዞን/Zone: <span id="pdf-zone"></span>
-                    ከተማ/City: <span id="pdf-city"></span>
-                </div>
+            <h3>የአባልነት ምዝገባ ማረጋገጫ</h3>
+            <div id="details-list">
+                <!-- Data will be inserted here by JavaScript -->
             </div>
-             <div class="pdf-field full-width">
-                 <span class="label"></span>
-                <div class="address-value">
-                     ወረዳ/Woreda: <span id="pdf-woreda"></span>
-                    ቀበሌ/Kebele: <span id="pdf-kebele"></span>
-                </div>
-            </div>
-
-            <div class="pdf-field"><span class="label">6. ስልክ/Phone:</span><span class="value" id="pdf-phone"></span></div>
-            <div class="pdf-field"><span class="label">7. ኢ-ሜይል/E-mail:</span><span class="value" id="pdf-email"></span></div>
         </div>
-
-        <div class="affirmation-text">
-            <p class="amharic">
-                እኔ ከላይ ስሜ የተጠቀሰው አመልካች በዚህ የማረጋገጫ ቅጽ ላይ በፈቃደኝነት የሞላሁት መረጃ እውነተኛና ትክክለኛ መሆኑን አረጋግጣለሁ። በዚህ ቅጽ ላይ የቀረቡትን ሌሎች መረጃዎች አንብቤ መረዳቴን እና በፈቃደኝነት መቀበሌን አረጋግጣለሁ።
-            </p>
-            <p class="english">
-                I, the registrant whose name is stated above, affirm that the information I have willingly filled in on this verification form is true and accurate. I also attest that I have read and understood the other information presented on this form and I voluntarily accept it.
-            </p>
-        </div>
-
-        <div class="signature-area">
-            <div class="stamp-placeholder">
-                <div class="box">ዲጂታል ማህተም</div>
-                <span>የፓርቲው ማህተም</span>
+        <div class="signature-section">
+            <div class="placeholder-box">
+                <div class="stamp-box">የፓርቲው ማህተም</div>
+                <div class="label">ማህተም</div>
             </div>
-            <div class="signature-placeholder">
+            <div class="placeholder-box">
                 <div class="line"></div>
-                <span class="label">ሊቀመንበር ፊርማ</span>
+                <div class="label">የሊቀመንበር ፊርማ</div>
             </div>
         </div>
     </div>
@@ -218,6 +173,7 @@
             const registrationDataString = localStorage.getItem('registrationData');
             const downloadBtn = document.getElementById('download-pdf-btn');
             
+            // If there's no data, disable the download button
             if (!registrationDataString) {
                 downloadBtn.disabled = true;
                 downloadBtn.style.cursor = 'not-allowed';
@@ -227,40 +183,43 @@
             }
 
             const data = JSON.parse(registrationDataString);
-
-            // === Populate the hidden PDF template ===
-            // Generate a random ID
-            document.getElementById('pdf-idNumber').textContent = `EUDP-${Math.floor(100000 + Math.random() * 900000)}`;
             
-            document.getElementById('pdf-fullName').textContent = data.fullName || '';
-            document.getElementById('pdf-age').textContent = data.age || '';
-            
-            // Translate gender and education values
-            const genderMap = { 'male': 'ወንድ', 'female': 'ሴት' };
-            document.getElementById('pdf-gender').textContent = genderMap[data.gender] || data.gender;
-
-            const educationMap = {
-                'primary': 'መሠረታዊ ትምህርት', 'secondary': 'ሁለተኛ ደረጃ', 'diploma': 'ዲፕሎማ',
-                'degree': 'የዩኒቨርስቲ ዲግሪ', 'masters': 'ማስተርስ ዲግሪ', 'phd': 'ዶክትሬት ዲግሪ', 'other': 'ሌላ'
+            // Labels for the PDF in Amharic
+            const labels = {
+                fullName: 'ሙሉ ስም',
+                age: 'እድሜ',
+                gender: 'ፆታ',
+                phone: 'ስልክ ቁጥር',
+                email: 'ኢሜይል',
+                education: 'የትምህርት ደረጃ',
+                region: 'ክልል',
+                zone: 'ዞን',
+                city: 'ከተማ',
+                woreda: 'ወረዳ',
+                kebele: 'ቀበሌ',
+                reason: 'አባል መሆን የፈለጉበት ምክንያት'
             };
-            document.getElementById('pdf-education').textContent = educationMap[data.education] || data.education;
 
-            document.getElementById('pdf-phone').textContent = data.phone || '';
-            document.getElementById('pdf-email').textContent = data.email || '';
-            document.getElementById('pdf-region').textContent = data.region || '';
-            document.getElementById('pdf-zone').textContent = data.zone || '';
-            document.getElementById('pdf-city').textContent = data.city || '';
-            document.getElementById('pdf-woreda').textContent = data.woreda || '';
-            document.getElementById('pdf-kebele').textContent = data.kebele || '';
-            
-            // === PDF Download Logic ===
+            // Populate the hidden PDF template with user's data
+            const detailsList = document.getElementById('details-list');
+            for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                    const item = document.createElement('div');
+                    item.className = 'detail-item';
+                    const label = labels[key] || key;
+                    item.innerHTML = `<strong>${label}:</strong> <span>${data[key] || ' አልተሞላም'}</span>`;
+                    detailsList.appendChild(item);
+                }
+            }
+
+            // PDF Download Logic
             downloadBtn.addEventListener('click', () => {
                 const { jsPDF } = window.jspdf;
                 const pdfTemplate = document.getElementById('pdf-template');
                 
                 html2canvas(pdfTemplate, {
                     scale: 3, // Higher scale for better quality
-                    useCORS: true 
+                    useCORS: true // Important for loading images from other origins if any
                 }).then(canvas => {
                     const imgData = canvas.toDataURL('image/png');
                     const pdf = new jsPDF('p', 'mm', 'a4'); // Portrait, millimeters, A4 size
@@ -268,7 +227,7 @@
                     const pdfWidth = pdf.internal.pageSize.getWidth();
                     const pdfHeight = pdf.internal.pageSize.getHeight();
                     
-                    const imgProps= pdf.getImageProperties(imgData);
+                    const imgProps = pdf.getImageProperties(imgData);
                     const imgWidth = pdfWidth;
                     const imgHeight = (imgProps.height * imgWidth) / imgProps.width;
                     
@@ -277,7 +236,7 @@
                 });
             });
 
-            // Once data is used, clear it from localStorage
+            // Clean up localStorage after use
             localStorage.removeItem('registrationData');
         });
     </script>
