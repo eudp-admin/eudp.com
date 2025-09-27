@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate-key="thankYouPageTitle">ምስጋና - ኢአልፓ</title>
     
-    <!-- Favicon Link to match main site -->
     <link rel="icon" href="apple-touch-icon.png" type="image/x-icon"> 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,8 +12,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
     <style>
-        /* CSS Variables from the main website for consistency */
         :root {
             --color-primary: #0D2D4E;
             --color-secondary: #2E8B57;
@@ -23,9 +23,8 @@
             --color-text-light: #f8f9fa;
             --color-background: #FFFFFF;
             --color-background-soft: #f8f9fa;
-            --color-border: #dee2e6;
-            --font-primary: 'Times New Roman', serif;
             --font-secondary: 'Abyssinica SIL', serif;
+            --font-primary: 'Times New Roman', serif;
             --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
             --radius-md: 8px;
             --radius-lg: 16px;
@@ -33,7 +32,6 @@
 
         body {
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
@@ -43,7 +41,6 @@
             color: var(--color-text);
         }
 
-        /* Applying fonts based on language attribute */
         [lang="am"] body { 
             font-family: var(--font-secondary); 
         }
@@ -57,6 +54,7 @@
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
             max-width: 600px;
+            width: 100%;
             border-top: 5px solid var(--color-secondary);
         }
         .thank-you-container h1 {
@@ -69,19 +67,44 @@
             font-size: 1.1rem;
             line-height: 1.6;
         }
-        .back-home-btn {
-            display: inline-block;
+        .actions-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
             padding: 0.9rem 1.8rem;
-            background-color: var(--color-secondary);
-            color: var(--color-text-light);
             border-radius: var(--radius-md);
             text-decoration: none;
             font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: all 0.3s ease;
             font-size: 1rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            font-family: inherit;
         }
-        .back-home-btn:hover {
-            background-color: #256d44; /* Darker shade of secondary color */
+        .btn-primary {
+            background-color: var(--color-secondary);
+            color: var(--color-text-light);
+        }
+        .btn-primary:hover {
+            background-color: #256d44;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+        .btn-secondary:hover {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
             transform: translateY(-2px);
         }
     </style>
@@ -89,8 +112,12 @@
 <body>
     <div class="thank-you-container">
         <h1 data-translate-key="thankYouTitle">ስለ ማመልከቻዎ እናመሰግናለን!</h1>
-        <p data-translate-key="thankYouMessage">የአባልነት ማመልከቻዎ በተሳካ ሁኔታ ደርሶናል። በቀጣይ በሰጡን የመገናኛ መረጃዎች በኩል የምናገኝዎት ይሆናል። የኢትዮጵያ አንድነትና ልማት ፓርቲን (ኢአልፓን) ስለመረጡ በድጋሚ እናመሰግናለን!</p>
-        <a href="index.html" class="back-home-btn" data-translate-key="backToHomeBtn">ወደ መነሻ ገጽ ይመለሱ</a>
+        <p data-translate-key="thankYouMessage">የአባልነት ማመልከቻዎ በተሳካ ሁኔታ ደርሶናል። በቀጣይ በሰጡን የመገናኛ መረጃዎች በኩል የምናገኝዎት ይሆናል።</p>
+        
+        <div class="actions-container">
+            <a href="index.html" class="action-btn btn-primary" data-translate-key="backToHomeBtn">ወደ መነሻ ገጽ ይመለሱ</a>
+            <button id="downloadPdfBtn" class="action-btn btn-secondary" style="display: none;" data-translate-key="downloadCertificateBtn">የምዝገባ ሰርተፊኬት ያውርዱ</button>
+        </div>
     </div>
 
     <script>
@@ -98,14 +125,16 @@
             am: {
                 thankYouPageTitle: "ምስጋና - ኢአልፓ",
                 thankYouTitle: "ስለ ማመልከቻዎ እናመሰግናለን!",
-                thankYouMessage: "የአባልነት ማመልከቻዎ በተሳካ ሁኔታ ደርሶናል። በቀጣይ በሰጡን የመገናኛ መረጃዎች በኩል የምናገኝዎት ይሆናል። የኢትዮጵያ አንድነትና ልማት ፓርቲን (ኢአልፓን) ስለመረጡ በድጋሚ እናመሰግናለን!",
-                backToHomeBtn: "ወደ መነሻ ገጽ ይመለሱ"
+                thankYouMessage: "የአባልነት ማመልከቻዎ በተሳካ ሁኔታ ደርሶናል። በቀጣይ በሰጡን የመገናኛ መረጃዎች በኩል የምናገኝዎት ይሆናል።",
+                backToHomeBtn: "ወደ መነሻ ገጽ ይመለሱ",
+                downloadCertificateBtn: "የምዝገባ ሰርተፊኬት ያውርዱ"
             },
             en: {
                 thankYouPageTitle: "Thank You - EUDP",
                 thankYouTitle: "Thank You for Your Application!",
-                thankYouMessage: "Your membership application has been successfully received. We will contact you soon using the information you provided. Thank you again for choosing the Ethiopian Unity and Development Party (EUDP)!",
-                backToHomeBtn: "Back to Home Page"
+                thankYouMessage: "Your membership application has been successfully received. We will contact you soon using the information you provided.",
+                backToHomeBtn: "Back to Home Page",
+                downloadCertificateBtn: "Download Certificate"
             }
         };
 
@@ -113,9 +142,7 @@
             document.documentElement.lang = lang;
             const langData = translationsThankYou[lang];
             if (!langData) return;
-
             document.title = langData.thankYouPageTitle;
-
             document.querySelectorAll('[data-translate-key]').forEach(el => {
                 const key = el.dataset.translateKey;
                 if (langData[key]) {
@@ -125,15 +152,74 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Using the SAME localStorage key as the main site for consistency
             let currentLang = localStorage.getItem('eudp_lang') || 'am'; 
-            
-            // Fallback if stored language is invalid
             if (!translationsThankYou[currentLang]) { 
                 currentLang = 'am';
             }
-            
             applySimpleTranslations(currentLang);
+            
+            const downloadBtn = document.getElementById('downloadPdfBtn');
+            const registrationDataJSON = localStorage.getItem('registrationData');
+
+            if (registrationDataJSON) {
+                const registrationData = JSON.parse(registrationDataJSON);
+                
+                downloadBtn.style.display = 'inline-flex';
+
+                downloadBtn.addEventListener('click', () => {
+                    const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF();
+
+                    doc.setFontSize(22);
+                    doc.text("Membership Application Confirmation", 105, 20, { align: 'center' });
+                    
+                    doc.setFontSize(16);
+                    doc.text("Ethiopian Unity and Development Party (EUDP)", 105, 30, { align: 'center' });
+
+                    doc.setLineWidth(0.5);
+                    doc.line(20, 35, 190, 35);
+
+                    doc.setFontSize(12);
+                    let y = 50;
+                    
+                    const addLine = (label, value) => {
+                        if (value) {
+                           doc.text(`${label}:`, 20, y);
+                           doc.text(String(value), 80, y);
+                           y += 10;
+                        }
+                    };
+
+                    addLine('Full Name', registrationData.fullName);
+                    addLine('Age', registrationData.age);
+                    addLine('Gender', registrationData.gender);
+                    addLine('Phone', registrationData.phone);
+                    addLine('Email', registrationData.email);
+                    addLine('Education', registrationData.education);
+                    addLine('Region', registrationData.region);
+                    addLine('Zone', registrationData.zone);
+                    addLine('City', registrationData.city);
+                    addLine('Woreda', registrationData.woreda);
+                    addLine('Kebele', registrationData.kebele);
+                    
+                    if (registrationData.reason) {
+                        doc.text("Reason for Joining:", 20, y);
+                        y += 8;
+                        const reasonLines = doc.splitTextToSize(String(registrationData.reason), 170);
+                        doc.text(reasonLines, 20, y);
+                    }
+
+                    doc.line(20, doc.internal.pageSize.height - 30, 190, doc.internal.pageSize.height - 30);
+                    doc.setFontSize(10);
+                    doc.text("This document confirms your application has been submitted.", 105, doc.internal.pageSize.height - 20, { align: 'center' });
+                    
+                    const filename = `EUDP_Registration_${registrationData.fullName.replace(/\s/g, '_')}.pdf`;
+                    doc.save(filename);
+                });
+
+                // Crucial for security: remove the data after it has been used.
+                localStorage.removeItem('registrationData');
+            }
         });
     </script>
 </body>
