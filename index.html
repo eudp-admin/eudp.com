@@ -1050,24 +1050,44 @@
         }
         
         // === MODIFIED JAVASCRIPT FOR FORMS ===
-        function initForms() {
-            // The registration form submission is now handled by Netlify's standard HTML form processing.
-            // The `e.preventDefault()` and alert logic has been removed to allow this.
-            
-            const newsForm = document.getElementById('newsletterForm');
-            
-            if (newsForm) {
-                newsForm.addEventListener('submit', (e) => {
-                    // This can be kept as a simple JS alert for now, 
-                    // or also converted to a Netlify form if desired.
-                    e.preventDefault();
-                    const lang = localStorage.getItem('eudp_lang') || 'am';
-                    alert(translations[lang].alertNewsletterConfirm);
-                    newsForm.reset();
-                });
-            }
-        }
+function initForms() {
+    const regForm = document.getElementById('registrationForm');
 
+    if (regForm) {
+        // This listener saves the data just before the form submits to Netlify
+        regForm.addEventListener('submit', () => {
+            // Check if form is valid before saving data
+            if (!regForm.checkValidity()) {
+                // If the form is not valid, browsers will typically stop the submission.
+                // We do nothing here to let the browser's default validation message show.
+                return;
+            }
+            
+            const formData = new FormData(regForm);
+            const registrationData = {};
+            // Create a simple object from the form data
+            for (let [key, value] of formData.entries()) {
+                if (key !== 'bot-field') {
+                    registrationData[key] = value;
+                }
+            }
+            // Use localStorage because it persists through the redirect
+            // It will be cleared on the thank-you page
+            localStorage.setItem('registrationData', JSON.stringify(registrationData));
+        });
+    }
+    
+    // Handle newsletter form as before
+    const newsForm = document.getElementById('newsletterForm');
+    if (newsForm) {
+        newsForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const lang = localStorage.getItem('eudp_lang') || 'am';
+            alert(translations[lang].alertNewsletterConfirm); // Assuming 'translations' object exists
+            newsForm.reset();
+        });
+    }
+}
         init();
     });
     </script>
