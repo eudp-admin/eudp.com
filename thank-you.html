@@ -38,6 +38,7 @@
             background: white;
             text-align: left;
             font-family: var(--font-primary);
+            display: none; /* Initially hidden, JS will show it */
         }
         .pdf-header { display: flex; align-items: center; gap: 15px; }
         .pdf-header img { width: 60px; height: 60px; }
@@ -64,9 +65,10 @@
         <p class="intro-text">የአባልነት ማረጋገጫ ሰነድዎን ከታች መመልከት ይችላሉ። ለማውረድ "ሰነዱን በPDF ያውርዱ" የሚለውን ቁልፍ ይጫኑ።</p>
 
         <!-- ======== VISIBLE CERTIFICATE PREVIEW (STATIC HTML STRUCTURE) ======== -->
-        <div id="certificate-preview" style="display: none;">
+        <!-- *** ማስተካከያ 1: የምስል አድራሻዎች (src) በቀጥታ በ HTML ውስጥ ተቀምጠዋል *** -->
+        <div id="certificate-preview">
             <div class="pdf-header">
-                <img id="pdf-logo" src="" alt="Party Logo"> <!-- JS will set src -->
+                <img src="2025-06-16_21.35.16-removebg-preview.png" alt="Party Logo">
                 <div class="titles">
                     <h2>የአባልነት ምዝገባ ማረጋገጫ</h2>
                     <p>የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ)</p>
@@ -86,11 +88,11 @@
             </table>
             <div class="pdf-signature-area">
                 <div class="signature-block">
-                    <img id="pdf-signature-img" src="" alt="Chairman Signature"> <!-- JS will set src -->
+                    <img src="chairperson-signature-removebg-preview.png" alt="Chairman Signature">
                     <p>አቶ ሙሉጌታ ከበደ<br>የፓርቲው ሊቀመንበር</p>
                 </div>
                 <div class="stamp-block">
-                    <img id="pdf-stamp-img" src="" alt="Official Stamp"> <!-- JS will set src -->
+                    <img src="Screen_Shot_2025-07-10_at_3.01.08_PM-removebg-preview.png" alt="Official Stamp">
                 </div>
             </div>
         </div>
@@ -114,9 +116,10 @@
             const registrationDataString = localStorage.getItem('registrationData');
             const downloadBtn = document.getElementById('download-pdf-btn');
             const certificatePreview = document.getElementById('certificate-preview');
+            const noDataMessage = document.getElementById('no-data-message');
 
             if (!registrationDataString) {
-                document.getElementById('no-data-message').style.display = 'block';
+                noDataMessage.style.display = 'block';
                 return;
             }
 
@@ -143,56 +146,30 @@
                 }
             }
             
-            // --- 2. Set Image Sources ---
-            // ማሳሰቢያ፡ ምስሎቹ ከ thank-you.html ፋይል ጋር በአንድ ፎልደር ውስጥ መሆን አለባቸው።
-            document.getElementById('pdf-logo').src = '2025-06-16_21.35.16-removebg-preview.png';
-            document.getElementById('pdf-signature-img').src = 'chairperson-signature-removebg-preview.png';
-            document.getElementById('pdf-stamp-img').src = 'Screen_Shot_2025-07-10_at_3.01.08_PM-removebg-preview.png';
+            // *** ማስተካከያ 2: ጃቫስክሪፕቱ ምስሎችን መጫን ስለማያስፈልገው፣ የተወሳሰበው የማቆያ ኮድ ተወግዷል። ***
+            // በቀጥታ ሰርተፍኬቱን እና የማውረጃ ቁልፉን እናሳያለን።
+            certificatePreview.style.display = 'block';
+            downloadBtn.style.display = 'inline-flex';
             
-            // --- 3. Wait for Images to Load ---
-            const waitForImages = (element) => {
-                const images = Array.from(element.getElementsByTagName('img'));
-                const promises = images.map(img => {
-                    return new Promise((resolve, reject) => {
-                        if (img.complete && img.naturalHeight !== 0) { // Check if already loaded
-                            resolve();
-                        } else {
-                            img.onload = resolve;
-                            img.onerror = reject; // Handle cases where image fails to load
-                        }
-                    });
+            downloadBtn.addEventListener('click', () => {
+                const { jsPDF } = window.jspdf;
+                // useCORS: true is helpful if images are from another domain, but good practice to keep.
+                html2canvas(certificatePreview, { scale: 3, useCORS: true }).then(canvas => {
+                    const imgData = canvas.toDataURL('image/png');
+                    const pdf = new jsPDF('p', 'mm', 'a4');
+                    const pdfWidth = pdf.internal.pageSize.getWidth();
+                    const pdfHeight = pdf.internal.pageSize.getHeight();
+                    const imgProps = pdf.getImageProperties(imgData);
+                    const imgRatio = imgProps.height / imgProps.width;
+                    const imgWidth = pdfWidth;
+                    const imgHeight = imgWidth * imgRatio;
+                    
+                    pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, Math.min(imgHeight, pdfHeight));
+                    pdf.save(`${data.fullName}-EUDP-Certificate.pdf`);
                 });
-                return Promise.all(promises);
-            };
-
-            // --- 4. Show Preview and Enable Download ---
-            waitForImages(certificatePreview).then(() => {
-                certificatePreview.style.display = 'block';
-                downloadBtn.style.display = 'inline-flex';
-                
-                downloadBtn.addEventListener('click', () => {
-                    const { jsPDF } = window.jspdf;
-                    html2canvas(certificatePreview, { scale: 3, useCORS: true }).then(canvas => {
-                        const imgData = canvas.toDataURL('image/png');
-                        const pdf = new jsPDF('p', 'mm', 'a4');
-                        const pdfWidth = pdf.internal.pageSize.getWidth();
-                        const pdfHeight = pdf.internal.pageSize.getHeight();
-                        const imgProps = pdf.getImageProperties(imgData);
-                        const imgRatio = imgProps.height / imgProps.width;
-                        const imgWidth = pdfWidth;
-                        const imgHeight = imgWidth * imgRatio;
-                        
-                        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, Math.min(imgHeight, pdfHeight));
-                        pdf.save(`${data.fullName}-EUDP-Certificate.pdf`);
-                    });
-                });
-
-            }).catch(error => {
-                console.error("ምስሎችን በመጫን ላይ ስህተት ተፈጥሯል:", error);
-                document.getElementById('no-data-message').textContent = "ሰርተፍኬቱን ለማሳየት አልተቻለም። አንዱ ምስል በትክክል አልተጫነም። እባክዎ ገጹን እንደገና ይሞክሩት።";
-                document.getElementById('no-data-message').style.display = 'block';
             });
             
+            // Clear the data from local storage after use
             localStorage.removeItem('registrationData');
         });
     </script>
