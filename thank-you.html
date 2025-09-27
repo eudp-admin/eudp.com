@@ -224,8 +224,7 @@
                 downloadBtn.addEventListener('click', async () => {
                     // የአማርኛ ፊደል ፋይል ከሚገኝበት ፎልደር ላይ ያለውን path ያስገቡ
                     // ለምሳሌ: '/fonts/AbyssinicaSIL-Regular.ttf'
-                    const fontUrl = 'https://github.com/google/fonts/raw/main/ofl/abyssinicasil/AbyssinicaSIL-Regular.ttf';
-                    
+const fontUrl = '/fonts/AbyssinicaSIL-Regular.ttf';                    
                     const abyssinicaFontBase64 = await loadFontAsBase64(fontUrl);
 
                     if (!abyssinicaFontBase64) {
