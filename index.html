@@ -1049,17 +1049,29 @@
             });
         }
         
-       // === MODIFIED JAVASCRIPT FOR FORMS ===
-// ይህንን ፈንክሽን ሙሉ በሙሉ ቀይረው
+// === የቋንቋ እና የፎርም አያያዝ የተስተካከለበት ኮድ ===
 function initForms() {
     const regForm = document.getElementById('registrationForm');
 
     if (regForm) {
-        regForm.addEventListener('submit', (event) => {
-            event.preventDefault(); // መጀመሪያ ቅጹ እንዳይላክ እናቆመዋለን
+        // ቋንቋው በተለወጠ ቁጥር የፎርሙን action እናስተካክላለን
+        const updateFormAction = () => {
+            const currentLang = localStorage.getItem('eudp_lang') || 'am';
+            // Netlify አድራሻህ /thank-you/ ከሆነ ይህን ተጠቀም
+            const thankYouPath = 'thank-you.html'; // Or '/thank-you/' if that is your Netlify success page
+            regForm.action = `${thankYouPath}?lang=${currentLang}`;
+        };
 
+        // ገጹ ሲጫን እና ቋንቋው ሲቀየር action እንዲስተካከል እናደርጋለን
+        updateFormAction();
+        const languageSelector = document.getElementById('language-select');
+        if (languageSelector) {
+            languageSelector.addEventListener('change', updateFormAction);
+        }
+
+        // መረጃውን ወደ localStorage ለማስቀመጥ ብቻ submit event እንጠቀማለን
+        regForm.addEventListener('submit', (event) => {
             if (regForm.checkValidity()) {
-                // 1. መረጃውን ወደ localStorage እናስቀምጣለን
                 const formData = new FormData(regForm);
                 const registrationData = {};
                 for (let [key, value] of formData.entries()) {
@@ -1068,19 +1080,11 @@ function initForms() {
                     }
                 }
                 localStorage.setItem('registrationData', JSON.stringify(registrationData));
-
-                // 2. ቋንቋውን ከ localStorage እናገኛለን (Language switcher ቀድሞ አስቀምጦታል)
-                const currentLang = localStorage.getItem('eudp_lang') || 'am';
-                
-                // 3. ወደ ምስጋና ገጽ በቋንቋ ፓራሜትር እናስተላልፋለን
-                window.location.href = `thank-you.html?lang=${currentLang}`;
-            } else {
-                // ቅጹ ትክክል ካልሆነ፣ አሳሹ ስህተቶቹን እንዲያሳይ እንፈቅዳለን
-                regForm.reportValidity();
+                // event.preventDefault() ስለሌለ ቅጹ አሁን ወደ Netlify ይላካል
+                // Netlify ደግሞ ቀደም ብለን ባስተካከልነው action መሰረት ወደ ትክክለኛው ገጽ ይመራናል።
             }
         });
     }
-
     const newsForm = document.getElementById('newsletterForm');
     if (newsForm) {
         newsForm.addEventListener('submit', (e) => {
