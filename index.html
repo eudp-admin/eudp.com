@@ -1052,24 +1052,23 @@
 // === የቋንቋ እና የፎርም አያያዝ የተስተካከለበት ኮድ ===
 function initForms() {
     const regForm = document.getElementById('registrationForm');
+    const languageSelector = document.getElementById('language-select');
 
-    if (regForm) {
-        // ቋንቋው በተለወጠ ቁጥር የፎርሙን action እናስተካክላለን
+    if (regForm && languageSelector) {
+        // ይህ ፈንክሽን የፎርሙን action በቋንቋ ምርጫ መሰረት ያስተካክላል
         const updateFormAction = () => {
-            const currentLang = localStorage.getItem('eudp_lang') || 'am';
-            // Netlify አድራሻህ /thank-you/ ከሆነ ይህን ተጠቀም
-            const thankYouPath = 'thank-you.html'; // Or '/thank-you/' if that is your Netlify success page
+            const currentLang = languageSelector.value;
+            // የእርስዎ የምስጋና ገጽ በNetlify ላይ ያለው አድራሻ ይህ መሆኑን ያረጋግጡ
+            const thankYouPath = '/thank-you.html'; 
             regForm.action = `${thankYouPath}?lang=${currentLang}`;
         };
 
-        // ገጹ ሲጫን እና ቋንቋው ሲቀየር action እንዲስተካከል እናደርጋለን
+        // 1. ገጹ ሲጫን የፎርሙን action እናስተካክላለን
         updateFormAction();
-        const languageSelector = document.getElementById('language-select');
-        if (languageSelector) {
-            languageSelector.addEventListener('change', updateFormAction);
-        }
+        // 2. ተጠቃሚው ቋንቋ ሲቀይር action እንደገና እንዲስተካከል እናደርጋለን
+        languageSelector.addEventListener('change', updateFormAction);
 
-        // መረጃውን ወደ localStorage ለማስቀመጥ ብቻ submit event እንጠቀማለን
+        // 3. ቅጹ ሲላክ መረጃውን ወደ localStorage እናስቀምጣለን
         regForm.addEventListener('submit', (event) => {
             if (regForm.checkValidity()) {
                 const formData = new FormData(regForm);
@@ -1085,6 +1084,7 @@ function initForms() {
             }
         });
     }
+
     const newsForm = document.getElementById('newsletterForm');
     if (newsForm) {
         newsForm.addEventListener('submit', (e) => {
