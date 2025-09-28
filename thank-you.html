@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<!-- lang attribute is now dynamic -->
 <html lang="am">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Title is now dynamic -->
-    <title data-lang-key="pageTitle">ምዝገባዎ ተሳክቷል - የኢትዮጵያ አንድነት እና ልማት ፓርቲ</title>
+    <title data-lang-key="pageTitle">ምዝገባዎ ተሳክቷል - ኢአልፓ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,11 +16,9 @@
             --color-background-soft: #f8f9fa;
             --radius-lg: 16px;
             --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
-            /* Different fonts for each language for better readability */
             --font-amharic: 'Abyssinica SIL', serif;
             --font-english: 'Roboto', 'Times New Roman', serif;
         }
-        /* Language-specific body font settings */
         html[lang="am"] body { font-family: var(--font-amharic); }
         html[lang="en"] body { font-family: var(--font-english); }
         
@@ -41,57 +37,20 @@
         .btn-primary { background-color: var(--color-primary); color: white; }
         .btn-secondary { background-color: var(--color-secondary); color: white; }
 
-        /* === CERTIFICATE PREVIEW STYLES - IMPROVED RESPONSIVENESS === */
-        #certificate-preview {
-            margin-top: 2.5rem;
-            border: 1px solid #dee2e6;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            padding: 2rem;
-            background: white;
-            text-align: left;
-            display: none; /* JS will show it */
-            max-width: 100%; /* Ensure it doesn't overflow on mobile */
-            box-sizing: border-box;
-        }
-        /* Language specific fonts for certificate */
+        /* Certificate preview is now just a simple confirmation, not for PDF generation */
+        #certificate-preview { margin-top: 2.5rem; border: 1px solid #dee2e6; box-shadow: 0 5px 20px rgba(0,0,0,0.1); padding: 2rem; background: white; text-align: left; display: none; max-width: 100%; box-sizing: border-box; }
         html[lang="am"] #certificate-preview { font-family: var(--font-amharic); }
         html[lang="en"] #certificate-preview { font-family: var(--font-english); }
-
-        .pdf-header { display: flex; align-items: center; gap: 15px; }
-        .pdf-header img { width: 60px; height: 60px; }
-        .pdf-header .titles h2 { font-size: 1.5rem; margin: 0; color: #0D2D4E; }
-        .pdf-header .titles p { font-size: 1rem; margin: 0; }
-        .pdf-divider { border: 0; border-top: 1.5px solid #000; margin: 15px 0; }
-        .pdf-intro { line-height: 1.8; margin-bottom: 20px; font-size: 1rem; }
-        .pdf-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95rem; }
-        .pdf-table th, .pdf-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        .pdf-table th { background-color: var(--color-primary); color: white; font-weight: bold; }
-        .pdf-signature-area { margin-top: 2rem; padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: flex-end; }
-        .signature-block, .stamp-block { width: 45%; text-align: center; }
-        .signature-block img { max-width: 180px; margin-bottom: -15px; }
-        .signature-block p { font-size: 0.9rem; margin: 0; border-top: 1px solid #000; padding-top: 5px; }
-        .stamp-block img { max-width: 110px; }
-        .pdf-footer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #aaa; font-size: 0.85rem; color: #444; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.5rem; }
-        .pdf-footer a { color: inherit; text-decoration: none; }
-        .pdf-footer span { display: flex; align-items: center; gap: 0.5rem; }
-
+        #preview-header { font-size: 1.2rem; font-weight: bold; color: var(--color-primary); margin-bottom: 1rem; text-align: center; }
+        #preview-details { list-style: none; padding: 0; }
+        #preview-details li { padding: 0.5rem 0; border-bottom: 1px solid #eee; }
+        #preview-details li span { font-weight: bold; }
         #no-data-message { background-color: #fff3cd; color: #856404; padding: 1rem; border-radius: 8px; border: 1px solid #ffeeba; }
         
-        /* Media query for better mobile responsiveness */
         @media (max-width: 768px) {
             body { padding: 0.5rem; }
             .container { padding: 1.5rem 1rem; }
             h1 { font-size: 1.8rem; }
-            .intro-text { font-size: 1rem; }
-            #certificate-preview { padding: 1rem; }
-            .pdf-header { flex-direction: column; text-align: center; gap: 10px; }
-            .pdf-header .titles h2 { font-size: 1.3rem; }
-            .pdf-intro { font-size: 0.9rem; }
-            .pdf-table { font-size: 0.85rem; }
-            .pdf-table th, .pdf-table td { padding: 6px; }
-            .pdf-signature-area { flex-direction: column-reverse; align-items: center; gap: 2rem; } 
-            .signature-block, .stamp-block { width: 80%; } 
-            .pdf-footer { flex-direction: column; gap: 0.5rem; }
         }
     </style>
 </head>
@@ -101,41 +60,12 @@
         <h1 data-lang-key="successTitle">ምዝገባዎ ተሳክቷል!</h1>
         <p class="intro-text" data-lang-key="introText">የአባልነት ማረጋገጫ ሰነድዎን ከታች ይመልከቱ። ለማውረድ "ሰነዱን በPDF ያውርዱ" የሚለውን ቁልፍ ይጫኑ።</p>
 
-        <!-- CERTIFICATE PREVIEW -->
+        <!-- A simpler preview for the user to confirm their data -->
         <div id="certificate-preview">
-            <div class="pdf-header">
-                <!-- የምስል ቦታዎችህ እዚህ ጋር ናቸው። የራስህን ምስሎች path አስገባ። -->
-                <img src="assets/logo.png" alt="Party Logo">
-                <div class="titles">
-                    <h2 data-lang-key="certTitle">የአባልነት ምዝገባ ማረጋገጫ</h2>
-                    <p data-lang-key="certSubtitle">የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ)</p>
-                </div>
-            </div>
-            <hr class="pdf-divider">
-            <p class="pdf-intro" data-lang-key="certBody">
-                ይህ ሰነድ ክቡር/ት <b id="pdf-intro-name"></b> የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) ሙሉ አባል መሆናቸውን ያረጋግጣል።<br>
-                <span data-lang-key="memberIdLabel">የአባልነት መለያ ቁጥር፡</span> <b id="pdf-intro-id"></b> | 
-                <span data-lang-key="regDateLabel">የተመዘገቡበት ቀን፡</span> <b id="pdf-intro-date"></b>
-            </p>
-            <table class="pdf-table">
-                <thead><tr><th data-lang-key="tableHeaderDetail">ዝርዝር</th><th data-lang-key="tableHeaderInfo">መረጃ</th></tr></thead>
-                <tbody id="pdf-table-body">
-                    <!-- JS will insert table rows here -->
-                </tbody>
-            </table>
-            <div class="pdf-signature-area">
-                <div class="signature-block">
-                    <img src="assets/signature.png" alt="Chairman Signature">
-                    <p data-lang-key="signatureName">አቶ ሙሉጌታ ከበደ<br><span data-lang-key="signatureTitle">የፓርቲው ሊቀመንበር</span></p>
-                </div>
-                <div class="stamp-block">
-                    <img src="assets/stamp.png" alt="Official Stamp">
-                </div>
-            </div>
-            <footer class="pdf-footer">
-                <span><i class="fas fa-phone"></i><a href="tel:+251911223344">+251 911 223 344</a></span>
-                <span><i class="fas fa-envelope"></i><a href="mailto:info@eudp.org.et">info@eudp.org.et</a></span>
-            </footer>
+            <h3 id="preview-header" data-lang-key="previewHeader">የምዝገባ ማጠቃለያ</h3>
+            <ul id="preview-details">
+                <!-- JS will populate this list -->
+            </ul>
         </div>
 
         <div id="no-data-message" style="display: none;">
@@ -152,20 +82,33 @@
         </div>
     </div>
 
-    <!-- PDF Generation Libraries -->
+    <!-- PDF Generation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <!-- Font data for Amharic in jsPDF -->
+    <script src="assets/AbyssinicaSIL-Regular-normal.js"></script>
 
     <script>
+        // --- IMAGE DATA (Base64) ---
+        // TODO: Replace these placeholders with your actual Base64 image data
+        // You can use an online converter: https://www.base64-image.de/
+        const logoBase64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...'; // የእርስዎን ሎጎ ዳታ እዚህ ያስገቡ
+        const signatureBase64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...'; // የእርስዎን ፊርማ ዳታ እዚህ ያስገቡ
+        const stampBase64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...'; // የእርስዎን ማህተም ዳታ እዚህ ያስገቡ
+
         // --- LANGUAGE AND TRANSLATION SCRIPT ---
         const langStrings = {
             am: {
                 pageTitle: 'ምዝገባዎ ተሳክቷል - ኢአልፓ',
                 successTitle: 'ምዝገባዎ ተሳክቷል!',
-                introText: 'የአባልነት ማረጋገጫ ሰነድዎን ከታች ይመልከቱ። ለማውረድ "ሰነዱን በPDF ያውርዱ" የሚለውን ቁልፍ ይጫኑ።',
+                introText: 'የአባልነት ማረጋገጫ ሰነድዎን ለማውረድ "ሰነዱን በPDF ያውርዱ" የሚለውን ቁልፍ ይጫኑ። ከታች ያለው ማጠቃለያ መረጃዎ ትክክል መሆኑን ያረጋግጡ።',
+                previewHeader: 'የምዝገባ ማጠቃለያ',
                 certTitle: 'የአባልነት ምዝገባ ማረጋገጫ',
                 certSubtitle: 'የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ)',
-                certBody: 'ይህ ሰነድ ክቡር/ት <b id="pdf-intro-name"></b> የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) ሙሉ አባል መሆናቸውን ያረጋግጣል።<br><span data-lang-key="memberIdLabel">የአባልነት መለያ ቁጥር፡</span> <b id="pdf-intro-id"></b> | <span data-lang-key="regDateLabel">የተመዘገቡበት ቀን፡</span> <b id="pdf-intro-date"></b>',
+                certBodyIntro: 'ይህ ሰነድ ክቡር/ት ',
+                certBodyOutro: ' የኢትዮጵያ አንድነት እና ልማት ፓርቲ (ኢአልፓ) ሙሉ አባል መሆናቸውን ያረጋግጣል።',
+                memberIdLabel: 'የአባልነት መለያ ቁጥር፡',
+                regDateLabel: 'የተመዘገቡበት ቀን፡',
                 tableHeaderDetail: 'ዝርዝር',
                 tableHeaderInfo: 'መረጃ',
                 signatureName: 'አቶ ሙሉጌታ ከበደ',
@@ -174,15 +117,20 @@
                 backToHomeBtn: 'ወደ መነሻ ገጽ ይመለሱ',
                 downloadPdfBtn: 'ሰነዱን በPDF ያውርዱ',
                 downloadingPdfBtn: 'በማዘጋጀት ላይ...',
+                phoneLabel: 'ስልክ', emailLabel: 'ኢሜይል',
                 labels: { fullName: 'ሙሉ ስም', age: 'እድሜ', gender: 'ፆታ', phone: 'ስልክ ቁጥር', email: 'ኢሜይል', education: 'የትምህርት ደረጃ', region: 'ክልል', zone: 'ዞን', city: 'ከተማ', woreda: 'ወረዳ', kebele: 'ቀበሌ' }
             },
             en: {
                 pageTitle: 'Registration Successful - EUDP',
                 successTitle: 'Registration Successful!',
-                introText: 'Please review your membership certificate below. To download, click the "Download Certificate as PDF" button.',
+                introText: 'To download your certificate, click the "Download Certificate as PDF" button. Please review the summary below to confirm your details.',
+                previewHeader: 'Registration Summary',
                 certTitle: 'Membership Registration Certificate',
                 certSubtitle: 'Ethiopian Unity and Development Party (EUDP)',
-                certBody: 'This document certifies that <b id="pdf-intro-name"></b> is a full member of the Ethiopian Unity and Development Party (EUDP).<br><span data-lang-key="memberIdLabel">Membership ID:</span> <b id="pdf-intro-id"></b> | <span data-lang-key="regDateLabel">Registration Date:</span> <b id="pdf-intro-date"></b>',
+                certBodyIntro: 'This document certifies that ',
+                certBodyOutro: ' is a full member of the Ethiopian Unity and Development Party (EUDP).',
+                memberIdLabel: 'Membership ID:',
+                regDateLabel: 'Registration Date:',
                 tableHeaderDetail: 'Detail',
                 tableHeaderInfo: 'Information',
                 signatureName: 'Mr. Mulugeta Kebede',
@@ -191,6 +139,7 @@
                 backToHomeBtn: 'Back to Homepage',
                 downloadPdfBtn: 'Download Certificate as PDF',
                 downloadingPdfBtn: 'Generating...',
+                phoneLabel: 'Phone', emailLabel: 'Email',
                 labels: { fullName: 'Full Name', age: 'Age', gender: 'Gender', phone: 'Phone Number', email: 'Email', education: 'Education Level', region: 'Region', zone: 'Zone', city: 'City', woreda: 'Woreda', kebele: 'Kebele' }
             }
         };
@@ -198,7 +147,7 @@
         function getLangFromURL() {
             const params = new URLSearchParams(window.location.search);
             const lang = params.get('lang');
-            return (lang === 'en' || lang === 'am') ? lang : 'am'; // Default to Amharic
+            return (lang === 'en' || lang === 'am') ? lang : 'am';
         }
 
         function setLanguage(lang) {
@@ -229,33 +178,19 @@
             try {
                 const data = JSON.parse(registrationDataString);
                 
-                // 1. Populate the certificate with data
-                const memberId = `EUDP-${Math.floor(100000 + Math.random() * 900000)}`;
-                const regDateOptions = (currentLang === 'am') 
-                    ? { year: 'numeric', month: 'long', day: 'numeric', calendar: 'ethiopic' }
-                    : { year: 'numeric', month: 'long', day: 'numeric' };
-                const registrationDate = new Date().toLocaleDateString(`${currentLang}-ET`, regDateOptions);
-                
-                document.getElementById('pdf-intro-name').textContent = data.fullName || 'N/A';
-                document.getElementById('pdf-intro-id').textContent = memberId;
-                document.getElementById('pdf-intro-date').textContent = registrationDate;
-
+                // 1. Populate the simple HTML preview for confirmation
+                const previewList = document.getElementById('preview-details');
                 const labels = langStrings[currentLang].labels;
-                const pdfTableBody = document.getElementById('pdf-table-body');
-                pdfTableBody.innerHTML = '';
-                
+                previewList.innerHTML = '';
                 for (const key in labels) {
                     if (data.hasOwnProperty(key)) {
-                        const row = pdfTableBody.insertRow();
-                        row.insertCell(0).textContent = labels[key];
-                        row.insertCell(1).textContent = data[key] || '-';
+                        previewList.innerHTML += `<li><span>${labels[key]}:</span> ${data[key] || '-'}</li>`;
                     }
                 }
-                
                 certificatePreview.style.display = 'block';
                 downloadBtn.style.display = 'inline-flex';
                 
-                // 2. PDF Download Functionality
+                // 2. Programmatic PDF Download Functionality
                 downloadBtn.addEventListener('click', async () => {
                     const { jsPDF } = window.jspdf;
                     const btnTextSpan = downloadBtn.querySelector('.btn-text');
@@ -264,33 +199,122 @@
                     downloadBtn.classList.add('loading');
                     btnTextSpan.textContent = langStrings[currentLang].downloadingPdfBtn;
 
-                    // A4 aspect ratio fix for html2canvas
-                    const originalWidth = certificatePreview.style.width;
-                    certificatePreview.style.width = '800px'; 
-
                     try {
-                        await new Promise(resolve => setTimeout(resolve, 0)); // Allow browser to re-render
-
-                        const canvas = await html2canvas(certificatePreview, {
-                            scale: 3, 
-                            useCORS: true,
-                            logging: false
-                        });
-
-                        certificatePreview.style.width = originalWidth; // Restore original width
-
-                        const imgData = canvas.toDataURL('image/png', 1.0);
                         const pdf = new jsPDF('p', 'mm', 'a4');
-                        const pdfWidth = pdf.internal.pageSize.getWidth();
-                        const pdfHeight = pdf.internal.pageSize.getHeight();
                         
-                        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                        // Add the custom Amharic font
+                        pdf.addFileToVFS('AbyssinicaSIL-Regular-normal.ttf', fontData);
+                        pdf.addFont('AbyssinicaSIL-Regular-normal.ttf', 'AbyssinicaSIL-Regular', 'normal');
+                        
+                        const memberId = `EUDP-${Math.floor(100000 + Math.random() * 900000)}`;
+                        const regDateOptions = (currentLang === 'am') 
+                            ? { year: 'numeric', month: 'long', day: 'numeric', calendar: 'ethiopic' }
+                            : { year: 'numeric', month: 'long', day: 'numeric' };
+                        const registrationDate = new Date().toLocaleDateString(`${currentLang}-ET`, regDateOptions);
+                        
+                        const lang = langStrings[currentLang];
+                        const docFont = currentLang === 'am' ? 'AbyssinicaSIL-Regular' : 'Times-Roman';
+                        const margin = 15;
+                        const pageWidth = pdf.internal.pageSize.getWidth();
+                        let y = 20;
+
+                        // -- Header --
+                        pdf.addImage(logoBase64, 'PNG', margin, y, 20, 20);
+                        pdf.setFont(docFont, 'bold');
+                        pdf.setFontSize(16);
+                        pdf.setTextColor('#0D2D4E');
+                        pdf.text(lang.certTitle, margin + 25, y + 8);
+                        pdf.setFont(docFont, 'normal');
+                        pdf.setFontSize(12);
+                        pdf.setTextColor('#343a40');
+                        pdf.text(lang.certSubtitle, margin + 25, y + 15);
+                        y += 30;
+
+                        // -- Divider --
+                        pdf.setLineWidth(0.5);
+                        pdf.line(margin, y, pageWidth - margin, y);
+                        y += 10;
+                        
+                        // -- Intro Text --
+                        pdf.setFont(docFont, 'normal');
+                        pdf.setFontSize(11);
+                        pdf.text(lang.certBodyIntro, margin, y);
+                        let nameWidth = pdf.getStringUnitWidth(lang.certBodyIntro) * pdf.getFontSize() / pdf.internal.scaleFactor;
+                        pdf.setFont(docFont, 'bold');
+                        pdf.text(data.fullName || 'N/A', margin + nameWidth, y);
+                        let fullNameWidth = pdf.getStringUnitWidth(data.fullName || 'N/A') * pdf.getFontSize() / pdf.internal.scaleFactor;
+                        pdf.setFont(docFont, 'normal');
+                        pdf.text(lang.certBodyOutro, margin + nameWidth + fullNameWidth, y);
+                        y += 7;
+
+                        pdf.setFont(docFont, 'normal');
+                        pdf.text(`${lang.memberIdLabel} `, margin, y);
+                        let idLabelWidth = pdf.getStringUnitWidth(`${lang.memberIdLabel} `) * pdf.getFontSize() / pdf.internal.scaleFactor;
+                        pdf.setFont(docFont, 'bold');
+                        pdf.text(memberId, margin + idLabelWidth, y);
+                        let idWidth = pdf.getStringUnitWidth(memberId) * pdf.getFontSize() / pdf.internal.scaleFactor;
+                        pdf.setFont(docFont, 'normal');
+                        pdf.text(` | ${lang.regDateLabel} `, margin + idLabelWidth + idWidth, y);
+                        let dateLabelWidth = pdf.getStringUnitWidth(` | ${lang.regDateLabel} `) * pdf.getFontSize() / pdf.internal.scaleFactor;
+                        pdf.setFont(docFont, 'bold');
+                        pdf.text(registrationDate, margin + idLabelWidth + idWidth + dateLabelWidth, y);
+                        y += 15;
+
+                        // -- Table --
+                        const tableCol1X = margin;
+                        const tableCol2X = margin + 60;
+                        const rowHeight = 10;
+                        
+                        // Header
+                        pdf.setFont(docFont, 'bold');
+                        pdf.setFontSize(12);
+                        pdf.setFillColor('#0D2D4E');
+                        pdf.setTextColor(255, 255, 255);
+                        pdf.rect(margin, y - rowHeight, pageWidth - (2*margin), rowHeight, 'F');
+                        pdf.text(lang.tableHeaderDetail, tableCol1X + 2, y - 3);
+                        pdf.text(lang.tableHeaderInfo, tableCol2X + 2, y - 3);
+                        
+                        // Body
+                        pdf.setFont(docFont, 'normal');
+                        pdf.setFontSize(11);
+                        pdf.setTextColor('#343a40');
+                        
+                        for (const key in labels) {
+                            if (data.hasOwnProperty(key)) {
+                                pdf.rect(margin, y - rowHeight, pageWidth - (2*margin), rowHeight);
+                                pdf.text(labels[key], tableCol1X + 2, y-3);
+                                pdf.text(data[key] || '-', tableCol2X + 2, y-3);
+                                y += rowHeight;
+                            }
+                        }
+                        pdf.rect(margin, y - rowHeight, pageWidth - (2*margin), rowHeight); // Final table bottom border
+
+                        // -- Signatures --
+                        y += 25;
+                        const sigBlockX = margin + 10;
+                        const stampBlockX = pageWidth - margin - 50;
+                        
+                        pdf.addImage(signatureBase64, 'PNG', sigBlockX, y, 60, 30);
+                        pdf.line(sigBlockX, y + 35, sigBlockX + 60, y + 35);
+                        pdf.setFontSize(10);
+                        pdf.text(lang.signatureName, sigBlockX + 30, y + 40, { align: 'center' });
+                        pdf.text(lang.signatureTitle, sigBlockX + 30, y + 45, { align: 'center' });
+
+                        pdf.addImage(stampBase64, 'PNG', stampBlockX, y, 40, 40);
+
+                        // -- Footer --
+                        const footerY = pdf.internal.pageSize.getHeight() - 20;
+                        pdf.setLineWidth(0.3);
+                        pdf.line(margin, footerY - 5, pageWidth - margin, footerY - 5);
+                        pdf.setFontSize(9);
+                        pdf.setTextColor('#444444');
+                        pdf.text(`+251 911 223 344  |  info@eudp.org.et`, pageWidth / 2, footerY, { align: 'center' });
+
                         pdf.save(`${data.fullName || 'member'}-EUDP-Certificate.pdf`);
 
                     } catch (error) {
                         console.error("PDF generation failed:", error);
                         alert("Sorry, the PDF could not be generated. Please try again.");
-                        certificatePreview.style.width = originalWidth; // Restore on error
                     } finally {
                         downloadBtn.disabled = false;
                         downloadBtn.classList.remove('loading');
@@ -302,7 +326,7 @@
                 console.error("Could not parse registration data:", e);
                 noDataMessage.style.display = 'block';
             } finally {
-                // Clear the data from storage after displaying it
+                // መረጃው ለሙከራ እንዲቆይ ካልፈለክ ይህንን መስመር uncomment አድርገው
                 // localStorage.removeItem('registrationData');
             }
         });
