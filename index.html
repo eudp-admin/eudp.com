@@ -1049,45 +1049,48 @@
             });
         }
         
-        // === MODIFIED JAVASCRIPT FOR FORMS ===
-// === REPLACE THE ENTIRE initForms() FUNCTION IN index.html WITH THIS SIMPLER CODE ===
-        function initForms() {
-            const regForm = document.getElementById('registrationForm');
+       // === MODIFIED JAVASCRIPT FOR FORMS ===
+// ይህንን ፈንክሽን ሙሉ በሙሉ ቀይረው
+function initForms() {
+    const regForm = document.getElementById('registrationForm');
 
-            if (regForm) {
-                // ይህ ኮድ ቅጹ ወደ Netlify ከመላኩ በፊት ይፈጸማል።
-                // Netlify ቅጹን ተቀብሎ ወደ /thank-you/ ገጽ ይመራናል።
-                regForm.addEventListener('submit', (event) => {
-                    // ቅጹ ትክክለኛ መረጃ መያዙን እናረጋግጣለን።
-                    if (regForm.checkValidity()) {
-                        const formData = new FormData(regForm);
-                        const registrationData = {};
-                        // ሁሉንም የመረጃ አይነቶች ወደ አንድ object እንሰበስባለን።
-                        for (let [key, value] of formData.entries()) {
-                            // Netlify የሚጠቀምበትን bot-field አንጨምርም
-                            if (key !== 'bot-field') {
-                                registrationData[key] = value;
-                            }
-                        }
-                        // መረጃውን ወደ localStorage እናስቀምጣለን።
-                        // localStorage መረጃን በአሳሹ ውስጥ ለጊዜው ለማስቀመጥ ይጠቅማል።
-                        localStorage.setItem('registrationData', JSON.stringify(registrationData));
+    if (regForm) {
+        regForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // መጀመሪያ ቅጹ እንዳይላክ እናቆመዋለን
+
+            if (regForm.checkValidity()) {
+                // 1. መረጃውን ወደ localStorage እናስቀምጣለን
+                const formData = new FormData(regForm);
+                const registrationData = {};
+                for (let [key, value] of formData.entries()) {
+                    if (key !== 'bot-field') {
+                        registrationData[key] = value;
                     }
-                    // ቅጹ በመደበኛነት እንዲላክ እንፈቅዳለን።
-                });
-            }
+                }
+                localStorage.setItem('registrationData', JSON.stringify(registrationData));
 
-            // የዜና መጽሔት ቅጽ አያያዝ እንዳለ ይቀጥላል
-            const newsForm = document.getElementById('newsletterForm');
-            if (newsForm) {
-                newsForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const lang = localStorage.getItem('eudp_lang') || 'am';
-                    alert(translations[lang].alertNewsletterConfirm);
-                    newsForm.reset();
-                });
+                // 2. ቋንቋውን ከ localStorage እናገኛለን (Language switcher ቀድሞ አስቀምጦታል)
+                const currentLang = localStorage.getItem('eudp_lang') || 'am';
+                
+                // 3. ወደ ምስጋና ገጽ በቋንቋ ፓራሜትር እናስተላልፋለን
+                window.location.href = `thank-you.html?lang=${currentLang}`;
+            } else {
+                // ቅጹ ትክክል ካልሆነ፣ አሳሹ ስህተቶቹን እንዲያሳይ እንፈቅዳለን
+                regForm.reportValidity();
             }
-        }
+        });
+    }
+
+    const newsForm = document.getElementById('newsletterForm');
+    if (newsForm) {
+        newsForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const lang = localStorage.getItem('eudp_lang') || 'am';
+            alert(translations[lang].alertNewsletterConfirm);
+            newsForm.reset();
+        });
+    }
+}
         init();
     });
     </script>
