@@ -86,7 +86,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     
     <!-- Font data for Amharic in jsPDF -->
-    <script src="assets/AbyssinicaSIL-Regular-normal.js"></script>
+    <script src="fonts/AbyssinicaSIL-Regular.ttf"></script>
 
     <script>
         // --- IMAGE DATA (Base64) ---
@@ -203,8 +203,8 @@
                         const pdf = new jsPDF('p', 'mm', 'a4');
                         
                         // Add the custom Amharic font
-                        pdf.addFileToVFS('AbyssinicaSIL-Regular-normal.ttf', fontData);
-                        pdf.addFont('AbyssinicaSIL-Regular-normal.ttf', 'AbyssinicaSIL-Regular', 'normal');
+                        pdf.addFileToVFS('AbyssinicaSIL-Regular.ttf', fontData);
+                        pdf.addFont('AbyssinicaSIL-Regular.ttf', 'AbyssinicaSIL-Regular', 'normal');
                         
                         const memberId = `EUDP-${Math.floor(100000 + Math.random() * 900000)}`;
                         const regDateOptions = (currentLang === 'am') 
