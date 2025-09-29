@@ -753,15 +753,7 @@
                     <h2 class="section__title" data-translate-key="registerTitle">አባል ለመሆን ይመዝገቡ</h2>
                 </div>
                 <!-- === MODIFIED FORM START === -->
-                <form class="registration-form"
-                      id="registrationForm"
-                      name="membership-application" 
-                      method="POST"
-                      data-netlify="true" 
-                      data-netlify-honeypot="bot-field" 
-                      action="/thank-you/"
-                      data-reveal
-                >
+                <form class="registration-form">
                     <!-- የተደበቀ መስክ ለ Netlify ስፓም መከላከያ (ከ data-netlify-honeypot ጋር ይዛመዳል) -->
                     <p style="display:none;">
                         <label>ይህንን መስክ ሰው ከሆኑ አይሙሉት (Don’t fill this out if you're human): <input name="bot-field" /></label>
@@ -1048,43 +1040,86 @@
                 });
             });
         }
-        
-// === የቋንቋ እና የፎርም አያያዝ የተስተካከለበት ኮድ ===
-function initForms() {
+    // አዲሱ እና የተሻሻለው የአባልነት ምዝገባ ኮድ
+    // ===================================================================
+
+    // 1. በ locatunnel የተሰጠንን የህዝብ አድራሻ እዚህ እናስቀምጣለን
+    // ጥንቃቄ: ይህ አድራሻ localtunnelን በአዲስ በከፈትከው ቁጥር ይቀየራል!
+    const API_ENDPOINT = 'https://smart-jokes-juggle.loca.lt/register'; // <--- እዚህ ላይ ያንተን የlocaltunnel አድራሻ አስገባ!
+
+    // 2. የቅጹን (form) ኤለመንቶች እናምጣ
     const regForm = document.getElementById('registrationForm');
     const languageSelector = document.getElementById('language-select');
+    const submitButton = regForm.querySelector('button[type="submit"]'); // የ Submit ቁልፍን እንፈልግ
+    
+    // 3. ቅጹ (form) ካለ ብቻ ይህንን ኮድ እናስኬዳለን
+    if (regForm) {
+      
+      // "Submit" የሚለው ቁልፍ ሲጫን ምን መፈጠር እንዳለበት እንወስናለን
+      regForm.addEventListener('submit', async (event) => {
+        
+        // 3.1 ቅጹ ወደ Netlify እንዳይላክ እናቁመው!
+        event.preventDefault();
 
-    if (regForm && languageSelector) {
-        // ይህ ፈንክሽን የፎርሙን action በቋንቋ ምርጫ መሰረት ያስተካክላል
-        const updateFormAction = () => {
-            const currentLang = languageSelector.value;
-            // የእርስዎ የምስጋና ገጽ በNetlify ላይ ያለው አድራሻ ይህ መሆኑን ያረጋግጡ
-            const thankYouPath = '/thank-you.html'; 
-            regForm.action = `${thankYouPath}?lang=${currentLang}`;
-        };
+        // 3.2 ለተጠቃሚው መልዕክት ማሳያ ቦታ እናዘጋጅ
+        // ከ Submit ቁልፍ በታች አዲስ div እንፈጥራለን
+        let messageDiv = regForm.querySelector('.form-message');
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.className = 'form-message';
+            submitButton.parentNode.insertBefore(messageDiv, submitButton.nextSibling);
+        }
+        
+        messageDiv.textContent = 'በመመዝገብ ላይ... እባክዎ ይጠብቁ...';
+        messageDiv.style.color = 'blue';
+        submitButton.disabled = true; // ቁልፉ ደጋግሞ እንዳይጫን እንቆልፈው
 
-        // 1. ገጹ ሲጫን የፎርሙን action እናስተካክላለን
-        updateFormAction();
-        // 2. ተጠቃሚው ቋንቋ ሲቀይር action እንደገና እንዲስተካከል እናደርጋለን
-        languageSelector.addEventListener('change', updateFormAction);
-
-        // 3. ቅጹ ሲላክ መረጃውን ወደ localStorage እናስቀምጣለን
-        regForm.addEventListener('submit', (event) => {
-            if (regForm.checkValidity()) {
-                const formData = new FormData(regForm);
-                const registrationData = {};
-                for (let [key, value] of formData.entries()) {
-                    if (key !== 'bot-field') {
-                        registrationData[key] = value;
-                    }
-                }
-                localStorage.setItem('registrationData', JSON.stringify(registrationData));
-                // event.preventDefault() ስለሌለ ቅጹ አሁን ወደ Netlify ይላካል
-                // Netlify ደግሞ ቀደም ብለን ባስተካከልነው action መሰረት ወደ ትክክለኛው ገጽ ይመራናል።
-            }
+        // 3.3 የቅጹን መረጃ ወደ JSON object እንቀይረው
+        const formData = new FormData(regForm);
+        const registrationData = {};
+        formData.forEach((value, key) => {
+          if (key !== 'bot-field') { // የNetlify bot-fieldን እናስወግድ
+             registrationData[key] = value;
+          }
         });
-    }
 
+        // 3.4 መረጃውን ወደ እኛ አገልጋይ (API) እንላክ
+        try {
+          const response = await fetch(API_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(registrationData),
+          });
+
+          // 3.5 ከአገልጋዩ የመጣውን ምላሽ እንይ
+          if (response.ok) {
+            // ስኬታማ ከሆነ
+            messageDiv.textContent = 'በተሳካ ሁኔታ ተመዝግበዋል! እናመሰግናለን።';
+            messageDiv.style.color = 'green';
+            
+            // ተጠቃሚውን ከ3 ሰከንድ በኋላ ወደ "Thank You" ገጽ እንምራው
+            setTimeout(() => {
+                const currentLang = languageSelector ? languageSelector.value : 'am';
+                window.location.href = `/thank-you.html?lang=${currentLang}`;
+            }, 3000);
+
+          } else {
+            // ስህተት ካለ
+            const errorData = await response.json();
+            messageDiv.textContent = `ምዝገባው አልተሳካም: ${errorData.error || 'ያልታወቀ ስህተት'}`;
+            messageDiv.style.color = 'red';
+            submitButton.disabled = false; // ቁልፉን እንክፈተው
+          }
+
+        } catch (error) {
+          // የኔትወርክ ችግር ወይም አገልጋዩ ከጠፋ
+          console.error('Network error:', error);
+          messageDiv.textContent = 'የኔትወርክ ችግር አጋጥሟል። እባክዎ ቆይተው እንደገና ይሞክሩ።';
+          messageDiv.style.color = 'red';
+          submitButton.disabled = false; // ቁልፉን እንክፈተው
+        }
+      });
+    }
     const newsForm = document.getElementById('newsletterForm');
     if (newsForm) {
         newsForm.addEventListener('submit', (e) => {
