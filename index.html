@@ -848,7 +848,7 @@
             initScrollAnimations();
             initPageNavigation();
             initAccordions();
-            initForms();
+            initForms(); // <-- This will now initialize our fixed form logic
             const initialHash = window.location.hash.substring(1);
             activateSection(initialHash || 'home', true);
         }
@@ -875,20 +875,16 @@
                 mobileMenuToggle.setAttribute('aria-expanded', isOpen);
                 mobileMenuToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
                 
-                // When closing the main menu, also close any open mega menus
                 if (!isOpen) {
                     megaMenuParents.forEach(p => p.classList.remove('mega-menu-open'));
                 }
             });
             
-            // This part handles the mega menu dropdown on mobile
             megaMenuParents.forEach(parent => {
                 const link = parent.querySelector('a.nav-link');
                 link.addEventListener('click', (e) => {
-                    // If it's mobile view and the link has a mega menu, prevent default navigation
-                    // and toggle the mega menu visibility.
                     if (isMobile() && parent.querySelector('.mega-menu')) {
-                        e.preventDefault(); // Prevents the link from navigating to "#"
+                        e.preventDefault();
                         parent.classList.toggle('mega-menu-open');
                     }
                 });
@@ -903,7 +899,6 @@
             document.querySelectorAll('[data-translate-key]').forEach(el => {
                 const key = el.dataset.translateKey;
                 if (langData[key]) {
-                    // For elements with children like the mega-menu link, target a specific span
                     const targetSpan = el.querySelector('span');
                     if(targetSpan && el.classList.contains('nav-link')){
                         targetSpan.innerHTML = langData[key];
@@ -1009,7 +1004,6 @@
                 const target = link.dataset.target;
                 if(target && !link.href.includes('.html')) {
                     link.addEventListener('click', (e) => {
-                        // This prevents the click from triggering navigation if it's meant to open a mobile submenu
                         const parentLi = e.currentTarget.closest('li');
                         if (isMobile() && parentLi && parentLi.classList.contains('has-megamenu')) {
                             return; 
@@ -1040,96 +1034,59 @@
                 });
             });
         }
-    // አዲሱ እና የተሻሻለው የአባልነት ምዝገባ ኮድ
-    // ===================================================================
 
-    // 1. በ locatunnel የተሰጠንን የህዝብ አድራሻ እዚህ እናስቀምጣለን
-    // ጥንቃቄ: ይህ አድራሻ localtunnelን በአዲስ በከፈትከው ቁጥር ይቀየራል!
-    const API_ENDPOINT = 'https://smart-jokes-juggle.loca.lt/register'; // <--- እዚህ ላይ ያንተን የlocaltunnel አድራሻ አስገባ!
+        // <!-- MODIFIED: Complete refactor of form handling logic for reliability and functionality -->
+        function initForms() {
+            const regForm = document.getElementById('registrationForm');
+            const newsletterForm = document.getElementById('newsletterForm');
 
-    // 2. የቅጹን (form) ኤለመንቶች እናምጣ
-    const regForm = document.getElementById('registrationForm');
-    const languageSelector = document.getElementById('language-select');
-    const submitButton = regForm.querySelector('button[type="submit"]'); // የ Submit ቁልፍን እንፈልግ
-    
-    // 3. ቅጹ (form) ካለ ብቻ ይህንን ኮድ እናስኬዳለን
-    if (regForm) {
-      
-      // "Submit" የሚለው ቁልፍ ሲጫን ምን መፈጠር እንዳለበት እንወስናለን
-      regForm.addEventListener('submit', async (event) => {
-        
-        // 3.1 ቅጹ ወደ Netlify እንዳይላክ እናቁመው!
-        event.preventDefault();
+            if (regForm) {
+                const messageContainer = document.getElementById('form-message-container');
+                const submitButton = regForm.querySelector('button[type="submit"]');
 
-        // 3.2 ለተጠቃሚው መልዕክት ማሳያ ቦታ እናዘጋጅ
-        // ከ Submit ቁልፍ በታች አዲስ div እንፈጥራለን
-        let messageDiv = regForm.querySelector('.form-message');
-        if (!messageDiv) {
-            messageDiv = document.createElement('div');
-            messageDiv.className = 'form-message';
-            submitButton.parentNode.insertBefore(messageDiv, submitButton.nextSibling);
+                regForm.addEventListener('submit', event => {
+                    event.preventDefault();
+
+                    const currentLang = languageSelector.value || 'am';
+                    const formData = new FormData(regForm);
+                    
+                    // Show submitting message
+                    messageContainer.innerHTML = `<div class="form-message submitting">${translations[currentLang].formSubmitting}</div>`;
+                    submitButton.disabled = true;
+
+                    fetch("/", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                        body: new URLSearchParams(formData).toString()
+                    })
+                    .then(() => {
+                        // Show success message
+                        messageContainer.innerHTML = `<div class="form-message success">${translations[currentLang].formSuccess}</div>`;
+                        regForm.reset();
+                        // Optionally redirect to a thank you page after a delay
+                        // setTimeout(() => { window.location.href = '/thank-you.html'; }, 2000);
+                    })
+                    .catch(error => {
+                        // Show error message
+                        messageContainer.innerHTML = `<div class="form-message error">${translations[currentLang].formError}</div>`;
+                    })
+                    .finally(() => {
+                        // Re-enable the submit button
+                        submitButton.disabled = false;
+                    });
+                });
+            }
+
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const lang = localStorage.getItem('eudp_lang') || 'am';
+                    alert(translations[lang].alertNewsletterConfirm);
+                    newsletterForm.reset();
+                });
+            }
         }
-        
-        messageDiv.textContent = 'በመመዝገብ ላይ... እባክዎ ይጠብቁ...';
-        messageDiv.style.color = 'blue';
-        submitButton.disabled = true; // ቁልፉ ደጋግሞ እንዳይጫን እንቆልፈው
 
-        // 3.3 የቅጹን መረጃ ወደ JSON object እንቀይረው
-        const formData = new FormData(regForm);
-        const registrationData = {};
-        formData.forEach((value, key) => {
-          if (key !== 'bot-field') { // የNetlify bot-fieldን እናስወግድ
-             registrationData[key] = value;
-          }
-        });
-
-        // 3.4 መረጃውን ወደ እኛ አገልጋይ (API) እንላክ
-        try {
-          const response = await fetch(API_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(registrationData),
-          });
-
-          // 3.5 ከአገልጋዩ የመጣውን ምላሽ እንይ
-          if (response.ok) {
-            // ስኬታማ ከሆነ
-            messageDiv.textContent = 'በተሳካ ሁኔታ ተመዝግበዋል! እናመሰግናለን።';
-            messageDiv.style.color = 'green';
-            
-            // ተጠቃሚውን ከ3 ሰከንድ በኋላ ወደ "Thank You" ገጽ እንምራው
-            setTimeout(() => {
-                const currentLang = languageSelector ? languageSelector.value : 'am';
-                window.location.href = `/thank-you.html?lang=${currentLang}`;
-            }, 3000);
-
-          } else {
-            // ስህተት ካለ
-            const errorData = await response.json();
-            messageDiv.textContent = `ምዝገባው አልተሳካም: ${errorData.error || 'ያልታወቀ ስህተት'}`;
-            messageDiv.style.color = 'red';
-            submitButton.disabled = false; // ቁልፉን እንክፈተው
-          }
-
-        } catch (error) {
-          // የኔትወርክ ችግር ወይም አገልጋዩ ከጠፋ
-          console.error('Network error:', error);
-          messageDiv.textContent = 'የኔትወርክ ችግር አጋጥሟል። እባክዎ ቆይተው እንደገና ይሞክሩ።';
-          messageDiv.style.color = 'red';
-          submitButton.disabled = false; // ቁልፉን እንክፈተው
-        }
-      });
-    }
-    const newsForm = document.getElementById('newsletterForm');
-    if (newsForm) {
-        newsForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const lang = localStorage.getItem('eudp_lang') || 'am';
-            alert(translations[lang].alertNewsletterConfirm);
-            newsForm.reset();
-        });
-    }
-}
         init();
     });
     </script>
