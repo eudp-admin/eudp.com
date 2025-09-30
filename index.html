@@ -1067,80 +1067,89 @@ function initForms() {
                 });
             }
 
-            // --- 2. የአባልነት ምዝገባ ፎርም (አዲሱ ኮድ) ---
-            const regForm = document.getElementById('registrationForm');
-            if (regForm) {
-                // በ locatunnel የተሰጠንን የህዝብ አድራሻ እዚህ እናስቀምጣለን
-                // ጥንቃቄ: ይህ አድራሻ localtunnelን በአዲስ በከፈትከው ቁጥር ይቀየራል!
-                const API_ENDPOINT = 'https://ealpa-backend.onrender.com/register'; // <--- !!! እዚህ ላይ ያንተን የlocaltunnel አድራሻ አስገባ !!!
+            // --- 2. የአባልነት ምዝገባ ፎርም (ለፎቶ መስቀያ የተሻሻለው) ---
+const regForm = document.getElementById('registrationForm');
+if (regForm) {
+    const API_ENDPOINT = 'https://ealpa-backend.onrender.com/register';
+    const submitButton = regForm.querySelector('button[type="submit"]');
 
-                const submitButton = regForm.querySelector('button[type="submit"]');
+    regForm.addEventListener('submit', async (event) => {
+        event.preventDefault(); // ቅጹ በራሱ እንዳይላክ እናቁመው
 
-                regForm.addEventListener('submit', async (event) => {
-                    event.preventDefault(); // ቅጹ ወደ Netlify እንዳይላክ እናቁመው!
-
-                    let messageDiv = regForm.querySelector('.form-message');
-                    if (!messageDiv) {
-                        messageDiv = document.createElement('div');
-                        messageDiv.className = 'form-message';
-                        messageDiv.style.marginTop = '1rem';
-                        messageDiv.style.padding = '0.8rem';
-                        messageDiv.style.borderRadius = 'var(--radius-md)';
-                        messageDiv.style.textAlign = 'center';
-                        submitButton.parentNode.insertBefore(messageDiv, submitButton.nextSibling);
-                    }
-
-                    messageDiv.textContent = 'በመመዝገብ ላይ... እባክዎ ይጠብቁ...';
-                    messageDiv.style.color = 'white';
-                    messageDiv.style.backgroundColor = '#0D2D4E'; // Primary color
-                    submitButton.disabled = true;
-
-                    const formData = new FormData(regForm);
-                    // የቅጹን መረጃ ለአገልጋያችን በሚስማማ መልኩ እናስተካክላለን
-                    const registrationData = {
-                        full_name: formData.get('fullName'),
-                        age: parseInt(formData.get('age'), 10),
-                        gender: formData.get('gender'),
-                        phone_number: formData.get('phone'),
-                        email: formData.get('email'),
-                        education_level: formData.get('education'),
-                        region: formData.get('region'),
-                        zone: formData.get('zone'),
-                        woreda: formData.get('woreda'),
-                        kebele_or_city: formData.get('kebele') || formData.get('city')
-                    };
-
-                    try {
-                        const response = await fetch(API_ENDPOINT, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(registrationData),
-                        });
-
-                        if (response.ok) {
-                            messageDiv.textContent = 'በተሳካ ሁኔታ ተመዝግበዋል! እናመሰግናለን።';
-                            messageDiv.style.backgroundColor = '#2E8B57'; // Secondary color (green)
-                            
-                            setTimeout(() => {
-                                // thank-you.html የሚባል ፋይል በድረገፅህ ፎልደር ውስጥ መኖሩን አረጋግጥ
-                                window.location.href = '/thank-you.html';
-                            }, 3000);
-                        } else {
-                            const errorData = await response.json();
-                            messageDiv.textContent = `ምዝገባው አልተሳካም: ${errorData.error || 'ያልታወቀ ስህተት'}`;
-                            messageDiv.style.backgroundColor = '#dc3545'; // Red color
-                            submitButton.disabled = false;
-                        }
-                    } catch (error) {
-                        console.error('Network error:', error);
-                        messageDiv.textContent = 'የኔትወርክ ችግር አጋጥሟል። እባክዎ ቆይተው እንደገና ይሞክሩ።';
-                        messageDiv.style.backgroundColor = '#dc3545'; // Red color
-                        submitButton.disabled = false;
-                    }
-                });
-            }
+        // --- 1. Message Div ማዘጋጀት (ምንም ለውጥ የለውም) ---
+        let messageDiv = regForm.querySelector('.form-message');
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.className = 'form-message';
+            // (Styling for messageDiv remains the same...)
+            messageDiv.style.marginTop = '1rem';
+            messageDiv.style.padding = '0.8rem';
+            messageDiv.style.borderRadius = 'var(--radius-md)';
+            messageDiv.style.textAlign = 'center';
+            submitButton.parentNode.insertBefore(messageDiv, submitButton.nextSibling);
         }
-        
+
+        // --- 2. የ Loading ሁኔታ ማሳየት (ምንም ለውጥ የለውም) ---
+        messageDiv.textContent = 'በመመዝገብ ላይ... እባክዎ ይጠብቁ...';
+        messageDiv.style.color = 'white';
+        messageDiv.style.backgroundColor = '#0D2D4E';
+        submitButton.disabled = true;
+
+        try {
+            // --- 3. መረጃን በ FormData መሰብሰብ (ዋናው ለውጥ እዚህ ጋ ነው) ---
+            
+            // ሁሉንም የቅጹን የጽሁፍ መረጃዎች እንሰበስባለን
+            const formData = new FormData();
+            formData.append('full_name', regForm.elements['fullName'].value);
+            formData.append('age', regForm.elements['age'].value);
+            formData.append('gender', regForm.elements['gender'].value);
+            formData.append('phone_number', regForm.elements['phone'].value);
+            formData.append('email', regForm.elements['email'].value);
+            formData.append('education_level', regForm.elements['education'].value);
+            formData.append('region', regForm.elements['region'].value);
+            formData.append('zone', regForm.elements['zone'].value);
+            formData.append('woreda', regForm.elements['woreda'].value);
+            
+            // kebele ወይም city ካለ እንጨምራለን
+            const kebeleOrCity = regForm.elements['kebele'] ? regForm.elements['kebele'].value : regForm.elements['city'].value;
+            formData.append('kebele_or_city', kebeleOrCity);
+
+            // ፎቶውን ለብቻው እንጨምረዋለን
+            const photoInput = regForm.elements['photo']; // Your photo input should have name="photo"
+            if (photoInput && photoInput.files.length > 0) {
+                formData.append('photo', photoInput.files[0]);
+            } else {
+                // ፎቶ ካልተመረጠ ምዝገባውን እናቋርጣለን
+                throw new Error('እባክዎ ፎቶ ይምረጡ።');
+            }
+
+            // --- 4. መረጃውን ወደ ሰርቨር መላክ ---
+            const response = await fetch(API_ENDPOINT, {
+                method: 'POST',
+                body: formData, // JSON.stringify ሳይሆን formDataን በቀጥታ እንልካለን
+                // headers: { 'Content-Type': 'application/json' }, <-- ይህ መስመር መጥፋት አለበት!
+            });
+
+            // --- 5. ምላሹን ማስተናገድ (ምንም ለውጥ የለውም) ---
+            if (response.ok) {
+                messageDiv.textContent = 'በተሳካ ሁኔታ ተመዝግበዋል! እናመሰግናለን።';
+                messageDiv.style.backgroundColor = '#2E8B57';
+                
+                setTimeout(() => {
+                    window.location.href = '/thank-you.html';
+                }, 3000);
+            } else {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'ያልታወቀ ስህተት');
+            }
+        } catch (error) {
+            console.error('Submission error:', error);
+            messageDiv.textContent = `ምዝገባው አልተሳካም: ${error.message}`;
+            messageDiv.style.backgroundColor = '#dc3545';
+            submitButton.disabled = false;
+        }
+    });
+}
         init();
     });
     </script>
