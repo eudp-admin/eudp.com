@@ -774,6 +774,11 @@
                     <div class="form-group"><label for="education" data-translate-key="formEducation">የትምህርት ደረጃ</label><select id="education" name="education" required><option value="" disabled selected data-translate-key="formEducationSelect">የትምህርት ደረጃ ይምረጡ</option><option value="primary" data-translate-key="formEducationPrimary">መሠረታዊ ትምህርት</option><option value="secondary" data-translate-key="formEducationSecondary">ሁለተኛ ደረጃ</option><option value="diploma" data-translate-key="formEducationDiploma">ዲፕሎማ</option><option value="degree" data-translate-key="formEducationDegree">የዩኒቨርስቲ ዲግሪ</option><option value="masters" data-translate-key="formEducationMasters">ማስተርስ ዲግሪ</option><option value="phd" data-translate-key="formEducationPhd">ዶክትሬት ዲግሪ</option><option value="other" data-translate-key="formEducationOther">ሌላ</option></select></div>
                     <div class="form-group"><label data-translate-key="formAddress">አድራሻ</label><div class="address-grid"><input type="text" name="region" data-translate-key="formAddressRegion" placeholder="ክልል" required><input type="text" name="zone" data-translate-key="formAddressZone" placeholder="ዞን" required><input type="text" name="city" data-translate-key="formAddressCity" placeholder="ከተማ" required><input type="text" name="woreda" data-translate-key="formAddressWoreda" placeholder="ወረዳ" required><input type="text" name="kebele" data-translate-key="formAddressKebele" placeholder="ቀበሌ" required></div></div>
                     <div class="form-group"><label for="reason" data-translate-key="formReason">ለምን አባል መሆን ፈለጉ? (አጭር ማብራሪያ)</label><textarea id="reason" name="reason" rows="4" data-translate-key="formReasonPlaceholder" placeholder="የእርስዎን ሃሳብ በአጭሩ ይግለጹ..."></textarea></div>
+                        <div class="form-group">
+        <label for="photo">Member Photo:</label>
+        <!-- NEW: File input for photo -->
+        <input type="file" id="photo" name="photo" accept="image/*" required>
+    </div>
                     <button type="submit" class="submit-btn"><span data-translate-key="formSubmit">ቅጽ ላክ</span></button>
                 </form>
                 <!-- === MODIFIED FORM END === -->
