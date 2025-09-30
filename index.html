@@ -774,11 +774,6 @@
                     <div class="form-group"><label for="education" data-translate-key="formEducation">የትምህርት ደረጃ</label><select id="education" name="education" required><option value="" disabled selected data-translate-key="formEducationSelect">የትምህርት ደረጃ ይምረጡ</option><option value="primary" data-translate-key="formEducationPrimary">መሠረታዊ ትምህርት</option><option value="secondary" data-translate-key="formEducationSecondary">ሁለተኛ ደረጃ</option><option value="diploma" data-translate-key="formEducationDiploma">ዲፕሎማ</option><option value="degree" data-translate-key="formEducationDegree">የዩኒቨርስቲ ዲግሪ</option><option value="masters" data-translate-key="formEducationMasters">ማስተርስ ዲግሪ</option><option value="phd" data-translate-key="formEducationPhd">ዶክትሬት ዲግሪ</option><option value="other" data-translate-key="formEducationOther">ሌላ</option></select></div>
                     <div class="form-group"><label data-translate-key="formAddress">አድራሻ</label><div class="address-grid"><input type="text" name="region" data-translate-key="formAddressRegion" placeholder="ክልል" required><input type="text" name="zone" data-translate-key="formAddressZone" placeholder="ዞን" required><input type="text" name="city" data-translate-key="formAddressCity" placeholder="ከተማ" required><input type="text" name="woreda" data-translate-key="formAddressWoreda" placeholder="ወረዳ" required><input type="text" name="kebele" data-translate-key="formAddressKebele" placeholder="ቀበሌ" required></div></div>
                     <div class="form-group"><label for="reason" data-translate-key="formReason">ለምን አባል መሆን ፈለጉ? (አጭር ማብራሪያ)</label><textarea id="reason" name="reason" rows="4" data-translate-key="formReasonPlaceholder" placeholder="የእርስዎን ሃሳብ በአጭሩ ይግለጹ..."></textarea></div>
-                        <div class="form-group">
-        <label for="photo">Member Photo:</label>
-        <!-- NEW: File input for photo -->
-        <input type="file" id="photo" name="photo" accept="image/*" required>
-    </div>
                     <button type="submit" class="submit-btn"><span data-translate-key="formSubmit">ቅጽ ላክ</span></button>
                 </form>
                 <!-- === MODIFIED FORM END === -->
@@ -1054,90 +1049,45 @@
             });
         }
         
-        function initForms() {
-            const newsForm = document.getElementById('newsletterForm');
-            if (newsForm) {
-                newsForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const lang = localStorage.getItem('eudp_lang') || 'am';
-                    alert(translations[lang].alertNewsletterConfirm);
-                    newsForm.reset();
-                });
+        // === MODIFIED JAVASCRIPT FOR FORMS ===
+function initForms() {
+    const regForm = document.getElementById('registrationForm');
+
+    if (regForm) {
+        // This listener saves the data just before the form submits to Netlify
+        regForm.addEventListener('submit', () => {
+            // Check if form is valid before saving data
+            if (!regForm.checkValidity()) {
+                // If the form is not valid, browsers will typically stop the submission.
+                // We do nothing here to let the browser's default validation message show.
+                return;
             }
-
-            const regForm = document.getElementById('registrationForm');
-            if (regForm) {
-                const API_ENDPOINT = 'https://ealpa-backend.onrender.com/register';
-                const submitButton = regForm.querySelector('button[type="submit"]');
-
-                regForm.addEventListener('submit', async (event) => {
-                    event.preventDefault();
-
-                    let messageDiv = regForm.querySelector('.form-message');
-                    if (!messageDiv) {
-                        messageDiv = document.createElement('div');
-                        messageDiv.className = 'form-message';
-                        messageDiv.style.marginTop = '1rem';
-                        messageDiv.style.padding = '0.8rem';
-                        messageDiv.style.borderRadius = 'var(--radius-md)';
-                        messageDiv.style.textAlign = 'center';
-                        submitButton.parentNode.insertBefore(messageDiv, submitButton.nextSibling);
-                    }
-
-                    messageDiv.textContent = 'በመመዝገብ ላይ... እባክዎ ይጠብቁ...';
-                    messageDiv.style.color = 'white';
-                    messageDiv.style.backgroundColor = '#0D2D4E';
-                    submitButton.disabled = true;
-
-                    try {
-                        const formData = new FormData(regForm);
-                        
-                        // Remap form field names to match backend expectations
-                        formData.set('full_name', formData.get('fullName'));
-                        formData.set('phone_number', formData.get('phone'));
-                        formData.set('education_level', formData.get('education'));
-                        formData.set('kebele_or_city', formData.get('kebele') || formData.get('city'));
-                        
-                        // Delete the old names
-                        formData.delete('fullName');
-                        formData.delete('phone');
-                        formData.delete('education');
-                        // No need to delete city/kebele as they are separate inputs
-                        
-                        if (!formData.has('photo') || !formData.get('photo').size) {
-                             throw new Error('እባክዎ ፎቶ ይምረጡ። (Please select a photo.)');
-                        }
-
-                        const response = await fetch(API_ENDPOINT, {
-                            method: 'POST',
-                            body: formData, // The browser will set the correct 'Content-Type' for multipart/form-data
-                        });
-                        
-                        const resultData = await response.json();
-
-                        if (!response.ok) {
-                            throw new Error(resultData.error || 'ያልታወቀ ስህተት (Unknown error)');
-                        }
-
-                        messageDiv.textContent = 'በተሳካ ሁኔታ ተመዝግበዋል! እናመሰግናለን። (Successfully registered! Thank you.)';
-                        messageDiv.style.backgroundColor = '#2E8B57';
-                        
-                        setTimeout(() => {
-                            // Redirect to a thank you page on success.
-                            // Create a 'thank-you.html' page or change this URL.
-                            window.location.href = '/thank-you.html';
-                        }, 3000);
-
-                    } catch (error) {
-                        console.error('Submission error:', error);
-                        messageDiv.textContent = `ምዝገባው አልተሳካም: ${error.message} (Submission failed)`;
-                        messageDiv.style.backgroundColor = '#dc3545';
-                        submitButton.disabled = false;
-                    }
-                });
+            
+            const formData = new FormData(regForm);
+            const registrationData = {};
+            // Create a simple object from the form data
+            for (let [key, value] of formData.entries()) {
+                if (key !== 'bot-field') {
+                    registrationData[key] = value;
+                }
             }
-        }
-
+            // Use localStorage because it persists through the redirect
+            // It will be cleared on the thank-you page
+            localStorage.setItem('registrationData', JSON.stringify(registrationData));
+        });
+    }
+    
+    // Handle newsletter form as before
+    const newsForm = document.getElementById('newsletterForm');
+    if (newsForm) {
+        newsForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const lang = localStorage.getItem('eudp_lang') || 'am';
+            alert(translations[lang].alertNewsletterConfirm); // Assuming 'translations' object exists
+            newsForm.reset();
+        });
+    }
+}
         init();
     });
     </script>
